@@ -1,20 +1,21 @@
 package gameElement;
 
-public abstract class GameElement {
-	
-		int size;
-		int posX;
-		int posY;
-		
-		public void setRandomPosition() {
-			
-		}
-		
-		public void getRandomPosition() {
-			
-		}
-		
-		
-		
 
+public abstract class GameElement { 
+	
+		int numberGameElement;
+		final int size = 1;
+		
+		
+		public GameElement(int numberGameElement) {
+			this.numberGameElement = numberGameElement;
+		}
+		
+		public int getGameElement() {
+			return numberGameElement;
+		}
+		
+		
 }
+		
+		

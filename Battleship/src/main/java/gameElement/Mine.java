@@ -1,8 +1,8 @@
 package gameElement;
 
-public class LuckyDwarf extends GameElement{
+public class Mine extends GameElement {
 
-	public LuckyDwarf(int numberGameElement) {
+	public Mine(int numberGameElement) {
 		super(numberGameElement);
 		// TODO Auto-generated constructor stub
 	}
