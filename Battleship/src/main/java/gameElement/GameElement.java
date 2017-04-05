@@ -3,16 +3,21 @@ package gameElement;
 
 public abstract class GameElement { 
 	
-		int numberGameElement;
-		final int size = 1;
+		int IDGameElement;
 		
 		
-		public GameElement(int numberGameElement) {
-			this.numberGameElement = numberGameElement;
+		//Constructor
+		GameElement (int IDGameElement) {
+			this.IDGameElement = IDGameElement;
 		}
 		
-		public int getGameElement() {
-			return numberGameElement;
+		public static final int getSize() {
+			final int size = 1;
+			return size;
+		}
+		
+		public int getGameElementID() {
+			return IDGameElement;
 		}
 		
 		

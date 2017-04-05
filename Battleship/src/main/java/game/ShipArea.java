@@ -1,6 +1,6 @@
 package game;
 
-import gameElement.Ship;
+import ships.Ship;
 
 public class ShipArea extends GameArea {
 

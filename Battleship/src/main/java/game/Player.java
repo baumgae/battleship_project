@@ -21,12 +21,11 @@ public abstract class Player {
 		
 	}
 	
-	public void countPoints() {
-	
+	public static void countPoints() {
+		
 	}
 	
-	public int getCountedPoints (int points) {
-		this.points = points;
+	public static int getCountedPoints (int points) {
 		return points;
 	}
 	
