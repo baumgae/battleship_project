@@ -1,10 +1,12 @@
 package game;
 
+//import ships.Ship;
+
 public class ShootingArea extends GameArea {
 	
- boolean isDestroyed (int countHits) {
+ boolean isDestroyed (int countHits, int shipSize) { //Hol ich mir wirklich shipSize aus der Klasse Ship?
 	 
-	 if (countHits == 0) { // Change 0 to shipSize
+	 if (countHits == shipSize) {
 		  
 		 return true;
 		 

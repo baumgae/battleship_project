@@ -2,8 +2,8 @@ package game;
 
 abstract class GameArea {
 	
-	private int x;
-	private int y;
+	private byte x;
+	private byte y;
 	byte [] [] area = new byte [x] [y];
 	
 	final byte isGameElement () {
