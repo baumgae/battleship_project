@@ -7,10 +7,19 @@ public class Dolphine extends GameElement{
 	
 	int size;
 	
+	
 	Dolphine() {
 		super(1);					// Dolphine has ID 1
 		GameElement.getSize();		// get his size
 	}
+	
+	public void dolphinImpact() {
+		int points;
+		int minusPoints = -100;	// Punkte sind noch variable festzulegen
+		
+		
+	}
+	
 	
 	/*public  int dolphineImpact() {
 		int hits;
