@@ -11,11 +11,13 @@ public class Island extends GameElement{
 		// We want to change the way the player is able to shoot - instead of shooting on one field
 		// Shooting on four fields for 3 Rounds
 		
-		int x = 4;
-		int y;
+		
+		// Over here, I have to work with a map or somethings
+		int shootingX = 2;
+		// int shootingY = 2;
 		
 								// Punkte sind noch variable festzulegen
-		return x;
+		return shootingX;
 		
 	}
 
