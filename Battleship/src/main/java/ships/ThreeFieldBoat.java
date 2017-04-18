@@ -1,5 +1,10 @@
 package ships;
 
-public class ThreeFieldBoat extends Ship {
+public class ThreeFieldBoat extends AShip {
+
+	ThreeFieldBoat() {
+		super('C', 3, 0);
+	
+	}
 
 }

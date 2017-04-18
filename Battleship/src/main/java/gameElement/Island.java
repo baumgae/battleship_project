@@ -1,10 +1,10 @@
 package gameElement;
 
-public class Island extends GameElement{
+public class Island extends AGameItems{
 
 	Island() {
 		super(2);					// Island has ID 2
-		GameElement.getSize();		// get his size
+		getSize();					// get his size
 	}
 	
 	public int IslandImpact() {

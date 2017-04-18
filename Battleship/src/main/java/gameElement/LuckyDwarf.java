@@ -1,10 +1,10 @@
 package gameElement;
 
-public class LuckyDwarf extends GameElement{
+public class LuckyDwarf extends AGameItems{
 
 	public LuckyDwarf() {
 		super(3);					// LuckyDwarf has ID 3
-		GameElement.getSize();		// get his size
+		getSize();		// get his size
 	}
 	
 	public int LuckyDwarfImpact() {

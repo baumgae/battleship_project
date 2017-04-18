@@ -1,10 +1,10 @@
 package gameElement;
 
-public class Mine extends GameElement {
+public class Mine extends AGameItems {
 
 	public Mine(int numberGameElement) {
 		super(4);
-		GameElement.getSize();
+		getSize();
 	}
 	
 	public String MineImpact() {

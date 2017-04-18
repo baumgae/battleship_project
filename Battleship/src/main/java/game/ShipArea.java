@@ -1,10 +1,10 @@
 package game;
 
-import ships.Ship;
+import ships.IShip;
 
 public class ShipArea extends GameArea {
 
-	void setShip(Ship ship, int x, int y) {
+	void setShip(IShip ship, int x, int y) {
 		
 	}
 	
