@@ -7,7 +7,7 @@ public abstract class Player {
 	int counthits;
 	int points;
 	int howOftenWon;
-	GameArea gameArea;
+	EGameArea gameArea;
 	
 	
 	

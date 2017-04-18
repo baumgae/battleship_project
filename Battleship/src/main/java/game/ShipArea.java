@@ -2,7 +2,7 @@ package game;
 
 import ships.Ship;
 
-public class ShipArea extends GameArea {
+public class ShipArea extends EGameArea {
 
 	void setShip(Ship ship, int x, int y) {
 		

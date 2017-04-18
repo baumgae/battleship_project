@@ -2,7 +2,7 @@ package game;
 
 //import ships.Ship;
 
-public class ShootingArea extends GameArea {
+public class ShootingArea extends EGameArea {
 	
  boolean isDestroyed (int countHits, int shipSize) { //Hol ich mir wirklich shipSize aus der Klasse Ship?
 	 
