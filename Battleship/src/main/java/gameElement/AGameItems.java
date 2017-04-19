@@ -14,7 +14,6 @@ package gameElement;
  * Use {@link #getGameElementID} to get the ID of a game item
  * 
  * <p> 
- * In case of pre-existing entries {@link #importDb} might be preferable
  *
  * @author Lea Baumgärtner
  * @version 0.2 
