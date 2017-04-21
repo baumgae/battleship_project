@@ -1,10 +1,13 @@
 package ships;
+import game.IGameElements;
 
 public abstract class AShip implements IShip {
 	
 	char shipID;
 	int shipSizeX;
 	int shipSizeY;
+	int x;
+	int y;
 	
 	AShip(char shipID, int shipSizeX, int shipSizeY) {
 		this.shipID = shipID;
@@ -36,7 +39,13 @@ public abstract class AShip implements IShip {
 		return shipSizeY;
 	}
 
-	
+	/* (non-Javadoc)
+	 * @see game.IGameElements#getX()
+	 */
+	@Override
+	public int getX() {
+		return x;
+	}
 	
 	
 

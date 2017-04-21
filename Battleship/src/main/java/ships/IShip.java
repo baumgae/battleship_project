@@ -1,6 +1,7 @@
 package ships;
+import game.IGameElements;
 
-public interface IShip {
+public interface IShip extends IGameElements{
 
 	char getShipID();
 

@@ -66,6 +66,9 @@ public abstract class AGameItems implements IGameItem {
 			return IDGameElement;
 		}
 		
+	// Method to be override
+		
+		
 		
 }
 		

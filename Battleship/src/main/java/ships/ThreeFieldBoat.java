@@ -7,4 +7,10 @@ public class ThreeFieldBoat extends AShip {
 	
 	}
 
+	@Override
+	public int getY() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
