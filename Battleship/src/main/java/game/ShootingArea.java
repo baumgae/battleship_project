@@ -4,7 +4,7 @@ package game;
 
 public class ShootingArea extends EGameArea {
 	
- boolean isDestroyed (int countHits, int shipSize) { //Hol ich mir wirklich shipSize aus der Klasse Ship?
+ boolean isDestroyed (int countHits, int shipSize) { 
 	 
 	 if (countHits == shipSize) {
 		  

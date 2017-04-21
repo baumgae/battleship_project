@@ -1,11 +1,11 @@
 package game;
+import game.EDifficulty;
 
-
-abstract class EGameArea {  
+class EGameArea {  
 	
-	private byte x;
-	private byte y;
-	byte [] [] area = new byte [x] [y];
+	private int x;
+	private int y;
+	int [] [] area = new int [x] [y]; //Array aus Listen, jeder Koordinate ein eigenes Objekt?
 	
 	public enum GameAreaStatus {
 		
@@ -14,7 +14,7 @@ abstract class EGameArea {
 		
 	}
 	
-	//public static final GameAreaStatus ISGAMEITEM = ();
+	
 	
 	/*final byte isGameItem () { // is there a GameElement
 		
@@ -54,7 +54,7 @@ abstract class EGameArea {
 	
 	void createArea () {
 		
-		//int levelsize = get.Difficulty;
+		int levelsize = EDifficulty.HARD.getMaxX();//Enum übergeben
 		
 	}
 	
