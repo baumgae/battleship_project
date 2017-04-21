@@ -27,9 +27,9 @@ public class Dolphin extends AGameItems{
 	}
 	
 	public int dolphinImpact() {
+		// Testkommentar für commit
 		int minusPoints = -100;	// Punkte sind noch variable festzulegen
 		return minusPoints;
-		
 	}
 	
 }
