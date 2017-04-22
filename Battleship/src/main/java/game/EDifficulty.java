@@ -1,6 +1,6 @@
 package game;
 
-import gameElement.Dolphin;
+
 /**
  * Enum for setting the difficulty
  * 
@@ -21,10 +21,6 @@ public enum EDifficulty {
 	private int maxX;
 	private int maxY;
 	
-	private int numberOfDolphines;
-	private int numberOfIslands;
-	private int numberOfLuckyDwarfs;
-	private int numberOfMines;
 	
 	EDifficulty (int maxX, int maxY) {
 		this.maxX = maxX;
@@ -38,29 +34,6 @@ public enum EDifficulty {
 	public int getMaxY() {
 		return this.maxY;
 	}
-	
-	
-	public int createDolphin(int numberOfDolphins) {
-	// is this possible? To store the created dolphins in 
-	// ArrayList and after that hand them over to GameArea?
-		for (int i = 0; i <= numberOfDolphines; i++) {
-			Dolphin dolphins = new Dolphin();
-		}
-		return 1;
-	}
-	
-	public int createIsland(int numberOfIslands) {
-		return 2;
-	}
-	
-	public int createLuckyDwarf(int numberOfLuckyDwarfs) {
-		return 3;
-	}
-	
-	public int createMine(int numberOfMines) {
-		return 4;
-	}
-	
 	
 	
 }

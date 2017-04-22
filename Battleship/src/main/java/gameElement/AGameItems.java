@@ -1,4 +1,5 @@
 package gameElement;
+import game.IGameElements;
 /**
  * Abstract Class for Game Items
  * <p>
@@ -19,7 +20,7 @@ package gameElement;
  * @version 0.2 
  */
 
-public abstract class AGameItems implements IGameItem { 
+public abstract class AGameItems implements IGameItems { 
 		
 	/**
 	*
@@ -66,7 +67,21 @@ public abstract class AGameItems implements IGameItem {
 			return IDGameElement;
 		}
 		
-	// Method to be override
+		/* (non-Javadoc)
+		 * @see game.IGameElements#getX()
+		 */
+		@Override
+		public int getX() {
+			return 0;
+		}
+		
+		/* (non-Javadoc)
+		 * @see game.IGameElements#getX()
+		 */
+		@Override
+		public int getY() {
+			return 0;
+		}
 		
 		
 		

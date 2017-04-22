@@ -1,7 +1,7 @@
 package gameElement;
 /**
  * THIS CLASS ISN'T ACTIVE 
- * 
+ * <p>
  * Game Element Island
  * <p>
  * This class is a subclass of Game Items.
