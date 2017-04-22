@@ -1,16 +1,16 @@
 package game;
-import game.EDifficulty;
+//import game.EDifficulty;
 
 class EGameArea {  
 	
-	private int x;
-	private int y;
-	int [] [] area = new int [x] [y]; //Array aus Listen, jeder Koordinate ein eigenes Objekt?
+	public static int x;
+	public static int y;
+	int [] [] area = new int [x] [y]; 
 	
 	public enum GameAreaStatus {
 		
-		// ISGAMEITEM enthält Dolphine, Island, LuckyDwarf, Mine
-		ISGAMEITEM, ISSHIP, ISSHOT, WATERSHOT, SHIPSHOT, GAMEITEMSHOT
+		ISSHOT, ISNOTSHOT, ISWATER, ISDOLPHIN, ISISLAND, ISLUCKYDWARF, ISMINE, ISONEFIELDBOAT,
+		ISTWOFIELDBOAT, ISTHREEFIELFBOAT, ISFOURFIELDBOAT, ISQUADRUPLEBOAT
 		
 	}
 	
@@ -54,7 +54,7 @@ class EGameArea {
 	
 	void createArea () {
 		
-		// int levelsize = EDifficulty.HARD.getMaxX();//Enum übergeben
+		//int levelsize = EDifficulty.HARD.getMaxX();//Enum übergeben
 		
 	}
 	
