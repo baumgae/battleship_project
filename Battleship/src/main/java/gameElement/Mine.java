@@ -19,7 +19,7 @@ package gameElement;
  * @author Lea Baumgärtner
  * @version 0.1 
  */
-public class Mine extends AGameItems {
+public class Mine extends AGameItem {
 
 	Mine() {
 		super(4);

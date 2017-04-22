@@ -18,7 +18,7 @@ package gameElement;
  * @version 0.2 
  */
 
-public class Dolphin extends AGameItems{
+public class Dolphin extends AGameItem{
 //  Impact on the Game: If a Player shots a Dolphin, he / she will get minus points.
 	
 	public Dolphin() {

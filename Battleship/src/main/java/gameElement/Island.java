@@ -20,7 +20,7 @@ package gameElement;
  * @author Lea Baumgärtner
  * @version 0.1 
  */
-public class Island extends AGameItems{
+public class Island extends AGameItem{
 
 	Island() {
 		super(2);					// Island has ID 2

@@ -9,10 +9,16 @@ package game;
  * @author Lea Baumgärtner
  * @version 0.2 
  */
-public interface IGameElements {
+public interface IGameElement {
 		
-		public int getX();
+		// public int[] getPosition();
 		
-		public int getY();
+		public int getID();
+		
+		
+		// set ID
+		// get ID --> Müssen noch definiert werden.
+		// ID eindeutig 
+		// Man könnte eine Liste 
 
 }

@@ -19,7 +19,7 @@ package gameElement;
  * @author Lea Baumgärtner
  * @version 0.2 
  */
-public class LuckyDwarf extends AGameItems{
+public class LuckyDwarf extends AGameItem{
 
 	public LuckyDwarf() {
 		super(3);					// LuckyDwarf has ID 3

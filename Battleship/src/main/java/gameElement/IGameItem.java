@@ -1,5 +1,5 @@
 package gameElement;
-import game.IGameElements;
+import game.IGameElement;
 /**
  * Interface for Game Items
  * <p>
@@ -10,13 +10,8 @@ import game.IGameElements;
  * @author Lea Baumgärtner
  * @version 0.2 
  */
-public interface IGameItems extends IGameElements{
+public interface IGameItem extends IGameElement{
 
 	int getSize();
 
-	int getGameElementID();
-
-	int getX();
-	
-	int getY();
 }

@@ -54,7 +54,7 @@ class EGameArea {
 	
 	void createArea () {
 		
-		int levelsize = EDifficulty.HARD.getMaxX();//Enum übergeben
+		// int levelsize = EDifficulty.HARD.getMaxX();//Enum übergeben
 		
 	}
 	

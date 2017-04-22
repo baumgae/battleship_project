@@ -1,5 +1,5 @@
 package ships;
-import game.IGameElements;
+import game.IGameElement;
 /**
  * Interface for Ships
  * <p>
@@ -10,9 +10,7 @@ import game.IGameElements;
  * @author Lea Baumgärtner
  * @version 0.2 
  */
-public interface IShip extends IGameElements{
-
-	char getShipID();
+public interface IShip extends IGameElement{
 
 	int getShipSizeX();
 

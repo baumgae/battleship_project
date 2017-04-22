@@ -3,7 +3,7 @@ package ships;
  * Subclass of AShip called FourFieldBoat
  * <p>
  * This class is a subclass of AShip.
- * It has the ID 'D'.
+ * It has the ID 8.
  *
  * <p>
  * FourFieldBoat uses in his constructor {@link #FourFieldBoat}
@@ -18,21 +18,9 @@ package ships;
 public class FourFieldBoat extends AShip {
 	
 	FourFieldBoat() {
-		super('D', 4, 0);
+		super(8, 4, 0);
 	
 	}
 
-	@Override
-	public int getY() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
-	@Override
-	public int getX() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
 
 }

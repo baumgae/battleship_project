@@ -1,5 +1,5 @@
 package gameElement;
-import game.IGameElements;
+import game.IGameElement;
 /**
  * Abstract Class for Game Items
  * <p>
@@ -20,7 +20,7 @@ import game.IGameElements;
  * @version 0.2 
  */
 
-public abstract class AGameItems implements IGameItems { 
+public abstract class AGameItem implements IGameItem { 
 		
 	/**
 	*
@@ -37,8 +37,7 @@ public abstract class AGameItems implements IGameItems {
 	* @param IDGameElement
 	*
 	**/	
-		//Constructor
-		AGameItems (int IDGameElement) {
+		AGameItem (int IDGameElement) {
 			this.IDGameElement = IDGameElement;
 		}
 	
@@ -60,29 +59,20 @@ public abstract class AGameItems implements IGameItems {
 		}
 		
 		/* (non-Javadoc)
-		 * @see gameElement.IGameItem#getGameElementID()
-		 */
+		 * @see game.IGameElements#getXposition()
+		 
 		@Override
-		public int getGameElementID() {
-			return IDGameElement;
+		public int[] getPosition() {
+			return ;
 		}
-		
+		*/
 		/* (non-Javadoc)
 		 * @see game.IGameElements#getX()
 		 */
 		@Override
-		public int getX() {
-			return 0;
+		public int getID() {
+			return this.IDGameElement;
 		}
-		
-		/* (non-Javadoc)
-		 * @see game.IGameElements#getX()
-		 */
-		@Override
-		public int getY() {
-			return 0;
-		}
-		
 		
 		
 }

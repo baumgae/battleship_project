@@ -1,5 +1,5 @@
 package ships;
-import game.IGameElements;
+import game.IGameElement;
 /**
  * Abstract Class Ships
  * <p>
@@ -17,26 +17,19 @@ import game.IGameElements;
  */
 public abstract class AShip implements IShip {
 	
-	char shipID;
+	int shipID;
 	int shipSizeX;
 	int shipSizeY;
 	int x;
 	int y;
 	
-	AShip(char shipID, int shipSizeX, int shipSizeY) {
+	AShip(int shipID, int shipSizeX, int shipSizeY) {
 		this.shipID = shipID;
 		this.shipSizeX = shipSizeX;
 		this.shipSizeY = shipSizeY;
 	}
 
-	/* (non-Javadoc)
-	 * @see ships.IShip#getShipID()
-	 */
-	@Override
-	public char getShipID() {
-		return shipID;
-	}
-
+	
 	/* (non-Javadoc)
 	 * @see ships.IShip#getShipSizeX()
 	 */
@@ -53,20 +46,16 @@ public abstract class AShip implements IShip {
 		return shipSizeY;
 	}
 
-	/* (non-Javadoc)
-	 * @see game.IGameElements#getX()
-	 */
-	@Override
-	public int getX() {
-		return x;
-	}
+
+	
+	// get und set ID bereits implementieren 
 	
 	/* (non-Javadoc)
 	 * @see game.IGameElements#getX()
 	 */
 	@Override
-	public int getY() {
-		return y;
+	public int getID() {
+		return this.shipID;
 	}
-
+	
 }
