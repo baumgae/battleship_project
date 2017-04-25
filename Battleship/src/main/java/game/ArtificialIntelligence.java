@@ -3,20 +3,20 @@ import java.util.Random;
 
 public class ArtificialIntelligence {
 	
-public static byte randomCoordinate(byte x, byte y) {
+public static int randomCoordinate(int x, int y) {
 	
-	final byte maximumX = x;
-	final byte maximumY = y;
+	final int maximumX = x;
+	final int maximumY = y;
 	
 	Random rndX = new Random();
 	Random rndY = new Random();
 	
-	final byte randomValueX = (byte) rndX.nextInt(maximumX + 1);
-	final byte randomValueY = (byte) rndY.nextInt(maximumY + 1);
+	final int randomValueX = rndX.nextInt(maximumX + 1);
+	final int randomValueY = rndY.nextInt(maximumY + 1);
 	
 	// System.out.println(randomValueX + "," + randomValueY);
 	
-	return (byte) (randomValueX + randomValueY);
+	return (randomValueX + randomValueY);
 	
  }	
 }
