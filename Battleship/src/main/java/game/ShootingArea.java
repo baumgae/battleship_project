@@ -1,5 +1,9 @@
 package game;
 
+//Autor Celine Wichmann
+
+// Question: 
+// Why does this class demand a constructor?
 
 public class ShootingArea extends GameAreaManager {
 

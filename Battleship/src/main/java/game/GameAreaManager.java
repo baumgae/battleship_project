@@ -1,6 +1,18 @@
 package game;
 import game.EGameArea;
 
+// autor Celine Wichmann 
+
+/*
+ * Question:
+ * I know how the gameArea should actually work,
+ * but I'm not quite sure about how to realize this.
+ * 
+ * Espacially in combination with a two dimensional array 
+ * and  an enum - it new for me.
+ * 
+ */
+
 public class GameAreaManager {
 	
 	public static int x;
