@@ -1,4 +1,4 @@
-package game;
+package gameConfigurations;
 import java.util.Random;
 
 public class ArtificialIntelligence {
