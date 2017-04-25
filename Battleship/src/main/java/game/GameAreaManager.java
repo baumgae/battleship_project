@@ -16,9 +16,13 @@ public GameAreaManager (EGameArea Layer1) {
 	
 	  case ISNOTSHOT:
 		area [x] [y] += 0;
+		break;
 		
 	  case ISSHOT:
 		 area [x] [y] += 1; 
+		 break;
+		 
+		
 		 
 		
 	 }
