@@ -21,5 +21,13 @@ package gameConfigurations;
  * @version 0.2 
  */
 public class Score {
-
+		
+		// Questions - 
+		// Do you think, the methods of player
+		// like countPoints and hits and Stuff should be
+		// here?
+	
+	
+		// Should we create the file with a real database 
+		// with SQL or should we only create a file?
 }
