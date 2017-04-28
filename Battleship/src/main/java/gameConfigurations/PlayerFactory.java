@@ -4,6 +4,9 @@ package gameConfigurations;
  * <p>
  * This is a Factory for creating new Players.
  * 
+ * HumanPlayer - Player, which is making input through the GUI
+ * ArtificialPlayer - Player, Input through the class AI
+ * 
  * <p>
  * @author Lea Baumgärtner
  * @version 0.1 
@@ -13,11 +16,12 @@ public class PlayerFactory {
 	// Over here I want to have a factory for creating new
 	// Players - but how does it work?
 	// Should I create the Factory over here or in the player?
-	/* 
-	public static Player getInstance(String name, int points, int countHits){
-		points = 0;
-		countHits = 0;
-		return new Player (name, points, countHits);
+	
+	// Da sich der AI und der HumanPlayer nicht in den enthaltenen Informationen unterscheiden
+	// einfach Player erstellen.
+	
+	public static Player getNewPlayer (String name, String type){
+		return new Player (name, 0, 0);
 	}
-	*/
+	
 }

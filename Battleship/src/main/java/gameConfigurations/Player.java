@@ -8,6 +8,7 @@ import game.EGameArea;
  * This is the abstract class for Players.
  * If a new Game Area will be created, 
  * two Players per Game will be created too. <br>
+ * This class is only a information storer.
  * This should be somehow the layer between Logic and UI.
  * 
  * <p>
@@ -22,7 +23,7 @@ import game.EGameArea;
  * @author Lea Baumgärtner
  * @version 0.2 
  */
-public abstract class Player {
+public class Player implements IPlayer {
 		
 	String name;
 	int hits;
