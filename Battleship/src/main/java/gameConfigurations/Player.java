@@ -30,6 +30,10 @@ public abstract class Player {
 	EGameArea gameArea;
 	
 	// If I have a factory - do we need this actually?
+	/*
+	 * TJ
+	 * Yes
+	 */
 	Player(String name, int hits, int points) {
 		this.name = name;
 		this.hits = hits;
@@ -37,6 +41,10 @@ public abstract class Player {
 		
 	}
 	// Factory?
+	/*
+	 * TJ
+	 * A factory is usually located in a separate class
+	 */
 	/*
 	public static Player createPlayer(){
 		Player player = new Player(name, 0, 0);

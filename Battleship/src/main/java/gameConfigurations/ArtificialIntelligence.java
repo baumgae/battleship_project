@@ -3,6 +3,13 @@ import java.util.Random;
 
 public class ArtificialIntelligence {
 	
+	/*
+	 * TJ
+	 * You want to return a random x and y coordinate, right?
+	 * Just remove the summation in the return statement and return a single value.
+	 * To get a second random position value, just call the method twice. 
+	 */
+	
 public static int randomCoordinate(int x, int y) {
 	
 	final int maximumX = x;

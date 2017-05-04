@@ -20,5 +20,11 @@ public interface IGameElement {
 		// get ID --> Müssen noch definiert werden.
 		// ID eindeutig 
 		// Man könnte eine Liste 
+		
+		/*
+		 * TJ
+		 * What is the difference between IGameElement and IGameItem. As far as I understand your code,
+		 * one of them is sufficient.
+		 */
 
 }
