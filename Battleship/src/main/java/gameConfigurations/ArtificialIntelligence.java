@@ -10,31 +10,30 @@ public class ArtificialIntelligence {
 	 * To get a second random position value, just call the method twice. 
 	 */
 	
-public static int randomCoordinate(int x, int y) {
+public static int randomCoordinateX(int x) {
 	
 	final int maximumX = x;
-	final int maximumY = y;
+	
 	
 	Random rndX = new Random();
-	Random rndY = new Random();
+	
 	
 	final int randomValueX = rndX.nextInt(maximumX + 1);
-	final int randomValueY = rndY.nextInt(maximumY + 1);
 	
-	// System.out.println(randomValueX + "," + randomValueY);
 	
-	return (randomValueX + randomValueY);
+	return randomValueX;
 	
  }	
+public static int randomCoordinateY(int y) {
+	
+	final int maximumY = y;
+	
+	Random rndY = new Random();
+	
+	final int randomValueY = rndY.nextInt(maximumY + 1);
+	
+	return randomValueY;
+	
+  } 
 }
 
-/*
- *  // Generate a random computer move
-    public static int computer_move(int[][] board) {
-	int move = (int)(Math.random()*9);
-
-	while(board[move/3][move%3] != EMPTY) 
-	    move = (int)(Math.random()*9);
-
-	return move;
- */

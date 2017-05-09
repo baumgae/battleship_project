@@ -1,10 +1,12 @@
 package game;
 
-public enum EGameArea {
+public enum EGameArea { 
+	
+	// Did I really need this class?
 
 		
-		ISSHOT, 
-		ISNOTSHOT, 
+		// ISSHOT, 
+		// ISNOTSHOT, 
 		ISWATER, 
 		ISDOLPHIN, 
 		ISISLAND, 
@@ -18,6 +20,3 @@ public enum EGameArea {
 		
 	
 }
-
-//Factory für die GameArea, bekommt die Position und gibt Objekt zurück
-

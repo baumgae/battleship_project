@@ -65,7 +65,7 @@ public abstract class AShip implements IShip {
 	}
 	
 	
-	public int getShipImpact() {
+	public static int getShipImpact() {
 		int shipPoints = 10;
 		return shipPoints;
 	}

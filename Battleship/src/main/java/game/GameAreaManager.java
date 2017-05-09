@@ -1,5 +1,10 @@
 package game;
-import game.EGameArea;
+import gameElement.Dolphin;
+import gameElement.Island;
+import gameElement.LuckyDwarf;
+import gameElement.Mine;
+import ships.AShip;
+import game.ShootingArea;
 
 // autor Celine Wichmann 
 
@@ -15,9 +20,6 @@ import game.EGameArea;
 
 public class GameAreaManager {
 	
-	public static int x;
-	public static int y;
-	
 	/*
 	 * TJ
 	 * I think that this is one of the most important attributes of the whole project. Why are you using an 
@@ -32,47 +34,77 @@ public class GameAreaManager {
 	 * In order to do so, you have add some methods of the interface IGameItem.
 	 *  
 	 */
-	int [] [] area = new int [x] [y]; 
- 
-	int Layer1;
-	int Layer2;
+	
+	int Layer1Status = 0; 
+	int Layer2Status = 0;
 
-public GameAreaManager (EGameArea Layer1) {
 	
-	switch (Layer1) {
-	
-	  case ISNOTSHOT:
-		area [x] [y] += 0;
-		break;
-		
-	  case ISSHOT:
-		 area [x] [y] += 1; 
-		 break;
-		 
-		
-		 
-		
-	 }
-	
-  }
-	
-  void createArea () {
-	
-}
 
   void shootOnCoordinate (int x, int y) {
 	
+	  Layer1Status = 1; 
+	  // Status of every Coordinate is 0 until you shoot on it
+	  //then it switch to 1
 }
 
-  int getStatusCoordinate (int x, int y) {
-	
-	return 0; 
-	
-}
+  void getStatusCoordinate () { 
 
-  void setRandomGameElement (int x, int y) {
-	
+	    if (Layer2Status == 1) { 
+		  
+	    Dolphin.dolphinImpact();
+		  
+	  } if (Layer2Status == 2) { 
+		  
+		Island.islandImpact();
+		  
+	  } if (Layer2Status == 3) { 
+		  
+		LuckyDwarf.luckyDwarfImpact();
+		  
+	  } if (Layer2Status == 4) {
+		  
+		Mine.mineImpact();
+		  
+	  } if (Layer2Status == 5) { // There is an One Field Boat
+		  
+	   AShip.getShipImpact();
+	   // ShootingArea.isDestroyed(); 
+		  
+		  // How can I use the method, it doesn't work?!
+		  
+	  } if (Layer2Status == 6) { // There is a Two Field Boat
+		  
+	   AShip.getShipImpact();
+	   // ShootingArea.isDestroyed(); 
+		  
+	  } if (Layer2Status == 7) { // There is a Three Field Boat
+		  
+	    AShip.getShipImpact();
+	   // ShootingArea.isDestroyed(); 
+		  
+	  } if (Layer2Status == 8) { // There is a Four Field Boat
+		  
+	    AShip.getShipImpact();
+		// ShootingArea.isDestroyed(); 
+		  
+	  } if (Layer2Status == 9) { // There is a Quadruple
+		  
+	    AShip.getShipImpact();
+	   // ShootingArea.isDestroyed(); 
+		  
+	  } else {
+		  
+		  // Maybe I could throw an exception, you hit the Water
+		  // Create a new Class NoGameElementException
+		  
+	 }
+		
+	  // The Question is, what will I do with this? 
+	  //   How does the player get this Points?
+	  // How can we add the different Points to the specific Player Score
 	
    }
+
+ 
  }
 
