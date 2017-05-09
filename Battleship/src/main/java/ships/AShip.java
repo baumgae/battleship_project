@@ -15,6 +15,11 @@ import game.IGameElement;
  * @author Lea Baumgärtner
  * @version 0.2 
  */
+
+/*
+ * TJ
+ * You can consider to implement the IGameElement interface
+ */
 public abstract class AShip implements IShip {
 	
 	int shipID;

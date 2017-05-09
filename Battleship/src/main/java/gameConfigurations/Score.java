@@ -30,4 +30,11 @@ public class Score {
 	
 		// Should we create the file with a real database 
 		// with SQL or should we only create a file?
+	
+	/*
+	 * TJ
+	 * In my opinion, you can store players' score in the Player class. You don't have to 
+	 * introduce an extra class. You don't have to save the score permanently as this is 
+	 * not required for this project. Just focus on the criteria provided in our excel sheet.
+	 */
 }

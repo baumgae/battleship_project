@@ -26,6 +26,10 @@ public class Mine extends AGameItem {
 		getSize();
 	}
 	
+	/*
+	 * TJ
+	 * Why does this method return a string instead of an integer?
+	 */
 	public String mineImpact() {
 		
 		// Methode, welche zur Methode führt, welche 

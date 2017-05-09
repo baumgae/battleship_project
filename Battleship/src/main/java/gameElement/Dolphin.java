@@ -26,6 +26,13 @@ public class Dolphin extends AGameItem{
 		getSize();		// get his size
 	}
 	
+	/*
+	 * TJ
+	 * I think that this method can be generalized and can be moved to IGameElement:
+	 * public int getImpact()
+	 * This eases the calculation of players' score.
+	 */
+	
 	public int dolphinImpact() {
 		// Testkommentar für commit
 		int minusPoints = -100;	// Punkte sind noch variable festzulegen
