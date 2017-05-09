@@ -30,15 +30,14 @@ public class Mine extends AGameItem {
 	 * TJ
 	 * Why does this method return a string instead of an integer?
 	 */
-	public String mineImpact() {
+	public static int mineImpact() {
 		
 		// Methode, welche zur Methode führt, welche 
 		// in der Logik ist und das aktuelle Spiel beendet.
 		
-		String message;
-		message = "Funny message - you died";
-		
-		return message;
+		int minusPoints = -500;	// Punkte sind noch variable festzulegen
+		return minusPoints;
+
 		
 	}
 	

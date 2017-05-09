@@ -27,7 +27,7 @@ public class Island extends AGameItem{
 		getSize();					// get his size
 	}
 	
-	public int islandImpact() {
+	public static int islandImpact() {
 		// We want to change the way the player is able to shoot - instead of shooting on one field
 		// Shooting on four fields for 3 Rounds
 		

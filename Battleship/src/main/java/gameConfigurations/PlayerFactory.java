@@ -4,8 +4,8 @@ package gameConfigurations;
  * <p>
  * This is a Factory for creating new Players.
  * 
- * HumanPlayer - Player, which is making input through the GUI
- * ArtificialPlayer - Player, Input through the class AI
+ * HumanPlayer - Player, which is making input through the GUI.
+ * ArtificialPlayer - Player, Input through the class AI.
  * 
  * <p>
  * @author Lea Baumgärtner
@@ -13,28 +13,38 @@ package gameConfigurations;
  */
 public class PlayerFactory {
 	
-	// Over here I want to have a factory for creating new
-	// Players - but how does it work?
-	// Should I create the Factory over here or in the player?
-	
-	// Da sich der AI und der HumanPlayer nicht in den enthaltenen Informationen unterscheiden
-	// einfach Player erstellen.
-	
+	/*
 	public static Player getNewPlayer (String name, String type){
 		return new Player (name, 0, 0);
 	}
-
+	*/
 	
-	public static IPlayer getInstance(String type, String name, int points, int countHits){
+	public static IPlayer getInstance(String type, String name, int points, int countHits) throws CreatePlayerException{
 		if(type == null){
-			return null; // TJ: better to throw an exception
-		}else if(type.equals("human")){
-			return new HumanPlayer(name, points, countHits); // TJ: HumanPlayer class is not implemented yet.
-		}else if(type.equals("ai")){
-			return new ComputerPlayer(name, points, countHits); // TJ: ComputerPlayer class is not implemented yet.
-		}else{
-			// TJ: throw an exception when player type is unknown.
+			throw new CreatePlayerException(); 
+		
+		} else if(type.equals("human")){
+			return new HumanPlayer(name, 0, 0); 
+		
+		} else if(type.equals("ai")){
+			return new ComputerPlayer(name, 0, 0); 
+		
+		} else{
+			throw new CreatePlayerException();
+			
 		}
 	}
+	
+	/*
+	 * I think about throwing new CreatePlayerExceptions in the if == null
+	 * and the else. Should I do it with a try catch Block?
+	 * 
+	 * 
+	 * try {
+	 *	Player player = new HumanPlayer();
+	 *	LOG
+	 *		} catch (CreatePlayerException e) {
+	 *		LOG;
+	 */
 
 }

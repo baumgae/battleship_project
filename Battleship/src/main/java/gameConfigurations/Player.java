@@ -23,36 +23,27 @@ import game.EGameArea;
  * @author Lea Baumgärtner
  * @version 0.2 
  */
-public class Player implements IPlayer {
+
+
+/*
+ * TJ
+ * In my opinion, you can store players' score in the Player class. You don't have to 
+ * introduce an extra class. You don't have to save the score permanently as this is 
+ * not required for this project. Just focus on the criteria provided in our excel sheet.
+ */
+abstract class Player implements IPlayer {
 		
 	String name;
 	int hits;
 	int points;
 	EGameArea gameArea;
 	
-	// If I have a factory - do we need this actually?
-	/*
-	 * TJ
-	 * Yes
-	 */
 	Player(String name, int hits, int points) {
 		this.name = name;
 		this.hits = hits;
 		this.points = points;
 		
 	}
-	// Factory?
-	/*
-	 * TJ
-	 * A factory is usually located in a separate class
-	 */
-	/*
-	public static Player createPlayer(){
-		Player player = new Player(name, 0, 0);
-		return player;
-	}
-	*/
-	
 	
 	/* (non-Javadoc)
 	 * @see game.IPlayer#countPoints()
@@ -65,7 +56,7 @@ public class Player implements IPlayer {
 	}
 	
 	/* (non-Javadoc)
-	 * @see game.IPlayer#cgetCountPoints()
+	 * @see game.IPlayer#getCountPoints()
 	 */
 	public int getCountedPoints (int points) {
 		this.points = points;

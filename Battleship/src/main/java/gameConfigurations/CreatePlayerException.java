@@ -2,18 +2,12 @@ package gameConfigurations;
 
 public class CreatePlayerException extends Exception {
 		
-	      //Parameterless Constructor
-		// Constructor der Basisklasse
-	      public CreatePlayerException() {
-	    	  super();
-	    	  
-	      }
-
-	      //Constructor that accepts a message
-	      public CreatePlayerException(String message)
-	      {
-	         super(message);
-	      }
+	
+	      @Override
+	      public String toString() {
+	      return "There has not been choosen one of the existing Player Types!";
 	 }
+	      
+}
 
 

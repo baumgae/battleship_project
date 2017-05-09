@@ -26,7 +26,7 @@ public class LuckyDwarf extends AGameItem{
 		getSize();		// get his size
 	}
 	
-	public int luckyDwarfImpact() {
+	public static int luckyDwarfImpact() {
 		int plusPoints = 300;	// Punkte sind noch variable festzulegen
 		return plusPoints;
 		

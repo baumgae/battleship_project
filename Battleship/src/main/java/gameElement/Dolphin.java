@@ -33,7 +33,7 @@ public class Dolphin extends AGameItem{
 	 * This eases the calculation of players' score.
 	 */
 	
-	public int dolphinImpact() {
+	public static int dolphinImpact() {
 		// Testkommentar für commit
 		int minusPoints = -100;	// Punkte sind noch variable festzulegen
 		return minusPoints;
