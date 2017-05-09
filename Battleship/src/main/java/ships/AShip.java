@@ -27,6 +27,7 @@ public abstract class AShip implements IShip {
 	int shipSizeY;
 	int x;
 	int y;
+	int shipPoints;
 	
 	AShip(int shipID, int shipSizeX, int shipSizeY) {
 		this.shipID = shipID;
@@ -62,5 +63,13 @@ public abstract class AShip implements IShip {
 	public int getID() {
 		return this.shipID;
 	}
+	
+	
+	public int getShipImpact() {
+		int shipPoints = 10;
+		return shipPoints;
+	}
+	
+	
 	
 }
