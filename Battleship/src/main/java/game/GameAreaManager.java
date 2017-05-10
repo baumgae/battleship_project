@@ -5,6 +5,7 @@ import gameElement.LuckyDwarf;
 import gameElement.Mine;
 import ships.AShip;
 import game.ShootingArea;
+import game.NoGameElementException;
 
 // autor Celine Wichmann 
 
@@ -47,9 +48,13 @@ public class GameAreaManager {
 	  //then it switch to 1
 }
 
-  void getStatusCoordinate () { 
+  void getStatusCoordinate () throws NoGameElementException { 
+	  
+	     if (Layer2Status == 0) {
+	    	 
+	    //Water.waterImpact();
 
-	    if (Layer2Status == 1) { 
+      }  if (Layer2Status == 1) { 
 		  
 	    Dolphin.dolphinImpact();
 		  
@@ -94,8 +99,7 @@ public class GameAreaManager {
 		  
 	  } else {
 		  
-		  // Maybe I could throw an exception, you hit the Water
-		  // Create a new Class NoGameElementException
+		throw new NoGameElementException();
 		  
 	 }
 		
