@@ -19,11 +19,10 @@ package gameElement;
  */
 
 public class Dolphin extends AGameItem{
-//  Impact on the Game: If a Player shots a Dolphin, he / she will get minus points.
 	
 	public Dolphin() {
 		super(1);					// Dolphin has ID 1
-		getSize();		// get his size
+		getSize();					// get his size
 	}
 	
 	/*
@@ -34,8 +33,8 @@ public class Dolphin extends AGameItem{
 	 */
 	
 	public static int dolphinImpact() {
-		// Testkommentar für commit
-		int minusPoints = -100;	// Punkte sind noch variable festzulegen
+	
+		int minusPoints = -100;	
 		return minusPoints;
 	}
 	

@@ -1,7 +1,6 @@
 package gameConfigurations;
 
 public class CreatePlayerException extends Exception {
-		
 	
 	      @Override
 	      public String toString() {
