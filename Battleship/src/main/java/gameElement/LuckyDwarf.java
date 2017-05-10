@@ -6,6 +6,8 @@ package gameElement;
  * It has the ID 3 as well as a special impact.
  * If the player hits a Lucky Dwarf on the shootingArea,
  * he or she will get plus 300 points. 
+ * <p>
+ * THIS IS AN EXTRA
  * In the game the lucky dwarf is available for about 
  * five rounds. He randomly appears and disappears after these five rounds.
  *
