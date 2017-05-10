@@ -1,5 +1,6 @@
 package gameElement;
 /**
+ * 
  * Game Element Mine
  * <p>
  * This class is a subclass of Game Items.
@@ -7,7 +8,9 @@ package gameElement;
  * If the player hits a Mine on the shootingArea,
  * he or she will "die" and the game 
  * will be quit immediately. The other player will have won 
- * the game.
+ * the game. 
+ * But before we can implement this, the impact of the GameElement will
+ * be MinusPoints.
  *
  * <p>
  * Island uses in his constructor {@link #Mine}
@@ -26,16 +29,12 @@ public class Mine extends AGameItem {
 		getSize();
 	}
 	
-	/*
-	 * TJ
-	 * Why does this method return a string instead of an integer?
-	 */
 	public static int mineImpact() {
 		
 		// Methode, welche zur Methode führt, welche 
 		// in der Logik ist und das aktuelle Spiel beendet.
 		
-		int minusPoints = -500;	// Punkte sind noch variable festzulegen
+		int minusPoints = -500;
 		return minusPoints;
 
 		

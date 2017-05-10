@@ -8,7 +8,6 @@ package ships;
  * <p>
  * FourFieldBoat uses in his constructor {@link #FourFieldBoat}
  * the constructor {@link #AShips} to set the ID as well as it's size.
- * Use {@link #getY} and {@link #getX} to receive the position.
  * 
  * <p> 
  *
