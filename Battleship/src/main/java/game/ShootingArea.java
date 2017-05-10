@@ -1,15 +1,16 @@
 package game;
 
-//Autor Celine Wichmann
-
-// Question: 
-// Why does this class demand a constructor?
-
-/*
- * TJ
- * I don't think that inheritance is required for this class.
- * When you remove the inheritance, implementation of the constructor is not
- * required anymore.
+/**
+ * Class for Testing the Status of the Ships
+ * 
+ * <p>
+ * After ever shoot the method {@link #isDestroyed(int, int)} will be call to check
+ * if the count of Hits reach the size of the ship. When the ship size has been
+ * reached then it will be set on true.
+ * 
+ * <p>
+ * @author Celine Wichmann
+ * @version 0.2
  */
 
 public class ShootingArea  {
@@ -25,6 +26,6 @@ public class ShootingArea  {
 	 return false;
 	 
 	 } 
-  }
-	
+   }
+ 	
 }

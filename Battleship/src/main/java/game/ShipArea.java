@@ -2,9 +2,18 @@ package game;
 
 import ships.IShip;
 
-/*
- * TJ
- * I don't think that inheritance is required for this class
+/**
+ * Class for Set and Remove ships.
+ * 
+ * <p>
+ * With the methods {@link #setShip(IShip, int, int)} and {@link #removeShip(int, int)}
+ * the player is allowed to set the Number of ships is given be the degree of
+ * Difficulty and to remove the ship before the Game starts if he is dissatisfied with
+ * its position.
+ * 
+ * <p>
+ * @author Celine Wichmann
+ * @version 0.2
  */
 
 public class ShipArea {

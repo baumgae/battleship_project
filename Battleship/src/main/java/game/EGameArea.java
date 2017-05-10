@@ -4,9 +4,6 @@ public enum EGameArea {
 	
 	// Did I really need this class?
 
-		
-		// ISSHOT, 
-		// ISNOTSHOT, 
 		ISWATER, 
 		ISDOLPHIN, 
 		ISISLAND, 

@@ -1,4 +1,5 @@
 package game;
+
 import gameElement.Dolphin;
 import gameElement.Island;
 import gameElement.LuckyDwarf;
@@ -6,18 +7,37 @@ import gameElement.Mine;
 import ships.AShip;
 import game.ShootingArea;
 import game.NoGameElementException;
+import gameElement.Water;
 
-// autor Celine Wichmann 
-
-/*
- * Question:
- * I know how the gameArea should actually work,
- * but I'm not quite sure about how to realize this.
+/**
+ * GameAreaManager for setting the Status of the GameArea in Layer 1 and Layer2
  * 
- * Espacially in combination with a two dimensional array 
- * and  an enum - it new for me.
+ * <p>
+ * This class is managing the Status of the GameArea at Layer 1 and Layer 2.
+ * At Layer 1 you can see whether a Field has been already shot or not.
+ * As long as a Field is not shot the ID of this Field stands on 0.
+ * If a field is shot now the ID changes on 1. Then you are not allowed
+ * to shot at this field anymore.
  * 
+ * <p>
+ * At Layer 2 you can see which Game Element is hide behind this field. This 
+ * Layer is only enclosed if the field has been shot or if you actively shoot 
+ * at it.
+ * The method {@link #getStatusCoordinate()} will only be called if the Player 
+ * shoot at a field. Then it is checked with the help of an if statement which 
+ * Game Element it is and which action will follow. At the same time it
+ * is checked with the ships whether the ship has been destroyed with this hit.
+ * 
+ * <p>
+ * @author Celine Wichmann
+ * @version 0.2
  */
+
+// Question:   
+//   How does the player get this Points?
+// How can we add the different Points to the specific Player Score?
+
+//Why can i not call the Method from the Shooting Area?
 
 public class GameAreaManager {
 	
@@ -36,8 +56,8 @@ public class GameAreaManager {
 	 *  
 	 */
 	
-	int Layer1Status = 0; 
-	int Layer2Status = 0;
+	int Layer1Status = 0; // the field hasn't been shot
+	int Layer2Status = 0; // there is water on this field
 
 	
 
@@ -52,7 +72,7 @@ public class GameAreaManager {
 	  
 	     if (Layer2Status == 0) {
 	    	 
-	    //Water.waterImpact();
+	    Water.waterImpact(); 
 
       }  if (Layer2Status == 1) { 
 		  
@@ -73,9 +93,8 @@ public class GameAreaManager {
 	  } if (Layer2Status == 5) { // There is an One Field Boat
 		  
 	   AShip.getShipImpact();
-	   // ShootingArea.isDestroyed(); 
+	   //ShootingArea.isDestroyed(); 
 		  
-		  // How can I use the method, it doesn't work?!
 		  
 	  } if (Layer2Status == 6) { // There is a Two Field Boat
 		  
@@ -103,9 +122,6 @@ public class GameAreaManager {
 		  
 	 }
 		
-	  // The Question is, what will I do with this? 
-	  //   How does the player get this Points?
-	  // How can we add the different Points to the specific Player Score
 	
    }
 
