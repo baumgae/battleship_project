@@ -16,7 +16,7 @@ import gameElement.Water;
  * This class is managing the Status of the GameArea at Layer 1 and Layer 2.
  * At Layer 1 you can see whether a Field has been already shot or not.
  * As long as a Field is not shot the ID of this Field stands on 0.
- * If a field is shot now the ID changes on 1. Then you are not allowed
+ * If a field is shot the ID changes on 1. Then you are not allowed
  * to shot at this field anymore.
  * 
  * <p>
@@ -34,9 +34,9 @@ import gameElement.Water;
  */
 
 // Question:   
-// Where are counted the Points?
+// Where should the points be counted? And how?
 // How can we add the different Points to the specific Player Score?
-// Why i am not able to call the method from the Shooting Area?
+// Why am I not able to call the method from the Shooting Area?
 
 public class GameAreaManager {
 	

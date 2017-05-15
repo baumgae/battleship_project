@@ -3,8 +3,8 @@ package gameConfigurations;
 import java.util.Random;
 
 /**
- * Class for the Action of the Artificial Intelligence or you can just call
- * him the Computer.
+ * Class for the Action of the Artificial Intelligence <br>
+ * or you can just call him the Computer.
  * 
  * <p>
  * The methods {@link #randomCoordinateX(int)} and {@link #randomCoordinateY(int)} 

@@ -4,7 +4,7 @@ package game;
  * Class for Throwing a NoGameElementException.
  * 
  * <p>
- * This is Exception will be thrown, if the Player won't shot on a Game Element
+ * This Exception will be thrown, if the Player won't shot on a Game Element
  * or on Water or on a Ship.
  * 
  * <p>
