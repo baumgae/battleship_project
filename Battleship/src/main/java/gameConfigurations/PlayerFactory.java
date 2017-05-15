@@ -19,6 +19,9 @@ public class PlayerFactory {
 	}
 	*/
 	
+	// Muss ich hier überhaupt, int points, int countHit übergeben
+	// Sie werden doch sowieso von Anfang an auf Null gesetzt.
+	
 	public static IPlayer getInstance(String type, String name, int points, int countHits) throws CreatePlayerException{
 		if(type == null){
 			throw new CreatePlayerException(); 
