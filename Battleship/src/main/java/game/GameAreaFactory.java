@@ -14,8 +14,8 @@ public class GameAreaFactory {
 	 * 
 	 * <p>
 	 * The method {@link #setRandomGameElement(DifficultyManager, int, int)} is 
-	 * called after the first method and set the Game Elements random because
-	 * as a Player you can only set the ships you have available in the 
+	 * called after the first method has been called and set the Game Elements random 
+	 * because as a Player you are only allowed to set the ships you have available in the 
 	 * different degrees of Difficulty. 
 	 * The number of the Game element varies according to degree of difficulty.
 	 * 
@@ -24,34 +24,31 @@ public class GameAreaFactory {
 	 * @version 0.2
 	 */
 	
-	// Wie kann den Game Elemneten ihre Coordinaten zuordnen?
-	  
-	  int x;
-	  int y;
-	  int [] [] area = new int [x] [y]; 
+	// How can i assign random Coordinates to the Game Elements?
 	
-	void createArea (DifficultyManager difficulty, int x, int y) {
+     int[][] createArea (DifficultyManager difficulty, int x, int y) {
 		
-		
+		  int [] [] area = new int [x] [y]; 	
+		  return area;
+		   
 	    }
 	
-	void setRandomGameElement (DifficultyManager difficulty, int x, int y) {
+	 void setRandomGameElement (DifficultyManager difficulty, int x, int y) {
 			
-		final int CoordinateX = x;
-		Random rndX = new Random();
-		final int randomValueX = rndX.nextInt(CoordinateX + 1);
+	 	  final int CoordinateX = x;
+		  Random rndX = new Random();
+		  final int randomValueX = rndX.nextInt(CoordinateX + 1);
 		
-		final int CoordinateY = y;
-		Random rndY = new Random();
-		final int randomValueY = rndY.nextInt(CoordinateY + 1);
-//		
-//		Dolphin.area [randomValueX] [randomValueY];
-//		Island..area [randomValueX] [randomValueY];
-//		LuckyDwarf.area [randomValueX] [randomValueY];
-//		Mine.area [randomValueX] [randomValueY];
-		
-			
-	}
+		  final int CoordinateY = y;
+		  Random rndY = new Random();
+		  final int randomValueY = rndY.nextInt(CoordinateY + 1);
+  		
+        //Dolphin.area [randomValueX] [randomValueY];
+        //Island..area [randomValueX] [randomValueY];
+        //LuckyDwarf.area [randomValueX] [randomValueY]; --> Does this work?
+        //Mine.area [randomValueX] [randomValueY];
+					
+	  }
 
-}
+ }
 

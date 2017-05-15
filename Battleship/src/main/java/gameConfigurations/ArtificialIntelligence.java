@@ -8,7 +8,7 @@ import java.util.Random;
  * 
  * <p>
  * The methods {@link #randomCoordinateX(int)} and {@link #randomCoordinateY(int)} 
- * generate a rando Coordinate (x/y) for the Computer where it will shoot at.
+ * generate a random Coordinate (x/y) for the Computer where he will shoot at.
  * 
  * <p>
  * @author Celine Wichmann
@@ -19,30 +19,32 @@ import java.util.Random;
 public class ArtificialIntelligence {
 	
 	
-public static int randomCoordinateX(int x) {
+    public static int randomCoordinateX(int x) {
 	
-	final int maximumX = x;
-	
-	
-	Random rndX = new Random();
+	    final int maximumX = x;
 	
 	
-	final int randomValueX = rndX.nextInt(maximumX + 1);
+	    Random rndX = new Random();
 	
 	
-	return randomValueX;
+	    final int randomValueX = rndX.nextInt(maximumX + 1);
 	
- }	
-public static int randomCoordinateY(int y) {
 	
-	final int maximumY = y;
+	    return randomValueX;
 	
-	Random rndY = new Random();
+     }	
+    
+    public static int randomCoordinateY(int y) {
 	
-	final int randomValueY = rndY.nextInt(maximumY + 1);
+	   final int maximumY = y;
 	
-	return randomValueY;
+	   Random rndY = new Random();
+	
+	   final int randomValueY = rndY.nextInt(maximumY + 1);
+	
+	   return randomValueY;
 	
   } 
+    
 }
 

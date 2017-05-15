@@ -2,7 +2,7 @@ package game;
 
 public enum EGameArea { 
 	
-	// Did I really need this class?
+	// Did we really need this class?
 
 		ISWATER, 
 		ISDOLPHIN, 

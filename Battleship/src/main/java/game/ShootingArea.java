@@ -4,7 +4,7 @@ package game;
  * Class for Testing the Status of the Ships
  * 
  * <p>
- * After ever shoot the method {@link #isDestroyed(int, int)} will be call to check
+ * After every shoot the method {@link #isDestroyed(int, int)} will be call to check
  * if the count of Hits reach the size of the ship. When the ship size has been
  * reached then it will be set on true.
  * 
@@ -15,17 +15,18 @@ package game;
 
 public class ShootingArea  {
 	
-  boolean isDestroyed (int countHits, int shipSize) { 
+   boolean isDestroyed (int countHits, int shipSize) { 
 	 
-	 if (countHits == shipSize) {
+	    if (countHits == shipSize) {
 		  
-		 return true;
+		   return true;
 		 
-	 } else {
+      } else {
 		 
-	 return false;
+	       return false;
 	 
-	 } 
+	  }
+	    
    }
  	
 }

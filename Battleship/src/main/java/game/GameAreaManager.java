@@ -10,7 +10,7 @@ import game.NoGameElementException;
 import gameElement.Water;
 
 /**
- * GameAreaManager for setting the Status of the GameArea in Layer 1 and Layer2
+ * GameAreaManager for setting the Status of the GameArea at Layer 1 and Layer2
  * 
  * <p>
  * This class is managing the Status of the GameArea at Layer 1 and Layer 2.
@@ -20,13 +20,13 @@ import gameElement.Water;
  * to shot at this field anymore.
  * 
  * <p>
- * At Layer 2 you can see which Game Element is hide behind this field. This 
+ * At Layer 2 you can see which Game Element is hidden behind this field. This 
  * Layer is only enclosed if the field has been shot or if you actively shoot 
  * at it.
- * The method {@link #getStatusCoordinate()} will only be called if the Player 
- * shoot at a field. Then it is checked with the help of an if statement which 
- * Game Element it is and which action will follow. At the same time it
- * is checked with the ships whether the ship has been destroyed with this hit.
+ * The method {@link #getStatusCoordinate()} will be called if the Player 
+ * shoots on a field. Then it will be checked with the help of an if statement which 
+ * Game Element it is and which action will follow. At the same time it will be checked,
+ * if there is a ship, whether this ship is completely destroyed with the current shot.
  * 
  * <p>
  * @author Celine Wichmann
@@ -34,10 +34,9 @@ import gameElement.Water;
  */
 
 // Question:   
-//   How does the player get this Points?
+// Where are counted the Points?
 // How can we add the different Points to the specific Player Score?
-
-//Why can i not call the Method from the Shooting Area?
+// Why i am not able to call the method from the Shooting Area?
 
 public class GameAreaManager {
 	
@@ -61,70 +60,69 @@ public class GameAreaManager {
 
 	
 
-  void shootOnCoordinate (int x, int y) {
+   void shootOnCoordinate (int x, int y) {
 	
 	  Layer1Status = 1; 
-	  // Status of every Coordinate is 0 until you shoot on it
-	  //then it switch to 1
-}
+	  // Status of every Coordinate is 0 until you shoot on it, then it switch to 1
+	  
+      }
 
-  void getStatusCoordinate () throws NoGameElementException { 
+   void getStatusCoordinate () throws NoGameElementException { 
 	  
 	     if (Layer2Status == 0) {
 	    	 
-	    Water.waterImpact(); 
+	         Water.waterImpact(); 
 
-      }  if (Layer2Status == 1) { 
+       } if (Layer2Status == 1) { 
 		  
-	    Dolphin.dolphinImpact();
+	         Dolphin.dolphinImpact();
 		  
-	  } if (Layer2Status == 2) { 
+	   } if (Layer2Status == 2) { 
 		  
-		Island.islandImpact();
+		     Island.islandImpact();
 		  
-	  } if (Layer2Status == 3) { 
+	   } if (Layer2Status == 3) { 
 		  
-		LuckyDwarf.luckyDwarfImpact();
+		     LuckyDwarf.luckyDwarfImpact();
 		  
-	  } if (Layer2Status == 4) {
+	   } if (Layer2Status == 4) {
 		  
-		Mine.mineImpact();
+		     Mine.mineImpact();
 		  
-	  } if (Layer2Status == 5) { // There is an One Field Boat
+	   } if (Layer2Status == 5) { // There is an One Field Boat
 		  
-	   AShip.getShipImpact();
-	   //ShootingArea.isDestroyed(); 
+	         AShip.getShipImpact();
+	      // ShootingArea.isDestroyed(); 
 		  
+	   } if (Layer2Status == 6) { // There is a Two Field Boat
 		  
-	  } if (Layer2Status == 6) { // There is a Two Field Boat
+	         AShip.getShipImpact();
+	      // ShootingArea.isDestroyed(); 
 		  
-	   AShip.getShipImpact();
-	   // ShootingArea.isDestroyed(); 
+	   } if (Layer2Status == 7) { // There is a Three Field Boat
 		  
-	  } if (Layer2Status == 7) { // There is a Three Field Boat
+	         AShip.getShipImpact();
+	      // ShootingArea.isDestroyed(); 
 		  
-	    AShip.getShipImpact();
-	   // ShootingArea.isDestroyed(); 
+	   } if (Layer2Status == 8) { // There is a Four Field Boat
 		  
-	  } if (Layer2Status == 8) { // There is a Four Field Boat
+	         AShip.getShipImpact();
+		  // ShootingArea.isDestroyed(); 
 		  
-	    AShip.getShipImpact();
-		// ShootingArea.isDestroyed(); 
+	   } if (Layer2Status == 9) { // There is a Quadruple
 		  
-	  } if (Layer2Status == 9) { // There is a Quadruple
+	         AShip.getShipImpact();
+	      // ShootingArea.isDestroyed(); 
 		  
-	    AShip.getShipImpact();
-	   // ShootingArea.isDestroyed(); 
-		  
-	  } else {
+	   } else {
 		  
 		throw new NoGameElementException();
 		  
-	 }
+	   }
 		
 	
-   }
+    }
 
  
- }
+  }
 
