@@ -21,6 +21,11 @@ import java.awt.Point;
 
 // In the default case I could return a ChooseDifficultyException or?
 // What do you think about this architecture?
+
+
+// TJ meant that I could use a general method, which means
+// the impact of all gameElements. But I choose to use different methodes 
+// because every gameElement has another impact.
 public class DifficultyManager {
 		
 	int numberOfDolphines;
