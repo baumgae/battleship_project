@@ -1,6 +1,9 @@
 package battleshipGUI;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -27,11 +30,8 @@ import javafx.stage.Stage;
 
 
 public class OpeningScreen extends Application{
-
-	public static void main(String[] args) {
-		launch(args);
-
-	}
+	
+	// NewGameScreen scene2; I want to import the newGameScreen to open it :D
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -45,9 +45,35 @@ public class OpeningScreen extends Application{
 		//Label label3 = new Label("Battleship", new ImageView(image));
 		
 		Button newGame = new Button("New Game");
+
+		// This should be the EventHandling for opening the NewGameScreen.java
+		
+		newGame.setOnAction(
+				event -> newGame.setText("Clicked!"));
+		
+		// Same shit for the others.
+		
+		
 		Button continueGame = new Button("Continue");
+			
+		// This should be the EventHandling for opening the old game
+		// But this won't be important for now!
+		
+				continueGame.setOnAction(
+						event -> continueGame.setText("You Mongo!"));
+		
+						
 		Button highscore = new Button("Highscore");
+		// EventHandler for opening the highscore Document
+		// But this won't be important for now!
+		highscore.setOnAction(
+				event -> highscore.setText("Nononono"));
+								
+						
 		Button quit = new Button("Quit");
+		// EventHandler for ending the complete Application
+		quit.setOnAction(
+				event -> quit.setText("You may not leave!"));
 		
 		
 		root.getChildren().addAll(labelTitle, newGame, continueGame, highscore, quit);
@@ -63,5 +89,4 @@ public class OpeningScreen extends Application{
 	}
 	
 	
-
 }
