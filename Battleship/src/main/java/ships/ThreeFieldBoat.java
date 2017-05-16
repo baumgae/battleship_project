@@ -25,8 +25,8 @@ public class ThreeFieldBoat extends AShip {
 	}
 	
 	@Override
-	public boolean isHidden() {
-		return true;
+	public boolean isHidden(boolean hide) {
+		return hide;
 	}
 
 	@Override
@@ -36,8 +36,8 @@ public class ThreeFieldBoat extends AShip {
 	}
 
 	@Override
-	public boolean isDestroyed() {
-		return false;
+	public boolean isDestroyed(boolean destroy) {
+		return destroy;
 	}
 	
 	@Override
