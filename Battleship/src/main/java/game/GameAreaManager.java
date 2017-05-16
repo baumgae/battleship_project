@@ -67,7 +67,7 @@ public class GameAreaManager {
 	  
       }
 
-   //Comment for pulling
+   //Comment for pulling Number 2
    
    void getStatusCoordinate () throws NoGameElementException { 
 	  
