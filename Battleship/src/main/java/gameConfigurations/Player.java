@@ -1,6 +1,6 @@
 package gameConfigurations;
 
-import game.EGameArea;
+
 
 /**
  * Abstract Class for Player
@@ -36,7 +36,6 @@ abstract class Player implements IPlayer {
 	String name;
 	int hits;
 	int points;
-	EGameArea gameArea;
 	
 	Player(String name) {
 		this.name = name;

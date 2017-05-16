@@ -30,9 +30,9 @@ public class PlayerFactory {
 		} else if(type.equals("human")){
 			return new HumanPlayer(name); 
 		
-	/*	} else if(type.equals("ai")){
+		} else if(type.equals("ai")){
 			return new ComputerPlayer("ComputerHans"); // Erstmal nicht aktiv
-	*/
+	
 		} else{
 			throw new CreatePlayerException();
 			

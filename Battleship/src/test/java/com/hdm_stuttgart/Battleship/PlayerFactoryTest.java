@@ -31,7 +31,7 @@ public class PlayerFactoryTest {
 	}
 	// Expected wrong
 	
-	
+
 	@Test
 	public void testRightComputerPlayerchoosen() throws CreatePlayerException {
 	
