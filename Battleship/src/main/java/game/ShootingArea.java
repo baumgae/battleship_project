@@ -13,9 +13,9 @@ package game;
  * @version 0.2
  */
 
-public class ShootingArea  {
+public class ShootingArea  { //Testversuch
 	
-   boolean isDestroyed (int countHits, int shipSize) { 
+   static boolean isDestroyed (int countHits, int shipSize) { 
 	 
 	    if (countHits == shipSize) {
 		  

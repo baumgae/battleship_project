@@ -16,7 +16,7 @@ import ships.IShip;
  * @version 0.2
  */
 
-// Question: Should I create an Interface for this?
+// Question: Should I create an Interface for this? 
 
 public class ShipArea {
 

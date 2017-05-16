@@ -23,12 +23,9 @@ public class ArtificialIntelligence {
 	
 	    final int maximumX = x;
 	
-	
 	    Random rndX = new Random();
 	
-	
 	    final int randomValueX = rndX.nextInt(maximumX + 1);
-	
 	
 	    return randomValueX;
 	
