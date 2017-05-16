@@ -10,7 +10,10 @@ import java.awt.Point;
  * 
  * <p>
  * The Method {@link #setDifficulty} will be called, if the player
- * sets the difficulty of a new game. The GameArea will be as big as
+ * sets the difficulty of a new game. Over here the number of game
+ * Elements will be given. 
+ * The Method {@link #getFieldSize(EDifficulty)} is for the GameAreaFactory
+ * so it will get the MaxX and MaxY Values. The GameArea will be as big as
  * it will be chosen.
  * <p>
  * 
@@ -39,74 +42,82 @@ public class DifficultyManager {
 	int numberOfFourFieldBoat;
 	int numberOfQuadrupleFieldBoat;
 
-	public Point getDifficulty (EDifficulty difficulty) { 	
+	public void setDifficulty (EDifficulty difficulty) { 	
 	
 		switch(difficulty) {
 	
 			case EASY:
 				
 				numberOfDolphines = 2;
-				
 				numberOfOneFieldBoat = 2;
-				numberOfTwoFieldBoat = 2;
-				numberOfThreeFieldBoat = 1;
-				return new Point(5,5);
+				// numberOfTwoFieldBoat = 2;
+				// numberOfThreeFieldBoat = 1;
+				
 			
 			case NORMAL:
 				
 				numberOfDolphines = 2;
-				// numberOfIslands = 1; because it's not activated yet
-				
+				numberOfIslands = 1;
 				numberOfOneFieldBoat = 3;
 				numberOfTwoFieldBoat = 1;
 				numberOfThreeFieldBoat = 2;
 				numberOfFourFieldBoat = 1;
 				numberOfQuadrupleFieldBoat = 1;
-				
-				return new Point(10,10);
 			
 			case HARD:
 				
 				numberOfDolphines = 4;
-				// numberOfIslands = 2; because it's not activated yet
+				numberOfIslands = 2;
 				numberOfLuckyDwarf = 1;
 				
 				numberOfOneFieldBoat = 4;
-				numberOfTwoFieldBoat = 3;
-				numberOfThreeFieldBoat = 1;
-				numberOfFourFieldBoat = 2;
-				numberOfQuadrupleFieldBoat = 2;
+				// numberOfTwoFieldBoat = 3;
+				// numberOfThreeFieldBoat = 1;
+				// numberOfFourFieldBoat = 2;
+				// numberOfQuadrupleFieldBoat = 2;
 				
-				Point p = new Point(15,15);
-				return p;
 			
 			case SUICIDAL:
 				
 				numberOfDolphines = 5;
-				// numberOfIslands = 4; because it's not activated yet
+				numberOfIslands = 4;
 				numberOfLuckyDwarf = 1;
 				numberOfMines = 4;
 				
 				numberOfOneFieldBoat = 5;
-				numberOfTwoFieldBoat = 3;
-				numberOfThreeFieldBoat = 3;
-				numberOfFourFieldBoat = 1;
-				numberOfQuadrupleFieldBoat = 3;
+				//numberOfTwoFieldBoat = 3;
+				//numberOfThreeFieldBoat = 3;
+				//numberOfFourFieldBoat = 1;
+				//numberOfQuadrupleFieldBoat = 3;
 				
-				return new Point(20,20);
+				
 				
 			default:
-				return new Point(5,5);
 	
 	}
 	
 	
 }
-	// setDifficulty mit numberOf.... 
-	// getFieldSize --> auch mit einem Switch case
-	// is it possible like that? 
-	
-	// Alles ohne Paarameter
+	public Point getFieldSize (EDifficulty difficulty){
+		switch(difficulty) {
+		
+		case EASY:
+				return new Point(5,5);
+		
+		case NORMAL:
+				return new Point(10,10);
+				
+		case HARD:
+				return new Point(15,15);
+				
+		case SUICIDAL:
+				return new Point(20,20);
+		
+		default:
+				return new Point(5,5);
+		}
+	}
+
 	public int getNumberOfDolphines() {
 		return this.numberOfDolphines;
 	}
