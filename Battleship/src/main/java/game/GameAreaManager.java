@@ -5,6 +5,7 @@ import gameElement.Island;
 import gameElement.LuckyDwarf;
 import gameElement.Mine;
 import ships.AShip;
+import ships.OneFieldBoat;
 import game.ShootingArea;
 import game.NoGameElementException;
 import gameElement.Water;
@@ -62,58 +63,68 @@ public class GameAreaManager {
 
    void shootOnCoordinate (int x, int y) {
 	
-	  Layer1Status = 1; 
+	         Layer1Status = 1; 
 	  // Status of every Coordinate is 0 until you shoot on it, then it switch to 1
 	  
       }
 
-   //Comment for pulling Number 2
    
+    // We create new Game Elements, but destroyed them at the same time.
    void getStatusCoordinate () throws NoGameElementException { 
 	  
 	     if (Layer2Status == 0) {
-	    	 
-	         Water.waterImpact(); 
+	    	
+	    	 Water water = new Water();
+	         water.getScore(); 
 
        } if (Layer2Status == 1) { 
 		  
-	         Dolphin.dolphinImpact();
+    	     Dolphin dolphin = new Dolphin();
+	         dolphin.getScore();
 		  
 	   } if (Layer2Status == 2) { 
 		  
-		     Island.islandImpact();
+		     // Island island = new Island();
+		     // island.getScore();
 		  
 	   } if (Layer2Status == 3) { 
 		  
-		     LuckyDwarf.luckyDwarfImpact();
+		     LuckyDwarf luckydwarf = new LuckyDwarf();
+		     luckydwarf.getScore();
 		  
 	   } if (Layer2Status == 4) {
-		  
-		     Mine.mineImpact();
+		     
+		     // Mine mine = new Mine();
+		     // mine.getScore();
 		  
 	   } if (Layer2Status == 5) { // There is an One Field Boat
 		  
-	         AShip.getShipImpact();
+		     OneFieldBoat onefieldboat = new OneFieldBoat();
+	         onefieldboat.getScore();
 	      // ShootingArea.isDestroyed(); 
 		  
 	   } if (Layer2Status == 6) { // There is a Two Field Boat
 		  
-	         AShip.getShipImpact();
+		     OneFieldBoat onefieldboat = new OneFieldBoat();
+	         onefieldboat.getScore();
 	      // ShootingArea.isDestroyed(); 
 		  
 	   } if (Layer2Status == 7) { // There is a Three Field Boat
 		  
-	         AShip.getShipImpact();
+		     OneFieldBoat onefieldboat = new OneFieldBoat();
+	         onefieldboat.getScore();
 	      // ShootingArea.isDestroyed(); 
 		  
 	   } if (Layer2Status == 8) { // There is a Four Field Boat
 		  
-	         AShip.getShipImpact();
+		     OneFieldBoat onefieldboat = new OneFieldBoat();
+	         onefieldboat.getScore();
 		  // ShootingArea.isDestroyed(); 
 		  
 	   } if (Layer2Status == 9) { // There is a Quadruple
 		  
-	         AShip.getShipImpact();
+		     OneFieldBoat onefieldboat = new OneFieldBoat();
+	         onefieldboat.getScore();
 	      // ShootingArea.isDestroyed();
 		  
 	   } else {

@@ -4,6 +4,9 @@ package game;
  * Class for Testing the Status of the Ships
  * 
  * <p>
+ * THIS CLASS ISN'T USED NOW!
+ * 
+ * <p>
  * After every shoot the method {@link #isDestroyed(int, int)} will be call to check
  * if the count of Hits reach the size of the ship. When the ship size has been
  * reached then it will be set on true.

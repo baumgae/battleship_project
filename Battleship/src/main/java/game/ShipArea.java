@@ -6,6 +6,9 @@ import ships.IShip;
  * Class for Set and Remove ships.
  * 
  * <p>
+ * THIS CLASS ISN'T USED NOW!
+ * 
+ * <p>
  * With the methods {@link #setShip(IShip, int, int)} and {@link #removeShip(int, int)}
  * the player is allowed to set the Number of ships is given be the degree of
  * Difficulty and to remove the ship before the Game starts if he is dissatisfied with

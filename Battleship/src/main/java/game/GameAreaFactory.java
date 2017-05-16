@@ -1,9 +1,10 @@
 package game;
 import java.util.Random;
+
+import com.sun.javafx.scene.paint.GradientUtils.Point;
+
 import game.DifficultyManager;
-import gameElement.Dolphin;
-import gameElement.Island;
-import gameElement.LuckyDwarf;
+import gameConfigurations.Item;
 
 public class GameAreaFactory {
 	
@@ -27,13 +28,63 @@ public class GameAreaFactory {
 	 * @version 0.2
 	 */
 	
-	// How can i assign random Coordinates to the Game Elements?
-    // Item items [] [] = new Item [x] [y]; // erst Mal auf Wasser
-	
-     void createArea (DifficultyManager difficulty, int x, int y) {
-		
-		  
-	    }
+	  int x;
+	  int y;
+      Item items [] [] = new Item [x] [y]; 
+      
+      GameAreaFactory(int x, int y) {
+    	  
+    	  this.x = x;
+    	  this.y = y;
+      }
+      
+      public static GameAreaFactory getInstance(DifficultyManager difficulty) 
+      throws CreateGameAreaException{
+    	  
+    	  if (difficulty == null) {
+    		  
+    		  throw new CreateGameAreaException();
+    		  
+       } else if (difficulty.equals(EDifficulty.EASY)) {
+    	   
+    	    //return new GameAreaFactory(DifficultyManager.getFieldSize);
+    	      return new GameAreaFactory(0,0); 
+    	    
+       } else if (difficulty.equals(EDifficulty.NORMAL)) {
+    	    	   
+    	    //return new GameAreaFactory(DifficultyManager.getFieldSize);
+    	      return new GameAreaFactory(0,0); 
+    	    	    
+       } else if (difficulty.equals(EDifficulty.HARD)) {
+    	   
+     	  //return new GameAreaFactory(DifficultyManager.getFieldSize);
+     	    return new GameAreaFactory(0,0); 
+     	    
+       }  else if (difficulty.equals(EDifficulty.SUICIDAL)) {
+//     	   int x = Point.x;
+//     	   int y = Point.y;
+//     	   
+//     	   DifficultyManager.getFieldSize();
+//			Hier sollen die WErte von Point je nach Difficulty geholt und 
+//			in x und y Werte aufgesplittet werden. 
+//			Diese werte werden dann der Factory übergeben, anstatt 0,0.
+// 			Dies muss für alle Fälle übernommen werden, also Easy, normal, hard und suicidial
+    	   
+      	    // return new GameAreaFactory(DifficultyManager.getFieldSize());
+      	       return new GameAreaFactory(0,0); 
+      	      
+    	  
+        } else {
+    	   
+    	    throw new CreateGameAreaException();
+    	   
+       }
+    	  
+      }
+	 
+      
+      // if statements --> wenn Wassser da, dann setzt GI
+      // wenn schiff, generiere neue Kooordinaten
 	
 	 void setRandomGameElement (DifficultyManager difficulty, int x, int y) {
 			
@@ -44,11 +95,8 @@ public class GameAreaFactory {
 		  final int CoordinateY = y;
 		  Random rndY = new Random();
 		  final int randomValueY = rndY.nextInt(CoordinateY + 1);
+		 
   		
-//        Dolphin.item [randomValueX] [randomValueY];
-//        Island.item [randomValueX] [randomValueY];
-//        LuckyDwarf.item [randomValueX] [randomValueY]; //--> Does this work?
-//        Mine.item [randomValueX] [randomValueY];
 					
 	  }
 
