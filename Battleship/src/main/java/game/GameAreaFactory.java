@@ -1,6 +1,9 @@
 package game;
 import java.util.Random;
 import game.DifficultyManager;
+import gameElement.Dolphin;
+import gameElement.Island;
+import gameElement.LuckyDwarf;
 
 public class GameAreaFactory {
 	
@@ -25,12 +28,11 @@ public class GameAreaFactory {
 	 */
 	
 	// How can i assign random Coordinates to the Game Elements?
+    // Item items [] [] = new Item [x] [y]; // erst Mal auf Wasser
 	
-     int[][] createArea (DifficultyManager difficulty, int x, int y) {
+     void createArea (DifficultyManager difficulty, int x, int y) {
 		
-		  int [] [] area = new int [x] [y]; 	
-		  return area;
-		   
+		  
 	    }
 	
 	 void setRandomGameElement (DifficultyManager difficulty, int x, int y) {
@@ -43,10 +45,10 @@ public class GameAreaFactory {
 		  Random rndY = new Random();
 		  final int randomValueY = rndY.nextInt(CoordinateY + 1);
   		
-        //Dolphin.area [randomValueX] [randomValueY];
-        //Island..area [randomValueX] [randomValueY];
-        //LuckyDwarf.area [randomValueX] [randomValueY]; --> Does this work?
-        //Mine.area [randomValueX] [randomValueY];
+//        Dolphin.item [randomValueX] [randomValueY];
+//        Island.item [randomValueX] [randomValueY];
+//        LuckyDwarf.item [randomValueX] [randomValueY]; //--> Does this work?
+//        Mine.item [randomValueX] [randomValueY];
 					
 	  }
 

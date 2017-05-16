@@ -13,7 +13,7 @@ package game;
  * @version 0.2
  */
 
-public class ShootingArea  { //Testversuch
+public class ShootingArea  { 
 	
    static boolean isDestroyed (int countHits, int shipSize) { 
 	 

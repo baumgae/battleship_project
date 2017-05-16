@@ -112,7 +112,7 @@ public class GameAreaManager {
 	   } if (Layer2Status == 9) { // There is a Quadruple
 		  
 	         AShip.getShipImpact();
-	         ShootingArea.isDestroyed(Layer2Status, 0); //?????
+	      // ShootingArea.isDestroyed();
 		  
 	   } else {
 		  

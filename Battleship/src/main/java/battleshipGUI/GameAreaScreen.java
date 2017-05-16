@@ -12,12 +12,12 @@ package battleshipGUI;
  * 
  * Over here the user is able to chose a coordinate on which he wants to shoot.
  * If he has shot on a coordinate, the image will change. Whether he has
- * hit a ship, water or a gameItem, the image will change "dementsprechend".
+ * hit a ship, water or a gameItem, the image will change accordingly.
  * He is also able to see how many times he has hit the shooting area in general and
  * how many points he got as well as them from his enemy.  
  * 
  * <p>
- * @author Lea Baumgärtner
+ * @author Celine Wichmann
  * @version 0.1 
  */
 

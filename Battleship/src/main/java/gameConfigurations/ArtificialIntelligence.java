@@ -3,6 +3,9 @@ package gameConfigurations;
 import java.util.Random;
 
 /**
+ * THIS CLASS ISN'T USED NOW!
+ * 
+ * <p>
  * Class for the Action of the Artificial Intelligence <br>
  * or you can just call him the Computer.
  * 
@@ -14,6 +17,7 @@ import java.util.Random;
  * @author Celine Wichmann
  * @version 0.2
  */
+
 
 
 public class ArtificialIntelligence {
