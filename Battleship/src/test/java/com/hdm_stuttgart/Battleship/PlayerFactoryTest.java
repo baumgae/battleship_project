@@ -4,29 +4,24 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import gameConfigurations.CreatePlayerException;
 import gameConfigurations.HumanPlayer;
 import gameConfigurations.IPlayer;
 import gameConfigurations.PlayerFactory;
 import junit.framework.Assert;
 
 public class PlayerFactoryTest {
-	/*
+	
 	@Test
-	public void testWrongPlayerchoosen() {
-		String expected = "human";
-		assertEquals(expected, );
-		
-		IPlayer factory = PlayerFactory.getInstance("human", "Celine", 0, 0);
-		Assert.assertTrue(fromFactory instanceof MyInterfaceImpl1);
+	public void testWrongPlayerchoosen() throws CreatePlayerException {
+	
+		IPlayer Player = PlayerFactory.getInstance("human", "Celine");
+		Assert.assertTrue(Player instanceof HumanPlayer);
 	}
-	*/
-	// At least I tried...
 	
+	// noch zwei tests 
+	// einmal für CompiuterPlayer und dann für xy falsches Zeug
+	// da müsste eine Exception fliegen
 	
-	// hier möchte ich testen, wie sich die Klasse PlayerFactory verhält,
-	// wenn etwas falsches ausgewählt wird.
-	// Ob es richtig handelt, wenn etwas richtig eingegeben wird.
-	
-	// HIIIILFEEE 
 	
 }

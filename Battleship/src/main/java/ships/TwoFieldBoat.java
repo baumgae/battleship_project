@@ -1,5 +1,8 @@
 package ships;
 /**
+ * 
+ * THIS CLASS ISN'T ACTIVE YET
+ * 
  * Subclass of AShip called OneFieldBoat
  * <p>
  * This class is a subclass of AShip.
@@ -20,5 +23,25 @@ public class TwoFieldBoat extends AShip {
 		super(6, 2, 0);
 	
 	}
+	
+	@Override
+	public boolean isHidden() {
+		return true;
+	}
 
+	@Override
+	public int getScore() {
+		int plusPoints = 100;	
+		return plusPoints;
+	}
+
+	@Override
+	public boolean isDestroyed() {
+		return false;
+	}
+	
+	@Override
+	public int getID() {
+		return 6;
+	}
 }

@@ -1,5 +1,7 @@
 package ships;
-import game.IGameElement;
+
+import gameConfigurations.Item;
+
 /**
  * Interface for Ships
  * <p>
@@ -11,7 +13,7 @@ import game.IGameElement;
  * @author Lea Baumgärtner
  * @version 0.2 
  */
-public interface IShip extends IGameElement{
+public interface IShip extends Item{
 	
 	int getShipSizeX();
 

@@ -26,9 +26,25 @@ public class Water extends AGameItem{
 		getSize();					// get his size
 	}
 	
-	public static int waterImpact() {
-		int noPoints = 0;;	
+	@Override
+	public boolean isHidden() {
+		return true;
+	}
+
+	@Override
+	public int getScore() {
+		int noPoints = 0;	
 		return noPoints;
+	}
+
+	@Override
+	public boolean isDestroyed() {
+		return false;
+	}
+	
+	@Override
+	public int getID() {
+		return 0;
 	}
 	
 	

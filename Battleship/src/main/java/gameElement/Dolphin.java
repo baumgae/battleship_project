@@ -25,17 +25,26 @@ public class Dolphin extends AGameItem{
 		getSize();					// get his size
 	}
 	
-	/*
-	 * TJ
-	 * I think that this method can be generalized and can be moved to IGameElement:
-	 * public int getImpact()
-	 * This eases the calculation of players' score.
-	 */
-	
-	public static int dolphinImpact() {
-	
+
+	@Override
+	public boolean isHidden() {
+		return true;
+	}
+
+	@Override
+	public int getScore() {
 		int minusPoints = -100;	
 		return minusPoints;
+	}
+
+	@Override
+	public boolean isDestroyed() {
+		return false;
+	}
+	
+	@Override
+	public int getID() {
+		return 1;
 	}
 	
 	

@@ -38,10 +38,8 @@ abstract class Player implements IPlayer {
 	int points;
 	EGameArea gameArea;
 	
-	Player(String name, int hits, int points) {
+	Player(String name) {
 		this.name = name;
-		this.hits = hits;
-		this.points = points;
 		
 	}
 	
@@ -50,6 +48,8 @@ abstract class Player implements IPlayer {
 	 */
 	public void countPoints() {
 		points+= 10;
+		// Parameter rein, wo die Punkte übergeben werden.
+		// Dynamisch machen indem Punkte übergeben werden
 		
 		// Actually over here it depends, which kind of GameElement the player hits.
 		// So if I determine the points of every GameElemnt in themselves, does it work?

@@ -1,5 +1,8 @@
 package ships;
 /**
+ * 
+ * THIS CLASS ISN'T ACTIVE
+ * 
  * Subclass of AShip called ThreeFieldBoat
  * <p>
  * This class is a subclass of AShip.
@@ -20,6 +23,26 @@ public class ThreeFieldBoat extends AShip {
 		super(7, 3, 0);
 	
 	}
+	
+	@Override
+	public boolean isHidden() {
+		return true;
+	}
 
+	@Override
+	public int getScore() {
+		int plusPoints = 100;	
+		return plusPoints;
+	}
+
+	@Override
+	public boolean isDestroyed() {
+		return false;
+	}
+	
+	@Override
+	public int getID() {
+		return 7;
+	}
 	
 }

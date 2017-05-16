@@ -102,8 +102,12 @@ public class DifficultyManager {
 	
 	
 }
+	// setDifficulty mit numberOf.... 
+	// getFieldSize --> auch mit einem Switch case
 	// is it possible like that? 
-	public int getNumberOfDolphines(EDifficulty difficulty) {
+	
+	// Alles ohne Paarameter
+	public int getNumberOfDolphines() {
 		return this.numberOfDolphines;
 	}
 

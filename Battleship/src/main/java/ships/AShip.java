@@ -1,5 +1,4 @@
 package ships;
-import game.IGameElement;
 /**
  * Abstract Class Ships
  * <p>

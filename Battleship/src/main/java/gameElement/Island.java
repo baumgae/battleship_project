@@ -27,21 +27,25 @@ public class Island extends AGameItem{
 		getSize();					// get his size
 	}
 	
-	public static int islandImpact() {
-		// We want to change the way the player is able to shoot - instead of shooting on one field
-		// Shooting on four fields for 3 Rounds
-		// As long as we have no time for this, it will return some minusPoints
-		
-		int minusPoints = -50;
+	@Override
+	public boolean isHidden() {
+		return true;
+	}
+
+	@Override
+	public int getScore() {
+		int minusPoints = -200;	
 		return minusPoints;
-		
-		// Over here, I have to work with a map or somethings
-		// int shootingX = 2;
-		// int shootingY = 2;
-		
-		// Punkte sind noch variable festzulegen
-		// return shootingX;
-		
+	}
+
+	@Override
+	public boolean isDestroyed() {
+		return false;
+	}
+	
+	@Override
+	public int getID() {
+		return 2;
 	}
 
 }

@@ -18,20 +18,21 @@ public class PlayerFactory {
 		return new Player (name, 0, 0);
 	}
 	*/
-	
+	// Nur name übergeben, dementsprechend Constructor ändern
+	// erstmal nur Human Player --> AI erstmal außer Acht lassen
 	// Muss ich hier überhaupt, int points, int countHit übergeben
 	// Sie werden doch sowieso von Anfang an auf Null gesetzt.
 	
-	public static IPlayer getInstance(String type, String name, int points, int countHits) throws CreatePlayerException{
+	public static IPlayer getInstance(String type, String name) throws CreatePlayerException{
 		if(type == null){
 			throw new CreatePlayerException(); 
 		
 		} else if(type.equals("human")){
-			return new HumanPlayer(name, 0, 0); 
+			return new HumanPlayer(name); 
 		
-		} else if(type.equals("ai")){
-			return new ComputerPlayer(name, 0, 0); 
-		
+	/*	} else if(type.equals("ai")){
+			return new ComputerPlayer("ComputerHans"); // Erstmal nicht aktiv
+	*/
 		} else{
 			throw new CreatePlayerException();
 			

@@ -1,16 +1,22 @@
 package gameConfigurations;
 
+/**
+* Subclass of Player called HumanPlayer
+* <p>
+* This is the subclass for a HumanPlayer
+* <br>
+* If a HumanPlayer will be created, a name has to be given through the <br>
+* constructor {@Link HumanPlayer}
+* 
+* <p>
+* @author Lea Baumgärtner
+* @version 0.2 
+*/
+
 public class HumanPlayer extends Player{
 
-	HumanPlayer(String name, int hits, int points) {
-		super(name, 0, 0);
+	HumanPlayer(String name) {
+		super(name);
 	}
 	
-	/*
-	Would the constructor be enough or do I need also an extra "ScoreStorage"
-	for the human Player?
-	
-	int humanPoints = Player.points;
-	int humanHits = Player.hits;
-	*/
 }

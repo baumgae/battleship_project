@@ -1,5 +1,4 @@
 package gameElement;
-import game.IGameElement;
 /**
  * Abstract Class for Game Items
  * <p>

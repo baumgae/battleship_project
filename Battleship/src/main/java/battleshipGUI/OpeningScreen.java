@@ -38,12 +38,18 @@ public class OpeningScreen extends Application{
 		
 		VBox root = new VBox();
 		
+		/**
+		 * Title for the whole screen
+		 */
 		Label labelTitle = new Label("Battleship");
 		// Here we could add an image with a battleship on it.
 		
 		// Image image = new Image(getClass().getResourceAsStream("Battleship_Opening.jpg"));
 		//Label label3 = new Label("Battleship", new ImageView(image));
 		
+		/**
+		 * Button for starting a new Game
+		 */
 		Button newGame = new Button("New Game");
 
 		// This should be the EventHandling for opening the NewGameScreen.java
@@ -53,7 +59,9 @@ public class OpeningScreen extends Application{
 		
 		// Same shit for the others.
 		
-		
+		/**
+		 * Button for continue an old game
+		 */
 		Button continueGame = new Button("Continue");
 			
 		// This should be the EventHandling for opening the old game
@@ -62,15 +70,21 @@ public class OpeningScreen extends Application{
 				continueGame.setOnAction(
 						event -> continueGame.setText("You Mongo!"));
 		
-						
+		/**
+		* Button for opening the highscores
+		*/				
 		Button highscore = new Button("Highscore");
 		// EventHandler for opening the highscore Document
 		// But this won't be important for now!
 		highscore.setOnAction(
 				event -> highscore.setText("Nononono"));
 								
-						
+		
+		/**
+		 * Button for ending the whole application
+		 */
 		Button quit = new Button("Quit");
+		
 		// EventHandler for ending the complete Application
 		quit.setOnAction(
 				event -> quit.setText("You may not leave!"));
@@ -80,6 +94,7 @@ public class OpeningScreen extends Application{
 		
 		
 		Scene scene = new Scene(root, 300, 400);
+		scene.getStylesheets().add("OpeningSceneCss.css");
 		
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Opening Scene - Battleship");

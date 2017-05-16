@@ -28,10 +28,25 @@ public class LuckyDwarf extends AGameItem{
 		getSize();		// get his size
 	}
 	
-	public static int luckyDwarfImpact() {
-		int plusPoints = 300;	// Punkte sind noch variable festzulegen
+	@Override
+	public boolean isHidden() {
+		return true;
+	}
+
+	@Override
+	public int getScore() {
+		int plusPoints = 500;	
 		return plusPoints;
-		
+	}
+
+	@Override
+	public boolean isDestroyed() {
+		return false;
+	}
+	
+	@Override
+	public int getID() {
+		return 3;
 	}
 	
 }

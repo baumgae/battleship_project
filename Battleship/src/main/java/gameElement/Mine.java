@@ -29,15 +29,25 @@ public class Mine extends AGameItem {
 		getSize();
 	}
 	
-	public static int mineImpact() {
-		
-		// Methode, welche zur Methode führt, welche 
-		// in der Logik ist und das aktuelle Spiel beendet.
-		
-		int minusPoints = -500;
-		return minusPoints;
+	@Override
+	public boolean isHidden() {
+		return true;
+	}
 
-		
+	@Override
+	public int getScore() {
+		int minusPoints = -400;	
+		return minusPoints;
+	}
+
+	@Override
+	public boolean isDestroyed() {
+		return false;
+	}
+	
+	@Override
+	public int getID() {
+		return 4;
 	}
 	
 }

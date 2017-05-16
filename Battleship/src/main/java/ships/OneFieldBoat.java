@@ -20,6 +20,26 @@ public class OneFieldBoat extends AShip {
 		super(5, 1, 0);
 		
 	}
+	
+	@Override
+	public boolean isHidden() {
+		return true;
+	}
 
+	@Override
+	public int getScore() {
+		int plusPoints = 100;	
+		return plusPoints;
+	}
+
+	@Override
+	public boolean isDestroyed() {
+		return false;
+	}
+	
+	@Override
+	public int getID() {
+		return 5;
+	}
 
 }
