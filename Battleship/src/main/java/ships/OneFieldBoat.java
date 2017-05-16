@@ -16,7 +16,7 @@ package ships;
  */
 public class OneFieldBoat extends AShip {
 
-	OneFieldBoat() {
+	public OneFieldBoat() {
 		super(5, 1, 0);
 		
 	}
