@@ -67,6 +67,8 @@ public class GameAreaManager {
 	  
       }
 
+   //Comment for pulling
+   
    void getStatusCoordinate () throws NoGameElementException { 
 	  
 	     if (Layer2Status == 0) {
