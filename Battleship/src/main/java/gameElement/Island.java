@@ -22,7 +22,7 @@ package gameElement;
  */
 public class Island extends AGameItem{
 
-	Island() {
+	public Island() {
 		super(2);					// Island has ID 2
 		getSize();					// get his size
 	}

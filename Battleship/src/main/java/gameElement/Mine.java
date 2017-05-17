@@ -24,7 +24,7 @@ package gameElement;
  */
 public class Mine extends AGameItem {
 
-	Mine() {
+	public Mine() {
 		super(4);
 		getSize();
 	}
