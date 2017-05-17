@@ -1,10 +1,9 @@
 package com.hdm_stuttgart.Battleship;
 
+import game.EDifficulty;
+
 public class GameManager {
 	
-	public static void main(String[] args) {
-		
-
-	}
+	private EDifficulty gameDifficlty;
 
 }

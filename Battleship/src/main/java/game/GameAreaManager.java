@@ -26,18 +26,13 @@ import gameElement.Water;
  * at it.
  * The method {@link #getStatusCoordinate()} will be called if the Player 
  * shoots on a field. Then it will be checked with the help of an if statement which 
- * Game Element it is and which action will follow. At the same time it will be checked,
- * if there is a ship, whether this ship is completely destroyed with the current shot.
+ * Game Element it is and which action will follow. 
  * 
  * <p>
  * @author Celine Wichmann
  * @version 0.2
  */
 
-// Question:   
-// Where should the points be counted? And how?
-// How can we add the different Points to the specific Player Score?
-// Why am I not able to call the method from the Shooting Area?
 
 public class GameAreaManager {
 	
@@ -64,12 +59,14 @@ public class GameAreaManager {
    void shootOnCoordinate (int x, int y) {
 	
 	         Layer1Status = 1; 
+	         
 	  // Status of every Coordinate is 0 until you shoot on it, then it switch to 1
 	  
       }
 
    
-    // We create new Game Elements, but destroyed them at the same time.
+   // We create new Game Elements, but destroyed them at the same time.
+   
    void getStatusCoordinate () throws NoGameElementException { 
 	  
 	     if (Layer2Status == 0) {
@@ -84,8 +81,8 @@ public class GameAreaManager {
 		  
 	   } if (Layer2Status == 2) { 
 		  
-		     // Island island = new Island();
-		     // island.getScore();
+		      Island island = new Island();
+		      island.getScore();
 		  
 	   } if (Layer2Status == 3) { 
 		  
@@ -94,8 +91,8 @@ public class GameAreaManager {
 		  
 	   } if (Layer2Status == 4) {
 		     
-		     // Mine mine = new Mine();
-		     // mine.getScore();
+		     Mine mine = new Mine();
+		     mine.getScore();
 		  
 	   } if (Layer2Status == 5) { // There is an One Field Boat
 		  

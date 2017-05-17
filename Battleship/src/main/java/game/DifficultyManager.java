@@ -41,9 +41,12 @@ public class DifficultyManager {
 	int numberOfThreeFieldBoat;
 	int numberOfFourFieldBoat;
 	int numberOfQuadrupleFieldBoat;
+	
+	private static EDifficulty curDifficulty;
 
 	public void setDifficulty (EDifficulty difficulty) { 	
 	
+		curDifficulty = difficulty;
 		switch(difficulty) {
 	
 			case EASY:
@@ -98,7 +101,7 @@ public class DifficultyManager {
 	
 	
 }
-	public Point getFieldSize (EDifficulty difficulty){
+	public static Point getFieldSize (EDifficulty difficulty){
 		switch(difficulty) {
 		
 		case EASY:
