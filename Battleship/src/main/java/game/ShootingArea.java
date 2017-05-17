@@ -9,10 +9,10 @@ import game.NoGameElementException;
 import gameElement.Water;
 
 /**
- * Shooting Area for setting the Status of the GameArea at Layer 1 and Layer2
+ * Shooting Area for setting the Status of the GameArea the Player is shooting at.
  * 
  * <p>
- * This class is managing the Status of the GameArea at Layer 1 and Layer 2.
+ * This class is managing the Status of the Game Area the Player is shooting at.
  * At Layer 1 you can see whether a Field has been already shot or not.
  * As long as a Field is not shot the ID of this Field stands on 0.
  * If a field is shot the ID changes on 1. Then you are not allowed
@@ -76,6 +76,8 @@ public class ShootingArea {
 		     mine.getScore();
 		  
 	   } if (Layer2Status == 5) { // There is an One Field Boat
+		   
+		   // We just have an One Field Boat at this moment.
 		  
 		     OneFieldBoat onefieldboat = new OneFieldBoat();
 	         onefieldboat.getScore();

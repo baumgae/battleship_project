@@ -3,19 +3,27 @@ package game;
 import java.util.Random;
 
 import gameConfigurations.Item;
+import gameElement.Dolphin;
+import gameElement.Island;
+import gameElement.LuckyDwarf;
+import gameElement.Mine;
 
 /**
  * The Class GameArea is managing the Creation of the Game Area and handle the
- * Action on the Field.
+ * Actions on the Field.
  * 
  * <p>
- * This class is managing the Creation of the Game Area and handle the Action on
+ * This class is managing the Creation of the Game Area and handle the Actions on
  * the Field. First the Game Area will be created with the Constructor 
  * {@link #GameArea(EDifficulty)}.
  * 
  * <p>
- * The method {@link #setRandomGameElement()} generate to random Coordinates to set
- * the Game Elements on the Field decide on which degree of Difficulty is used.
+ * The method {@link #setRandomCoordinate()} generate random Coordinates for the
+ * Game Elements which the Player is not allowed to set.
+ * 
+ * <p>
+ * The method {@link #setRandomGameElement()} gets the random Coordinates from 
+ * {@link #setRandomCoordinate()} and set the Elements on the Field.
  * 
  * <p>  
  * The method {@link #unhide(int, int)} discover the Field to see which Game Element 
@@ -36,44 +44,48 @@ public class GameArea {
 	
 	public GameArea(EDifficulty difficulty){
 
-		java.awt.Point point = DifficultyManager.getFieldSize(difficulty);
+	    	java.awt.Point point = DifficultyManager.getFieldSize(difficulty);
 		
-		this.items =  new Item[point.x][point.y];
-		// TODO: Spielfeldgröße setzen
+		    this.items =  new Item[point.x][point.y];
+		     // TODO: set Field Size
 		
-		this.difficulty = difficulty;
-		this.setRandomGameElement();
-	}
+		    this.difficulty = difficulty;
+		    this.setRandomGameElement();
+	    }
 	
 
-	void setRandomGameElement() {
+	    void setRandomCoordinate() {
 
-		final int CoordinateX = this.items.length;
-		Random rndX = new Random();
-		final int randomValueX = rndX.nextInt(CoordinateX + 1);
+		   int CoordinateX = this.items.length;
+		   Random rndX = new Random();
+		   int randomValueX = rndX.nextInt(CoordinateX + 1);
 
-		final int CoordinateY = this.items[0].length;
-		Random rndY = new Random();
-		final int randomValueY = rndY.nextInt(CoordinateY + 1);
+		   int CoordinateY = this.items[0].length;
+		   Random rndY = new Random();
+		   int randomValueY = rndY.nextInt(CoordinateY + 1);
+
+	    }
+	
+	
+	    void setRandomGameElement() {
 		
+//     	  Dolphin.setRandomCoordinates(randomValueX, randomValueY);
+//		  Island.setRandomCoordinate(randomValueX, randomValueY);
+//		  Mine.setRandomCoordinate(randomValueX, randomValueY);
+//		  LuckyDwarf.setRandomCoordinate(randomValueX, randomValueY);
 
-	}
-	
-	// Du könntest die obere Methode als setRandomCoordinates() bezeichnen
-	// Warum final? --> Wenn es final ist könnte es sein, dass sichs dann nicht
-	// mehr ändern lässt.
-	// Du nimmst die generierten Koordinaten und nutzt sie in einer
-	// extra Methode namens void setRandomGameElement(), woraufhin du 
-	// diese randomKoordinaten nutzt und diese dem Element als position 
-	// zuweist.
-	
-	void unhide(int x, int y) {
+		  this.setRandomCoordinate();
 		
-	}
+	    }
 	
-	void shoot(int x, int y) {
+	
+	    void unhide(int x, int y) {
+		
+	    }
+	
+	    void shoot(int x, int y) {
 			
-	}
+     	}
 	
- }
+  }
 
