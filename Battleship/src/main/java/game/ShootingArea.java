@@ -4,14 +4,12 @@ import gameElement.Dolphin;
 import gameElement.Island;
 import gameElement.LuckyDwarf;
 import gameElement.Mine;
-import ships.AShip;
 import ships.OneFieldBoat;
-import game.ShootingArea;
 import game.NoGameElementException;
 import gameElement.Water;
 
 /**
- * GameAreaManager for setting the Status of the GameArea at Layer 1 and Layer2
+ * Shooting Area for setting the Status of the GameArea at Layer 1 and Layer2
  * 
  * <p>
  * This class is managing the Status of the GameArea at Layer 1 and Layer 2.
@@ -34,22 +32,7 @@ import gameElement.Water;
  */
 
 
-public class GameAreaManager {
-	
-	/*
-	 * TJ
-	 * I think that this is one of the most important attributes of the whole project. Why are you using an 
-	 * int array? Instead, you could use something like this:
-	 * IGameItem [] [] area = new IGameItem[x][y];
-	 * 
-	 * This allows to access the attributes of each field quite easy as you could something like this:
-	 * area[3][4].isEmpty();
-	 * area[3][4].isOccupiedByEnemie();
-	 * area[3][4].isOccupiedByObstacle();
-	 * 
-	 * In order to do so, you have add some methods of the interface IGameItem.
-	 *  
-	 */
+public class ShootingArea {
 	
 	int Layer1Status = 0; // the field hasn't been shot
 	int Layer2Status = 0; // there is water on this field
@@ -64,8 +47,6 @@ public class GameAreaManager {
 	  
       }
 
-   
-   // We create new Game Elements, but destroyed them at the same time.
    
    void getStatusCoordinate () throws NoGameElementException { 
 	  
@@ -98,31 +79,26 @@ public class GameAreaManager {
 		  
 		     OneFieldBoat onefieldboat = new OneFieldBoat();
 	         onefieldboat.getScore();
-	      // ShootingArea.isDestroyed(); 
 		  
 	   } if (Layer2Status == 6) { // There is a Two Field Boat
 		  
 		     OneFieldBoat onefieldboat = new OneFieldBoat();
-	         onefieldboat.getScore();
-	      // ShootingArea.isDestroyed(); 
+	         onefieldboat.getScore(); 
 		  
 	   } if (Layer2Status == 7) { // There is a Three Field Boat
 		  
 		     OneFieldBoat onefieldboat = new OneFieldBoat();
-	         onefieldboat.getScore();
-	      // ShootingArea.isDestroyed(); 
+	         onefieldboat.getScore(); 
 		  
 	   } if (Layer2Status == 8) { // There is a Four Field Boat
 		  
 		     OneFieldBoat onefieldboat = new OneFieldBoat();
-	         onefieldboat.getScore();
-		  // ShootingArea.isDestroyed(); 
+	         onefieldboat.getScore(); 
 		  
 	   } if (Layer2Status == 9) { // There is a Quadruple
 		  
 		     OneFieldBoat onefieldboat = new OneFieldBoat();
 	         onefieldboat.getScore();
-	      // ShootingArea.isDestroyed();
 		  
 	   } else {
 		  
@@ -135,4 +111,19 @@ public class GameAreaManager {
 
  
   }
+
+/*
+ * TJ
+ * I think that this is one of the most important attributes of the whole project. Why are you using an 
+ * int array? Instead, you could use something like this:
+ * IGameItem [] [] area = new IGameItem[x][y];
+ * 
+ * This allows to access the attributes of each field quite easy as you could something like this:
+ * area[3][4].isEmpty();
+ * area[3][4].isOccupiedByEnemie();
+ * area[3][4].isOccupiedByObstacle();
+ * 
+ * In order to do so, you have add some methods of the interface IGameItem.
+ *  
+ */
 

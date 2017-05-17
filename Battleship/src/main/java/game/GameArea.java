@@ -5,11 +5,20 @@ import java.util.Random;
 import gameConfigurations.Item;
 
 /**
- * The Class GameArea is managing the Action on the Game Area Field.
+ * The Class GameArea is managing the Creation of the Game Area and handle the
+ * Action on the Field.
  * 
  * <p>
- * This class is managing the Action on the Game Area Field. With the method
- * {@link #unhide(int, int)} you can discover the Field to see which Game Element 
+ * This class is managing the Creation of the Game Area and handle the Action on
+ * the Field. First the Game Area will be created with the Constructor 
+ * {@link #GameArea(EDifficulty)}.
+ * 
+ * <p>
+ * The method {@link #setRandomGameElement()} generate to random Coordinates to set
+ * the Game Elements on the Field decide on which degree of Difficulty is used.
+ * 
+ * <p>  
+ * The method {@link #unhide(int, int)} discover the Field to see which Game Element 
  * is behind this.
  * 
  * <p>
@@ -56,8 +65,8 @@ public class GameArea {
 	}
 	
 	void shoot(int x, int y) {
-		
-		
-		
+			
 	}
-}
+	
+ }
+
