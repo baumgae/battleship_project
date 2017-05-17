@@ -23,12 +23,6 @@ import java.awt.Point;
 
 public class Water extends AGameItem{
 	
-	
-	public Water() {
-		super(0);					// Water has ID 0
-		getSize();					// get his size
-	}
-	
 	@Override
 	public boolean isHidden(boolean hide) {
 		return hide;
@@ -71,6 +65,10 @@ public class Water extends AGameItem{
 		return p.y;
 	}
 	
+	@Override
+	public int getSize() {
+		return 1;
+	}
 	
 }
 

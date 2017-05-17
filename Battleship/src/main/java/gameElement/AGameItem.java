@@ -31,54 +31,11 @@ public abstract class AGameItem implements Item {
 	* Fields for the GameItems
 	*
 	**/
-		private int IDGameElement;
-		final static int size = 1;
+
 		Point p;
 		
-	/**
-	*
-	* Super Constructor for the subclasses
-	* 
-	* @param IDGameElement
-	*
-	**/	
-		AGameItem (int IDGameElement) {
-			this.IDGameElement = IDGameElement;
-		}
 	
-	/**
-	*
-	* Methods for getting size and GameElement ID
-	* 
-	* @return size of the Game Item
-	* @return ID of the Game Item
-	* 
-	**/
-		
-		/* (non-Javadoc)
-		 * @see gameElement.IGameItem#getSize()
-		 */
-		@Override
-		public int getSize() {
-			return size;
-		}
-		
-		/* (non-Javadoc)
-		 * @see game.IGameElements#getXposition()
-		 
-		@Override
-		public int[] getPosition() {
-			return ;
-		}
-		*/
-		/* (non-Javadoc)
-		 * @see game.IGameElements#getX()
-		 */
-		@Override
-		public int getID() {
-			return this.IDGameElement;
-		}
-		
+	
 		
 }
 		

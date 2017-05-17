@@ -20,13 +20,10 @@ import gameConfigurations.Item;
  * @version 0.2 
  */
 
-/*
- * TJ
- * You can consider to implement the IGameElement interface
- */
+
 public abstract class AShip implements Item {
 	
-	int shipID;
+    int shipID;
 	int shipSizeX;
 	int shipSizeY;
 	
@@ -41,17 +38,5 @@ public abstract class AShip implements Item {
 		this.shipSizeY = shipSizeY;
 	}
 	
-	
-	/* (non-Javadoc)
-	 * @see game.IGameElements#getX()
-	 */
-	@Override
-	public int getID() {
-		return this.shipID;
-	}
-	
 
-	
-	
-	
 }

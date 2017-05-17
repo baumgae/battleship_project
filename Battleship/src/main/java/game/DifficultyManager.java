@@ -31,76 +31,7 @@ import java.awt.Point;
 // because every gameElement has another impact.
 public class DifficultyManager {
 		
-	int numberOfDolphines;
-	int numberOfMines;
-	int numberOfIslands;
-	int numberOfLuckyDwarf;
-	
-	int numberOfOneFieldBoat;
-	int numberOfTwoFieldBoat;
-	int numberOfThreeFieldBoat;
-	int numberOfFourFieldBoat;
-	int numberOfQuadrupleFieldBoat;
-	
-	private static EDifficulty curDifficulty;
 
-	public void setDifficulty (EDifficulty difficulty) { 	
-	
-		curDifficulty = difficulty;
-		switch(difficulty) {
-	
-			case EASY:
-				
-				numberOfDolphines = 2;
-				numberOfOneFieldBoat = 2;
-				// numberOfTwoFieldBoat = 2;
-				// numberOfThreeFieldBoat = 1;
-				
-			
-			case NORMAL:
-				
-				numberOfDolphines = 2;
-				numberOfIslands = 1;
-				numberOfOneFieldBoat = 3;
-				numberOfTwoFieldBoat = 1;
-				numberOfThreeFieldBoat = 2;
-				numberOfFourFieldBoat = 1;
-				numberOfQuadrupleFieldBoat = 1;
-			
-			case HARD:
-				
-				numberOfDolphines = 4;
-				numberOfIslands = 2;
-				numberOfLuckyDwarf = 1;
-				
-				numberOfOneFieldBoat = 4;
-				// numberOfTwoFieldBoat = 3;
-				// numberOfThreeFieldBoat = 1;
-				// numberOfFourFieldBoat = 2;
-				// numberOfQuadrupleFieldBoat = 2;
-				
-			
-			case SUICIDAL:
-				
-				numberOfDolphines = 5;
-				numberOfIslands = 4;
-				numberOfLuckyDwarf = 1;
-				numberOfMines = 4;
-				
-				numberOfOneFieldBoat = 5;
-				//numberOfTwoFieldBoat = 3;
-				//numberOfThreeFieldBoat = 3;
-				//numberOfFourFieldBoat = 1;
-				//numberOfQuadrupleFieldBoat = 3;
-				
-				
-				
-			default:
-	
-	}
-	
-	
-}
 	public static Point getFieldSize (EDifficulty difficulty){
 		switch(difficulty) {
 		
@@ -121,40 +52,175 @@ public class DifficultyManager {
 		}
 	}
 
-	public int getNumberOfDolphines() {
-		return this.numberOfDolphines;
+	public int getNumberOfDolphines(EDifficulty difficulty) {
+		switch(difficulty) {
+			
+		case EASY:
+				return 2;
+		
+		case NORMAL:
+				return 2;
+			
+		case HARD:
+				return 4;
+		
+		case SUICIDAL:
+				return 5;
+		default:
+			return 1; 
+		}
 	}
 
 	public int getNumberOfMines(EDifficulty difficulty) {
-		return this.numberOfMines;
+		switch(difficulty) {
+		
+		case EASY:
+				return 0;
+		
+		case NORMAL:
+				return 1;
+			
+		case HARD:
+				return 2;
+		
+		case SUICIDAL:
+				return 3;
+		default:
+			return 1; 
+		}
 	}
 
 	public int getNumberOfIslands(EDifficulty difficulty) {
-		return this.numberOfIslands;
+		switch(difficulty) {
+		
+		case EASY:
+				return 1;
+		
+		case NORMAL:
+				return 2;
+			
+		case HARD:
+				return 3;
+		
+		case SUICIDAL:
+				return 4;
+		default:
+			return 1; 
+		}
 	}
 
 	public int getNumberOfLuckyDwarf(EDifficulty difficulty) {
-		return this.numberOfLuckyDwarf;
+		switch(difficulty) {
+		
+		case EASY:
+				return 0;
+		
+		case NORMAL:
+				return 1;
+			
+		case HARD:
+				return 1;
+		
+		case SUICIDAL:
+				return 2;
+		default:
+			return 0; 
+		}
 	}
 
 	public int getNumberOfOneFieldBoat(EDifficulty difficulty) {
-		return this.numberOfOneFieldBoat;
+		switch(difficulty) {
+		
+		case EASY:
+				return 2;
+		
+		case NORMAL:
+				return 3;
+			
+		case HARD:
+				return 4;
+		
+		case SUICIDAL:
+				return 5;
+		default:
+			return 1; 
+		}
 	}
 
 	public int getNumberOfTwoFieldBoat(EDifficulty difficulty) {
-		return this.numberOfTwoFieldBoat;
+		switch(difficulty) {
+		
+		case EASY:
+				return 2;
+		
+		case NORMAL:
+				return 2;
+			
+		case HARD:
+				return 4;
+		
+		case SUICIDAL:
+				return 5;
+		default:
+			return 1; 
+		}
 	}
 
 	public int getNumberOfThreeFieldBoat(EDifficulty difficulty) {
-		return this.numberOfThreeFieldBoat;
+		switch(difficulty) {
+		
+		case EASY:
+				return 2;
+		
+		case NORMAL:
+				return 2;
+			
+		case HARD:
+				return 4;
+		
+		case SUICIDAL:
+				return 5;
+		default:
+			return 1; 
+		}
 	}
 
 	public int getNumberOfFourFieldBoat(EDifficulty difficulty) {
-		return this.numberOfFourFieldBoat;
+		switch(difficulty) {
+		
+		case EASY:
+				return 2;
+		
+		case NORMAL:
+				return 2;
+			
+		case HARD:
+				return 4;
+		
+		case SUICIDAL:
+				return 5;
+		default:
+			return 1; 
+		}
 	}
 
 	public int getNumberOfQuadrupleFieldBoat(EDifficulty difficulty) {
-		return this.numberOfQuadrupleFieldBoat;
+		switch(difficulty) {
+		
+		case EASY:
+				return 2;
+		
+		case NORMAL:
+				return 2;
+			
+		case HARD:
+				return 4;
+		
+		case SUICIDAL:
+				return 5;
+		default:
+			return 1; 
+		}
 	}
 
 }

@@ -23,12 +23,6 @@ import java.awt.Point;
 
 public class Dolphin extends AGameItem{
 	
-	public Dolphin() {
-		super(1);					// Dolphin has ID 1
-		getSize();					// get his size
-	}
-	
-
 	@Override
 	public boolean isHidden(boolean hide) {
 		return hide;
@@ -69,6 +63,11 @@ public class Dolphin extends AGameItem{
 	@Override
 	public int getYPosition() {
 		return p.y;
+	}
+	
+	@Override
+	public int getSize() {
+		return 1;
 	}
 	
 }

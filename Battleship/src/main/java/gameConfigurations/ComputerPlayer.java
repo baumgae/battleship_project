@@ -19,12 +19,27 @@ public class ComputerPlayer extends Player{
 		super(name);
 		
 	}
+
+	@Override
+	public void countPoints(int points) {
+		points = this.points + points;
+		
+	}
+
+	@Override
+	public int getCountedPoints() {
+		return points;
+	}
+
+	@Override
+	public void countHits(int hits) {
+		hits = this.hits + hits;
+		
+	}
+
+	@Override
+	public int getCountedHits() {
+		return hits;
+	}
 	
-	/*
-	Would the constructor be enough or do I need also an extra "ScoreStorage"
-	for the Computer Player?
-	
-	int computerPoints = Player.points;
-	int computerHits = Player.hits;
-	*/
 }

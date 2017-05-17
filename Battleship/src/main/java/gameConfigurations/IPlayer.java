@@ -2,12 +2,12 @@ package gameConfigurations;
 
 public interface IPlayer {
 	
-		public void countPoints();
+		public void countPoints(int points);
 		
-		public int getCountedPoints (int points);
+		public int getCountedPoints ();
 		
-		public void countHits();
+		public void countHits(int hits);
 		
-		public int getCountedHits (int hits);
+		public int getCountedHits ();
 		
 }

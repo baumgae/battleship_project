@@ -27,11 +27,6 @@ import java.awt.Point;
  */
 public class Mine extends AGameItem {
 
-	public Mine() {
-		super(4);
-		getSize();
-	}
-	
 	@Override
 	public boolean isHidden(boolean hide) {
 		return hide;
@@ -72,6 +67,11 @@ public class Mine extends AGameItem {
 	@Override
 	public int getYPosition() {
 		return p.y;
+	}
+	
+	@Override
+	public int getSize() {
+		return 1;
 	}
 	
 }

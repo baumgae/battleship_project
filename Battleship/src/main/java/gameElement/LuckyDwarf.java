@@ -26,11 +26,6 @@ import java.awt.Point;
  */
 public class LuckyDwarf extends AGameItem{
 
-	public LuckyDwarf() {
-		super(3);					// LuckyDwarf has ID 3
-		getSize();		// get his size
-	}
-	
 	@Override
 	public boolean isHidden(boolean hide) {
 		return hide;
@@ -71,6 +66,11 @@ public class LuckyDwarf extends AGameItem{
 	@Override
 	public int getYPosition() {
 		return p.y;
+	}
+	
+	@Override
+	public int getSize() {
+		return 1;
 	}
 	
 }

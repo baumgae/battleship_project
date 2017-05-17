@@ -14,9 +14,34 @@ package gameConfigurations;
 */
 
 public class HumanPlayer extends Player{
-
+	
+	int points;
+	int hits;
+	
 	HumanPlayer(String name) {
 		super(name);
+	}
+
+	@Override
+	public void countPoints(int points) {
+		points = this.points + points;
+		
+	}
+
+	@Override
+	public int getCountedPoints() {
+		return points;
+	}
+
+	@Override
+	public void countHits(int hits) {
+		hits = this.hits + hits;
+		
+	}
+
+	@Override
+	public int getCountedHits() {
+		return hits;
 	}
 	
 }

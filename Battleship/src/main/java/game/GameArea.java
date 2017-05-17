@@ -56,9 +56,16 @@ public class GameArea {
 		Random rndY = new Random();
 		final int randomValueY = rndY.nextInt(CoordinateY + 1);
 		
-		
 
 	}
+	
+	// Du könntest die obere Methode als setRandomCoordinates() bezeichnen
+	// Warum final? --> Wenn es final ist könnte es sein, dass sichs dann nicht
+	// mehr ändern lässt.
+	// Du nimmst die generierten Koordinaten und nutzt sie in einer
+	// extra Methode namens void setRandomGameElement(), woraufhin du 
+	// diese randomKoordinaten nutzt und diese dem Element als position 
+	// zuweist.
 	
 	void unhide(int x, int y) {
 		

@@ -3,8 +3,7 @@ package gameElement;
 import java.awt.Point;
 
 /**
- * THIS CLASS ISN'T ACTIVE 
- * <p>
+ * 
  * Game Element Island
  * <p>
  * This class is a subclass of Game Items.
@@ -25,11 +24,6 @@ import java.awt.Point;
  */
 public class Island extends AGameItem{
 
-	public Island() {
-		super(2);					// Island has ID 2
-		getSize();					// get his size
-	}
-	
 	@Override
 	public boolean isHidden(boolean hide) {
 		return hide;
@@ -72,4 +66,8 @@ public class Island extends AGameItem{
 		return p.y;
 	}
 
+	@Override
+	public int getSize() {
+		return 1;
+	}
 }

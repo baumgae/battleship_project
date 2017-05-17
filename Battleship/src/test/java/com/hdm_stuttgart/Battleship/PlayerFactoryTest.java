@@ -24,9 +24,9 @@ public class PlayerFactoryTest {
 	// Expected right
 	
 	@Test
-	public void testWrongPlayerchoosen() throws CreatePlayerException {
+	public void testRightPlayerchoosen2() throws CreatePlayerException {
 	
-		IPlayer Player = PlayerFactory.getInstance("ai", "ComputerHans");
+		IPlayer Player = PlayerFactory.getInstance("human", "Kai");
 		Assert.assertTrue(Player instanceof HumanPlayer);
 	}
 	// Expected wrong
@@ -37,6 +37,8 @@ public class PlayerFactoryTest {
 	
 		IPlayer Player = PlayerFactory.getInstance("ai", "ComputerHans");
 		Assert.assertTrue(Player instanceof ComputerPlayer);
+		
+		
 	}
 	// expected right
 	
