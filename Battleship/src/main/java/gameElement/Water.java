@@ -1,4 +1,7 @@
 package gameElement;
+
+import java.awt.Point;
+
 /**
  * Game Element Water
  * 
@@ -19,7 +22,7 @@ package gameElement;
  */
 
 public class Water extends AGameItem{
-
+	
 	
 	public Water() {
 		super(0);					// Water has ID 0
@@ -45,6 +48,27 @@ public class Water extends AGameItem{
 	@Override
 	public int getID() {
 		return 0;
+	}
+	
+	@Override
+	public Point setPosition(Point p) {
+		this.p = p;
+		return p;
+	}
+	
+	@Override
+	public Point getPosition() {
+		return p;
+	}
+
+	@Override
+	public int getXPosition() {
+		return p.x;
+	}
+
+	@Override
+	public int getYPosition() {
+		return p.y;
 	}
 	
 	

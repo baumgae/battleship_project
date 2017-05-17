@@ -1,4 +1,7 @@
 package ships;
+
+import java.awt.Point;
+
 /**
  * 
  * THIS CLASS ISN'T ACTIVE
@@ -43,6 +46,32 @@ public class ThreeFieldBoat extends AShip {
 	@Override
 	public int getID() {
 		return 7;
+	}
+	
+	@Override
+	public Point setPosition(Point p) {
+		this.p = p;
+		return p;
+	}
+	
+	@Override
+	public Point getPosition() {
+		return p;
+	}
+
+	@Override
+	public int getXPosition() {
+		return p.x;
+	}
+
+	@Override
+	public int getYPosition() {
+		return p.y;
+	}
+
+	@Override
+	public int getSize() {
+		return 3;
 	}
 	
 }

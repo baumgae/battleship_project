@@ -1,4 +1,8 @@
 package gameConfigurations;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Factory for creating a new Player
  * <p>
@@ -12,6 +16,8 @@ package gameConfigurations;
  * @version 0.1 
  */
 public class PlayerFactory {
+	
+	Logger logger = LogManager.getRootLogger();
 	
 	/*
 	public static Player getNewPlayer (String name, String type){

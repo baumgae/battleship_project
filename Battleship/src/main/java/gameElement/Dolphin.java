@@ -1,4 +1,7 @@
 package gameElement;
+
+import java.awt.Point;
+
 /**
  * Game Element Dolphin
  * <p>
@@ -45,6 +48,27 @@ public class Dolphin extends AGameItem{
 	@Override
 	public int getID() {
 		return 1;
+	}
+	
+	@Override
+	public Point setPosition(Point p) {
+		this.p = p;
+		return p;
+	}
+
+	@Override
+	public Point getPosition() {
+		return p;
+	}
+
+	@Override
+	public int getXPosition() {
+		return p.x;
+	}
+
+	@Override
+	public int getYPosition() {
+		return p.y;
 	}
 	
 }

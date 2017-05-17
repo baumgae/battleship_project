@@ -1,4 +1,7 @@
 package gameElement;
+
+import java.awt.Point;
+
 /**
  * Game Element Island
  * <p>
@@ -47,6 +50,27 @@ public class LuckyDwarf extends AGameItem{
 	@Override
 	public int getID() {
 		return 3;
+	}
+	
+	@Override
+	public Point setPosition(Point p) {
+		this.p = p;
+		return p;
+	}
+	
+	@Override
+	public Point getPosition() {
+		return p;
+	}
+
+	@Override
+	public int getXPosition() {
+		return p.x;
+	}
+
+	@Override
+	public int getYPosition() {
+		return p.y;
 	}
 	
 }

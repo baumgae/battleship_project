@@ -1,4 +1,9 @@
 package gameElement;
+
+import java.awt.Point;
+
+import gameConfigurations.Item;
+
 /**
  * Abstract Class for Game Items
  * <p>
@@ -19,7 +24,7 @@ package gameElement;
  * @version 0.2 
  */
 
-public abstract class AGameItem implements IGameItem { 
+public abstract class AGameItem implements Item { 
 		
 	/**
 	*
@@ -28,6 +33,7 @@ public abstract class AGameItem implements IGameItem {
 	**/
 		private int IDGameElement;
 		final static int size = 1;
+		Point p;
 		
 	/**
 	*

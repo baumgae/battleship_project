@@ -1,4 +1,9 @@
 package ships;
+
+import java.awt.Point;
+
+import gameConfigurations.Item;
+
 /**
  * Abstract Class Ships
  * <p>
@@ -19,11 +24,13 @@ package ships;
  * TJ
  * You can consider to implement the IGameElement interface
  */
-public abstract class AShip implements IShip {
+public abstract class AShip implements Item {
 	
 	int shipID;
 	int shipSizeX;
 	int shipSizeY;
+	
+	Point p;
 	int x;
 	int y;
 	int shipPoints;
@@ -33,27 +40,7 @@ public abstract class AShip implements IShip {
 		this.shipSizeX = shipSizeX;
 		this.shipSizeY = shipSizeY;
 	}
-
 	
-	/* (non-Javadoc)
-	 * @see ships.IShip#getShipSizeX()
-	 */
-	@Override
-	public int getShipSizeX() {
-		return shipSizeX;
-	}
-
-	/* (non-Javadoc)
-	 * @see ships.IShip#getShipSizeY()
-	 */
-	@Override
-	public int getShipSizeY() {
-		return shipSizeY;
-	}
-
-
-	
-	// get und set ID bereits implementieren 
 	
 	/* (non-Javadoc)
 	 * @see game.IGameElements#getX()
@@ -63,10 +50,7 @@ public abstract class AShip implements IShip {
 		return this.shipID;
 	}
 	
-	public static int getShipImpact() {
-		int shipPoints = 10;
-		return shipPoints;
-	}
+
 	
 	
 	
