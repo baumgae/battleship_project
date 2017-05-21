@@ -3,6 +3,9 @@ package com.hdm_stuttgart.Battleship;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import game.DifficultyManager;
+import game.EDifficulty;
+
 
 /**
  * A simple http://logging.apache.org/log4j/2.x demo,
@@ -22,5 +25,7 @@ public class App {
         log.debug("'src/main/resources/log4j2.xml' to suit your needs.");
         log.debug("This config file 'log4j2.xml' will result in 'A1.log'");
         log.debug("file containing logging output as well.");
+        
+        DifficultyManager.getFieldSize(EDifficulty.EASY);
     }
 }

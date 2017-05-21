@@ -1,6 +1,7 @@
 package gameConfigurations;
 
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Abstract Class for Player
@@ -24,6 +25,13 @@ package gameConfigurations;
  * @version 0.2 
  */
 
+/*
+ * Frage:
+ * Brauche ich diese Abstrakte Klasse eigentlich noch?
+ * Ich brauche jedenfalls die UnterPlayer ComputerPlayer und HumanPlayer
+ * aufgrund der Factory...
+ * Wo setze ich nun am besten die Methoden hin?
+ */
 
 /*
  * TJ
@@ -37,6 +45,8 @@ abstract class Player implements IPlayer {
 	int hits;
 	int points;
 	
+	private static final Logger logger = LogManager.getLogger(Player.class);
+	
 	Player(String name) {
 		this.name = name;
 		
@@ -46,6 +56,7 @@ abstract class Player implements IPlayer {
 	 * @see game.IPlayer#countPoints()
 	 */
 	public void countPoints() {
+		logger.info("The method Player.countPoints has been called!");
 		points+= 10;
 		// Parameter rein, wo die Punkte übergeben werden.
 		// Dynamisch machen indem Punkte übergeben werden

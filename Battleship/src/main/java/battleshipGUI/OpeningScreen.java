@@ -55,7 +55,13 @@ public class OpeningScreen extends Application{
 		// This should be the EventHandling for opening the NewGameScreen.java
 		
 		newGame.setOnAction(
-				event -> newGame.setText("Clicked!"));
+				event -> {
+					NewGameScreen ngs = new NewGameScreen();
+					VBox NewGame = ngs.getScreen();
+					Scene scene2 = new Scene(NewGame, 300, 400);
+					primaryStage.setScene(scene2);
+							
+				});
 		
 		// Same shit for the others.
 		
@@ -94,7 +100,7 @@ public class OpeningScreen extends Application{
 		
 		
 		Scene scene = new Scene(root, 300, 400);
-		scene.getStylesheets().add("OpeningSceneCss.css");
+		scene.getStylesheets().add("OpeningSceneCSS.css");
 		
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Opening Scene - Battleship");

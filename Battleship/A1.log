@@ -1,0 +1,4 @@
+main DEBUG Battleship.App - With respect to logging you may want to configure file 
+main DEBUG Battleship.App - 'src/main/resources/log4j2.xml' to suit your needs.
+main DEBUG Battleship.App - This config file 'log4j2.xml' will result in 'A1.log'
+main DEBUG Battleship.App - file containing logging output as well.
