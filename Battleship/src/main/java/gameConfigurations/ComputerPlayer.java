@@ -23,6 +23,7 @@ public class ComputerPlayer extends Player{
 	
 	ComputerPlayer(String name) {
 		super(name);
+		logger.info("The constructor ComputerPlayer has been called!");
 		
 	}
 
