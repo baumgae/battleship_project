@@ -31,7 +31,6 @@ import javafx.stage.Stage;
 
 public class OpeningScreen extends Application{
 	
-	// NewGameScreen scene2; I want to import the newGameScreen to open it :D
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {

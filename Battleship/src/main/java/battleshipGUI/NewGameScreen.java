@@ -34,8 +34,11 @@ public class NewGameScreen {
 
 		Label labelTitle = new Label("New Game");
 		Label labelTitle2 = new Label("Select your Player!");
-
+		
+		
 		Button singlePlayer = new Button("Single Player");
+		
+	
 		Button multiPlayer = new Button("Multi Player");
 
 		root.getChildren().addAll(labelTitle, labelTitle2, singlePlayer, multiPlayer);

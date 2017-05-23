@@ -1,5 +1,10 @@
 package battleshipGUI;
 
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+
 /**
  * Menu
  * <p>
@@ -18,5 +23,33 @@ package battleshipGUI;
  */
 
 public class MenuScreen {
+	
+	public VBox getScreen() {
+		VBox root = new VBox();
 
+		Label labelTitle = new Label("Menu");
+		Label labelTitle2 = new Label("Stopped Game!");
+
+		Button newGame = new Button("New Game");
+		newGame.setOnAction(
+				event -> {
+					NewGameScreen ngs = new NewGameScreen();
+					VBox NewGame = ngs.getScreen();
+					Scene scene2 = new Scene(NewGame, 300, 400);
+					
+					// OpeningScreen.launch(); = primaryStage.setScene(scene2);
+							
+				});
+				
+		Button quit = new Button("Quit");
+		
+		Button continueGame = new Button("Continue Game");
+		
+
+		root.getChildren().addAll(labelTitle, labelTitle2, newGame, quit, continueGame);
+
+		return root;
+
+	}
+	
 }

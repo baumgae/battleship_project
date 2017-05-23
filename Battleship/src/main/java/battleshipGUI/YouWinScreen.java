@@ -36,7 +36,7 @@ public class YouWinScreen extends Application{
 		 * Title for the whole screen
 		 */
 		Label labelTitle = new Label("---OH--NOO---");
-		Label labelTitle2 = new Label("---YOU---WON---");
+		Label labelTitle2 = new Label("---YOU---WIN---");
 		
 		// Here we could add an image with a Dead Head on it.
 		// Image image = new Image(getClass().getResourceAsStream("ToteknopfDings.jpg"));
@@ -70,7 +70,7 @@ public class YouWinScreen extends Application{
 		
 		
 		primaryStage.setScene(scene);
-		primaryStage.setTitle("EndScene - You Lost");
+		primaryStage.setTitle("EndScene - You Win");
 		primaryStage.show();
 		
 		

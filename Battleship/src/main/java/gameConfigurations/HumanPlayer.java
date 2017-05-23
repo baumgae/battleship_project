@@ -27,6 +27,7 @@ public class HumanPlayer extends Player{
 	
 	HumanPlayer(String name) {
 		super(name);
+		logger.info("The constructor of HumanPlayer has been called!");
 	}
 
 	@Override
