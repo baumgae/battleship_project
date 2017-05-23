@@ -23,4 +23,6 @@ package battleshipGUI;
 
 public class GameAreaScreen {
 	
+	
+	
 }

@@ -1,5 +1,8 @@
 package game;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import gameConfigurations.Item;
 
 /**
@@ -13,9 +16,6 @@ import gameConfigurations.Item;
  * <p> The method {@link #getShipPosition()} shows the Position of the ships on 
  * the Field.
  * 
- * <p> The method {@link #enemyShoot()} shows if a field has already been shot by the
- * other Player and set the FieldStatus on 1.
- * 
  * <p>
  * @author Celine Wichmann
  * @version 0.2
@@ -23,40 +23,29 @@ import gameConfigurations.Item;
 
 public class ShipArea {
 	
+	private static final Logger logger = LogManager.getLogger(ShipArea.class);
+	
 	int FieldStatus;
-	Item ships [][];
+	Item[][] ships;
 	int x;
 	int y;
 	
-	public void setShipPosition (int x, int y) {
+	public void setShipPosition (Item ships,int x, int y) {
 	    
-		this.x = x;
-		this.y = y;
-	  //ships[x][y];
+		logger.info("The method ShipArea.setShipPosition has been called!"); 
+		x = this.x;
+		y = this.y;
+	    ships = this.ships[x][y];
+	
+	}
+	
+	public Item getShipPosition () {
 		
-		//How can we give the x and y over to this two dimensional array?
+		logger.info("The method ShipArea.getShipPosition has been called!"); 
+		return ships[x][y];
 	
 	}
-	
-	public Item[][] getShipPosition () {
-		return ships;
-	
-	}
-	
-	// How can I check if a method was even used.
-	
-	void enemyShoot() {
-
-        if (x == 2) { 
-        	//if the shoot method has been called for the field, FieldStatus = 1
-        	
-        	FieldStatus = 1;
-        	
-      } else {
-    	  
-    	    FieldStatus = 0;
-      }
 		
-	}
+  }
 
-}
+

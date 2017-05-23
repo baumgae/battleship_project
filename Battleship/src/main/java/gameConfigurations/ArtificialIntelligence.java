@@ -2,6 +2,9 @@ package gameConfigurations;
 
 import java.util.Random;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * THIS CLASS ISN'T USED NOW!
  * 
@@ -22,9 +25,12 @@ import java.util.Random;
 
 public class ArtificialIntelligence {
 	
+	private static final Logger logger = LogManager.getLogger(ArtificialIntelligence.class);
 	
     public static int randomCoordinateX(int x) {
 	
+    	logger.info("The method ArtificialIntelligence.randomCoordinateX has been called!"); 
+    	
 	    final int maximumX = x;
 	
 	    Random rndX = new Random();
@@ -37,6 +43,8 @@ public class ArtificialIntelligence {
     
     public static int randomCoordinateY(int y) {
 	
+    	logger.info("The method ArtificialIntelligence.randomCoordinateY has been called!"); 
+    	
 	   final int maximumY = y;
 	
 	   Random rndY = new Random();

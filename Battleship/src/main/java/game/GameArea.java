@@ -2,6 +2,10 @@ package game;
 
 import java.util.Random;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import gameConfigurations.HumanPlayer;
 import gameConfigurations.Item;
 import gameElement.Dolphin;
 import gameElement.Island;
@@ -18,7 +22,7 @@ import gameElement.Mine;
  * {@link #GameArea(EDifficulty)}.
  * 
  * <p>
- * The method {@link #setRandomCoordinate()} generate random Coordinates for the
+ * The method {@link #generateRandomCoordinate()} generate random Coordinates for the
  * Game Elements which the Player is not allowed to set.
  * 
  * <p>
@@ -30,62 +34,72 @@ import gameElement.Mine;
  * is behind this.
  * 
  * <p>
- * With the method {@link #shoot(int, int)} you can shoot on a Field.
- * 
- * <p>
  * @author Celine Wichmann
  * @version 0.2
  */
 
 public class GameArea {
 	
+	private static final Logger logger = LogManager.getLogger(GameArea.class);
+	
 	Item items[][];
 	EDifficulty difficulty;
+	int randomValueX;
+	int randomValueY;
+	
 	
 	public GameArea(EDifficulty difficulty){
-
+			
+		    logger.info("The constructor GameArea has been called!");
+		    
 	    	java.awt.Point point = DifficultyManager.getFieldSize(difficulty);
 		
 		    this.items =  new Item[point.x][point.y];
-		     // TODO: set Field Size
 		
 		    this.difficulty = difficulty;
 		    this.setRandomGameElement();
 	    }
 	
 
-	    void setRandomCoordinate() {
+	    void generateRandomCoordinate() {
+	    	
+	       logger.info("The method GameArea.generateRandomCoordinate has been called!");
 
 		   int CoordinateX = this.items.length;
 		   Random rndX = new Random();
 		   int randomValueX = rndX.nextInt(CoordinateX + 1);
+		   randomValueX = this.randomValueX;
 
 		   int CoordinateY = this.items[0].length;
 		   Random rndY = new Random();
 		   int randomValueY = rndY.nextInt(CoordinateY + 1);
-
+		   randomValueY = this.randomValueY;
+		   
 	    }
 	
 	
 	    void setRandomGameElement() {
 		
-//     	  Dolphin.setRandomCoordinates(randomValueX, randomValueY);
-//		  Island.setRandomCoordinate(randomValueX, randomValueY);
-//		  Mine.setRandomCoordinate(randomValueX, randomValueY);
-//		  LuckyDwarf.setRandomCoordinate(randomValueX, randomValueY);
+	      logger.info("The method GameArea.setRandomGameElement has been called!");
+	      
+//     	  Dolphin.generateRandomCoordinates(randomValueX, randomValueY);
+//		  Island.generateRandomCoordinate(randomValueX, randomValueY);
+//	      Mine.generateRandomCoordinate(randomValueX, randomValueY);
+//		  LuckyDwarf.generateRandomCoordinate(randomValueX, randomValueY);
+	      
+	      //How could this work?
 
-		  this.setRandomCoordinate();
+		  this.generateRandomCoordinate();
 		
 	    }
 	
 	
 	    void unhide(int x, int y) {
+	    	
+	    logger.info("The method GameArea.unhide has been called!");
 		
 	    }
 	
-	    void shoot(int x, int y) {
-			
-     	}
 	
   }
 

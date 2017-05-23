@@ -5,6 +5,12 @@ import gameElement.Island;
 import gameElement.LuckyDwarf;
 import gameElement.Mine;
 import ships.OneFieldBoat;
+
+import java.awt.Point;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import game.NoGameElementException;
 import gameElement.Water;
 
@@ -17,6 +23,15 @@ import gameElement.Water;
  * As long as a Field is not shot the ID of this Field stands on 0.
  * If a field is shot the ID changes on 1. Then you are not allowed
  * to shot at this field anymore.
+ * 
+ * <p> The method {@link #shootOnCoordinate(int, int)} allows the Player to shoot 
+ * on Coordinates.
+ * 
+ * <p> The method {@link #setCoordinateLayer1Status(Point)} set the Status of
+ * the Field at Layer 1.
+ * 
+ * <p> The method {@link #getCoordinateLayer1Status()} shows the Player the Status
+ * of the Field at Layer 1.
  * 
  * <p>
  * At Layer 2 you can see which Game Element is hidden behind this field. This 
@@ -34,22 +49,50 @@ import gameElement.Water;
 
 public class ShootingArea {
 	
+	private static final Logger logger = LogManager.getLogger(ShootingArea.class);
+	
 	int Layer1Status = 0; // the field hasn't been shot
 	int Layer2Status = 0; // there is water on this field
-
+	Point p;
 	
 
-   void shootOnCoordinate (int x, int y) {
-	
-	         Layer1Status = 1; 
+   void shootOnCoordinate (int x, int y) throws Exception {
+             
+	         logger.info("The method ShootingArea.shootOnCoordinate has been called!"); 
+	   
+	         if (Layer1Status == 1) {
+	        	 
+	        	 throw new AlreadyShotException();
+	        	 
+	         } else {
+	        	
+	             Layer1Status = 1; 
 	         
-	  // Status of every Coordinate is 0 until you shoot on it, then it switch to 1
+	         }
 	  
       }
+   
+   void setCoordinateLayer1Status (Point p) {
+	   
+	   logger.info("The method ShootingArea.setCoordinateLayer1Status has been called!");
+	   
+	   Layer1Status = 1; // for a special Point or in general?
+	   
+   }
+   
+   int getCoordinateLayer1Status() {
+	   
+	   logger.info("The method ShootingArea.getCoordinateLayer1Status has been called!");
+	   
+	   return Layer1Status;
+	   
+   }
 
    
    void getStatusCoordinate () throws NoGameElementException { 
 	  
+	   logger.info("The method ShootingArea.getStatusCoordinate has been called!");
+	   
 	     if (Layer2Status == 0) {
 	    	
 	    	 Water water = new Water();
@@ -104,6 +147,8 @@ public class ShootingArea {
 		  
 	   } else {
 		  
+		logger.debug("NoGameElementException has been thrown!");
+		   
 		throw new NoGameElementException();
 		  
 	   }
