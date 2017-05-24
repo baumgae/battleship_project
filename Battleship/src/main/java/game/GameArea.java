@@ -82,6 +82,7 @@ public class GameArea {
 		
 	      logger.info("The method GameArea.setRandomGameElement has been called!");
 	      
+	      //Dolphin.Item[randomValueX][randomValueY];
 //     	  Dolphin.generateRandomCoordinates(randomValueX, randomValueY);
 //		  Island.generateRandomCoordinate(randomValueX, randomValueY);
 //	      Mine.generateRandomCoordinate(randomValueX, randomValueY);

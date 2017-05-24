@@ -76,7 +76,7 @@ public class ShootingArea {
 	   
 	   logger.info("The method ShootingArea.setCoordinateLayer1Status has been called!");
 	   
-	   Layer1Status = 1; // for a special Point or in general?
+	   Layer1Status = 1; 
 	   
    }
    
