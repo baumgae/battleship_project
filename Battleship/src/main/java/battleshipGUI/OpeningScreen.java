@@ -30,11 +30,16 @@ import javafx.stage.Stage;
 
 
 public class OpeningScreen extends Application{
+	 private static Stage primaryStage;
 	
-	
+	 public static Stage getPrimaryStage() {
+		 return primaryStage;
+	 }
+	 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
+		this.primaryStage = primaryStage;
 		VBox root = new VBox();
 		
 		/**
