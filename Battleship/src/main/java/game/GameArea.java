@@ -27,7 +27,23 @@ import gameElement.Mine;
  * 
  * <p>
  * The method {@link #setRandomGameElement()} gets the random Coordinates from 
- * {@link #setRandomCoordinate()} and set the Elements on the Field.
+ * {@link #setRandomCoordinate()} and ???????
+ * 
+ * <p> 
+ * The method {@link #setRandomDolphin()} creates the Game Element Dolphin and put it
+ * random on the Field.
+ * 
+ * <p> 
+ * The method {@link #setRandomIsland()} creates the Game Element Island and put it
+ * random on the Field.
+ * 
+ * <p> 
+ * The method {@link #setRandomMine()} creates the Game Element Mine and put it
+ * random on the Field.
+ * 
+ * <p> 
+ * The method {@link #setRandomLuckyDwarf()} creates the Game Element LuckyDwarf and put it
+ * random on the Field.
  * 
  * <p>  
  * The method {@link #unhide(int, int)} discover the Field to see which Game Element 
@@ -78,23 +94,106 @@ public class GameArea {
 	    }
 	
 	
-	    void setRandomGameElement() {
+	    static void setRandomGameElement() {
 		
 	      logger.info("The method GameArea.setRandomGameElement has been called!");
-	      
-	      //Dolphin.Item[randomValueX][randomValueY];
-//     	  Dolphin.generateRandomCoordinates(randomValueX, randomValueY);
-//		  Island.generateRandomCoordinate(randomValueX, randomValueY);
-//	      Mine.generateRandomCoordinate(randomValueX, randomValueY);
-//		  LuckyDwarf.generateRandomCoordinate(randomValueX, randomValueY);
-	      
-	      //How could this work?
-
-		  this.generateRandomCoordinate();
+	     
+		  //this.generateRandomCoordinate();
 		
 	    }
 	
+	    void setRandomDolphin() {
+	    	
+	    	logger.info("The method GameArea.setRandomDolphin has been called!");
+	    	
+	    	if(randomValueX == 0) { //Platzhalter
+	    		
+	    		// isShip();
+	    		GameArea.setRandomGameElement();
+	    		
+	    	} else if(randomValueX == 1) {
+	    		
+	    		//isGameElement();
+	    		GameArea.setRandomGameElement();
+	    		
+	    	} else {
+	    		
+	    		Dolphin dolphin = new Dolphin();
+	    		GameArea.setRandomGameElement();
+	    	}
+	    }
+	    
+	    
+	    void setRandomIsland() {
+	    	
+	    	logger.info("The method GameArea.setRandomIsland has been called!");
+	    	
+	    	if(randomValueX == 0) {
+	    		
+	    		//isShip();
+	    		GameArea.setRandomGameElement();
+	    		
+	    	} else if(randomValueX == 1) {
+	    		
+	    		//isGameElement();
+	    		GameArea.setRandomGameElement();
+	    		
+	    	} else {
+	    		
+	    		Island island = new Island();
+	    		GameArea.setRandomGameElement();
+	    		
+	    	}
+	    	
+	    }
+	    
+	    void setRandomMine() {
+	    
+	    	logger.info("The method GameArea.setMine has been called!");
+	    	
+	    	if(randomValueX == 0) {
+	    		
+	    		//isShip();
+	    	    GameArea.setRandomGameElement();
+	    		
+	    	} else if(randomValueX == 1) {
+	    		
+	    		//isGameElement();
+	    		GameArea.setRandomGameElement();
+	    		
+	    	} else {
+	    		
+	    		Mine mine = new Mine();
+	    		GameArea.setRandomGameElement();
+	    		
+	    	}
+	    	
+	    }
+	    
+	    void setRandomLuckyDwarf() {
+	    	
+	    	logger.info("The method GameArea.setRandomLuckyDwarf has been called!");
+	    	
+	    	if(randomValueX == 0) {
+	    		
+	    		//isShip();
+	    		GameArea.setRandomGameElement();
+	    		
+	    	} else if(randomValueX == 1) {
+	    		
+	    		//isGameElement();
+	    		GameArea.setRandomGameElement();
+	    		
+	    	} else {
+	    		
+	    		LuckyDwarf luckydwarf = new LuckyDwarf();
+	    		GameArea.setRandomGameElement();
+	    		
+	    	}
+	    	
+	    }
 	
+	    
 	    void unhide(int x, int y) {
 	    	
 	    logger.info("The method GameArea.unhide has been called!");
