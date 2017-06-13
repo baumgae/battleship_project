@@ -11,6 +11,8 @@ import gameElement.Dolphin;
 import gameElement.Island;
 import gameElement.LuckyDwarf;
 import gameElement.Mine;
+import gameElement.Water;
+import ships.OneFieldBoat;
 
 /**
  * The Class GameArea is managing the Creation of the Game Area and handle the
@@ -62,6 +64,7 @@ public class GameArea {
 	EDifficulty difficulty;
 	int randomValueX;
 	int randomValueY;
+	boolean isItem = true;
 	
 	
 	public GameArea(EDifficulty difficulty){
@@ -77,7 +80,7 @@ public class GameArea {
 	    }
 	
 
-	    void generateRandomCoordinate() {
+	       void generateRandomCoordinate() {
 	    	
 	       logger.info("The method GameArea.generateRandomCoordinate has been called!");
 
@@ -86,7 +89,7 @@ public class GameArea {
 		   int randomValueX = rndX.nextInt(CoordinateX + 1);
 		   randomValueX = this.randomValueX;
 
-		   int CoordinateY = this.items[0].length;
+		   int CoordinateY = this.items.length;
 		   Random rndY = new Random();
 		   int randomValueY = rndY.nextInt(CoordinateY + 1);
 		   randomValueY = this.randomValueY;
@@ -94,33 +97,43 @@ public class GameArea {
 	    }
 	
 	
-	    static void setRandomGameElement() {
+	     void setRandomGameElement() {
 		
 	      logger.info("The method GameArea.setRandomGameElement has been called!");
 	     
-		  //this.generateRandomCoordinate();
+		  generateRandomCoordinate();
 		
 	    }
 	
-	    void setRandomDolphin() {
+	 /*   void setRandomDolphin() {
 	    	
 	    	logger.info("The method GameArea.setRandomDolphin has been called!");
 	    	
-	    	if(randomValueX == 0) { //Platzhalter
+	        while(isItem == true) {
 	    		
-	    		// isShip();
-	    		GameArea.setRandomGameElement();
+	    	if(items == Dolphin.getPosition()) {
 	    		
-	    	} else if(randomValueX == 1) {
+	    		isItem = true;
+	    		generateRandomCoordinate();
 	    		
-	    		//isGameElement();
-	    		GameArea.setRandomGameElement();
+	      } if(items == OneFieldBoat.getPosition()) {
 	    		
-	    	} else {
+	    		generateRandomCoordinate();
+	    		isItem = true;
+	    		
+	      } else if(items == Water.getPosition()) {
 	    		
 	    		Dolphin dolphin = new Dolphin();
-	    		GameArea.setRandomGameElement();
+	    		setRandomGameElement();
+	    		isItem = false;
+	    		
+	      } else {
+	    	  
+	    	    logger.error("Function doesn't work!");
+	    	    break;
+	    	  
 	    	}
+	      }
 	    }
 	    
 	    
@@ -128,70 +141,94 @@ public class GameArea {
 	    	
 	    	logger.info("The method GameArea.setRandomIsland has been called!");
 	    	
-	    	if(randomValueX == 0) {
+	    	while(isItem == true) {
 	    		
-	    		//isShip();
-	    		GameArea.setRandomGameElement();
+	    	if(items == Island.getPosition()) {
+	    	
+	    		generateRandomCoordinate();
+	    		isItem = true;
 	    		
-	    	} else if(randomValueX == 1) {
+	      } if(items == OneFieldBoat.getPosition()) {
+	    	
+	    		generateRandomCoordinate();
+	    		isItem = true;
 	    		
-	    		//isGameElement();
-	    		GameArea.setRandomGameElement();
-	    		
-	    	} else {
+	      } else if(items == Water.getPosition()) {
 	    		
 	    		Island island = new Island();
-	    		GameArea.setRandomGameElement();
+	    		setRandomGameElement();
+	    		isItem = false;
+	    		
+	      } else {
+	    	   
+	    	  logger.error("Function doesn't work!");
+	    	  break;
 	    		
 	    	}
-	    	
+	      }
 	    }
 	    
 	    void setRandomMine() {
 	    
 	    	logger.info("The method GameArea.setMine has been called!");
 	    	
-	    	if(randomValueX == 0) {
+	    	while(isItem == true) {
+	    	
+	    	if(items == Mine.getPosition()) {
 	    		
-	    		//isShip();
-	    	    GameArea.setRandomGameElement();
+	    	    generateRandomCoordinate();
+	    	    isItem = true;
 	    		
-	    	} else if(randomValueX == 1) {
+	      } if(items == OneFieldBoat.getPosition()) {
 	    		
-	    		//isGameElement();
-	    		GameArea.setRandomGameElement();
+	    		generateRandomCoordinate();
+	    		isItem = true;
 	    		
-	    	} else {
+	      } else if(items == Water.getPosition()) {
 	    		
 	    		Mine mine = new Mine();
-	    		GameArea.setRandomGameElement();
+	    		setRandomGameElement();
+	    		isItem = false;
 	    		
+	      } else { 
+	    	  
+	    	  logger.error("Function doesn't work!");
+	    	  break;
+	    	  
 	    	}
-	    	
+	      }
 	    }
 	    
 	    void setRandomLuckyDwarf() {
 	    	
 	    	logger.info("The method GameArea.setRandomLuckyDwarf has been called!");
 	    	
-	    	if(randomValueX == 0) {
+	    	while(isItem == true) {
 	    		
-	    		//isShip();
-	    		GameArea.setRandomGameElement();
+	    	if(items == LuckyDwarf.getPosition()) {
 	    		
-	    	} else if(randomValueX == 1) {
+	    		generateRandomCoordinate();
+	    		isItem = true;
 	    		
-	    		//isGameElement();
-	    		GameArea.setRandomGameElement();
+	     } if(items == OneFieldBoat.getPosition()) {
 	    		
-	    	} else {
+	    		generateRandomCoordinate();
+	    		isItem = true;
+	    		
+	     } else if(items == Water.getPosition()) {
 	    		
 	    		LuckyDwarf luckydwarf = new LuckyDwarf();
-	    		GameArea.setRandomGameElement();
+	    		setRandomGameElement();
+	    		isItem = false;
 	    		
+	     } else {
+	    	 
+	    	    logger.error("Function doesn't work!");
+	    	    break;
+	    	    
 	    	}
-	    	
-	    }
+	      }
+	    } */
 	
 	    
 	    void unhide(int x, int y) {

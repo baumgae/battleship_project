@@ -34,21 +34,19 @@ public class SetShipsScreen extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
-		VBox root1 = new VBox();
+		VBox root = new VBox();
 		
-		Label labelUeberschrift = new Label("Set your Ships");
+		Label labelHeader = new Label("Set your Ships");
 		
 		Button startGame = new Button("Start Game");
 		
-		startGame.setOnAction(event -> startGame.setText("Problems?"));
+		startGame.setOnAction(event -> startGame.setText("GameAreaScreen")); 
 		
-		TextField Name = new TextField("Please enter your Name here.");
+		root.getChildren().addAll(labelHeader, startGame);
 		
-		root1.getChildren().addAll(labelUeberschrift, startGame, Name);
+		Scene scene = new Scene(root, 300, 400);
 		
-		Scene scene1 = new Scene(root1, 300, 400);
-		
-		primaryStage.setScene(scene1);
+		primaryStage.setScene(scene);
 		primaryStage.setTitle("Set Ships Scene");
 		primaryStage.show();
 		
