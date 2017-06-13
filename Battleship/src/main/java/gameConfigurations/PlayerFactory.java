@@ -20,6 +20,8 @@ import game.DifficultyManager;
  */
 public class PlayerFactory {
 
+	public static final String PLAYER_TYPE_AI = "ai";
+	public static final String PLAYER_TYPE_HUMAN = "human";
 	private static final Logger logger = LogManager.getLogger(PlayerFactory.class);
 
 	/*
@@ -27,21 +29,20 @@ public class PlayerFactory {
 	 * private static final Logger logger =
 	 * LogManager.getLogger(DifficultyManager.class);
 	 */
+	
+	// RuntimeException - soll ich lieber programmieren?
+	
 	public static IPlayer getInstance(String type, String name) throws CreatePlayerException {
 		if (type == null) {
 			logger.error("No Player has been created and CreatePlayerException was thrown");
 			throw new CreatePlayerException();
 
-		} else if (type.equals("human")) {
+		} else if (type.equals(PLAYER_TYPE_HUMAN)) {
 
 			logger.info("A new HumanPlayer has been created!");
 			return new HumanPlayer(name);
-
-			/*
-			 * Should I do a try - catch block? catch (CreatePlayerException e)
-			 * { logger.error("Error, no HumanPlayer has been created!"); }
-			 */
-		} else if (type.equals("ai")) {
+			
+		} else if (type.equals(PLAYER_TYPE_AI)) {
 			logger.info("A new ComputerPlayer has been created!");
 			return new ComputerPlayer("ComputerHans"); // Erstmal nicht aktiv
 

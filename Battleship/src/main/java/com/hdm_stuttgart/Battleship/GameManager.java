@@ -1,6 +1,8 @@
 package com.hdm_stuttgart.Battleship;
 
 import game.EDifficulty;
+import gameConfigurations.CreatePlayerException;
+import gameConfigurations.PlayerFactory;
 
 /**
 * GameManager
@@ -19,10 +21,39 @@ import game.EDifficulty;
 public class GameManager {
 	
 	
-	private EDifficulty gameDifficlty;
+	private EDifficulty gameDifficulty;
+	public static int playerNumber;
 	
+	public static void selectPlayer(int playerNumber) throws CreatePlayerException {
+		
+		String name = null;
+		
+		if (playerNumber == 1) {
+			// Peter ist hier erstmal der Platzhalter,
+			// Wie organisiere ich es, dass hier das eingespeichert wird, 
+			// was der Typ eingibt?
+			PlayerFactory.getInstance(PlayerFactory.PLAYER_TYPE_HUMAN, name);
+			PlayerFactory.getInstance(PlayerFactory.PLAYER_TYPE_AI, "ComputerHans");
+			playerNumber = 1;
+		}
+		
+		else if (playerNumber == 2) {
+			
+			// Peter ist hier erstmal der Platzhalter,
+			// Wie organisiere ich es, dass hier das eingespeichert wird, 
+			// was der Typ eingibt?
+			PlayerFactory.getInstance("human", "Peter"/*this.name*/);
+			PlayerFactory.getInstance("human", "Wilhelm");
+			playerNumber = 2;
+		}
+	}
+	
+		
+		void getDifficulty(EDifficulty difficulty) {
+			
+		}
 	/*
-	 * SelectPlayer Method	--> Creation of HumanPlayers.
+	 * 
 	 * 
 	 * SetShipsOnField Method --> Name, score and hits of Player will be set, 
 	 * ships will be set, after the window will be closed, randomGameElements will

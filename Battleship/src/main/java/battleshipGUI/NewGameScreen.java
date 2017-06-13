@@ -1,11 +1,18 @@
 package battleshipGUI;
 
+import com.hdm_stuttgart.Battleship.GameManager;
+
+import gameConfigurations.CreatePlayerException;
+import gameConfigurations.PlayerFactory;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * New Game Scene - Select your Player
@@ -28,26 +35,52 @@ import javafx.stage.Stage;
 
 public class NewGameScreen {
 
+	// playerNumber = 1 --> SinglePlayer, also 1 Human and 1 Computer
+	// playerNumber = 2 --> MultiPlayer, so 2 Humans
+	
+	
+	private static final Logger logger = LogManager.getLogger(NewGameScreen.class);
 
 	public VBox getScreen() {
 		VBox root = new VBox();
 
 		Label labelTitle = new Label("New Game");
 		Label labelTitle2 = new Label("Select your Player!");
-		
-		
+
 		Button singlePlayer = new Button("Single Player");
-		singlePlayer.setOnAction(
-				event -> {
-					SetShipsScreen_P1 nsc = new SetShipsScreen_P1();
-					VBox setShips = nsc.getScreen();
-					Scene scene3 = new Scene(setShips, 300, 400);
-					OpeningScreen.getPrimaryStage().setScene(scene3);
-							
-				});
-		
-	
+		singlePlayer.setOnAction(event -> {
+			logger.info("Single-Player Mode has been choosen!");
+			// Führ dann zum Screen, wo der SinglePlayer seine Schiffe
+			// setzen kann usw.
+			// Nachdem er auf Start drückt, werden im hintergrund
+			// die Schiffe vom ComputerPlayer gesezt.
+
+
+			SetNameScreen name = new SetNameScreen();
+			VBox setName = name.getScreen();
+			Scene scene = new Scene(setName, 300, 400);
+			OpeningScreen.getPrimaryStage().setScene(scene);
+			
+			GameManager.selectPlayer(1);
+
+		});
+
 		Button multiPlayer = new Button("Multi Player");
+		multiPlayer.setOnAction(event -> {
+			logger.info("Multi-Player Mode has been choosen!");
+			// Hier sollte dann zu dem Screen gewesechselt werden,
+			// auf dem der "nextPlayer" Button ist.
+			// Und dann auf dem zweiten SetShipsScreen befindet sich
+			// der eigentliche StartButton.
+
+			SetNameScreen name = new SetNameScreen();
+			VBox setName = name.getScreen();
+			Scene scene = new Scene(setName, 300, 400);
+			OpeningScreen.getPrimaryStage().setScene(scene);
+			
+			GameManager.selectPlayer(2);
+			
+		});
 
 		root.getChildren().addAll(labelTitle, labelTitle2, singlePlayer, multiPlayer);
 

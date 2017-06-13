@@ -22,6 +22,7 @@ public class HumanPlayer extends Player{
 	
 	int points;
 	int hits;
+	String name;
 	
 	private static final Logger logger = LogManager.getLogger(HumanPlayer.class);
 	
@@ -31,29 +32,14 @@ public class HumanPlayer extends Player{
 	}
 
 	@Override
-	public void countPoints(int points) {
-		logger.info("The method HumanPlayer.countPoints has been called!");
-		points = this.points + points;
+	public void setName(String name) {
+		name = this.name;
 		
 	}
 
 	@Override
-	public int getCountedPoints() {
-		logger.info("The method HumanPlayer.getCountedPoints has been called!");
-		return points;
-	}
-
-	@Override
-	public void countHits(int hits) {
-		logger.info("The method HumanPlayer.countHits has been called!");
-		hits = this.hits + hits;
-		
-	}
-
-	@Override
-	public int getCountedHits() {
-		logger.info("The method HumanPlayer.getCountedHits has been called!");
-		return hits;
+	public String getName() {
+		return name;
 	}
 	
 }

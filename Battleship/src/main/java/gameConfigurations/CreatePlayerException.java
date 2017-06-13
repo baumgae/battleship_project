@@ -12,7 +12,7 @@ package gameConfigurations;
 * @version 0.2 
 */
 
-public class CreatePlayerException extends Exception {
+public class CreatePlayerException extends RuntimeException {
 
 		// Constructor 
 	CreatePlayerException()	{

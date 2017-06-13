@@ -26,7 +26,8 @@ import org.apache.logging.log4j.Logger;
 public class Dolphin extends AGameItem {
 
 	private static final Logger logger = LogManager.getLogger(Dolphin.class);
-
+	
+	
 	@Override
 	public boolean isHidden(boolean hide) {
 		logger.info("The method Dolphine.isHidden has been called!");

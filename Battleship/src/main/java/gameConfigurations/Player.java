@@ -25,20 +25,7 @@ import org.apache.logging.log4j.Logger;
  * @version 0.2 
  */
 
-/*
- * Frage:
- * Brauche ich diese Abstrakte Klasse eigentlich noch?
- * Ich brauche jedenfalls die UnterPlayer ComputerPlayer und HumanPlayer
- * aufgrund der Factory...
- * Wo setze ich nun am besten die Methoden hin?
- */
 
-/*
- * TJ
- * In my opinion, you can store players' score in the Player class. You don't have to 
- * introduce an extra class. You don't have to save the score permanently as this is 
- * not required for this project. Just focus on the criteria provided in our excel sheet.
- */
 abstract class Player implements IPlayer {
 		
 	String name;
@@ -55,37 +42,40 @@ abstract class Player implements IPlayer {
 	/* (non-Javadoc)
 	 * @see game.IPlayer#countPoints()
 	 */
-	public void countPoints() {
+	@Override
+	public void countPoints(int points) {
 		logger.info("The method Player.countPoints has been called!");
-		points+= 10;
-		// Parameter rein, wo die Punkte übergeben werden.
-		// Dynamisch machen indem Punkte übergeben werden
+		points = this.points + points;
 		
-		// Actually over here it depends, which kind of GameElement the player hits.
-		// So if I determine the points of every GameElemnt in themselves, does it work?
 	}
 	
 	/* (non-Javadoc)
 	 * @see game.IPlayer#getCountPoints()
 	 */
-	public int getCountedPoints (int points) {
-		this.points = points;
+	@Override
+	public int getCountedPoints() {
+		logger.info("The method ComputerPlayer.getCountedPoints has been called!");
 		return points;
 	}
 	
 	/* (non-Javadoc)
 	 * @see game.IPlayer#countHits()
 	 */
-	public void countHits() {
-		hits+= 1;
+	@Override
+	public void countHits(int hits) {
+		logger.info("The method Player.countHits has been called!");
+		hits = this.hits + hits;
+		
 	}
 	
 	/* (non-Javadoc)
 	 * @see game.IPlayer#countPoints()
 	 */
-	public int getCountedHits(int hits) {
-		this.hits = hits;
+	@Override
+	public int getCountedHits() {
+		logger.info("The method Player.getCountedHits has been called!");
 		return hits;
 	}
+
 		
 }
