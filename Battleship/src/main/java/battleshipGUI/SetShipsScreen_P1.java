@@ -1,6 +1,7 @@
 package battleshipGUI;
 
 import javafx.application.Application;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -41,6 +42,14 @@ public class SetShipsScreen_P1 extends Application {
 		Button startGame = new Button("GameAreaScreen");
 		
 		startGame.setOnAction(event -> startGame.setText("GameAreaScreen"));
+		
+		root.getChildren().addAll(labelHeader, startGame);
+		
+		Scene scene = new Scene(root, 300, 400);
+		
+		primaryStage.setScene(scene);
+		primaryStage.setTitle("Set Ship Scene");
+		primaryStage.show();
 		
 	}
 

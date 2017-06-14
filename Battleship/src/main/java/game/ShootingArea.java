@@ -88,35 +88,51 @@ public class ShootingArea {
 	   
    }
 
-   
-   void getStatusCoordinate () throws NoGameElementException { 
+   // Dieser Layer sagt, ob da ein Item liegt oder nicht.
+   int getStatusCoordinate (int ID) throws NoGameElementException { 
 	  
 	   logger.info("The method ShootingArea.getStatusCoordinate has been called!");
 	   
-	     if (Layer2Status == 0) {
+	   // Wenn ein Kästchen abgeschossen wird, dann soll diese Methode aufgerufen werden.
+	   // d.H. wird das versteckte Item aufgedeckt, wird die ID des darunterliegenden 
+	   // Elementes dieser Methode übergeben und je nachdem welche Art von Element 
+	   // es ist, werden die Unterschiedliche Anzahl an Punkten wieder zurückgegeben 
+	   // oder auch nicht.
+	   
+	   // Diese Punkte wiederum holt sich der Game Manager und übergibt sie dem
+	   // jeweiligen Player
+	   
+	   // Das ist soweit der Plan!
+	   
+	   
+	     if (ID == 0) {
 	    	
-	    	 Water water = new Water();
-	         water.getScore(); 
+	         int points = 0;
+	         return points;
 
        } if (Layer2Status == 1) { 
 		  
-    	     Dolphin dolphin = new Dolphin();
+    	     Dolphin dolphin = new Dolphin("Günther");
 	         dolphin.getScore();
+	         return 0;
 		  
 	   } if (Layer2Status == 2) { 
 		  
 		      Island island = new Island();
 		      island.getScore();
+		      return 0;
 		  
 	   } if (Layer2Status == 3) { 
 		  
 		     LuckyDwarf luckydwarf = new LuckyDwarf();
 		     luckydwarf.getScore();
+		     return 0;
 		  
 	   } if (Layer2Status == 4) {
 		     
 		     Mine mine = new Mine();
 		     mine.getScore();
+		     return 0;
 		  
 	   } if (Layer2Status == 5) { // There is an One Field Boat
 		   
@@ -124,26 +140,31 @@ public class ShootingArea {
 		  
 		     OneFieldBoat onefieldboat = new OneFieldBoat();
 	         onefieldboat.getScore();
+	         return 0;
 		  
 	   } if (Layer2Status == 6) { // There is a Two Field Boat
 		  
 		     OneFieldBoat onefieldboat = new OneFieldBoat();
 	         onefieldboat.getScore(); 
+	         return 0;
 		  
 	   } if (Layer2Status == 7) { // There is a Three Field Boat
 		  
 		     OneFieldBoat onefieldboat = new OneFieldBoat();
 	         onefieldboat.getScore(); 
+	         return 0;
 		  
 	   } if (Layer2Status == 8) { // There is a Four Field Boat
 		  
 		     OneFieldBoat onefieldboat = new OneFieldBoat();
 	         onefieldboat.getScore(); 
+	         return 0;
 		  
 	   } if (Layer2Status == 9) { // There is a Quadruple
 		  
 		     OneFieldBoat onefieldboat = new OneFieldBoat();
 	         onefieldboat.getScore();
+	         return 0;
 		  
 	   } else {
 		  

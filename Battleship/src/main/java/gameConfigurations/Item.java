@@ -23,6 +23,7 @@ public interface Item {
 	public boolean isDestroyed(boolean destroy);
 	public int getID();
 	public int getSize();
+	
 	public Point setPosition(Point p);
 	public Point getPosition();
 	public int getXPosition();

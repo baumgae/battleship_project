@@ -27,10 +27,21 @@ public class Dolphin extends AGameItem {
 
 	private static final Logger logger = LogManager.getLogger(Dolphin.class);
 	
+	boolean hide;
+	boolean destroy;
+	Point p;
+	String name;
+	
+	public Dolphin(String name) {
+		this.name = name;
+		hide = true;
+		destroy = false;
+	}
 	
 	@Override
 	public boolean isHidden(boolean hide) {
 		logger.info("The method Dolphine.isHidden has been called!");
+		hide = this.hide;
 		return hide;
 	}
 
@@ -45,6 +56,7 @@ public class Dolphin extends AGameItem {
 	@Override
 	public boolean isDestroyed(boolean destroy) {
 		logger.info("The method Dolphine.isDestroyed has been called!");
+		destroy = this.destroy;
 		return destroy;
 	}
 

@@ -1,5 +1,6 @@
 package game;
 
+import java.awt.Point;
 import java.util.Random;
 
 import org.apache.logging.log4j.LogManager;
@@ -76,7 +77,7 @@ public class GameArea {
 		    this.items =  new Item[point.x][point.y];
 		
 		    this.difficulty = difficulty;
-		    this.setRandomGameElement();
+		    
 	    }
 	
 
@@ -87,156 +88,80 @@ public class GameArea {
 		   int CoordinateX = this.items.length;
 		   Random rndX = new Random();
 		   int randomValueX = rndX.nextInt(CoordinateX + 1);
-		   randomValueX = this.randomValueX;
+		   this.randomValueX = randomValueX;
 
 		   int CoordinateY = this.items.length;
 		   Random rndY = new Random();
 		   int randomValueY = rndY.nextInt(CoordinateY + 1);
-		   randomValueY = this.randomValueY;
+		   this.randomValueY = randomValueY;
 		   
 	    }
-	
-	
-	     void setRandomGameElement() {
-		
-	      logger.info("The method GameArea.setRandomGameElement has been called!");
-	     
-		  generateRandomCoordinate();
-		
-	    }
-	
-	 /*   void setRandomDolphin() {
-	    	
-	    	logger.info("The method GameArea.setRandomDolphin has been called!");
-	    	
-	        while(isItem == true) {
-	    		
-	    	if(items == Dolphin.getPosition()) {
-	    		
-	    		isItem = true;
-	    		generateRandomCoordinate();
-	    		
-	      } if(items == OneFieldBoat.getPosition()) {
-	    		
-	    		generateRandomCoordinate();
-	    		isItem = true;
-	    		
-	      } else if(items == Water.getPosition()) {
-	    		
-	    		Dolphin dolphin = new Dolphin();
-	    		setRandomGameElement();
-	    		isItem = false;
-	    		
-	      } else {
-	    	  
-	    	    logger.error("Function doesn't work!");
-	    	    break;
-	    	  
-	    	}
-	      }
-	    }
-	    
-	    
-	    void setRandomIsland() {
-	    	
-	    	logger.info("The method GameArea.setRandomIsland has been called!");
-	    	
-	    	while(isItem == true) {
-	    		
-	    	if(items == Island.getPosition()) {
-	    	
-	    		generateRandomCoordinate();
-	    		isItem = true;
-	    		
-	      } if(items == OneFieldBoat.getPosition()) {
-	    	
-	    		generateRandomCoordinate();
-	    		isItem = true;
-	    		
-	      } else if(items == Water.getPosition()) {
-	    		
-	    		Island island = new Island();
-	    		setRandomGameElement();
-	    		isItem = false;
-	    		
-	      } else {
-	    	   
-	    	  logger.error("Function doesn't work!");
-	    	  break;
-	    		
-	    	}
-	      }
-	    }
-	    
-	    void setRandomMine() {
-	    
-	    	logger.info("The method GameArea.setMine has been called!");
-	    	
-	    	while(isItem == true) {
-	    	
-	    	if(items == Mine.getPosition()) {
-	    		
-	    	    generateRandomCoordinate();
-	    	    isItem = true;
-	    		
-	      } if(items == OneFieldBoat.getPosition()) {
-	    		
-	    		generateRandomCoordinate();
-	    		isItem = true;
-	    		
-	      } else if(items == Water.getPosition()) {
-	    		
-	    		Mine mine = new Mine();
-	    		setRandomGameElement();
-	    		isItem = false;
-	    		
-	      } else { 
-	    	  
-	    	  logger.error("Function doesn't work!");
-	    	  break;
-	    	  
-	    	}
-	      }
-	    }
-	    
-	    void setRandomLuckyDwarf() {
-	    	
-	    	logger.info("The method GameArea.setRandomLuckyDwarf has been called!");
-	    	
-	    	while(isItem == true) {
-	    		
-	    	if(items == LuckyDwarf.getPosition()) {
-	    		
-	    		generateRandomCoordinate();
-	    		isItem = true;
-	    		
-	     } if(items == OneFieldBoat.getPosition()) {
-	    		
-	    		generateRandomCoordinate();
-	    		isItem = true;
-	    		
-	     } else if(items == Water.getPosition()) {
-	    		
-	    		LuckyDwarf luckydwarf = new LuckyDwarf();
-	    		setRandomGameElement();
-	    		isItem = false;
-	    		
-	     } else {
-	    	 
-	    	    logger.error("Function doesn't work!");
-	    	    break;
-	    	    
-	    	}
-	      }
-	    } */
-	
 	    
 	    void unhide(int x, int y) {
 	    	
 	    logger.info("The method GameArea.unhide has been called!");
 		
 	    }
-	
-	
-  }
+	    
+	    // Hier wird immer die Anzahl an Elementen eines speziellen Elements übergeben!
+	    // Beispielsweise mithife von 
+	    // GameArea.getNumberOfItems(Dolphine.getID(), Difficulty.getNumberOfDolphines(NORMAL));
+	    // Damit wird dann Beispielsweise die Anzahl an Delphinen erzeugt. 
+	    
+	    // 
+	    public void getNumberOfItems(int ID, int NumberOfItems) {
+	    	// Je nachdem welche ID übergeben wird, wird auch das entsprechende Objekt erzeugt
+	    	
+	    	int currentNumberOfItems = 0;
+	    	
+	    	if (ID == 1) {
+	    		while (currentNumberOfItems <= NumberOfItems) {
+		    		this.generateRandomCoordinate();
+		    		if (items[randomValueX][randomValueY] == null) {
+		    			items[randomValueX][randomValueY] = new Dolphin("Dolphin" + currentNumberOfItems);
+		    			currentNumberOfItems++;
+		    		}
+		    		else {
+		    			logger.info("The method generateDolphine didn`t work!");
+		    		}
+	    		}
+	    	if (ID == 2)
+	    		while (currentNumberOfItems <= NumberOfItems) {
+		    		this.generateRandomCoordinate();
+		    		if (items[randomValueX][randomValueY] == null) {
+		    			items[randomValueX][randomValueY] = new Dolphin("Dolphin" + currentNumberOfItems);
+		    			currentNumberOfItems++;
+		    		}
+		    		else {
+		    			logger.info("The method generateDolphine didn`t work!");
+		    		}
+	    		}
+	    	
+	    }
+	    	}
+	    }
 
+	    
+//	    Erstmal aufbewa
+//	    		public void generateDolphins(int numberOfDolphines){
+//	    	int currentNumberOfDolphines = 0;
+//	    	
+//	    	while (currentNumberOfDolphines >= numberOfDolphines) {
+//	    		this.generateRandomCoordinate();
+//	    		if (items[randomValueX][randomValueY] == null) {
+//	    			items[randomValueX][randomValueY] = new Dolphin("Dolphin" + currentNumberOfDolphines);
+//	    			currentNumberOfDolphines++;
+//	    		}
+//	    		else {
+//	    			logger.info("The method generateDolphine didn`t work!");
+//	    		}
+//	    		
+//	    		
+//	    		
+//	    	}
+//	    	
+//	    }
+	    	
+	    	
+	
+	
