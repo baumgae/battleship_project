@@ -24,17 +24,28 @@ public class GameManager {
 	private EDifficulty gameDifficulty;
 	public static int playerNumber;
 	
+	
+	public static String playerOne;
+	public static String playerTwo;
+	
+	
 	public static void selectPlayer(int playerNumber) throws CreatePlayerException {
 		
 		String name = null;
+		
+		GameManager.playerNumber = playerNumber;
 		
 		if (playerNumber == 1) {
 			// Peter ist hier erstmal der Platzhalter,
 			// Wie organisiere ich es, dass hier das eingespeichert wird, 
 			// was der Typ eingibt?
+			
+			// Muss noch zuweißen und später zugreifen können.
+			// Wer speichert die Spieler? 
+			// Game Manager oder Player?
 			PlayerFactory.getInstance(PlayerFactory.PLAYER_TYPE_HUMAN, name);
+			
 			PlayerFactory.getInstance(PlayerFactory.PLAYER_TYPE_AI, "ComputerHans");
-			playerNumber = 1;
 		}
 		
 		else if (playerNumber == 2) {
@@ -44,7 +55,7 @@ public class GameManager {
 			// was der Typ eingibt?
 			PlayerFactory.getInstance("human", "Peter"/*this.name*/);
 			PlayerFactory.getInstance("human", "Wilhelm");
-			playerNumber = 2;
+			
 		}
 	}
 	

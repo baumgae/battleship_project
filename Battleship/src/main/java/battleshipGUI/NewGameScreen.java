@@ -54,14 +54,16 @@ public class NewGameScreen {
 			// setzen kann usw.
 			// Nachdem er auf Start drückt, werden im hintergrund
 			// die Schiffe vom ComputerPlayer gesezt.
-
+			
+			GameManager.selectPlayer(1);
 
 			SetNameScreen name = new SetNameScreen();
 			VBox setName = name.getScreen();
 			Scene scene = new Scene(setName, 300, 400);
 			OpeningScreen.getPrimaryStage().setScene(scene);
 			
-			GameManager.selectPlayer(1);
+			
+			
 
 		});
 
@@ -72,13 +74,13 @@ public class NewGameScreen {
 			// auf dem der "nextPlayer" Button ist.
 			// Und dann auf dem zweiten SetShipsScreen befindet sich
 			// der eigentliche StartButton.
-
+			GameManager.selectPlayer(2);
+			
 			SetNameScreen name = new SetNameScreen();
 			VBox setName = name.getScreen();
 			Scene scene = new Scene(setName, 300, 400);
 			OpeningScreen.getPrimaryStage().setScene(scene);
 			
-			GameManager.selectPlayer(2);
 			
 		});
 

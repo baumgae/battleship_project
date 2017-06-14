@@ -40,9 +40,9 @@ public class SelectDifficultyScreen extends Application{
 					// Übergebem der Anzahl an Items für das nächste Screen!
 					
 					SetShipsScreen_P1 nsc = new SetShipsScreen_P1();
-					VBox setShips = nsc.getScreen();
-					Scene scene3 = new Scene(setShips, 300, 400);
-					OpeningScreen.getPrimaryStage().setScene(scene3);
+					//VBox setShips = nsc.getScreen();
+					//Scene scene3 = new Scene(setShips, 300, 400);
+					// OpeningScreen.getPrimaryStage().setScene(scene3);
 					
 					try {
 						GameManager.selectPlayer(2);

@@ -32,6 +32,7 @@ public class SetNameScreen {
 
 		Label labelTitle = new Label("New Game");
 		Label labelTitle2 = new Label("Set your Name!");
+		Label labelTitle3 = new Label("Push the enter key to confirm!");
 		
 		public VBox getScreen() {
 			
@@ -40,10 +41,11 @@ public class SetNameScreen {
 		TextField tf = new TextField("Enter your Name"); 
 		// Ich möchte, das was der User hier eingibt, in einer
 		// Variable speichern können - passt das so?
-		String name = tf.toString();
+		
 		
 		tf.setPromptText("Please enter your Name!");
 		tf.setOnAction(event -> {
+			String name = tf.getText();
 			logger.info("Name of the player has been entered!");
 			
 			SelectDifficultyScreen nsc = new SelectDifficultyScreen();
@@ -52,8 +54,7 @@ public class SetNameScreen {
 			OpeningScreen.getPrimaryStage().setScene(scene3);
 		});
 		
-		root.getChildren().addAll(labelTitle, labelTitle2, tf);
-
+		root.getChildren().addAll(labelTitle, labelTitle2, labelTitle3, tf);
 		return root;
 		
 		}
@@ -61,12 +62,12 @@ public class SetNameScreen {
 			TextField tf1 = new TextField("Player One - Enter your Name"); 
 			// Ich möchte, das was der User hier eingibt, in einer
 			// Variable speichern können - passt das so?
-			String nameOne = tf1.toString();
+			
 			
 			tf1.setPromptText("Name - PlayerOne");
 			tf1.setOnAction(event -> {
 				logger.info("Name of the playerOne has been entered!");
-				
+				String nameOne = tf1.getText();
 				SelectDifficultyScreen nsc = new SelectDifficultyScreen();
 				VBox setDifficulty = nsc.getScreen();
 				Scene scene3 = new Scene(setDifficulty, 300, 400);
@@ -76,19 +77,19 @@ public class SetNameScreen {
 			TextField tf2 = new TextField("Player Two - Enter your Name!"); 
 			// Ich möchte, das was der User hier eingibt, in einer
 			// Variable speichern können - passt das so?
-			String name = tf2.toString();
+			
 			
 			tf2.setPromptText("Name - PlayerTwo");
 			tf2.setOnAction(event -> {
 				logger.info("Name of the playerTwo has been entered!");
-				
+				String nameTwo = tf2.getText();
 				SelectDifficultyScreen nsc = new SelectDifficultyScreen();
 				VBox setDifficulty = nsc.getScreen();
 				Scene scene3 = new Scene(setDifficulty, 300, 400);
 				OpeningScreen.getPrimaryStage().setScene(scene3);
 			});
 			
-			root.getChildren().addAll(labelTitle, labelTitle2, tf1, tf2);
+			root.getChildren().addAll(labelTitle, labelTitle2, labelTitle3, tf1, tf2);
 
 			return root;
 		}
