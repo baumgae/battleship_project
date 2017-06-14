@@ -55,7 +55,9 @@ public class NewGameScreen {
 			// Nachdem er auf Start drückt, werden im hintergrund
 			// die Schiffe vom ComputerPlayer gesezt.
 			
-			GameManager.selectPlayer(1);
+			// Das war die einzige Lösung, um meine Player zu behalten...
+			GameManager gameMan = new GameManager();
+			gameMan.selectPlayer(1);
 
 			SetNameScreen name = new SetNameScreen();
 			VBox setName = name.getScreen();
@@ -74,7 +76,8 @@ public class NewGameScreen {
 			// auf dem der "nextPlayer" Button ist.
 			// Und dann auf dem zweiten SetShipsScreen befindet sich
 			// der eigentliche StartButton.
-			GameManager.selectPlayer(2);
+			GameManager gameMan = new GameManager();
+			gameMan.selectPlayer(2);
 			
 			SetNameScreen name = new SetNameScreen();
 			VBox setName = name.getScreen();

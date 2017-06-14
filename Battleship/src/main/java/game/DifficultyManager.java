@@ -54,7 +54,7 @@ public class DifficultyManager {
 		}
 	}
 
-	public int getNumberOfDolphines(EDifficulty difficulty) {
+	public static int getNumberOfDolphines(EDifficulty difficulty) {
 		logger.info("The method getNumberOfDolphines has been called!");
 		switch (difficulty) {
 
@@ -79,7 +79,7 @@ public class DifficultyManager {
 		}
 	}
 
-	public int getNumberOfMines(EDifficulty difficulty) {
+	public static int getNumberOfMines(EDifficulty difficulty) {
 		logger.info("The method getNumberOfMines has been called!");
 		switch (difficulty) {
 
@@ -105,7 +105,7 @@ public class DifficultyManager {
 		}
 	}
 
-	public int getNumberOfIslands(EDifficulty difficulty) {
+	public static int getNumberOfIslands(EDifficulty difficulty) {
 		logger.info("The method getNumberOfIsland has been called!");
 		switch (difficulty) {
 
@@ -131,7 +131,7 @@ public class DifficultyManager {
 		}
 	}
 
-	public int getNumberOfLuckyDwarf(EDifficulty difficulty) {
+	public static int getNumberOfLuckyDwarf(EDifficulty difficulty) {
 		logger.info("The method getNumberOfLuckyDwarf has been called!");
 		switch (difficulty) {
 
