@@ -1,5 +1,6 @@
 package battleshipGUI;
 
+import javafx.scene.layout.VBox;
 
 /**
  * GameArea Screen
@@ -22,6 +23,11 @@ package battleshipGUI;
  */
 
 public class GameAreaScreen {
+
+	public VBox getScreen() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	
