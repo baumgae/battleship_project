@@ -10,6 +10,7 @@ import game.DifficultyManager;
 import game.EDifficulty;
 import game.GameArea;
 import gameConfigurations.CreatePlayerException;
+import gameConfigurations.HumanPlayer;
 import gameConfigurations.IPlayer;
 import gameConfigurations.Item;
 import gameConfigurations.PlayerFactory;
@@ -77,6 +78,14 @@ public class GameManager {
 			this.playerOne = playerOne;
 			this.playerTwo = playerTwo;
 		}
+	}
+	
+	public IPlayer getPlayerOne() {
+		return playerOne;
+	}
+	
+	public IPlayer getPlayerTwo() {
+		return playerTwo;
 	}
 	
 	
