@@ -28,7 +28,18 @@ import org.apache.logging.log4j.Logger;
 public class LuckyDwarf extends AGameItem {
 
 	private static final Logger logger = LogManager.getLogger(LuckyDwarf.class);
-
+	
+	boolean hide;
+	boolean destroy;
+	Point p;
+	String name;
+	
+	public LuckyDwarf(String name) {
+		this.name = name;
+		hide = true;
+		destroy = false;
+	}
+	
 	@Override
 	public boolean isHidden(boolean hide) {
 		logger.info("The method LuckyDwarf.isHidden has been called!");

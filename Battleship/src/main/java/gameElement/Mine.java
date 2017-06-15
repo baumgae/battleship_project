@@ -32,6 +32,17 @@ public class Mine extends AGameItem {
 	
 	private static final Logger logger = LogManager.getLogger(Mine.class);
 	
+	boolean hide;
+	boolean destroy;
+	Point p;
+	String name;
+	
+	public Mine(String name) {
+		this.name = name;
+		hide = true;
+		destroy = false;
+	}
+	
 	@Override
 	public boolean isHidden(boolean hide) {
 		logger.info("The method Mine.isHidden has been called!");

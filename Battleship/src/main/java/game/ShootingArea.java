@@ -118,19 +118,19 @@ public class ShootingArea {
 		  
 	   } if (Layer2Status == 2) { 
 		  
-		      Island island = new Island();
+		      Island island = new Island("Günther2");
 		      island.getScore();
 		      return 0;
 		  
 	   } if (Layer2Status == 3) { 
 		  
-		     LuckyDwarf luckydwarf = new LuckyDwarf();
+		     LuckyDwarf luckydwarf = new LuckyDwarf("Günther3");
 		     luckydwarf.getScore();
 		     return 0;
 		  
 	   } if (Layer2Status == 4) {
 		     
-		     Mine mine = new Mine();
+		     Mine mine = new Mine("Olaf");
 		     mine.getScore();
 		     return 0;
 		  

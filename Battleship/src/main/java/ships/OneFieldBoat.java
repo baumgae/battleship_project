@@ -25,11 +25,24 @@ import gameElement.Water;
 public class OneFieldBoat extends AShip {
 	
 	private static final Logger logger = LogManager.getLogger(OneFieldBoat.class);
+
+	boolean hide;
+	boolean destroy;
+	Point p;
+	String name;
 	
 	public OneFieldBoat() {
-		super(5, 1, 0);
-		
+		super(5,1,0);
 	}
+	
+	// Doesn't work because of the super?
+	// public OneFieldBoat(String name) {
+	//	this.name = name;
+	//	hide = true;
+	//	destroy = false;
+	//	super(5,1,0);
+	// }
+	
 	
 	@Override
 	public boolean isHidden(boolean hide) {

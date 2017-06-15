@@ -26,7 +26,18 @@ import org.apache.logging.log4j.Logger;
 public class Island extends AGameItem {
 
 	private static final Logger logger = LogManager.getLogger(Island.class);
-
+	
+	boolean hide;
+	boolean destroy;
+	Point p;
+	String name;
+	
+	public Island(String name) {
+		this.name = name;
+		hide = true;
+		destroy = false;
+	}
+	
 	@Override
 	public boolean isHidden(boolean hide) {
 		logger.info("The method Island.isHidden has been called!");

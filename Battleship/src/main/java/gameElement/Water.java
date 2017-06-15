@@ -28,6 +28,17 @@ public class Water extends AGameItem{
 	
 	private static final Logger logger = LogManager.getLogger(Water.class);
 	
+	boolean hide;
+	boolean destroy;
+	Point p;
+	String name;
+	
+	public Water(String name) {
+		this.name = name;
+		hide = true;
+		destroy = false;
+	}
+	
 	@Override
 	public boolean isHidden(boolean hide) {
 		logger.info("The method Water.isHidden has been called!");
