@@ -3,6 +3,8 @@ package battleshipGUI;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.hdm_stuttgart.Battleship.CustomButton;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -130,8 +132,11 @@ public class OpeningScreen extends Application{
 							
 				});
 		
+		CustomButton button = new CustomButton(1, false);
 		
-		root.getChildren().addAll(labelTitle, newGame, continueGame, highscore, quit);
+		
+		
+		root.getChildren().addAll(labelTitle, newGame, continueGame, highscore, quit, button);
 		this.root = root;
 		
 		Scene scene = new Scene(root, 300, 400);

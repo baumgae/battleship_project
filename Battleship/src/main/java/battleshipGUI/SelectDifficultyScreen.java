@@ -7,6 +7,23 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
+/**
+ * Select Difficulty Screen
+ * <p>
+ * This is the GUI, after the user choose the mode.
+ * Here it is possible for him to decide, which
+ * Difficulty he wants to play.
+ * <p>
+ * 
+ * The user has different options. He can start the game in EASY mode by pushing the button {@easy}.<br>
+ * He can start the game in NORMAL mode by pushing the button {@normal}.<br>
+ * He can start the game in HARD mode by pushing the button {@hard}.<br>
+ * He can start the game in SUICIDAL mode by pushing the button {@suicidal}.<br>
+ * <p>
+ * @author Lea Baumgärtner
+ * @version 0.1 
+ */
+
 
 public class SelectDifficultyScreen{
 	
