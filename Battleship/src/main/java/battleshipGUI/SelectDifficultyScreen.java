@@ -31,7 +31,7 @@ public class SelectDifficultyScreen{
 					int difficultyNumber = 1;
 					this.difficultyNumber = difficultyNumber;
 					
-					SetShipsScreen_P1 nsc = new SetShipsScreen_P1();
+					SetShipsScreen nsc = new SetShipsScreen();
 					//VBox setShips = nsc.getScreen();
 					//Scene scene3 = new Scene(setShips, 300, 400);
 					//OpeningScreen.getPrimaryStage().setScene(scene3);
@@ -46,7 +46,7 @@ public class SelectDifficultyScreen{
 					int difficultyNumber = 2;
 					this.difficultyNumber = difficultyNumber;
 					
-					SetShipsScreen_P1 nsc = new SetShipsScreen_P1();
+					SetShipsScreen nsc = new SetShipsScreen();
 					//VBox setShips = nsc.getScreen();
 					//Scene scene3 = new Scene(setShips, 300, 400);
 					//OpeningScreen.getPrimaryStage().setScene(scene3);
@@ -61,7 +61,7 @@ public class SelectDifficultyScreen{
 					int difficultyNumber = 3;
 					this.difficultyNumber = difficultyNumber;
 					
-					SetShipsScreen_P1 nsc = new SetShipsScreen_P1();
+					SetShipsScreen nsc = new SetShipsScreen();
 					//VBox setShips = nsc.getScreen();
 					//Scene scene3 = new Scene(setShips, 300, 400);
 					//OpeningScreen.getPrimaryStage().setScene(scene3);
@@ -78,7 +78,7 @@ public class SelectDifficultyScreen{
 					// Übergebem der Feldgröße und 
 					// Übergebem der Anzahl an Items für das nächste Screen!
 					
-					SetShipsScreen_P1 nsc = new SetShipsScreen_P1();
+					SetShipsScreen nsc = new SetShipsScreen();
 					//VBox setShips = nsc.getScreen();
 					//Scene scene3 = new Scene(setShips, 300, 400);
 					//OpeningScreen.getPrimaryStage().setScene(scene3);

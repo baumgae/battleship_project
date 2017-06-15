@@ -112,9 +112,20 @@ public class GameArea {
 	    public void getNumberOfItems(int ID, int NumberOfItems) {
 	    	// Je nachdem welche ID übergeben wird, wird auch das entsprechende Objekt erzeugt
 	    	
-	    	int currentNumberOfItems = 0;
+	       int currentNumberOfItems = 0;
 	    	
-	    	if (ID == 1) {
+	    	if (ID == 0) {
+	    		while (currentNumberOfItems <= NumberOfItems) {
+		    		this.generateRandomCoordinate();
+		    		if (items[randomValueX][randomValueY] == null) {
+		    			items[randomValueX][randomValueY] = new Water("Water" + currentNumberOfItems);
+		    			currentNumberOfItems++;
+		    		} else {
+		    			logger.info("The method generateWater didn't work!");
+		    		}
+	    		}
+	    	
+	    	 if (ID == 1) {
 	    		while (currentNumberOfItems <= NumberOfItems) {
 		    		this.generateRandomCoordinate();
 		    		if (items[randomValueX][randomValueY] == null) {
@@ -122,27 +133,65 @@ public class GameArea {
 		    			currentNumberOfItems++;
 		    		}
 		    		else {
-		    			logger.info("The method generateDolphine didn`t work!");
+		    			logger.info("The method generateDolphin didn't work!");
 		    		}
 	    		}
 	    	if (ID == 2)
 	    		while (currentNumberOfItems <= NumberOfItems) {
 		    		this.generateRandomCoordinate();
 		    		if (items[randomValueX][randomValueY] == null) {
-		    			items[randomValueX][randomValueY] = new Dolphin("Dolphin" + currentNumberOfItems);
+		    			items[randomValueX][randomValueY] = new Island("Island" + currentNumberOfItems);
 		    			currentNumberOfItems++;
 		    		}
 		    		else {
-		    			logger.info("The method generateDolphine didn`t work!");
+		    			logger.info("The method generateIsland didn't work!");
 		    		}
 	    		}
 	    	
-	    }
+	    	if (ID == 3)
+	    		while (currentNumberOfItems <= NumberOfItems) {
+		    		this.generateRandomCoordinate();
+		    		if (items[randomValueX][randomValueY] == null) {
+		    			items[randomValueX][randomValueY] = new LuckyDwarf("LuckyDwarf" + currentNumberOfItems);
+		    			currentNumberOfItems++;
+		    		}
+		    		else {
+		    			logger.info("The method generateLuckyDwarf didn't work!");
+		    		}
+	    		}
+	    	 
+	    	if (ID == 4)
+	    		while (currentNumberOfItems <= NumberOfItems) {
+		    		this.generateRandomCoordinate();
+		    		if (items[randomValueX][randomValueY] == null) {
+		    			items[randomValueX][randomValueY] = new Mine("Mine" + currentNumberOfItems);
+		    			currentNumberOfItems++;
+		    		} else {
+		    			logger.info("The method generateMine didn't work!");
+		    		}
+		    		
+//		    if (ID == 5)
+//			    while (currentNumberOfItems <= NumberOfItems) {
+//				     this.generateRandomCoordinate();
+//				    if (items[randomValueX][randomValueY] == null) {
+//				    	items[randomValueX][randomValueY] = new OneFieldBoat("OneFieldBoat" + currentNumberOfItems);
+//				    	currentNumberOfItems++;
+//				    }
+//				         else {
+//				    			logger.info("The method generateOneFieldBoat didn't work!");
+//				    		}
+//			    		}
+		    		
+	    		}
+	    	
+	          }
 	    	}
-	    }
+	     }
+	    
+     }
 
 	    
-//	    Erstmal aufbewa
+//	    Erstmal aufbewahren
 //	    		public void generateDolphins(int numberOfDolphines){
 //	    	int currentNumberOfDolphines = 0;
 //	    	
