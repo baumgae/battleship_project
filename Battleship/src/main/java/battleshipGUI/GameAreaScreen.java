@@ -1,5 +1,8 @@
 package battleshipGUI;
 
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
 /**
@@ -25,8 +28,22 @@ import javafx.scene.layout.VBox;
 public class GameAreaScreen {
 
 	public VBox getScreen() {
-		// TODO Auto-generated method stub
-		return null;
+		VBox root = new VBox();
+		Label Title = new Label("Battleship");
+		Button Menu = new Button("Menu");
+		
+		Menu.setOnAction(event -> {
+			
+			ErrorScreen nsc = new ErrorScreen();
+			VBox ErrorScreen = nsc.getScreen();
+			Scene scene = new Scene(ErrorScreen, 300, 400);
+			OpeningScreen.getPrimaryStage().setScene(scene);
+			
+		});
+		
+		root.getChildren().addAll(Title, Menu);
+		
+		return root;
 	}
 	
 	

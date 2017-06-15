@@ -1,5 +1,8 @@
 package battleshipGUI;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.hdm_stuttgart.Battleship.GameManager;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -30,45 +33,77 @@ import javafx.scene.layout.VBox;
 
 public class SetShipsScreen {
 	
+	private static final Logger logger = LogManager.getLogger(SetShipsScreen.class);
+	
 	VBox root = new VBox();
 	Label labelHeader = new Label("Set your Ships");
-	Button Next = new Button("Next");
+	boolean loopSetShipsScreen = false;
 
 	VBox getScreen() {
 		
 		if(GameManager.playerNumber == 1) { 
 		
-		Button startGame = new Button("Start Game"); 
-		startGame.setOnAction(event -> {
+		    Button startGame = new Button("Start Game"); 
+		    startGame.setOnAction(event -> {
 			
-			GameAreaScreen nsc = new GameAreaScreen();
-			VBox GameAreaScreen = nsc.getScreen();
-			Scene scene3 = new Scene(GameAreaScreen, 300, 400);
-			OpeningScreen.getPrimaryStage().setScene(scene3);
+			   GameAreaScreen nsc = new GameAreaScreen();
+		       VBox GameAreaScreen = nsc.getScreen();
+			   Scene scene = new Scene(GameAreaScreen, 300, 400);
+			   OpeningScreen.getPrimaryStage().setScene(scene);
 			
 		});
+		    
+		    root.getChildren().addAll(labelHeader, startGame);
+			
+			return root;
 		
+		} if(GameManager.playerNumber == 2) { // Geht neeeed :(
+			
+		  if(loopSetShipsScreen == false) {
+			  
+			  loopSetShipsScreen = true;
+			  Button Next = new Button("Next");
+			  Next.setOnAction(event -> {
+				  
+			    SetShipsScreen nsc = new SetShipsScreen();
+			    VBox SetShipsScreen = nsc.getScreen();
+			    Scene scene = new Scene(SetShipsScreen, 300, 400);
+			    OpeningScreen.getPrimaryStage().setScene(scene);
+			   
+	  });
+			  
+			  root.getChildren().addAll(labelHeader, Next);
+				
+				return root;
+			  
+		  } if(loopSetShipsScreen == true) { 
+				  
+			 Button startGame = new Button("Start Game");
+			 startGame.setOnAction(event -> {
+				 
+			    GameAreaScreen nsc = new GameAreaScreen();
+			    VBox GameAreaScreen = nsc.getScreen();
+			    Scene scene = new Scene(GameAreaScreen, 300, 400);
+			    OpeningScreen.getPrimaryStage().setScene(scene);
+			 
+			  });
+			 
+			 root.getChildren().addAll(labelHeader, startGame);
+				
+				return root;
+			  
+		  } else {
+			  
+			  logger.info("No Screen has been called.");
+			  
+		  }
+			
+			
 		}
-		root.getChildren().addAll(labelHeader /*startGame*/);
 		
 		return root;
-		
 		
 	}
 
 
 }
-
-// Für das Koordinatensystem ein ButtonArray zweidimensional bauen. 
-// Einen eigenen Button erstellen, der von JavaFX Button erbt.
-// Dieser Button hat immer Zwei bilder für aufgedeckt und nicht aufgedeckt
-// Und das haben dann alle Buttons in diesem Array.
-
-//public VBox getScreen() {
-//	VBox root = new VBox();
-//	
-//	
-//	
-//	return root;
-//}
-
