@@ -49,9 +49,7 @@ public class SetShipsScreen {
 		});
 		
 		}
-		root.getChildren().addAll(labelHeader, startGame);
-		
-		Scene scene = new Scene(root, 300, 400);
+		root.getChildren().addAll(labelHeader /*startGame*/);
 		
 		return root;
 		

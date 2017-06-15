@@ -212,11 +212,7 @@ public class YouLooseScreen {
 		
 		root.getChildren().addAll(scores, newGame, backToMenu);
 		return root;
-		
 	
-		
-		
-		
 	}	
 	}
 	

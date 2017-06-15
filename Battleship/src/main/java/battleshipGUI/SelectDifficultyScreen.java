@@ -2,6 +2,7 @@ package battleshipGUI;
 
 
 
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -32,9 +33,9 @@ public class SelectDifficultyScreen{
 					this.difficultyNumber = difficultyNumber;
 					
 					SetShipsScreen nsc = new SetShipsScreen();
-					//VBox setShips = nsc.getScreen();
-					//Scene scene3 = new Scene(setShips, 300, 400);
-					//OpeningScreen.getPrimaryStage().setScene(scene3);
+					VBox setShips = nsc.getScreen();
+					Scene scene3 = new Scene(setShips, 300, 400);
+					OpeningScreen.getPrimaryStage().setScene(scene3);
 					
 				});
 		
@@ -47,9 +48,9 @@ public class SelectDifficultyScreen{
 					this.difficultyNumber = difficultyNumber;
 					
 					SetShipsScreen nsc = new SetShipsScreen();
-					//VBox setShips = nsc.getScreen();
-					//Scene scene3 = new Scene(setShips, 300, 400);
-					//OpeningScreen.getPrimaryStage().setScene(scene3);
+					VBox setShips = nsc.getScreen();
+					Scene scene3 = new Scene(setShips, 300, 400);
+					OpeningScreen.getPrimaryStage().setScene(scene3);
 					
 				});
 		
@@ -62,9 +63,9 @@ public class SelectDifficultyScreen{
 					this.difficultyNumber = difficultyNumber;
 					
 					SetShipsScreen nsc = new SetShipsScreen();
-					//VBox setShips = nsc.getScreen();
-					//Scene scene3 = new Scene(setShips, 300, 400);
-					//OpeningScreen.getPrimaryStage().setScene(scene3);
+					VBox setShips = nsc.getScreen();
+					Scene scene3 = new Scene(setShips, 300, 400);
+					OpeningScreen.getPrimaryStage().setScene(scene3);
 					
 					
 					
@@ -79,9 +80,9 @@ public class SelectDifficultyScreen{
 					// Übergebem der Anzahl an Items für das nächste Screen!
 					
 					SetShipsScreen nsc = new SetShipsScreen();
-					//VBox setShips = nsc.getScreen();
-					//Scene scene3 = new Scene(setShips, 300, 400);
-					//OpeningScreen.getPrimaryStage().setScene(scene3);
+					VBox setShips = nsc.getScreen();
+					Scene scene3 = new Scene(setShips, 300, 400);
+					OpeningScreen.getPrimaryStage().setScene(scene3);
 					
 				});
 		

@@ -1,5 +1,8 @@
 package battleshipGUI;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -30,11 +33,17 @@ import javafx.stage.Stage;
 
 
 public class OpeningScreen extends Application{
-	 private static Stage primaryStage;
+	
+	private static final Logger logger = LogManager.getLogger(OpeningScreen.class);
+	
+	private static Stage primaryStage;
+	
+	VBox root;
 	
 	 public static Stage getPrimaryStage() {
 		 return primaryStage;
 	 }
+	 
 	 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -60,6 +69,7 @@ public class OpeningScreen extends Application{
 		
 		newGame.setOnAction(
 				event -> {
+					logger.info("The newGame Button has been pushed!");
 					NewGameScreen ngs = new NewGameScreen();
 					VBox NewGame = ngs.getScreen();
 					Scene scene2 = new Scene(NewGame, 300, 400);
@@ -78,7 +88,14 @@ public class OpeningScreen extends Application{
 		// But this won't be important for now!
 		
 				continueGame.setOnAction(
-						event -> continueGame.setText("You Mongo!"));
+						event -> {
+							logger.info("The continue Button has been pushed!");
+							ErrorScreen ngs = new ErrorScreen();
+							VBox errorScreen = ngs.getScreen();
+							Scene scene3 = new Scene(errorScreen, 300, 400);
+							primaryStage.setScene(scene3);
+									
+						});
 		
 		/**
 		* Button for opening the highscores
@@ -87,7 +104,14 @@ public class OpeningScreen extends Application{
 		// EventHandler for opening the highscore Document
 		// But this won't be important for now!
 		highscore.setOnAction(
-				event -> highscore.setText("Nononono"));
+				event -> {
+					logger.info("The highscore Button has been pushed!");
+					ErrorScreen ngs = new ErrorScreen();
+					VBox errorScreen = ngs.getScreen();
+					Scene scene4 = new Scene(errorScreen, 300, 400);
+					primaryStage.setScene(scene4);
+							
+				});
 								
 		
 		/**
@@ -97,11 +121,18 @@ public class OpeningScreen extends Application{
 		
 		// EventHandler for ending the complete Application
 		quit.setOnAction(
-				event -> quit.setText("You may not leave!"));
+				event -> {
+					logger.info("The quit Button has been pushed!");
+					ErrorScreen ngs = new ErrorScreen();
+					VBox errorScreen = ngs.getScreen();
+					Scene scene5 = new Scene(errorScreen, 300, 400);
+					primaryStage.setScene(scene5);
+							
+				});
 		
 		
 		root.getChildren().addAll(labelTitle, newGame, continueGame, highscore, quit);
-		
+		this.root = root;
 		
 		Scene scene = new Scene(root, 300, 400);
 		scene.getStylesheets().add("OpeningSceneCSS.css");
@@ -111,6 +142,12 @@ public class OpeningScreen extends Application{
 		primaryStage.show();
 		
 		
+	}
+	
+	public VBox getScreen() {
+		// Wenn ich diese Methode aufrufe, dann gehts nicht.
+		
+		return root;
 	}
 	
 	
