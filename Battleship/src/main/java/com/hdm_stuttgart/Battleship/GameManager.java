@@ -109,17 +109,9 @@ public class GameManager {
 				GameArea gameA = new GameArea(EDifficulty.EASY);
 				gameA = this.gameArea;
 				
-				// Das erstellen der Items in eine Methode mit
-				// setItems auslagern:
-				
-				// Und das dann für jeden Schwierigkeitsgrad!
 				
 				
-				// Konflikt, numberOfItems gibt 
-				// Dadurch dass die Methode getNumberOfItems nichts zurück gibt, 
-				// Kann diese deklaration nicht stattfinden.
-				
-				// String[] Dolphine = gameA.getNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.EASY));
+				gameA.getNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.EASY));
 				gameA.getNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.EASY));
 				gameA.getNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.EASY));
 				gameA.getNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.EASY));

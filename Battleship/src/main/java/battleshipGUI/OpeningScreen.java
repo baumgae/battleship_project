@@ -132,11 +132,11 @@ public class OpeningScreen extends Application{
 							
 				});
 		
-		CustomButton button = new CustomButton(1, false);
+		// CustomButton button = new CustomButton(1, false);
 		
 		
 		
-		root.getChildren().addAll(labelTitle, newGame, continueGame, highscore, quit, button);
+		root.getChildren().addAll(labelTitle, newGame, continueGame, highscore, quit);
 		this.root = root;
 		
 		Scene scene = new Scene(root, 300, 400);
