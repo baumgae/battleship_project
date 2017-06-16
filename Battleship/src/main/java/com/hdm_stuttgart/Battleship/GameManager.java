@@ -52,13 +52,7 @@ public class GameManager {
 		
 		
 		if (playerNumber == 1) {
-			// Peter ist hier erstmal der Platzhalter,
-			// Wie organisiere ich es, dass hier das eingespeichert wird, 
-			// was der Typ eingibt?
-			
-			// Muss noch zuweißen und später zugreifen können.
-			// Wer speichert die Spieler? 
-			// Game Manager oder Player?
+
 			IPlayer playerOne = PlayerFactory.getInstance(PlayerFactory.PLAYER_TYPE_HUMAN, SetNameScreen.name);
 			
 			IPlayer playerTwo = PlayerFactory.getInstance(PlayerFactory.PLAYER_TYPE_AI, "ComputerHans");
@@ -69,9 +63,6 @@ public class GameManager {
 		
 		else if (playerNumber == 2) {
 			
-			// Peter ist hier erstmal der Platzhalter,
-			// Wie organisiere ich es, dass hier das eingespeichert wird, 
-			// was der Typ eingibt?
 			IPlayer playerOne = PlayerFactory.getInstance("human", SetNameScreen.nameOne);
 			IPlayer playerTwo = PlayerFactory.getInstance("human", SetNameScreen.nameTwo);
 			
@@ -88,18 +79,14 @@ public class GameManager {
 		return playerTwo;
 	}
 	
+		// Hier wird eine leere GameArea erstellt.
 	
+		// Darstellung der GameArea, jeder Point soll dann einen Button bekommen.
 	
-	
-	
-		// Um die GameArea zu erschaffen benötigt man die größe des Feldes
-		// Da durch das Erstellen einer GameArea bereits durch den Aufruf
-		// des Konstruktors die Schwierigkeit eingestellt wird, soll diese hier 
-		// hier übergeben werden und dementsprechend gleich das Feld erzeugt 
-		// und die Anzahl an Items und ihre "Erschaffer-Methode" aufgerufen werden.
+		// ANGST: Vielleicht gibts hier call by value / call by reference?
 		public void createGameArea(int difficultyNumber) {
 			
-			logger.info("The method getDifficulty has been called!");
+			logger.info("The method createGameArea has been called!");
 			
 			GameManager.difficultyNumber = difficultyNumber;
 			
@@ -107,31 +94,137 @@ public class GameManager {
 				
 				// GameArea nach außen geben.
 				GameArea gameA = new GameArea(EDifficulty.EASY);
-				gameA = this.gameArea;
+				gameArea = gameA;
 				
-				
-				
-				gameA.getNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.EASY));
-				gameA.getNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.EASY));
-				gameA.getNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.EASY));
-				gameA.getNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.EASY));
 			}
 			else if (difficultyNumber == 2) {
-				// return DifficultyManager.getFieldSize(EDifficulty.NORMAL);
+				// GameArea nach außen geben.
+				GameArea gameA = new GameArea(EDifficulty.NORMAL);
+				gameArea = gameA;
+				
 			}
 			else if (difficultyNumber == 3) {
-				// return DifficultyManager.getFieldSize(EDifficulty.HARD);
+				// GameArea nach außen geben.
+				GameArea gameA = new GameArea(EDifficulty.HARD);
+				gameArea = gameA;
+				
 			}
 			else if (difficultyNumber == 4) {
-				// return DifficultyManager.getFieldSize(EDifficulty.SUICIDAL);
+				// GameArea nach außen geben.
+				GameArea gameA = new GameArea(EDifficulty.SUICIDAL);
+				gameArea = gameA;
+				
 			}
+			else {
+				logger.debug("No possible difficultyNumber has been recognized!");
+				GameArea gameA = new GameArea(EDifficulty.EASY);
+				gameArea = gameA;
+	
+			}
+		}
+		
+		public GameArea getGameArea() {
+			return gameArea;
+		}
+		
+		// Damit werden die Schiffe auf die GameArea gesetzt
+		public void setShipsOnArea(int difficultyNumber){
+			getGameArea();
+			if (difficultyNumber == 1) {
+				// Schiffe setzen
+				// Anzahl der Schiffe erhalten für den Diffculty Mode EASY
+				
+			}
+			else if(difficultyNumber == 2) {
+				// Schiffe setzen
+				// Anzahl der Schiffe erhalten für den Diffculty Mode NORMAL
+			}
+			else if(difficultyNumber == 3) {
+				// Schiffe setzen
+				// Anzahl der Schiffe erhalten für den Diffculty Mode HARD
+			}
+			else if(difficultyNumber == 4) {
+				// Schiffe setzen
+				// Anzahl der Schiffe erhalten für den Diffculty Mode SUICIDAL
+			}
+			else {
+				logger.debug("No possible difficultyNumber has been recognized!");
+				// Schiffe setzen
+				// Anzahl der Schiffe erhalten für den Diffculty Mode EASY
+				
+			}
+		}
+		
+		// Nachdem GameArea geschaffen und Schiffe gesetzt wurden.
+		// Nun werden die Items je nach Schwierigkeitsgrad draufgesetzt.
+		public void setItemsOnArea(int difficultyNumber) {
+			if (difficultyNumber == 1) {
+				
+				getGameArea();
+			
+				// Generate Items
+				gameArea.getNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.EASY));
+				gameArea.getNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.EASY));
+				gameArea.getNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.EASY));
+				gameArea.getNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.EASY));
+			}
+			else if (difficultyNumber == 2) {
+				getGameArea();
+				
+				// Generate Items
+				gameArea.getNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.NORMAL));
+				gameArea.getNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.NORMAL));
+				gameArea.getNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.NORMAL));
+				gameArea.getNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.NORMAL));
+			}
+			else if (difficultyNumber == 3) {
+				getGameArea();
+				
+				// Generate Items
+				gameArea.getNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.HARD));
+				gameArea.getNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.HARD));
+				gameArea.getNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.HARD));
+				gameArea.getNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.HARD));
+			}
+			else if (difficultyNumber == 4) {
+				getGameArea();
+				
+				// Generate Items
+				gameArea.getNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.SUICIDAL));
+				gameArea.getNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.SUICIDAL));
+				gameArea.getNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.SUICIDAL));
+				gameArea.getNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.SUICIDAL));
+			}
+			else { 
 			logger.debug("No possible difficultyNumber has been recognized!");
-			// return DifficultyManager.getFieldSize(EDifficulty.EASY);
+			}
 			
 		}
 		
+		public void fillWithWater(){
+			// Hier sollen alle restlichen Felder mit Wasser befüllt werden.
 			
 		}
+		
+		public void shootOnCoordinate(){
+			// Diese Methode wird in der GUI im EventHandler aufgerufen, um
+						// Die Auswirkungen des Elements darunter zu bewirken.
+						// Also dann mit getImpactDolphine oder sowas...
+						// Und dann werden eben die Punkte und die Hits auf dem Player
+						// gespeichert.
+		}
+		
+		public void endOfTheGame() {
+			// Reaktion des Spiels, wenn ein Spieler alle Schiffe abgeschossen hat.
+		}
+		
+		public void quitGame() {
+			// Reaktion des Spiels, wenn das Spiel komplett beendet wird.
+		}
+		
+		
+		
+}
 	/*
 	 * 
 	 * 
