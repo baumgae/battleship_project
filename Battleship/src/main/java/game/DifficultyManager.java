@@ -157,7 +157,7 @@ public class DifficultyManager {
 		}
 	}
 
-	public int getNumberOfOneFieldBoat(EDifficulty difficulty) {
+	public static int getNumberOfOneFieldBoat(EDifficulty difficulty) {
 		logger.info("The method getNumberOfOneFieldBoat has been called!");
 		switch (difficulty) {
 

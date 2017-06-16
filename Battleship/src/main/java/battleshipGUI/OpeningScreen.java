@@ -140,7 +140,7 @@ public class OpeningScreen extends Application{
 		this.root = root;
 		
 		Scene scene = new Scene(root, 300, 400);
-		scene.getStylesheets().add("OpeningSceneCSS.css");
+		// scene.getStylesheets().add("OpeningSceneCSS.css");
 		
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Opening Scene - Battleship");
