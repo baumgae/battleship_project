@@ -30,6 +30,9 @@ public class ShipArea {
 	int x;
 	int y;
 	
+	// TJ: Please look at this, and tell us what you think.
+	
+	// Damit werden die Schiffe gesetzt;
 	public void setShipPosition (Item ships,int x, int y) {
 	    
 		logger.info("The method ShipArea.setShipPosition has been called!"); 

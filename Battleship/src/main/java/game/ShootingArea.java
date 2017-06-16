@@ -55,9 +55,18 @@ public class ShootingArea {
 	int Layer2Status = 0; // there is water on this field
 	Point p;
 	
-
-   void shootOnCoordinate (int x, int y) throws Exception {
-             
+/*
+ * Doku für uns: Schießt auf die obere Schicht, wo noch alles auf 0 steht.
+ * 
+ * Heißt: Layer1 ist Scnuss oder nicht Scnuss.
+ * Wenn du auf eine Koordinate schießt ändert sich der status von 0 auf 2
+ * 
+ * Wenn man versucht nochmal darauf zu schießen, kannst dus nicht nochmal tun.
+ */
+   void shootOnCoordinate (Point p) throws Exception {
+	   		
+	   		this.p = p;
+	   
 	         logger.info("The method ShootingArea.shootOnCoordinate has been called!"); 
 	   
 	         if (Layer1Status == 1) {
@@ -66,22 +75,19 @@ public class ShootingArea {
 	        	 
 	         } else {
 	        	
+	        	 logger.info("You are not allowed to shoot again over here!");
 	             Layer1Status = 1; 
 	         
 	         }
 	  
       }
    
-   void setCoordinateLayer1Status (Point p) {
-	   
-	   logger.info("The method ShootingArea.setCoordinateLayer1Status has been called!");
-	   
-	   Layer1Status = 1; 
-	   
-   }
+   /*
+    * Bekommt den Punkt und gibt den Status 0 oder 1 zurück.
+    */
    
-   int getCoordinateLayer1Status() {
-	   
+   int getCoordinateLayer1Status(Point p) {
+	   p = this.p;
 	   logger.info("The method ShootingArea.getCoordinateLayer1Status has been called!");
 	   
 	   return Layer1Status;
@@ -89,9 +95,15 @@ public class ShootingArea {
    }
 
    // Dieser Layer sagt, ob da ein Item liegt oder nicht.
-   int getStatusCoordinate (int ID) throws NoGameElementException { 
+   public int getStatusCoordinate (int ID) throws NoGameElementException { 
 	  
 	   logger.info("The method ShootingArea.getStatusCoordinate has been called!");
+	   
+	   /* Frage an TJ: Wie könnten wir diese Methode gestalten? 
+	    * Problem: Methoden können nicht static gemacht werden, aufrung der 
+	    * abstrakten Klasse, und wir wollen hier ja keine neuen Objekte erzeugen
+	    * 
+	    */
 	   
 	   // Wenn ein Kästchen abgeschossen wird, dann soll diese Methode aufgerufen werden.
 	   // d.H. wird das versteckte Item aufgedeckt, wird die ID des darunterliegenden 
@@ -106,14 +118,14 @@ public class ShootingArea {
 	   
 	   
 	     if (ID == 0) {
-	    	
-	         int points = 0;
+	    	 Water water = new Water("Toni");
+	    	 int points = water.getScore();
 	         return points;
 
        } if (Layer2Status == 1) { 
 		  
     	     Dolphin dolphin = new Dolphin("Günther");
-	         dolphin.getScore();
+    	     dolphin.getScore();
 	         return 0;
 		  
 	   } if (Layer2Status == 2) { 
@@ -124,7 +136,7 @@ public class ShootingArea {
 		  
 	   } if (Layer2Status == 3) { 
 		  
-		     LuckyDwarf luckydwarf = new LuckyDwarf("Günther3");
+		     LuckyDwarf luckydwarf = new LuckyDwarf("SexyBatman");
 		     luckydwarf.getScore();
 		     return 0;
 		  
@@ -138,33 +150,33 @@ public class ShootingArea {
 		   
 		   // We just have an One Field Boat at this moment.
 		  
-		     OneFieldBoat onefieldboat = new OneFieldBoat();
+		     OneFieldBoat onefieldboat = new OneFieldBoat("Tobi");
 	         onefieldboat.getScore();
 	         return 0;
 		  
-	   } if (Layer2Status == 6) { // There is a Two Field Boat
-		  
-		     OneFieldBoat onefieldboat = new OneFieldBoat();
-	         onefieldboat.getScore(); 
-	         return 0;
-		  
-	   } if (Layer2Status == 7) { // There is a Three Field Boat
-		  
-		     OneFieldBoat onefieldboat = new OneFieldBoat();
-	         onefieldboat.getScore(); 
-	         return 0;
-		  
-	   } if (Layer2Status == 8) { // There is a Four Field Boat
-		  
-		     OneFieldBoat onefieldboat = new OneFieldBoat();
-	         onefieldboat.getScore(); 
-	         return 0;
-		  
-	   } if (Layer2Status == 9) { // There is a Quadruple
-		  
-		     OneFieldBoat onefieldboat = new OneFieldBoat();
-	         onefieldboat.getScore();
-	         return 0;
+//	   } if (Layer2Status == 6) { // There is a Two Field Boat
+//		  
+//		     //OneFieldBoat onefieldboat = new OneFieldBoat();
+//	         //onefieldboat.getScore(); 
+//	         return 0;
+//		  
+//	   } if (Layer2Status == 7) { // There is a Three Field Boat
+//		  
+//		    // OneFieldBoat onefieldboat = new OneFieldBoat();
+//	         //onefieldboat.getScore(); 
+//	         return 0;
+//		  
+//	   } if (Layer2Status == 8) { // There is a Four Field Boat
+//		  
+//		     OneFieldBoat onefieldboat = new OneFieldBoat();
+//	         onefieldboat.getScore(); 
+//	         return 0;
+//		  
+//	   } if (Layer2Status == 9) { // There is a Quadruple
+//		  
+//		     OneFieldBoat onefieldboat = new OneFieldBoat();
+//	         onefieldboat.getScore();
+//	         return 0;
 		  
 	   } else {
 		  

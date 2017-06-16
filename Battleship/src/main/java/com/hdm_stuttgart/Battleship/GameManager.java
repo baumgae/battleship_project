@@ -206,6 +206,10 @@ public class GameManager {
 			
 		}
 		
+		/*
+		 * TJ Wie könnte man das hier regel, dass die Spieler abwechselnd spielen dürfen.
+		 */
+		
 		public void shootOnCoordinate(){
 			// Diese Methode wird in der GUI im EventHandler aufgerufen, um
 						// Die Auswirkungen des Elements darunter zu bewirken.

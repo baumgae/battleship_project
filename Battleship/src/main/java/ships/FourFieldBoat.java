@@ -22,10 +22,10 @@ import java.awt.Point;
  */
 public class FourFieldBoat extends AShip {
 	
-	FourFieldBoat() {
-		super(8, 4, 0);
+	//FourFieldBoat() {
+	//	super(8, 4, 0);
 	
-	}
+	//}
 
 	@Override
 	public boolean isHidden(boolean hide) {

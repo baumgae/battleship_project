@@ -22,10 +22,10 @@ import java.awt.Point;
  */
 public class TwoFieldBoat extends AShip {
 
-	TwoFieldBoat() {
-		super(6, 2, 0);
+	//TwoFieldBoat() {
+	//	super(6, 2, 0);
 	
-	}
+	//}
 	
 	@Override
 	public boolean isHidden(boolean hide) {

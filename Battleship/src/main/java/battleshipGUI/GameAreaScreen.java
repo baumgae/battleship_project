@@ -27,6 +27,17 @@ import javafx.scene.layout.VBox;
 
 public class GameAreaScreen {
 
+	/*
+	 * TJ: Wenn ich später die Methode createGameArea aufrufe, und diese eine GameArea erschafft.
+	 * 	   Sollen dann bereits dort ein zweidimensionales Array mit den Buttons erstellt werden.
+	 * 
+	 *	   Oder sollen die erst hier hinzugefügt werden?
+	 *	
+	 */
+	
+	
+	// einen Button mit Connection zum Menü einbauen please <3, Lea
+	// p.s.  was ist < 3? , Celine
 	public VBox getScreen() {
 		VBox root = new VBox();
 		Label Title = new Label("Battleship");

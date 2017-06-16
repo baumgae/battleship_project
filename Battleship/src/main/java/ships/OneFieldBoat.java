@@ -31,22 +31,19 @@ public class OneFieldBoat extends AShip {
 	Point p;
 	String name;
 	
-	public OneFieldBoat() {
-		super(5,1,0);
-	}
 	
 	// Doesn't work because of the super?
-	// public OneFieldBoat(String name) {
-	//	this.name = name;
-	//	hide = true;
-	//	destroy = false;
-	//	super(5,1,0);
-	// }
+	public OneFieldBoat(String name) {
+		this.name = name;
+		hide = true;
+		destroy = false;
+	 }
 	
 	
 	@Override
 	public boolean isHidden(boolean hide) {
 		logger.info("The method OneFieldBoat.isHidden has been called!");
+		this.hide = hide;
 		return hide;
 	}
 

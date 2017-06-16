@@ -31,6 +31,8 @@ import javafx.scene.layout.VBox;
  * @version 0.1 
  */
 
+
+// TJ: While Loop doesn't work.
 public class SetShipsScreen {
 	
 	private static final Logger logger = LogManager.getLogger(SetShipsScreen.class);

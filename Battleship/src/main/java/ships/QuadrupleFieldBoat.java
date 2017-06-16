@@ -21,10 +21,10 @@ import java.awt.Point;
  */
 public class QuadrupleFieldBoat extends AShip {
 
-	QuadrupleFieldBoat() {
-		super(9, 2, 2);
+	//QuadrupleFieldBoat() {
+	//	super(9, 2, 2);
 		
-	}
+	//}
 	
 	@Override
 	public boolean isHidden(boolean hide) {

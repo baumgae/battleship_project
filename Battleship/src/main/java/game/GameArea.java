@@ -67,6 +67,13 @@ public class GameArea {
 	int randomValueY;
 	boolean isItem = true;
 	
+	// TJ: Please look at this.
+	
+	// Wenn das alles so passt, passiert folgendes:
+	// Nachdem dieser Constructor aufgerufen und der Schwierigkeitsgrad 
+	// Übergebem wurde, werden die x und y max Koordinaten von der difficulty geholt
+	
+	// und dem Feld übergeben, wodurch es sich aufbaut.
 	
 	public GameArea(EDifficulty difficulty){
 			
@@ -80,7 +87,7 @@ public class GameArea {
 		    
 	    }
 	
-
+// Hier werden die random Koordinaten für die ZufallsItems generiert.
 	       void generateRandomCoordinate() {
 	    	
 	       logger.info("The method GameArea.generateRandomCoordinate has been called!");
@@ -96,19 +103,15 @@ public class GameArea {
 		   this.randomValueY = randomValueY;
 		   
 	    }
+	       
+	    // TJ: Please look at this.
 	    
-	    void unhide(int x, int y) {
-	    	
-	    logger.info("The method GameArea.unhide has been called!");
-		
-	    }
 	    
 	    // Hier wird immer die Anzahl an Elementen eines speziellen Elements übergeben!
 	    // Beispielsweise mithife von 
 	    // GameArea.getNumberOfItems(Dolphine.getID(), Difficulty.getNumberOfDolphines(NORMAL));
 	    // Damit wird dann Beispielsweise die Anzahl an Delphinen erzeugt. 
 	    
-	    // 
 	    public void getNumberOfItems(int ID, int NumberOfItems) {
 	    	// Je nachdem welche ID übergeben wird, wird auch das entsprechende Objekt erzeugt
 	    	

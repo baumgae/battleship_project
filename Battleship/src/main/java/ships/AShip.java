@@ -32,11 +32,7 @@ public abstract class AShip implements Item {
 	int y;
 	int shipPoints;
 	
-	AShip(int shipID, int shipSizeX, int shipSizeY) {
-		this.shipID = shipID;
-		this.shipSizeX = shipSizeX;
-		this.shipSizeY = shipSizeY;
-	}
+	
 	
 
 }
