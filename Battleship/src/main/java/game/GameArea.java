@@ -1,19 +1,15 @@
 package game;
-
-import java.awt.Point;
 import java.util.Random;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import gameConfigurations.HumanPlayer;
 import gameConfigurations.Item;
 import gameElement.Dolphin;
 import gameElement.Island;
 import gameElement.LuckyDwarf;
 import gameElement.Mine;
 import gameElement.Water;
-import ships.OneFieldBoat;
 
 /**
  * The Class GameArea is managing the Creation of the Game Area and handle the
