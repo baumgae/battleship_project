@@ -6,49 +6,81 @@ import javafx.scene.image.ImageView;
 
 public class CustomButton extends Button {
 	
-	
+	private int type;
+	private double width = 30.0;
+	private double height = 30.0;
 	
 	public CustomButton(int ID, boolean hidden) {
-	
+		// TJ: Die x/y-Koordinate würden hier als Parameter Sinn machen. Das macht dann die Verknüpfung mit der Logik viel einfacher.
 		
-	while (hidden == false)	{
-		if (ID == 0) {
-			
-			Image imageDecline = new Image(getClass().getResourceAsStream("/Desktop/Images_Battleship/Water.png"));
-			Button button5 = new Button();
-			button5.setGraphic(new ImageView(imageDecline));
+		// TJ: "type" ist vielleicht ein bisschen einfacher zu verstehen 
+		type = ID;
+	
+		// TJ: Die while-Schleife braucht ihr hier nicht!
+		
+		// TJ: Die if-Bedingungen habe ich in unhide() ausgelagert. Das soll ja erst passieren, wenn der Button gedrückt wurde.
+		// Deshalb wird immer zuerst Wasser angezeigt
+		
+		Image imageDecline = new Image(getClass().getResourceAsStream("water.jpg"));
+		ImageView imageView = new ImageView(imageDecline);
+		imageView.setFitWidth(width);
+		imageView.setFitHeight(height);
+		this.setGraphic(imageView);
+	}
+	
+	public void unhide(){
+		if (type == 0) {
+			// TJ: ich hatte leider nicht eure Bilder zur Hand, deswegen habe ich es ersetzen müssen
+			Image imageDecline = new Image(getClass().getResourceAsStream("unicorn.png"));
+			// TJ: Wichtig: Hier braucht ihr keinen neuen Button erzeigen. Der CustomButton ist ja schon ein Button auf dem ihr ein Bild setzen wollt.
+			ImageView imageView = new ImageView(imageDecline);
+			imageView.setFitWidth(width);
+			imageView.setFitHeight(height);
+			this.setGraphic(imageView);
 			
 		// hier soll dann ein Image geladen werden!
 			// Wasserfontäne
 		}
-		else if (ID == 1) {
-			Image imageDecline = new Image(getClass().getResourceAsStream("/Desktop/Images_Battleship/Dolphine.png"));
-			Button button5 = new Button();
-			button5.setGraphic(new ImageView(imageDecline));
+		else if (type == 1) {
+			Image imageDecline = new Image(getClass().getResourceAsStream("unicorn.png"));
+			
+			ImageView imageView = new ImageView(imageDecline);
+			imageView.setFitWidth(width);
+			imageView.setFitHeight(height);
+			this.setGraphic(imageView);
 			
 			// hier soll dann ein Delfin sein
 				// Toter Delfin
 		}
-		else if (ID == 2) {
-			Image imageDecline = new Image(getClass().getResourceAsStream("/Desktop/Images_Battleship/Island.png"));
-			Button button5 = new Button();
-			button5.setGraphic(new ImageView(imageDecline));
+		else if (type == 2) {
+			Image imageDecline = new Image(getClass().getResourceAsStream("unicorn.png"));
+			
+			ImageView imageView = new ImageView(imageDecline);
+			imageView.setFitWidth(width);
+			imageView.setFitHeight(height);
+			this.setGraphic(imageView);
 			
 			// hier soll dann eine Insel sein
 				// Tschernorbyl Insel + verstrahltes Paarhuferwesen
 		}
-		else if (ID == 3) {
-			Image imageDecline = new Image(getClass().getResourceAsStream("/Desktop/Images_Battleship/LuckyDwarf.png"));
-			Button button5 = new Button();
-			button5.setGraphic(new ImageView(imageDecline));
+		else if (type == 3) {
+			Image imageDecline = new Image(getClass().getResourceAsStream("unicorn.png"));
+			
+			ImageView imageView = new ImageView(imageDecline);
+			imageView.setFitWidth(width);
+			imageView.setFitHeight(height);
+			this.setGraphic(imageView);
 			
 			// hier soll dann eine LuckyDwarf
 				// Kaputter LuckyDwarf
 		}
-		else if(ID == 4) {
-			Image imageDecline = new Image(getClass().getResourceAsStream("/Desktop/Images_Battleship/Mine.png"));
-			Button button5 = new Button();
-			button5.setGraphic(new ImageView(imageDecline));
+		else if(type == 4) {
+			Image imageDecline = new Image(getClass().getResourceAsStream("unicorn.png"));
+			
+			ImageView imageView = new ImageView(imageDecline);
+			imageView.setFitWidth(width);
+			imageView.setFitHeight(height);
+			this.setGraphic(imageView);
 			
 			// hier soll dann eine Mine sein
 				// Explosion
@@ -57,7 +89,6 @@ public class CustomButton extends Button {
 		else {
 			// error.log!
 		}
-	}
 	}
 }
 
