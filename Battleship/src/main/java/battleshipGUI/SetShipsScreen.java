@@ -39,7 +39,7 @@ public class SetShipsScreen {
 	
 	VBox root = new VBox();
 	Label labelHeader = new Label("Set your Ships");
-	boolean loopSetShipsScreen = false;
+    int i = 0;
 
 	VBox getScreen() {
 		
@@ -59,11 +59,10 @@ public class SetShipsScreen {
 			
 			return root;
 		
-		} if(GameManager.playerNumber == 2) { // Geht neeeed :(
+		} if(GameManager.playerNumber == 2) { 
 			
-		  if(loopSetShipsScreen == false) {
+		  while(i <= 2) {
 			  
-			  loopSetShipsScreen = true;
 			  Button Next = new Button("Next");
 			  Next.setOnAction(event -> {
 				  
@@ -71,14 +70,14 @@ public class SetShipsScreen {
 			    VBox SetShipsScreen = nsc.getScreen();
 			    Scene scene = new Scene(SetShipsScreen, 300, 400);
 			    OpeningScreen.getPrimaryStage().setScene(scene);
-			   
+			   		   
 	  });
-			  
+			
 			  root.getChildren().addAll(labelHeader, Next);
+			  i++;
+			  return root;
 				
-				return root;
-			  
-		  } if(loopSetShipsScreen == true) { 
+		  }
 				  
 			 Button startGame = new Button("Start Game");
 			 startGame.setOnAction(event -> {
@@ -101,7 +100,6 @@ public class SetShipsScreen {
 		  }
 			
 			
-		}
 		
 		return root;
 		

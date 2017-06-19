@@ -1,8 +1,12 @@
 package battleshipGUI;
 
+import com.hdm_stuttgart.Battleship.GameManager;
+
+import game.GameArea;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 /**
@@ -53,6 +57,35 @@ public class GameAreaScreen {
 		});
 		
 		root.getChildren().addAll(Title, Menu);
+		
+		if(GameManager.playerNumber == 1) {
+			
+			HBox left = new HBox();
+			Label header1 = new Label(SetNameScreen.name + "'s Area");
+			
+			HBox right = new HBox();
+			Label header2 = new Label("Computer's Area");
+			//Felder einfügen, GameArea aufrufen
+			
+			root.getChildren().addAll(left, header1, right, header2);
+			return root;
+			
+		} if(GameManager.playerNumber == 2) {
+			
+			HBox left = new HBox();
+			Label header1 = new Label(SetNameScreen.nameOne + "'s Area");
+			
+			HBox right = new HBox();
+			Label header2 = new Label(SetNameScreen.nameTwo + "'s Area");
+			
+			root.getChildren().addAll(left, header1, right, header2);
+			
+			return root;
+			
+			
+			
+			
+		}
 		
 		return root;
 	}

@@ -36,6 +36,7 @@ public class GameManager {
 	
 	public static int playerNumber;
 	public static int difficultyNumber;
+	// TJ: Ihr könnt euch einfach zwei GameAreas machen: playerGameArea und enemyGameArea. Dann klappt das mit den zwei Playern.
 	GameArea gameArea;
 	
 	IPlayer playerOne;
@@ -84,6 +85,7 @@ public class GameManager {
 		// Darstellung der GameArea, jeder Point soll dann einen Button bekommen.
 	
 		// ANGST: Vielleicht gibts hier call by value / call by reference?
+		// TJ: Die Angst braucht ihr hier nicht haben ;-)
 		public void createGameArea(int difficultyNumber) {
 			
 			logger.info("The method createGameArea has been called!");
@@ -216,6 +218,7 @@ public class GameManager {
 						// Also dann mit getImpactDolphine oder sowas...
 						// Und dann werden eben die Punkte und die Hits auf dem Player
 						// gespeichert.
+			// TJ: Ich würde hier noch zwei Parameter (x/y) einfügen. Der Angriff geht dann auf die GameArea des Gegners (enemyGameArea).
 		}
 		
 		public void endOfTheGame() {
