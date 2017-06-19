@@ -11,6 +11,7 @@ public class CustomButton extends Button {
 	private int type;
 	private double width = 30.0;
 	private double height = 30.0;
+
 	
 	
 	public CustomButton(int ID, Point p) {
@@ -24,7 +25,7 @@ public class CustomButton extends Button {
 		
 		// TJ: Die if-Bedingungen habe ich in unhide() ausgelagert. Das soll ja erst passieren, wenn der Button gedrückt wurde.
 		// Deshalb wird immer zuerst Wasser angezeigt
-		// Uiiiii <3 toll
+
 		
 		Image imageDecline = new Image(getClass().getResourceAsStream("water.jpg"));
 		ImageView imageView = new ImageView(imageDecline);

@@ -5,8 +5,10 @@ import java.awt.Point;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+
 import game.DifficultyManager;
 import game.EDifficulty;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -40,6 +42,7 @@ private static final Logger logger = LogManager.getLogger(CustomButtonTest.class
 			 * Title for the whole screen
 			 */
 			Label labelTitle = new Label("Battleship");
+			root.getChildren().add(labelTitle);
 			// Here we could add an image with a battleship on it.
 			
 			// Image image = new Image(getClass().getResourceAsStream("Battleship_Opening.jpg"));
@@ -49,6 +52,8 @@ private static final Logger logger = LogManager.getLogger(CustomButtonTest.class
 			 * Button for starting a new Game
 			 */
 			// TJ: Erstmal ein Button-Array machen...
+
+			
 			Point difficulty = DifficultyManager.getFieldSize(EDifficulty.EASY);
 			CustomButton buttons [] = new CustomButton[difficulty.x];
 			
@@ -84,7 +89,7 @@ private static final Logger logger = LogManager.getLogger(CustomButtonTest.class
 		
 		root.getChildren().addAll(labelTitle, root2, root3);
 		
-	 		
+	 	
 			
 			
 			Scene scene = new Scene(root, 300, 400);
@@ -92,8 +97,10 @@ private static final Logger logger = LogManager.getLogger(CustomButtonTest.class
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Opening Scene - Battleship");
 			primaryStage.show();
+
 	 }
 		
+
 	 
 	 public static void main(String[] args) {
 		launch(args);
