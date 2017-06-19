@@ -42,7 +42,7 @@ private static final Logger logger = LogManager.getLogger(CustomButtonTest.class
 			 * Title for the whole screen
 			 */
 			Label labelTitle = new Label("Battleship");
-			root.getChildren().add(labelTitle);
+			
 			// Here we could add an image with a battleship on it.
 			
 			// Image image = new Image(getClass().getResourceAsStream("Battleship_Opening.jpg"));

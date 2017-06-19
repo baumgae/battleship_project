@@ -13,6 +13,8 @@ public class CustomButton extends Button {
 	private double height = 30.0;
 
 	
+	// Map für Cutum
+	
 	
 	public CustomButton(int ID, Point p) {
 		// TJ: Die x/y-Koordinate würden hier als Parameter Sinn machen. 
