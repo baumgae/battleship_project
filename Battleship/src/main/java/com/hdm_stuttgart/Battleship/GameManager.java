@@ -20,7 +20,7 @@ import gameConfigurations.PlayerFactory;
 * <p>
 * The GameMananger which manages between the Input of the players
 * through the Graphical User Interface and the Classes underneath.
-* <br>
+* <p>
 * 
 * 
 * <p>
@@ -208,34 +208,34 @@ public class GameManager {
 				
 			
 				// Generate Items
-				gameArea.getNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.EASY));
-				gameArea.getNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.EASY));
-				gameArea.getNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.EASY));
-				gameArea.getNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.EASY));
+				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.EASY));
+				gameArea.setNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.EASY));
+				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.EASY));
+				gameArea.setNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.EASY));
 			}
 			else if (difficultyNumber == 2) {
 				
 				// Generate Items
-				gameArea.getNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.NORMAL));
-				gameArea.getNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.NORMAL));
-				gameArea.getNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.NORMAL));
-				gameArea.getNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.NORMAL));
+				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.NORMAL));
+				gameArea.setNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.NORMAL));
+				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.NORMAL));
+				gameArea.setNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.NORMAL));
 			}
 			else if (difficultyNumber == 3) {
 				
 				// Generate Items
-				gameArea.getNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.HARD));
-				gameArea.getNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.HARD));
-				gameArea.getNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.HARD));
-				gameArea.getNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.HARD));
+				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.HARD));
+				gameArea.setNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.HARD));
+				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.HARD));
+				gameArea.setNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.HARD));
 			}
 			else if (difficultyNumber == 4) {
 				
 				// Generate Items
-				gameArea.getNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.SUICIDAL));
-				gameArea.getNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.SUICIDAL));
-				gameArea.getNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.SUICIDAL));
-				gameArea.getNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.SUICIDAL));
+				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.SUICIDAL));
+				gameArea.setNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.SUICIDAL));
+				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.SUICIDAL));
+				gameArea.setNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.SUICIDAL));
 			}
 			else { 
 			logger.debug("No possible difficultyNumber has been recognized!");
@@ -243,16 +243,34 @@ public class GameManager {
 			
 		}
 		
-		public void fillWithWater(){
-			// Hier sollen alle restlichen Felder mit Wasser befüllt werden.
+		public void shootOnCoordinate(int playerNumber, Point p){
+			int i = 0;
 			
-		}
-		
-		/*
-		 * TJ Wie könnte man das hier regel, dass die Spieler abwechselnd spielen dürfen.
-		 */
-		
-		public void shootOnCoordinate(){
+			// while-Schleife für das abwechselnde Spielen
+			// jeder darf nur ein mal schießen.
+			
+			while (i <= 1){ 
+				GameArea gameArea;
+			// Je nachdem auf welche GameArea das gesetzt werden soll...
+						if (playerNumber == 1) {
+							
+							gameArea = getGameAreaPlayerTwo();
+							// shootOnCoordinate Methode
+							// Felds ID wird verändert.
+							// Durch veränderte ID anderes Bild!
+							
+							// getStatusCoordinate --> damit der Punktestand geändert wird.!
+							// Punktestand wird verändert!
+							
+						}
+						else {
+							
+							gameArea = getGameAreaPlayerOne();
+							// shootOnCoordinate Methode
+							// Felds ID wird verändert.
+							// Durch veränderte ID anderes Bild!
+						}
+			}
 			// Diese Methode wird in der GUI im EventHandler aufgerufen, um
 						// Die Auswirkungen des Elements darunter zu bewirken.
 						// Also dann mit getImpactDolphine oder sowas...

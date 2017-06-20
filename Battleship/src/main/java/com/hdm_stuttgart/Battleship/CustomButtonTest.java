@@ -62,7 +62,7 @@ private static final Logger logger = LogManager.getLogger(CustomButtonTest.class
 				// TJ: ... dann sagen, was passieren soll, wenn geklickt wurde
 				buttons[i].setOnAction(event ->{
 					CustomButton clickedButton = (CustomButton) event.getSource();
-					clickedButton.unhide(3);
+					clickedButton.unhide(0);
 				});
 				// TJ: ... abschließend der VBox hinzufügen.
 				root2.getChildren().add(buttons[i]);
@@ -78,7 +78,7 @@ private static final Logger logger = LogManager.getLogger(CustomButtonTest.class
 			// TJ: ... dann sagen, was passieren soll, wenn geklickt wurde
 			buttons2[i].setOnAction(event ->{
 				CustomButton clickedButton = (CustomButton) event.getSource();
-				clickedButton.unhide(1);
+				clickedButton.unhide(0);
 			});
 			// TJ: ... abschließend der VBox hinzufügen.
 			root3.getChildren().add(buttons2[i]);

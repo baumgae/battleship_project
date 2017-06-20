@@ -41,8 +41,7 @@ public class PlayerFactoryTest {
 		
 	}
 	// expected right
-	
-	
+
 	@Test
 	public void testCompletelyWrong() throws CreatePlayerException {
 	

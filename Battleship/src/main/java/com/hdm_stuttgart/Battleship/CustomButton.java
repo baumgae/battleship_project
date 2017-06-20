@@ -6,28 +6,44 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+/**
+* CustomButton
+* <p>
+* The CustomButton is a Button for creating the GameArea which contains
+* a grid made of these buttons.
+* 
+* <p>
+* 
+* With the constructor {@link #CustomButton} creates a single CustomButton
+* with an image for water, which hasn't been shot by now.
+* He receives a Point as parameter for knowing where to set one.
+* He holds actually two images for one not shot and one shot button.
+* 
+* The method {@link #unhide(int)} the button with which the Item bellow will be 
+* revealed. So this method receives a parameter for the ID of the item bellow,
+* and reveals the image for it.
+* 
+* 
+* <p>
+* @author Lea Baumgärtner
+* @version 0.1 
+*/
+
 public class CustomButton extends Button {
 	
 	private int type;
 	private double width = 30.0;
 	private double height = 30.0;
-
 	
-	// Map für Cutum
-	
-	
+	/*
+	 * Constructor CustomButton for creating a Button with two images.
+	 */
 	public CustomButton(Point p) {
 		// TJ: Die x/y-Koordinate würden hier als Parameter Sinn machen. 
 		// Das macht dann die Verknüpfung mit der Logik viel einfacher.
 		
+		// Type wichtig für unhide unwichtig für customButton?
 		// TJ: "type" ist vielleicht ein bisschen einfacher zu verstehen 
-		
-	
-		// TJ: Die while-Schleife braucht ihr hier nicht!
-		
-		// TJ: Die if-Bedingungen habe ich in unhide() ausgelagert. Das soll ja erst passieren, wenn der Button gedrückt wurde.
-		// Deshalb wird immer zuerst Wasser angezeigt
-
 		
 		Image imageDecline = new Image(getClass().getResourceAsStream("water.jpg"));
 		ImageView imageView = new ImageView(imageDecline);
@@ -37,21 +53,22 @@ public class CustomButton extends Button {
 		
 	}
 	
+	/*
+	 * Method unhide(int ID) for revealing the item bellow.
+	 */
 	public void unhide(int ID){
 		
 		type = ID;
 		
 		if (type == 0) {
-			// TJ: ich hatte leider nicht eure Bilder zur Hand, deswegen habe ich es ersetzen müssen
-			Image imageDecline = new Image(getClass().getResourceAsStream("unicorn.png"));
-			// TJ: Wichtig: Hier braucht ihr keinen neuen Button erzeigen. Der CustomButton ist ja schon ein Button auf dem ihr ein Bild setzen wollt.
+		
+			Image imageDecline = new Image(getClass().getResourceAsStream("ShotWater.png"));
+			
 			ImageView imageView = new ImageView(imageDecline);
 			imageView.setFitWidth(width);
 			imageView.setFitHeight(height);
 			this.setGraphic(imageView);
-			
-		// hier soll dann ein Image geladen werden!
-			// Wasserfontäne
+		
 		}
 		else if (type == 1) {
 			Image imageDecline = new Image(getClass().getResourceAsStream("Dolphine.png"));
@@ -61,8 +78,6 @@ public class CustomButton extends Button {
 			imageView.setFitHeight(height);
 			this.setGraphic(imageView);
 			
-			// hier soll dann ein Delfin sein
-				// Toter Delfin
 		}
 		else if (type == 2) {
 			Image imageDecline = new Image(getClass().getResourceAsStream("Island.png"));
@@ -72,8 +87,6 @@ public class CustomButton extends Button {
 			imageView.setFitHeight(height);
 			this.setGraphic(imageView);
 			
-			// hier soll dann eine Insel sein
-				// Tschernorbyl Insel + verstrahltes Paarhuferwesen
 		}
 		else if (type == 3) {
 			Image imageDecline = new Image(getClass().getResourceAsStream("LuckyDwarf.png"));
@@ -83,8 +96,6 @@ public class CustomButton extends Button {
 			imageView.setFitHeight(height);
 			this.setGraphic(imageView);
 			
-			// hier soll dann eine LuckyDwarf
-				// Kaputter LuckyDwarf
 		}
 		else if(type == 4) {
 			Image imageDecline = new Image(getClass().getResourceAsStream("Mine.png"));
@@ -93,9 +104,6 @@ public class CustomButton extends Button {
 			imageView.setFitWidth(width);
 			imageView.setFitHeight(height);
 			this.setGraphic(imageView);
-			
-			// hier soll dann eine Mine sein
-				// Explosion
 			
 		}
 		else {
