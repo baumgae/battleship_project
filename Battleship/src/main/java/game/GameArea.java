@@ -11,44 +11,50 @@ import gameElement.Island;
 import gameElement.LuckyDwarf;
 import gameElement.Mine;
 import gameElement.Water;
-import ships.OneFieldBoat;
 
 /**
  * The Class GameArea is managing the Creation of the Game Area and handle the
- * Actions on the Field.
+ * Actions on the Field. Also it managing the Status of the Field, so the
+ * Player can see where he has shoot at and which Item is behind the
+ * Field.
  * 
- * <p>
- * This class is managing the Creation of the Game Area and handle the Actions on
- * the Field. First the Game Area will be created with the Constructor 
- * {@link #GameArea(EDifficulty)}.
+ *<p> First the Game Area will be created with the Constructor 
+ * {@link #GameArea(EDifficulty)}. Depending on which Difficulty the Player has chosen,
+ * the Field has a different Size.
  * 
  * <p>
  * The method {@link #generateRandomCoordinate()} generate random Coordinates for the
  * Game Elements which the Player is not allowed to set.
  * 
  * <p>
- * The method {@link #setRandomGameElement()} gets the random Coordinates from 
- * {@link #setRandomCoordinate()} and ???????
+ * The method {@link #setNumberOfItems(int, int)} gets the random Coordinates from 
+ * {@link #setRandomCoordinate()} and creates the Game Elements. Depending on which
+ * Difficulty the Player has chosen, there is different Number of Game Elements.
+ * The ID is used to decide which Game Element will be created. For example in 
+ * Difficulty Easy there are three Objects of ID = 1 available, so the method knows 
+ * there will be three Dolphins created.
  * 
  * <p> 
- * The method {@link #setRandomDolphin()} creates the Game Element Dolphin and put it
- * random on the Field.
+ * In the method {@link #setShipPosition(Item, int, int)} the Player is allowed to 
+ * set his Number of Ships.
  * 
  * <p> 
- * The method {@link #setRandomIsland()} creates the Game Element Island and put it
- * random on the Field.
+ * The method {@link #getShipPosition()} shows the Player on which Coordinate his 
+ * Ships are.
  * 
  * <p> 
- * The method {@link #setRandomMine()} creates the Game Element Mine and put it
- * random on the Field.
- * 
- * <p> 
- * The method {@link #setRandomLuckyDwarf()} creates the Game Element LuckyDwarf and put it
- * random on the Field.
+ * With the method {@link #shootOnCoordinate(Point)} the Player is allowed to
+ * shoot on Coordinates. The Status of each Coordinate stands on 0 until the Player
+ * shoot at a Coordinate, then it changes to 1.
+ * If the Player has already shot on this Coordinate, this method
+ * will throw an Exception, because you are only allowed to shot at a Coordinate
+ * for one Time. 
  * 
  * <p>  
- * The method {@link #unhide(int, int)} discover the Field to see which Game Element 
- * is behind this.
+ * If a Player shoots at a Coordinate the method {@link #getCoordinateLayerstatus(Point)} 
+ * will check the ID of the Object which is behind the Coordinate. After the method 
+ * finds out which Element is on the Coordinate, it return the Number of Points 
+ * the Player will get. 
  * 
  * <p>
  * @author Celine Wichmann
@@ -57,7 +63,7 @@ import ships.OneFieldBoat;
 
 public class GameArea {
 	
-	private static final Logger logger = LogManager.getLogger(GameArea.class);
+ 	private static final Logger logger = LogManager.getLogger(GameArea.class);
 	
 	Item[][] items;
 	EDifficulty difficulty;
@@ -69,10 +75,6 @@ public class GameArea {
 	int x;
 	int y;
 	boolean isItem = true;
-
-	// Nachdem dieser Constructor aufgerufen und der Schwierigkeitsgrad 
-	// übergebem wurde, werden die x und y max Koordinaten von der difficulty geholt
-	// und dem Feld übergeben, wodurch es sich aufbaut.
 	
 	public GameArea(EDifficulty difficulty){
 			
@@ -85,8 +87,6 @@ public class GameArea {
 		    this.difficulty = difficulty;
 		    
 	    }
-	
-   // Hier werden die random Koordinaten für die ZufallsItems generiert.
 	
 	      void generateRandomCoordinate() {
 	    	
@@ -104,97 +104,81 @@ public class GameArea {
 		   
 	    }
 	  
-	    
-	    // Hier wird immer die Anzahl an Elementen eines speziellen Elements übergeben!
-	    // Beispielsweise mithife von 
-	    // GameArea.getNumberOfItems(Dolphine.getID(), Difficulty.getNumberOfDolphines(NORMAL));
-	    // Damit wird dann Beispielsweise die Anzahl an Delphinen erzeugt. 
-	    
 	    public void setNumberOfItems(int ID, int NumberOfItems) {
-	    	// Je nachdem welche ID übergeben wird, wird auch das entsprechende Objekt erzeugt
 	    	
-	        int currentNumberOfItems = 0;
+	    	int currentNumberOfItems = 0;
 	    	
-	    	if (ID == 0) {
-	    		
-	    		while (currentNumberOfItems <= NumberOfItems) {
-		    		this.generateRandomCoordinate();
-		    		if (items[randomValueX][randomValueY] == null) {
-		    			items[randomValueX][randomValueY] = new Water("Water" + currentNumberOfItems);
+	    	if (ID == 0) {		
+	    	 while (currentNumberOfItems <= NumberOfItems) {
+		    	    this.generateRandomCoordinate();
+		    	  if (items[randomValueX][randomValueY] == null) {
+		    		  items[randomValueX][randomValueY] = new Water("Water" + currentNumberOfItems);
 		    			currentNumberOfItems++;
 		    			
-		    		} else {
-		    			
-		    			logger.info("The method generateWater didn't work!");
-		    		}
-	    		}
-	    		
+		    	} else {	
+		    	    logger.info("The method generateWater didn't work!");
+		    	    
+		    	}
+	    	  }	
 	    	}
 	    	
-	    	 if (ID == 1) {
-	    		 
-	    		while (currentNumberOfItems <= NumberOfItems) {
-		    		this.generateRandomCoordinate();
-		    		if (items[randomValueX][randomValueY] == null) {
-		    			items[randomValueX][randomValueY] = new Dolphin("Dolphin" + currentNumberOfItems);
+	    	if (ID == 1) {
+	    	 while (currentNumberOfItems <= NumberOfItems) {
+		    	   this.generateRandomCoordinate();
+		    	 if (items[randomValueX][randomValueY] == null) {
+		    		 items[randomValueX][randomValueY] = new Dolphin("Dolphin" + currentNumberOfItems);
 		    			currentNumberOfItems++;
 		    			
-		    		} else {
-		    			
-		    			logger.info("The method generateDolphin didn't work!");
-		    		}
-	    		}
+		    	} else {
+		    		logger.info("The method generateDolphin didn't work!");
+		    		
+		    	}
+	    	  }
+	        }
 	    		
-	    	 }
-	    		
-	    	 if (ID == 2) {
-	    		 
-	    		while (currentNumberOfItems <= NumberOfItems) {
-		    		this.generateRandomCoordinate();
-		    		if (items[randomValueX][randomValueY] == null) {
-		    			items[randomValueX][randomValueY] = new Island("Island" + currentNumberOfItems);
+	    	if (ID == 2) { 
+	    	 while (currentNumberOfItems <= NumberOfItems) {
+		    	   this.generateRandomCoordinate();
+		    	 if (items[randomValueX][randomValueY] == null) {
+		    		 items[randomValueX][randomValueY] = new Island("Island" + currentNumberOfItems);
 		    			currentNumberOfItems++;
 		    		
-		    		} else {
+		    	} else {
+		    		logger.info("The method generateIsland didn't work!");
 		    			
-		    			logger.info("The method generateIsland didn't work!");
-		    		}
-	    		}
-	    		
+		    	 }
+	    	   }	
 	    	 }
 	    	
 	    	 if (ID == 3) {
-	    		 
-	    		while (currentNumberOfItems <= NumberOfItems) {
-		    		this.generateRandomCoordinate();
-		    		if (items[randomValueX][randomValueY] == null) {
-		    			items[randomValueX][randomValueY] = new LuckyDwarf("LuckyDwarf" + currentNumberOfItems);
+	    	  while (currentNumberOfItems <= NumberOfItems) {
+		    	    this.generateRandomCoordinate();
+		    	  if (items[randomValueX][randomValueY] == null) {
+		    		  items[randomValueX][randomValueY] = new LuckyDwarf("LuckyDwarf" + currentNumberOfItems);
 		    			currentNumberOfItems++;
 		    			
-		    		} else {
-		    			logger.info("The method generateLuckyDwarf didn't work!");
-		    		}
-	    		}
-	    		
-	    	 }
+		       } else {
+		    		logger.info("The method generateLuckyDwarf didn't work!");
+		    		
+		       }
+	    	  }	
+	    	}
 	    	 
 	    	 if (ID == 4) {
-	    		 
-	    		while (currentNumberOfItems <= NumberOfItems) {
+	    	  while (currentNumberOfItems <= NumberOfItems) {
 		    		this.generateRandomCoordinate();
-		    		if (items[randomValueX][randomValueY] == null) {
-		    			items[randomValueX][randomValueY] = new Mine("Mine" + currentNumberOfItems);
+		    	  if (items[randomValueX][randomValueY] == null) {
+		    		  items[randomValueX][randomValueY] = new Mine("Mine" + currentNumberOfItems);
 		    			currentNumberOfItems++;
 		    			
-		    		} else {
-		    			
-		    			logger.info("The method generateMine didn't work!");
+		      } else {
+		    		logger.info("The method generateMine didn't work!");
+		    		
 		    	 }	
 	    		}
 	           }
 	    	  }
-	    	 
-		
+	 
 		// Damit werden die Schiffe gesetzt;
 		public void setShipPosition (Item items, int x, int y) {
 		    
@@ -219,118 +203,83 @@ public class GameArea {
 	         logger.info("The method ShootingArea.shootOnCoordinate has been called!"); 
 	   
 	         if (Layerstatus == 1) {
-	        	 
 	        	 throw new AlreadyShotException();
 	        	 
-	         } else {
-	        	
+	       } else {
 	        	 logger.info("You are not allowed to shoot again over here!");
 	             Layerstatus = 1; 
 	         
-	         }
-	  
-      }
+	       }
+        }
  
-        int getCoordinateLayerstatus(Point p) {
+         int getCoordinateLayerstatus(Point p) {
 	       
-        	p = this.p;
-	        logger.info("The method ShootingArea.getCoordinateLayer1Status has been called!");
-	   
-	        return Layerstatus;
+        	 p = this.p;
+	         logger.info("The method ShootingArea.getCoordinateLayer1Status has been called!");
+	         return Layerstatus;
 	   
         }
+         
+       // Wenn ein Kästchen abgeschossen wird, dann soll diese Methode aufgerufen werden.
+  	   // d.H. wird das versteckte Item aufgedeckt, wird die ID des darunterliegenden 
+  	   // Elementes dieser Methode übergeben und je nachdem welche Art von Element 
+  	   // es ist, werden die Unterschiedliche Anzahl an Punkten wieder zurückgegeben 
+  	   // oder auch nicht.
+  	   // Diese Punkte wiederum holt sich der Game Manager und übergibt sie dem
+  	   // jeweiligen Player
+  	   // Das ist soweit der Plan!
 
-        public int getStatusCoordinate (int ID, Point p) throws NoGameElementException { 
+         public int getStatusCoordinate (int ID, Point p) throws NoGameElementException { 
 	  
-	     logger.info("The method ShootingArea.getStatusCoordinate has been called!");
+	         logger.info("The method ShootingArea.getStatusCoordinate has been called!");  
+	         Item currentItem = items[p.x][p.y];
 	   
-	   /* Frage an TJ: Wie könnten wir diese Methode gestalten? 
-	    * Problem: Methoden können nicht static gemacht werden, aufrung der 
-	    * abstrakten Klasse, und wir wollen hier ja keine neuen Objekte erzeugen
-	    * 
-	    */
-	   
-	   // Wenn ein Kästchen abgeschossen wird, dann soll diese Methode aufgerufen werden.
-	   // d.H. wird das versteckte Item aufgedeckt, wird die ID des darunterliegenden 
-	   // Elementes dieser Methode übergeben und je nachdem welche Art von Element 
-	   // es ist, werden die Unterschiedliche Anzahl an Punkten wieder zurückgegeben 
-	   // oder auch nicht.
-	   
-	   // Diese Punkte wiederum holt sich der Game Manager und übergibt sie dem
-	   // jeweiligen Player
-	   
-	   // Das ist soweit der Plan!
-	     
-	   Item currentItem = items[p.x][p.y];
-	   
-	     if (currentItem.getID() == 0) {
-	    	 
-	    	 int points = currentItem.getScore();
-	         return points;
+	         if (currentItem.getID() == 0) { //There is Water.
+	    	     int points = currentItem.getScore();
+	             return points;
 
-       } if (currentItem.getID() == 1) { 
+           } if (currentItem.getID() == 1) { //There is a Dolphin.
+  	             int points = currentItem.getScore();
+	             return points;
 		  
-  	         int points = currentItem.getScore();
-	         return points;
+	       } if (currentItem.getID() == 2) { //There is an Island.
+		         int points = currentItem.getScore();
+		         return points;
 		  
-	   } if (currentItem.getID() == 2) { 
+	       } if (currentItem.getID() == 3) { //There is a Mine.
+		         int points = currentItem.getScore();
+		         return points;
 		  
-		      int points = currentItem.getScore();
-		      return points;
+	       } if (currentItem.getID() == 4) { //There is a LuckyDwarf.
+		         int points = currentItem.getScore();
+		         return points;
 		  
-	   } if (currentItem.getID() == 3) { 
-		 
-		     int points = currentItem.getScore();
-		     return points;
+	       } if (currentItem.getID() == 5) { // There is an One Field Boat
+		    // We just have an One Field Boat at this moment.
+	             int points = currentItem.getScore();
+	             return points;
 		  
-	   } if (currentItem.getID() == 4) {
-		     
-		     int points = currentItem.getScore();
-		     return points;
+	      /* } if (currentItem.getID() == 6) { // There is a Two Field Boat
+	             int points = currentItem.getScore(); 
+	             return points;
 		  
-	   } if (currentItem.getID() == 5) { // There is an One Field Boat
-		   
-		   // We just have an One Field Boat at this moment.
+	         } if (currentItem.getID() == 7) { // There is a Three Field Boat
+	             int points = currentItem.getScore(); 
+	             return points;
 		  
-	         int points = currentItem.getScore();
-	         return points;
+	         } if (currentItem.getID() == 8) { // There is a Four Field Boat
+	             int points = currentItem.getScore(); 
+	             return points;
 		  
-//	   } if (currentItem.getID() == 6) { // There is a Two Field Boat
-//		  
-//	         int points = currentItem.getScore(); 
-//	         return points;
-//		  
-//	   } if (currentItem.getID() == 7) { // There is a Three Field Boat
-//		  
-//	         int points = currentItem.getScore(); 
-//	         return points;
-//		  
-//	   } if (ID == 8) { // There is a Four Field Boat
-//		  
-//		     OneFieldBoat onefieldboat = new OneFieldBoat();
-//	         onefieldboat.getScore(); 
-//	         return 0;
-//		  
-//	   } if (ID == 9) { // There is a Quadruple
-//		  
-//		     OneFieldBoat onefieldboat = new OneFieldBoat();
-//	         onefieldboat.getScore();
-//	         return 0;
+	         } if (currentItem.getID() == 9) { // There is a Quadruple
+	             int points = currentItem.getScore();
+	             return points; */
 		  
-	   } else {
+	         } else {
 		  
-		logger.debug("NoGameElementException has been thrown!");
-		   
-		throw new NoGameElementException();
+		         logger.debug("NoGameElementException has been thrown!");
+		         throw new NoGameElementException();
 		  
-	   }
-		
-	
-     }
-	    
-  }
-
-	    
-	    	
-	
-	
+	         }
+           } 
+         }

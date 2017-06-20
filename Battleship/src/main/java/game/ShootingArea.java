@@ -49,27 +49,17 @@ import gameElement.Water;
 
 public class ShootingArea {
 	
-	//VERSCHOBEN IN GAME AREA
+	//VERSCHOBEN IN GAME AREA!!!!!!!!!!!!!!!!!!!
 	
-	private static final Logger logger = LogManager.getLogger(ShootingArea.class);
-	
+	/*private static final Logger logger = LogManager.getLogger(ShootingArea.class);
 	int Layer1Status = 0; // the field hasn't been shot
 	int Layer2Status = 0; // there is water on this field
 	Point p;
-	
-/*
- * Doku für uns: Schießt auf die obere Schicht, wo noch alles auf 0 steht.
- * 
- * Heißt: Layer1 ist Scnuss oder nicht Scnuss.
- * Wenn du auf eine Koordinate schießt ändert sich der status von 0 auf 2
- * 
- * Wenn man versucht nochmal darauf zu schießen, kannst dus nicht nochmal tun.
- */
+
    void shootOnCoordinate (Point p) throws Exception {
 	   		
 	   		this.p = p;
-	   
-	         logger.info("The method ShootingArea.shootOnCoordinate has been called!"); 
+	        logger.info("The method ShootingArea.shootOnCoordinate has been called!"); 
 	   
 	         if (Layer1Status == 1) {
 	        	 
@@ -84,40 +74,15 @@ public class ShootingArea {
 	  
       }
    
-   /*
-    * Bekommt den Punkt und gibt den Status 0 oder 1 zurück.
-    */
-   
    int getCoordinateLayer1Status(Point p) {
 	   p = this.p;
 	   logger.info("The method ShootingArea.getCoordinateLayer1Status has been called!");
-	   
 	   return Layer1Status;
 	   
    }
 
-   // Dieser Layer sagt, ob da ein Item liegt oder nicht.
    public int getStatusCoordinate (int ID) throws NoGameElementException { 
-	  
 	   logger.info("The method ShootingArea.getStatusCoordinate has been called!");
-	   
-	   /* Frage an TJ: Wie könnten wir diese Methode gestalten? 
-	    * Problem: Methoden können nicht static gemacht werden, aufrung der 
-	    * abstrakten Klasse, und wir wollen hier ja keine neuen Objekte erzeugen
-	    * 
-	    */
-	   
-	   // Wenn ein Kästchen abgeschossen wird, dann soll diese Methode aufgerufen werden.
-	   // d.H. wird das versteckte Item aufgedeckt, wird die ID des darunterliegenden 
-	   // Elementes dieser Methode übergeben und je nachdem welche Art von Element 
-	   // es ist, werden die Unterschiedliche Anzahl an Punkten wieder zurückgegeben 
-	   // oder auch nicht.
-	   
-	   // Diese Punkte wiederum holt sich der Game Manager und übergibt sie dem
-	   // jeweiligen Player
-	   
-	   // Das ist soweit der Plan!
-	   
 	   
 	     if (ID == 0) {
 	    	 Water water = new Water("Toni");
@@ -189,7 +154,7 @@ public class ShootingArea {
 	   }
 		
 	
-    }
+    } */
 
  
   }

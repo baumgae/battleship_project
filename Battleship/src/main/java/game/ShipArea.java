@@ -25,7 +25,7 @@ public class ShipArea {
 	
 	//VERSCHOBEN IN GAME AREA
 	
-	private static final Logger logger = LogManager.getLogger(ShipArea.class);
+	/* private static final Logger logger = LogManager.getLogger(ShipArea.class);
 	
 	int FieldStatus;
 	Item[][] ships;
@@ -49,7 +49,7 @@ public class ShipArea {
 		logger.info("The method ShipArea.getShipPosition has been called!"); 
 		return ships[x][y];
 	
-	}
+	} */
 		
   }
 
