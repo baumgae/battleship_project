@@ -16,12 +16,12 @@ public class CustomButton extends Button {
 	// Map für Cutum
 	
 	
-	public CustomButton(int ID, Point p) {
+	public CustomButton(Point p) {
 		// TJ: Die x/y-Koordinate würden hier als Parameter Sinn machen. 
 		// Das macht dann die Verknüpfung mit der Logik viel einfacher.
 		
 		// TJ: "type" ist vielleicht ein bisschen einfacher zu verstehen 
-		type = ID;
+		
 	
 		// TJ: Die while-Schleife braucht ihr hier nicht!
 		
@@ -34,9 +34,13 @@ public class CustomButton extends Button {
 		imageView.setFitWidth(width);
 		imageView.setFitHeight(height);
 		this.setGraphic(imageView);
+		
 	}
 	
-	public void unhide(){
+	public void unhide(int ID){
+		
+		type = ID;
+		
 		if (type == 0) {
 			// TJ: ich hatte leider nicht eure Bilder zur Hand, deswegen habe ich es ersetzen müssen
 			Image imageDecline = new Image(getClass().getResourceAsStream("unicorn.png"));
@@ -50,7 +54,7 @@ public class CustomButton extends Button {
 			// Wasserfontäne
 		}
 		else if (type == 1) {
-			Image imageDecline = new Image(getClass().getResourceAsStream("unicorn.png"));
+			Image imageDecline = new Image(getClass().getResourceAsStream("Dolphine.png"));
 			
 			ImageView imageView = new ImageView(imageDecline);
 			imageView.setFitWidth(width);
@@ -61,7 +65,7 @@ public class CustomButton extends Button {
 				// Toter Delfin
 		}
 		else if (type == 2) {
-			Image imageDecline = new Image(getClass().getResourceAsStream("unicorn.png"));
+			Image imageDecline = new Image(getClass().getResourceAsStream("Island.png"));
 			
 			ImageView imageView = new ImageView(imageDecline);
 			imageView.setFitWidth(width);
@@ -72,7 +76,7 @@ public class CustomButton extends Button {
 				// Tschernorbyl Insel + verstrahltes Paarhuferwesen
 		}
 		else if (type == 3) {
-			Image imageDecline = new Image(getClass().getResourceAsStream("unicorn.png"));
+			Image imageDecline = new Image(getClass().getResourceAsStream("LuckyDwarf.png"));
 			
 			ImageView imageView = new ImageView(imageDecline);
 			imageView.setFitWidth(width);
@@ -83,7 +87,7 @@ public class CustomButton extends Button {
 				// Kaputter LuckyDwarf
 		}
 		else if(type == 4) {
-			Image imageDecline = new Image(getClass().getResourceAsStream("unicorn.png"));
+			Image imageDecline = new Image(getClass().getResourceAsStream("Mine.png"));
 			
 			ImageView imageView = new ImageView(imageDecline);
 			imageView.setFitWidth(width);

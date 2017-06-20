@@ -37,7 +37,8 @@ public class GameManager {
 	public static int playerNumber;
 	public static int difficultyNumber;
 	// TJ: Ihr könnt euch einfach zwei GameAreas machen: playerGameArea und enemyGameArea. Dann klappt das mit den zwei Playern.
-	GameArea gameArea;
+	GameArea playerOneGameArea;
+	GameArea playerTwoGameArea;
 	
 	IPlayer playerOne;
 	IPlayer playerTwo;
@@ -86,6 +87,7 @@ public class GameManager {
 	
 		// ANGST: Vielleicht gibts hier call by value / call by reference?
 		// TJ: Die Angst braucht ihr hier nicht haben ;-)
+	
 		public void createGameArea(int difficultyNumber) {
 			
 			logger.info("The method createGameArea has been called!");
@@ -96,42 +98,71 @@ public class GameManager {
 				
 				// GameArea nach außen geben.
 				GameArea gameA = new GameArea(EDifficulty.EASY);
-				gameArea = gameA;
+				
+				playerOneGameArea = gameA;
+				
+				GameArea gameB = new GameArea(EDifficulty.EASY);
+				playerTwoGameArea = gameB;
 				
 			}
 			else if (difficultyNumber == 2) {
 				// GameArea nach außen geben.
 				GameArea gameA = new GameArea(EDifficulty.NORMAL);
-				gameArea = gameA;
+				playerOneGameArea = gameA;
+				
+				GameArea gameB = new GameArea(EDifficulty.NORMAL);
+				playerTwoGameArea = gameB;
 				
 			}
 			else if (difficultyNumber == 3) {
 				// GameArea nach außen geben.
 				GameArea gameA = new GameArea(EDifficulty.HARD);
-				gameArea = gameA;
+				playerOneGameArea = gameA;
+				
+				GameArea gameB = new GameArea(EDifficulty.HARD);
+				playerTwoGameArea = gameB;
 				
 			}
 			else if (difficultyNumber == 4) {
 				// GameArea nach außen geben.
 				GameArea gameA = new GameArea(EDifficulty.SUICIDAL);
-				gameArea = gameA;
+				playerOneGameArea = gameA;
+				
+				GameArea gameB = new GameArea(EDifficulty.SUICIDAL);
+				playerTwoGameArea = gameB;
 				
 			}
 			else {
 				logger.debug("No possible difficultyNumber has been recognized!");
 				GameArea gameA = new GameArea(EDifficulty.EASY);
-				gameArea = gameA;
+				playerOneGameArea = gameA;
+				
+				GameArea gameB = new GameArea(EDifficulty.EASY);
+				playerTwoGameArea = gameB;
 	
 			}
 		}
 		
-		public GameArea getGameArea() {
-			return gameArea;
+		public GameArea getGameAreaPlayerOne() {
+			return playerOneGameArea;
+		}
+		
+		public GameArea getGameAreaPlayerTwo() {
+			return playerTwoGameArea;
 		}
 		
 		// Damit werden die Schiffe auf die GameArea gesetzt
-		public void setShipsOnArea(int difficultyNumber){
-			getGameArea();
+		public void setShipsOnArea(int playerNumber, int difficultyNumber){
+			
+			// hier wird die GameArea des jeweiligen Spielers geholt
+			if (playerNumber == 1) {
+				getGameAreaPlayerOne();
+			}
+			else {
+				getGameAreaPlayerTwo();
+			}
+			
+			
 			if (difficultyNumber == 1) {
 				// Schiffe setzen
 				// Anzahl der Schiffe erhalten für den Diffculty Mode EASY
@@ -160,9 +191,21 @@ public class GameManager {
 		// Nachdem GameArea geschaffen und Schiffe gesetzt wurden.
 		// Nun werden die Items je nach Schwierigkeitsgrad draufgesetzt.
 		public void setItemsOnArea(int difficultyNumber) {
+			
+			GameArea gameArea;
+			
+			// Je nachdem auf welche GameArea das gesetzt werden soll...
+			if (playerNumber == 1) {
+				gameArea = getGameAreaPlayerOne();
+				
+			}
+			else {
+				gameArea = getGameAreaPlayerTwo();
+			}
+			
+			
 			if (difficultyNumber == 1) {
 				
-				getGameArea();
 			
 				// Generate Items
 				gameArea.getNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.EASY));
@@ -171,7 +214,6 @@ public class GameManager {
 				gameArea.getNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.EASY));
 			}
 			else if (difficultyNumber == 2) {
-				getGameArea();
 				
 				// Generate Items
 				gameArea.getNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.NORMAL));
@@ -180,7 +222,6 @@ public class GameManager {
 				gameArea.getNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.NORMAL));
 			}
 			else if (difficultyNumber == 3) {
-				getGameArea();
 				
 				// Generate Items
 				gameArea.getNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.HARD));
@@ -189,7 +230,6 @@ public class GameManager {
 				gameArea.getNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.HARD));
 			}
 			else if (difficultyNumber == 4) {
-				getGameArea();
 				
 				// Generate Items
 				gameArea.getNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.SUICIDAL));

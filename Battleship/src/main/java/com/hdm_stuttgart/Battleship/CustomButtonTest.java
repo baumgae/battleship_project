@@ -43,14 +43,12 @@ private static final Logger logger = LogManager.getLogger(CustomButtonTest.class
 			 */
 			Label labelTitle = new Label("Battleship");
 			
-			// Here we could add an image with a battleship on it.
-			
-			// Image image = new Image(getClass().getResourceAsStream("Battleship_Opening.jpg"));
-			//Label label3 = new Label("Battleship", new ImageView(image));
 			
 			/**
 			 * Button for starting a new Game
 			 */
+			
+			
 			// TJ: Erstmal ein Button-Array machen...
 
 			
@@ -60,11 +58,11 @@ private static final Logger logger = LogManager.getLogger(CustomButtonTest.class
 			for (int i = 0; i < buttons.length; i++) {
 				Point p = new Point(3,2);
 				// TJ: ... dann instanzieren
-				buttons[i]= new CustomButton(1, p);
+				buttons[i]= new CustomButton(p);
 				// TJ: ... dann sagen, was passieren soll, wenn geklickt wurde
 				buttons[i].setOnAction(event ->{
 					CustomButton clickedButton = (CustomButton) event.getSource();
-					clickedButton.unhide();
+					clickedButton.unhide(3);
 				});
 				// TJ: ... abschließend der VBox hinzufügen.
 				root2.getChildren().add(buttons[i]);
@@ -76,11 +74,11 @@ private static final Logger logger = LogManager.getLogger(CustomButtonTest.class
 		for (int i = 0; i < buttons2.length; i++) {
 			Point p = new Point(3,2);
 			// TJ: ... dann instanzieren
-			buttons2[i]= new CustomButton(1, p);
+			buttons2[i]= new CustomButton(p);
 			// TJ: ... dann sagen, was passieren soll, wenn geklickt wurde
 			buttons2[i].setOnAction(event ->{
 				CustomButton clickedButton = (CustomButton) event.getSource();
-				clickedButton.unhide();
+				clickedButton.unhide(1);
 			});
 			// TJ: ... abschließend der VBox hinzufügen.
 			root3.getChildren().add(buttons2[i]);
@@ -89,8 +87,6 @@ private static final Logger logger = LogManager.getLogger(CustomButtonTest.class
 		
 		root.getChildren().addAll(labelTitle, root2, root3);
 		
-	 	
-			
 			
 			Scene scene = new Scene(root, 300, 400);
 			
