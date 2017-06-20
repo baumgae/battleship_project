@@ -260,56 +260,50 @@ public class GameArea {
 	   // jeweiligen Player
 	   
 	   // Das ist soweit der Plan!
+	     
+	   Item currentItem = items[p.x][p.y];
 	   
-	   
-	     if (ID == 0) {
-	         Water water = new Water("Toni");
-	    	 int points = water.getScore();
+	     if (currentItem.getID() == 0) {
+	    	 
+	    	 int points = currentItem.getScore();
 	         return points;
 
-       } if (ID == 1) { 
+       } if (currentItem.getID() == 1) { 
 		  
-  	     Dolphin dolphin = new Dolphin("Günther");
-  	     dolphin.getScore();
-	         return 0;
+  	         int points = currentItem.getScore();
+	         return points;
 		  
-	   } if (ID == 2) { 
+	   } if (currentItem.getID() == 2) { 
 		  
-		      Island island = new Island("Günther2");
-		      island.getScore();
-		      return 0;
+		      int points = currentItem.getScore();
+		      return points;
 		  
-	   } if (ID == 3) { 
+	   } if (currentItem.getID() == 3) { 
+		 
+		     int points = currentItem.getScore();
+		     return points;
 		  
-		     LuckyDwarf luckydwarf = new LuckyDwarf("SexyBatman");
-		     luckydwarf.getScore();
-		     return 0;
-		  
-	   } if (ID == 4) {
+	   } if (currentItem.getID() == 4) {
 		     
-		     Mine mine = new Mine("Olaf");
-		     mine.getScore();
-		     return 0;
+		     int points = currentItem.getScore();
+		     return points;
 		  
-	   } if (ID == 5) { // There is an One Field Boat
+	   } if (currentItem.getID() == 5) { // There is an One Field Boat
 		   
 		   // We just have an One Field Boat at this moment.
 		  
-		     OneFieldBoat onefieldboat = new OneFieldBoat("Tobi");
-	         onefieldboat.getScore();
-	         return 0;
+	         int points = currentItem.getScore();
+	         return points;
 		  
-//	   } if (ID == 6) { // There is a Two Field Boat
+//	   } if (currentItem.getID() == 6) { // There is a Two Field Boat
 //		  
-//		     //OneFieldBoat onefieldboat = new OneFieldBoat();
-//	         //onefieldboat.getScore(); 
-//	         return 0;
+//	         int points = currentItem.getScore(); 
+//	         return points;
 //		  
-//	   } if (ID == 7) { // There is a Three Field Boat
+//	   } if (currentItem.getID() == 7) { // There is a Three Field Boat
 //		  
-//		    // OneFieldBoat onefieldboat = new OneFieldBoat();
-//	         //onefieldboat.getScore(); 
-//	         return 0;
+//	         int points = currentItem.getScore(); 
+//	         return points;
 //		  
 //	   } if (ID == 8) { // There is a Four Field Boat
 //		  
