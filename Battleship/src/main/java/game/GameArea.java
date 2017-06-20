@@ -69,13 +69,9 @@ public class GameArea {
 	int x;
 	int y;
 	boolean isItem = true;
-	
-	// TJ: Please look at this.
-	
-	// Wenn das alles so passt, passiert folgendes:
+
 	// Nachdem dieser Constructor aufgerufen und der Schwierigkeitsgrad 
-	// Übergebem wurde, werden die x und y max Koordinaten von der difficulty geholt
-	
+	// übergebem wurde, werden die x und y max Koordinaten von der difficulty geholt
 	// und dem Feld übergeben, wodurch es sich aufbaut.
 	
 	public GameArea(EDifficulty difficulty){
@@ -90,7 +86,7 @@ public class GameArea {
 		    
 	    }
 	
-// Hier werden die random Koordinaten für die ZufallsItems generiert.
+   // Hier werden die random Koordinaten für die ZufallsItems generiert.
 	
 	      void generateRandomCoordinate() {
 	    	
@@ -107,84 +103,97 @@ public class GameArea {
 		    this.randomValueY = randomValueY;
 		   
 	    }
-	       
-	    // TJ: Please look at this.
-	    
+	  
 	    
 	    // Hier wird immer die Anzahl an Elementen eines speziellen Elements übergeben!
 	    // Beispielsweise mithife von 
 	    // GameArea.getNumberOfItems(Dolphine.getID(), Difficulty.getNumberOfDolphines(NORMAL));
 	    // Damit wird dann Beispielsweise die Anzahl an Delphinen erzeugt. 
 	    
-	    public void getNumberOfItems(int ID, int NumberOfItems) {
+	    public void setNumberOfItems(int ID, int NumberOfItems) {
 	    	// Je nachdem welche ID übergeben wird, wird auch das entsprechende Objekt erzeugt
 	    	
 	        int currentNumberOfItems = 0;
 	    	
 	    	if (ID == 0) {
+	    		
 	    		while (currentNumberOfItems <= NumberOfItems) {
 		    		this.generateRandomCoordinate();
 		    		if (items[randomValueX][randomValueY] == null) {
 		    			items[randomValueX][randomValueY] = new Water("Water" + currentNumberOfItems);
 		    			currentNumberOfItems++;
+		    			
 		    		} else {
+		    			
 		    			logger.info("The method generateWater didn't work!");
 		    		}
 	    		}
+	    		
+	    	}
 	    	
 	    	 if (ID == 1) {
+	    		 
 	    		while (currentNumberOfItems <= NumberOfItems) {
 		    		this.generateRandomCoordinate();
 		    		if (items[randomValueX][randomValueY] == null) {
 		    			items[randomValueX][randomValueY] = new Dolphin("Dolphin" + currentNumberOfItems);
 		    			currentNumberOfItems++;
-		    		}
-		    		else {
+		    			
+		    		} else {
+		    			
 		    			logger.info("The method generateDolphin didn't work!");
 		    		}
 	    		}
 	    		
-	    	 if (ID == 2)
+	    	 }
+	    		
+	    	 if (ID == 2) {
+	    		 
 	    		while (currentNumberOfItems <= NumberOfItems) {
 		    		this.generateRandomCoordinate();
 		    		if (items[randomValueX][randomValueY] == null) {
 		    			items[randomValueX][randomValueY] = new Island("Island" + currentNumberOfItems);
 		    			currentNumberOfItems++;
-		    		}
-		    		else {
+		    		
+		    		} else {
+		    			
 		    			logger.info("The method generateIsland didn't work!");
 		    		}
 	    		}
+	    		
+	    	 }
 	    	
-	    	 if (ID == 3)
+	    	 if (ID == 3) {
+	    		 
 	    		while (currentNumberOfItems <= NumberOfItems) {
 		    		this.generateRandomCoordinate();
 		    		if (items[randomValueX][randomValueY] == null) {
 		    			items[randomValueX][randomValueY] = new LuckyDwarf("LuckyDwarf" + currentNumberOfItems);
 		    			currentNumberOfItems++;
-		    		}
-		    		else {
+		    			
+		    		} else {
 		    			logger.info("The method generateLuckyDwarf didn't work!");
 		    		}
 	    		}
+	    		
+	    	 }
 	    	 
-	    	 if (ID == 4)
+	    	 if (ID == 4) {
+	    		 
 	    		while (currentNumberOfItems <= NumberOfItems) {
 		    		this.generateRandomCoordinate();
 		    		if (items[randomValueX][randomValueY] == null) {
 		    			items[randomValueX][randomValueY] = new Mine("Mine" + currentNumberOfItems);
 		    			currentNumberOfItems++;
+		    			
 		    		} else {
+		    			
 		    			logger.info("The method generateMine didn't work!");
-		    	   }
-		    		
-	    		 }
-	    	
+		    	 }	
+	    		}
 	           }
-	    	 }
-	      }
-	    
-	 // TJ: Please look at this, and tell us what you think.
+	    	  }
+	    	 
 		
 		// Damit werden die Schiffe gesetzt;
 		public void setShipPosition (Item items, int x, int y) {
@@ -231,7 +240,7 @@ public class GameArea {
 	   
         }
 
-        public int getStatusCoordinate (int ID) throws NoGameElementException { 
+        public int getStatusCoordinate (int ID, Point p) throws NoGameElementException { 
 	  
 	     logger.info("The method ShootingArea.getStatusCoordinate has been called!");
 	   
@@ -254,7 +263,7 @@ public class GameArea {
 	   
 	   
 	     if (ID == 0) {
-	    	 Water water = new Water("Toni");
+	         Water water = new Water("Toni");
 	    	 int points = water.getScore();
 	         return points;
 
