@@ -23,6 +23,8 @@ import gameConfigurations.Item;
 
 public class ShipArea {
 	
+	//VERSCHOBEN IN GAME AREA
+	
 	private static final Logger logger = LogManager.getLogger(ShipArea.class);
 	
 	int FieldStatus;

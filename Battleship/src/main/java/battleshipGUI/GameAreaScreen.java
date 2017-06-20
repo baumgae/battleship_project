@@ -40,8 +40,7 @@ public class GameAreaScreen {
 	 */
 	
 	
-	// einen Button mit Connection zum Menü einbauen please <3, Lea
-	// p.s.  was ist < 3? , Celine
+	// einen Button mit Connection zum Menü einbauen 
 	public VBox getScreen() {
 		VBox root = new VBox();
 		Label Title = new Label("Battleship");

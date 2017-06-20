@@ -61,7 +61,7 @@ public class SetShipsScreen {
 		
 		} if(GameManager.playerNumber == 2) { 
 			
-		  while(i <= 2) {
+		  while(i < 2) {
 			  
 			  Button Next = new Button("Next");
 			  Next.setOnAction(event -> {

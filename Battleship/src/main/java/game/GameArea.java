@@ -1,4 +1,5 @@
 package game;
+import java.awt.Point;
 import java.util.Random;
 
 import org.apache.logging.log4j.LogManager;
@@ -10,6 +11,7 @@ import gameElement.Island;
 import gameElement.LuckyDwarf;
 import gameElement.Mine;
 import gameElement.Water;
+import ships.OneFieldBoat;
 
 /**
  * The Class GameArea is managing the Creation of the Game Area and handle the
@@ -57,10 +59,15 @@ public class GameArea {
 	
 	private static final Logger logger = LogManager.getLogger(GameArea.class);
 	
-	Item items[][];
+	Item[][] items;
 	EDifficulty difficulty;
+	Point p;
 	int randomValueX;
 	int randomValueY;
+	int Layerstatus = 0; // the field hasn't been shot
+	int FieldStatus;
+	int x;
+	int y;
 	boolean isItem = true;
 	
 	// TJ: Please look at this.
@@ -84,19 +91,20 @@ public class GameArea {
 	    }
 	
 // Hier werden die random Koordinaten für die ZufallsItems generiert.
-	       void generateRandomCoordinate() {
+	
+	      void generateRandomCoordinate() {
 	    	
-	       logger.info("The method GameArea.generateRandomCoordinate has been called!");
+	        logger.info("The method GameArea.generateRandomCoordinate has been called!");
 
-		   int CoordinateX = this.items.length;
-		   Random rndX = new Random();
-		   int randomValueX = rndX.nextInt(CoordinateX + 1);
-		   this.randomValueX = randomValueX;
+		    int CoordinateX = this.items.length;
+		    Random rndX = new Random();
+		    int randomValueX = rndX.nextInt(CoordinateX + 1);
+		    this.randomValueX = randomValueX;
 
-		   int CoordinateY = this.items.length;
-		   Random rndY = new Random();
-		   int randomValueY = rndY.nextInt(CoordinateY + 1);
-		   this.randomValueY = randomValueY;
+		    int CoordinateY = this.items.length;
+		    Random rndY = new Random();
+		    int randomValueY = rndY.nextInt(CoordinateY + 1);
+		    this.randomValueY = randomValueY;
 		   
 	    }
 	       
@@ -111,7 +119,7 @@ public class GameArea {
 	    public void getNumberOfItems(int ID, int NumberOfItems) {
 	    	// Je nachdem welche ID übergeben wird, wird auch das entsprechende Objekt erzeugt
 	    	
-	       int currentNumberOfItems = 0;
+	        int currentNumberOfItems = 0;
 	    	
 	    	if (ID == 0) {
 	    		while (currentNumberOfItems <= NumberOfItems) {
@@ -135,7 +143,8 @@ public class GameArea {
 		    			logger.info("The method generateDolphin didn't work!");
 		    		}
 	    		}
-	    	if (ID == 2)
+	    		
+	    	 if (ID == 2)
 	    		while (currentNumberOfItems <= NumberOfItems) {
 		    		this.generateRandomCoordinate();
 		    		if (items[randomValueX][randomValueY] == null) {
@@ -147,7 +156,7 @@ public class GameArea {
 		    		}
 	    		}
 	    	
-	    	if (ID == 3)
+	    	 if (ID == 3)
 	    		while (currentNumberOfItems <= NumberOfItems) {
 		    		this.generateRandomCoordinate();
 		    		if (items[randomValueX][randomValueY] == null) {
@@ -159,7 +168,7 @@ public class GameArea {
 		    		}
 	    		}
 	    	 
-	    	if (ID == 4)
+	    	 if (ID == 4)
 	    		while (currentNumberOfItems <= NumberOfItems) {
 		    		this.generateRandomCoordinate();
 		    		if (items[randomValueX][randomValueY] == null) {
@@ -167,49 +176,158 @@ public class GameArea {
 		    			currentNumberOfItems++;
 		    		} else {
 		    			logger.info("The method generateMine didn't work!");
-		    		}
+		    	   }
 		    		
-//		    if (ID == 5)
-//			    while (currentNumberOfItems <= NumberOfItems) {
-//				     this.generateRandomCoordinate();
-//				    if (items[randomValueX][randomValueY] == null) {
-//				    	items[randomValueX][randomValueY] = new OneFieldBoat("OneFieldBoat" + currentNumberOfItems);
-//				    	currentNumberOfItems++;
-//				    }
-//				         else {
-//				    			logger.info("The method generateOneFieldBoat didn't work!");
-//				    		}
-//			    		}
-		    		
-	    		}
+	    		 }
 	    	
-	          }
-	    	}
-	     }
+	           }
+	    	 }
+	      }
 	    
+	 // TJ: Please look at this, and tell us what you think.
+		
+		// Damit werden die Schiffe gesetzt;
+		public void setShipPosition (Item items, int x, int y) {
+		    
+			logger.info("The method ShipArea.setShipPosition has been called!"); 
+			x = this.x;
+			y = this.y;
+		    items = this.items[x][y];
+		
+		}
+		
+		public Item getShipPosition () {
+			
+			logger.info("The method ShipArea.getShipPosition has been called!"); 
+			return items[x][y];
+		
+		}
+			
+	    
+        void shootOnCoordinate (Point p) throws Exception {
+	   		
+	   		 this.p = p;
+	         logger.info("The method ShootingArea.shootOnCoordinate has been called!"); 
+	   
+	         if (Layerstatus == 1) {
+	        	 
+	        	 throw new AlreadyShotException();
+	        	 
+	         } else {
+	        	
+	        	 logger.info("You are not allowed to shoot again over here!");
+	             Layerstatus = 1; 
+	         
+	         }
+	  
+      }
+ 
+        int getCoordinateLayerstatus(Point p) {
+	       
+        	p = this.p;
+	        logger.info("The method ShootingArea.getCoordinateLayer1Status has been called!");
+	   
+	        return Layerstatus;
+	   
+        }
+
+        public int getStatusCoordinate (int ID) throws NoGameElementException { 
+	  
+	     logger.info("The method ShootingArea.getStatusCoordinate has been called!");
+	   
+	   /* Frage an TJ: Wie könnten wir diese Methode gestalten? 
+	    * Problem: Methoden können nicht static gemacht werden, aufrung der 
+	    * abstrakten Klasse, und wir wollen hier ja keine neuen Objekte erzeugen
+	    * 
+	    */
+	   
+	   // Wenn ein Kästchen abgeschossen wird, dann soll diese Methode aufgerufen werden.
+	   // d.H. wird das versteckte Item aufgedeckt, wird die ID des darunterliegenden 
+	   // Elementes dieser Methode übergeben und je nachdem welche Art von Element 
+	   // es ist, werden die Unterschiedliche Anzahl an Punkten wieder zurückgegeben 
+	   // oder auch nicht.
+	   
+	   // Diese Punkte wiederum holt sich der Game Manager und übergibt sie dem
+	   // jeweiligen Player
+	   
+	   // Das ist soweit der Plan!
+	   
+	   
+	     if (ID == 0) {
+	    	 Water water = new Water("Toni");
+	    	 int points = water.getScore();
+	         return points;
+
+       } if (ID == 1) { 
+		  
+  	     Dolphin dolphin = new Dolphin("Günther");
+  	     dolphin.getScore();
+	         return 0;
+		  
+	   } if (ID == 2) { 
+		  
+		      Island island = new Island("Günther2");
+		      island.getScore();
+		      return 0;
+		  
+	   } if (ID == 3) { 
+		  
+		     LuckyDwarf luckydwarf = new LuckyDwarf("SexyBatman");
+		     luckydwarf.getScore();
+		     return 0;
+		  
+	   } if (ID == 4) {
+		     
+		     Mine mine = new Mine("Olaf");
+		     mine.getScore();
+		     return 0;
+		  
+	   } if (ID == 5) { // There is an One Field Boat
+		   
+		   // We just have an One Field Boat at this moment.
+		  
+		     OneFieldBoat onefieldboat = new OneFieldBoat("Tobi");
+	         onefieldboat.getScore();
+	         return 0;
+		  
+//	   } if (ID == 6) { // There is a Two Field Boat
+//		  
+//		     //OneFieldBoat onefieldboat = new OneFieldBoat();
+//	         //onefieldboat.getScore(); 
+//	         return 0;
+//		  
+//	   } if (ID == 7) { // There is a Three Field Boat
+//		  
+//		    // OneFieldBoat onefieldboat = new OneFieldBoat();
+//	         //onefieldboat.getScore(); 
+//	         return 0;
+//		  
+//	   } if (ID == 8) { // There is a Four Field Boat
+//		  
+//		     OneFieldBoat onefieldboat = new OneFieldBoat();
+//	         onefieldboat.getScore(); 
+//	         return 0;
+//		  
+//	   } if (ID == 9) { // There is a Quadruple
+//		  
+//		     OneFieldBoat onefieldboat = new OneFieldBoat();
+//	         onefieldboat.getScore();
+//	         return 0;
+		  
+	   } else {
+		  
+		logger.debug("NoGameElementException has been thrown!");
+		   
+		throw new NoGameElementException();
+		  
+	   }
+		
+	
      }
+	    
+  }
 
 	    
-//	    Erstmal aufbewahren
-//	    		public void generateDolphins(int numberOfDolphines){
-//	    	int currentNumberOfDolphines = 0;
-//	    	
-//	    	while (currentNumberOfDolphines >= numberOfDolphines) {
-//	    		this.generateRandomCoordinate();
-//	    		if (items[randomValueX][randomValueY] == null) {
-//	    			items[randomValueX][randomValueY] = new Dolphin("Dolphin" + currentNumberOfDolphines);
-//	    			currentNumberOfDolphines++;
-//	    		}
-//	    		else {
-//	    			logger.info("The method generateDolphine didn`t work!");
-//	    		}
-//	    		
-//	    		
-//	    		
-//	    	}
-//	    	
-//	    }
-	    	
 	    	
 	
 	

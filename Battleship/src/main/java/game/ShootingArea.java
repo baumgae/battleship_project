@@ -49,6 +49,8 @@ import gameElement.Water;
 
 public class ShootingArea {
 	
+	//VERSCHOBEN IN GAME AREA
+	
 	private static final Logger logger = LogManager.getLogger(ShootingArea.class);
 	
 	int Layer1Status = 0; // the field hasn't been shot
