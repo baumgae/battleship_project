@@ -33,7 +33,7 @@ public class MenuScreen {
 		Button newGame = new Button("New Game");
 		newGame.setOnAction(
 				event -> {
-					NewGameScreen ngs = new NewGameScreen();
+					SelectPlayerScreen ngs = new SelectPlayerScreen();
 					VBox NewGame = ngs.getScreen();
 					Scene scene2 = new Scene(NewGame, 300, 400);
 					

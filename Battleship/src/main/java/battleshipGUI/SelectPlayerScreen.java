@@ -33,13 +33,13 @@ import org.apache.logging.log4j.Logger;
  * @version 0.1
  */
 
-public class NewGameScreen {
+public class SelectPlayerScreen {
 
 	// playerNumber = 1 --> SinglePlayer, also 1 Human and 1 Computer
 	// playerNumber = 2 --> MultiPlayer, so 2 Humans
 	
 	
-	private static final Logger logger = LogManager.getLogger(NewGameScreen.class);
+	private static final Logger logger = LogManager.getLogger(SelectPlayerScreen.class);
 
 	public VBox getScreen() {
 		VBox root = new VBox();

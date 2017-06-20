@@ -2,6 +2,9 @@ package com.hdm_stuttgart.Battleship;
 
 import java.awt.Point;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -35,15 +38,12 @@ public class CustomButton extends Button {
 	private double width = 30.0;
 	private double height = 30.0;
 	
+	private static final Logger logger = LogManager.getLogger(CustomButton.class);
+	
 	/*
 	 * Constructor CustomButton for creating a Button with two images.
 	 */
 	public CustomButton(Point p) {
-		// TJ: Die x/y-Koordinate würden hier als Parameter Sinn machen. 
-		// Das macht dann die Verknüpfung mit der Logik viel einfacher.
-		
-		// Type wichtig für unhide unwichtig für customButton?
-		// TJ: "type" ist vielleicht ein bisschen einfacher zu verstehen 
 		
 		Image imageDecline = new Image(getClass().getResourceAsStream("water.jpg"));
 		ImageView imageView = new ImageView(imageDecline);
@@ -107,7 +107,7 @@ public class CustomButton extends Button {
 			
 		}
 		else {
-			// error.log!
+			logger.error("No image has been found!");
 		}
 	}
 }

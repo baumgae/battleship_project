@@ -22,7 +22,7 @@ import javafx.scene.layout.VBox;
 */
 public class SetNameScreen {
 	
-	private static final Logger logger = LogManager.getLogger(NewGameScreen.class);
+	private static final Logger logger = LogManager.getLogger(SelectPlayerScreen.class);
 	
 	public static String name;
 	public static String nameOne;

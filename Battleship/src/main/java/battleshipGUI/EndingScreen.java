@@ -13,16 +13,17 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
- * YouLoose Screen
+ * EndScreen
  * <p>
- * This is the GUI, if the user lost the current game.
+ * This is the GUI, when the game ended.
  * <p>
- * After the game has ended, the user gets one of the possible screens.
- * If he looses, he will get this "You Loose" Screen. <br>
- * If he wins, he will get the "You win" Screen <br>
+ * After the game has ended, the users recieve this screen,
+ * The one who looses, will get the "You Loose" part of the screen. <br>
+ * The one who wins, will get the "You win" part of the screen <br>
+ * 
  * Over here the user has different options. 
- * He can start a new Game by pushing the button {@New Game}.<br>
- * Or he is also able to quit the current screen by using {@Quit}
+ * He can start a new Game by pushing the button {@Link #newGame}.<br>
+ * Or he is also able to quit the current screen by using {@Link #quit}
  * 
  * <p>
  * @author Lea Baumgärtner
@@ -30,7 +31,7 @@ import javafx.stage.Stage;
  */
 
 
-public class YouLooseScreen {
+public class EndingScreen {
 	
 	int playerOneScore;
 	int playerTwoScore;

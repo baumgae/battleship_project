@@ -72,7 +72,7 @@ public class OpeningScreen extends Application{
 		newGame.setOnAction(
 				event -> {
 					logger.info("The newGame Button has been pushed!");
-					NewGameScreen ngs = new NewGameScreen();
+					SelectPlayerScreen ngs = new SelectPlayerScreen();
 					VBox NewGame = ngs.getScreen();
 					Scene scene2 = new Scene(NewGame, 300, 400);
 					primaryStage.setScene(scene2);
