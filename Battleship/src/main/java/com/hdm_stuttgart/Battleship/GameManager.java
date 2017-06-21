@@ -43,7 +43,14 @@ public class GameManager {
 	IPlayer playerOne;
 	IPlayer playerTwo;
 	
+	private static GameManager instance;
 	
+	public static GameManager getInstance(){
+		if(instance == null){
+			instance = new GameManager();
+		}
+		return instance;
+	}
 	
 	
 	public void selectPlayer(int playerNumber) throws CreatePlayerException {
@@ -151,6 +158,10 @@ public class GameManager {
 			return playerTwoGameArea;
 		}
 		
+		public void initWater(){
+			
+		}
+		
 		// Damit werden die Schiffe auf die GameArea gesetzt
 		public void setShipsOnArea(int playerNumber, int difficultyNumber){
 			
@@ -190,7 +201,7 @@ public class GameManager {
 		
 		// Nachdem GameArea geschaffen und Schiffe gesetzt wurden.
 		// Nun werden die Items je nach Schwierigkeitsgrad draufgesetzt.
-		public void setItemsOnArea(int difficultyNumber) {
+		public void setItemsOnArea(int difficultyNumber, GameArea playerArea) {
 			
 			GameArea gameArea;
 			

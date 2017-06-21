@@ -85,6 +85,8 @@ public class GameArea {
 		
 		    this.difficulty = difficulty;
 		    
+		    setNumberOfItems(0, point.x * point.y);
+		    
 	    }
 	
 	   public void generateRandomCoordinate() {
@@ -280,5 +282,10 @@ public class GameArea {
 		         throw new NoGameElementException();
 		  
 	         }
-           } 
+           }
+         
+         public Item[][] getItems() {
+			return items;
+		}
+         
          }
