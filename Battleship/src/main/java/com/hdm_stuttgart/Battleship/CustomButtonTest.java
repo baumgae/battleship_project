@@ -26,6 +26,12 @@ private static final Logger logger = LogManager.getLogger(CustomButtonTest.class
 	VBox root3;
 	VBox root2;
 	
+	// UML
+	// Vollständiges und korrektes Digramm
+	// Für excpetions gestrichelte Linie ohne Pfeil
+	// Pfeilrichtungen anpassen - dreieckspfeil nicht ausgefüllt - dolphine erbt von AGameElement
+	//
+	
 	 public static Stage getPrimaryStage() {
 		 return primaryStage;
 	 }
@@ -96,10 +102,16 @@ private static final Logger logger = LogManager.getLogger(CustomButtonTest.class
 
 	 }
 		
-
+	 // So schreiben wir einen try catch Block für die Main.
+	 // So werden im catch die Fehler geloggt.
+	 // In App.Java 
 	 
 	 public static void main(String[] args) {
-		launch(args);
+		try{
+		 launch(args);
+		} catch (Exception e) {
+			logger.error("Blablub", e);
+		}
 	}
 	
 	}

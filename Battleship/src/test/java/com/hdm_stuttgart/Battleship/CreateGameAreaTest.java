@@ -31,11 +31,13 @@ public class CreateGameAreaTest {
 	@Test
 	public void testWrongGameAreaCreated() throws CreatePlayerException {
 		
-		// Point p = new Point(5,5);
 		
 		GameArea area = new GameArea(EDifficulty.EASY);
 		Assert.assertTrue(area instanceof GameArea);
 		
 	}
 	
+	//Test mit null
+	
+	//Kriha fragen
 }

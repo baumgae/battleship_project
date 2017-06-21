@@ -42,19 +42,13 @@ public class PlayerFactoryTest {
 	}
 	// expected right
 
-	@Test
+	@Test (expected = CreatePlayerException.class)
 	public void testCompletelyWrong() throws CreatePlayerException {
 	
 		IPlayer Player = PlayerFactory.getInstance("xyz", "Luigi");
 		Assert.assertTrue(Player instanceof HumanPlayer);
 	}
 	
-	// expected wrong
-	
-	
-	// noch zwei tests 
-	// einmal für CompiuterPlayer und dann für xy falsches Zeug
-	// da müsste eine Exception fliegen
-	
+
 	
 }
