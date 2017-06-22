@@ -30,7 +30,8 @@ private static final Logger logger = LogManager.getLogger(CustomButtonTest.class
 	// Vollständiges und korrektes Digramm
 	// Für excpetions gestrichelte Linie ohne Pfeil
 	// Pfeilrichtungen anpassen - dreieckspfeil nicht ausgefüllt - dolphine erbt von AGameElement
-	//
+	// thread.start --> zumindest ein Punkt irgendwo
+	// 
 	
 	 public static Stage getPrimaryStage() {
 		 return primaryStage;

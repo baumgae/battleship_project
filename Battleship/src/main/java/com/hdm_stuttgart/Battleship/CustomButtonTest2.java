@@ -80,7 +80,7 @@ import javafx.stage.Stage;
 				
 				
 				for (int i = 0; i < buttons.length; i++) {
-					for (int j = 0; j < buttons.length; j++) {
+					for (int j = 0; j < buttons[i].length; j++) {
 					Point p = new Point(i, j);
 					buttons[i][j]= new CustomButton(p);
 				
