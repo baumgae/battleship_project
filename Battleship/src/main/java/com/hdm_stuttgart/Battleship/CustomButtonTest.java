@@ -63,13 +63,13 @@ private static final Logger logger = LogManager.getLogger(CustomButtonTest.class
 			CustomButton buttons [] = new CustomButton[difficulty.x];
 			
 			for (int i = 0; i < buttons.length; i++) {
-				Point p = new Point(3,2);
+				Point p = new Point(0,0);
 				// TJ: ... dann instanzieren
-				buttons[i]= new CustomButton(p);
+				buttons[i]= new CustomButton(p, 0);
 				// TJ: ... dann sagen, was passieren soll, wenn geklickt wurde
 				buttons[i].setOnAction(event ->{
 					CustomButton clickedButton = (CustomButton) event.getSource();
-					clickedButton.unhide(0);
+					clickedButton.unhide();
 				});
 				// TJ: ... abschließend der VBox hinzufügen.
 				root2.getChildren().add(buttons[i]);
@@ -79,13 +79,13 @@ private static final Logger logger = LogManager.getLogger(CustomButtonTest.class
 	 		CustomButton buttons2 [] = new CustomButton[difficulty2.y];
 		
 		for (int i = 0; i < buttons2.length; i++) {
-			Point p = new Point(3,2);
+			Point p = new Point(0,0);
 			// TJ: ... dann instanzieren
-			buttons2[i]= new CustomButton(p);
+			buttons2[i]= new CustomButton(p, 0);
 			// TJ: ... dann sagen, was passieren soll, wenn geklickt wurde
 			buttons2[i].setOnAction(event ->{
 				CustomButton clickedButton = (CustomButton) event.getSource();
-				clickedButton.unhide(0);
+				clickedButton.unhide();
 			});
 			// TJ: ... abschließend der VBox hinzufügen.
 			root3.getChildren().add(buttons2[i]);

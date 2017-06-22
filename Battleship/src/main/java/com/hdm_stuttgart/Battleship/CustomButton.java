@@ -37,13 +37,16 @@ public class CustomButton extends Button {
 	private int type;
 	private double width = 30.0;
 	private double height = 30.0;
+	private Point position;
 	
 	private static final Logger logger = LogManager.getLogger(CustomButton.class);
 	
 	/*
 	 * Constructor CustomButton for creating a Button with two images.
 	 */
-	public CustomButton(Point p) {
+	public CustomButton(Point p, int ID) {
+		position = p;
+		type = ID;
 		
 		Image imageDecline = new Image(getClass().getResourceAsStream("water.jpg"));
 		ImageView imageView = new ImageView(imageDecline);
@@ -56,10 +59,10 @@ public class CustomButton extends Button {
 	/*
 	 * Method unhide(int ID) for revealing the item bellow.
 	 */
-	public void unhide(int ID){
-		
-		type = ID;
-		
+	public void unhide(){
+	
+		GameManager.getInstance().shootOnCoordinate(1, position);
+	
 		if (type == 0) {
 		
 			Image imageDecline = new Image(getClass().getResourceAsStream("ShotWater.png"));
@@ -106,6 +109,7 @@ public class CustomButton extends Button {
 			this.setGraphic(imageView);
 			
 		}
+		// TJ: else if für Schiff
 		else {
 			logger.error("No image has been found!");
 		}

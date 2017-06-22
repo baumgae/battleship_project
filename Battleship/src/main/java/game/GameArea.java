@@ -70,8 +70,7 @@ public class GameArea {
 	Point p;
 	int randomValueX;
 	int randomValueY;
-	int Layerstatus = 0; // the field hasn't been shot
-	int FieldStatus;
+	int Fieldstatus = 0; // the field hasn't been shot
 	int x;
 	int y;
 	boolean isItem = true;
@@ -86,9 +85,11 @@ public class GameArea {
 		
 		    this.difficulty = difficulty;
 		    
+		    setNumberOfItems(0, point.x * point.y);
+		    
 	    }
 	
-	      void generateRandomCoordinate() {
+	   public void generateRandomCoordinate() {
 	    	
 	        logger.info("The method GameArea.generateRandomCoordinate has been called!");
 
@@ -197,17 +198,17 @@ public class GameArea {
 		}
 			
 	    
-        void shootOnCoordinate (Point p) throws Exception {
+        public void shootOnCoordinate (Point p) throws Exception {
 	   		
 	   		 this.p = p;
 	         logger.info("The method ShootingArea.shootOnCoordinate has been called!"); 
 	   
-	         if (Layerstatus == 1) {
+	         if (Fieldstatus == 1) {
 	        	 throw new AlreadyShotException();
 	        	 
 	       } else {
 	        	 logger.info("You are not allowed to shoot again over here!");
-	             Layerstatus = 1; 
+	             Fieldstatus = 1; 
 	         
 	       }
         }
@@ -216,7 +217,7 @@ public class GameArea {
 	       
         	 p = this.p;
 	         logger.info("The method ShootingArea.getCoordinateLayer1Status has been called!");
-	         return Layerstatus;
+	         return Fieldstatus;
 	   
         }
          
@@ -281,5 +282,10 @@ public class GameArea {
 		         throw new NoGameElementException();
 		  
 	         }
-           } 
+           }
+         
+         public Item[][] getItems() {
+			return items;
+		}
+         
          }

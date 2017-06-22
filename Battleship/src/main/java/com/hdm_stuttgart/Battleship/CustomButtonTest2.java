@@ -65,10 +65,6 @@ import javafx.stage.Stage;
 				this.primaryStage = primaryStage;
 				
 				
-				Pane pane = new Pane();
-				VBox root = new VBox();
-				HBox root2 = new HBox();
-				VBox root3 = new VBox();
 				
 				/**
 				 * Title for the whole screen
@@ -76,29 +72,30 @@ import javafx.stage.Stage;
 				Label labelTitle = new Label("Battleship");
 				
 				Point difficulty = DifficultyManager.getFieldSize(EDifficulty.EASY);
+				
 				CustomButton buttons [][] = new CustomButton[difficulty.x][difficulty.y];
 				
 				
 				for (int i = 0; i < buttons.length; i++) {
 					for (int j = 0; j < buttons[i].length; j++) {
 					Point p = new Point(i, j);
-					buttons[i][j]= new CustomButton(p);
+					buttons[i][j]= new CustomButton(p,0);
 				
 					buttons[i][j].setOnAction(event ->{
 						CustomButton clickedButton = (CustomButton) event.getSource();
-						clickedButton.unhide(0);
+						clickedButton.unhide();
 					});
 					
-					pane.getChildren().add(buttons[i][j]);
+					
+					grid.add(buttons[i][j], i, j);
 					
 		
 					}
 				}
 					
-				Scene scene = new Scene (pane);
+				Scene scene = new Scene (grid);
 		        primaryStage.setScene(scene);
 		        primaryStage.show();
-					grid.getChildren().add(pane);
 	
 	
 //	@Override
