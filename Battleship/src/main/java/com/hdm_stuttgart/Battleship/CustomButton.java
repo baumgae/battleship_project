@@ -62,18 +62,9 @@ public class CustomButton extends Button {
 	 * Method unhide(int ID) for revealing the item bellow.
 	 */
 	public void unhide() {
-
-		// shotOnCoordinate übergibt hier ID
-		// Also diese Methode so schreiben, dass sie einen int Wert zurückgibt.
-		// Beispielsweise
-		// int ID = GameArea.shotOncoordiante();
-		// ID = type;
 		
-		GameManager.getInstance().shootOnCoordinate(1, position);
+		int type = GameManager.getInstance().shootOnCoordinate(1, position);
 		
-		// int ID = GameArea.getInstance().getIDCoordinate(position);
-		
-
 		if (type == 0) {
 
 			Image imageDecline = new Image(getClass().getResourceAsStream("ShotWater.png"));
@@ -116,7 +107,6 @@ public class CustomButton extends Button {
 			this.setGraphic(imageView);
 
 		}
-		// TJ: else if für Schiff
 		else if (type == 5) {
 
 			Image imageDecline = new Image(getClass().getResourceAsStream("OneFieldBoat.png"));

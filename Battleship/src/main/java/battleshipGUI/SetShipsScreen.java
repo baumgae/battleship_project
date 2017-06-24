@@ -69,7 +69,6 @@ public class SetShipsScreen {
 					for (int j = 0; j < buttons[i].length; j++) {
 						Point p = new Point(i, j);
 						buttons[i][j] = new CustomButton(p, 0);
-
 						buttons[i][j].setOnAction(event-> {
 							
 							CustomButton clickedButton = (CustomButton) event.getSource();
@@ -106,7 +105,6 @@ public class SetShipsScreen {
 					for (int j = 0; j < buttons[i].length; j++) {
 						Point p = new Point(i, j);
 						buttons[i][j] = new CustomButton(p, 0);
-
 						buttons[i][j].setOnAction(event-> {
 							
 							CustomButton clickedButton = (CustomButton) event.getSource();
@@ -117,9 +115,9 @@ public class SetShipsScreen {
 
 					}
 				}
-
-			root.getChildren().addAll(header2, Next, grid);
-			return root;
+		
+				root.getChildren().addAll(header2, Next, grid);
+				return root;
 		} else {
 
 			logger.info("No Screen has been called.");

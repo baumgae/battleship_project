@@ -251,13 +251,7 @@ public class GameManager {
 		}
 		
 		public int shootOnCoordinate(int playerNumber, Point p){
-			int i = 0;
-			int type = 0;
-			
-			// while-Schleife für das abwechselnde Spielen
-			// jeder darf nur ein mal schießen.
-			
-			while (i <= 1){ 
+	
 				GameArea gameArea;
 						// First Player shoots on second Player
 						if (playerNumber == 1) {
@@ -276,7 +270,6 @@ public class GameManager {
 								logger.error("There is no Game Element");
 							}
 							
-							ID = type;
 							return ID;
 							
 						}
@@ -295,13 +288,9 @@ public class GameManager {
 							} catch (NoGameElementException e) {
 								logger.error("There is no Game Element");
 							}
-							ID = type;
+							
 							return ID;
 						}
-						
-						
-			}
-			return type;
 		}
 		
 		public void endOfTheGame() {
