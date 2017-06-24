@@ -71,8 +71,6 @@ public class SetNameScreen {
 			
 			tf1.setOnAction(event -> {
 				logger.info("Name of the playerOne has been entered!");
-				String nameOne = tf1.getText();
-				this.nameOne = nameOne;
 				
 			});
 			
@@ -82,7 +80,9 @@ public class SetNameScreen {
 			
 			tf2.setOnAction(event -> {
 				logger.info("Name of the playerTwo has been entered!");
+				String nameOne = tf1.getText();
 				String nameTwo = tf2.getText();
+				this.nameOne = nameOne;
 				this.nameTwo = nameTwo;
 				
 				SelectDifficultyScreen nsc = new SelectDifficultyScreen();
