@@ -9,6 +9,7 @@ import battleshipGUI.SetNameScreen;
 import game.DifficultyManager;
 import game.EDifficulty;
 import game.GameArea;
+import game.NoGameElementException;
 import gameConfigurations.CreatePlayerException;
 import gameConfigurations.HumanPlayer;
 import gameConfigurations.IPlayer;
@@ -249,40 +250,58 @@ public class GameManager {
 			
 		}
 		
-		public void shootOnCoordinate(int playerNumber, Point p){
+		public int shootOnCoordinate(int playerNumber, Point p){
 			int i = 0;
+			int type = 0;
 			
 			// while-Schleife für das abwechselnde Spielen
 			// jeder darf nur ein mal schießen.
 			
 			while (i <= 1){ 
 				GameArea gameArea;
-			// Je nachdem auf welche GameArea das gesetzt werden soll...
+						// First Player shoots on second Player
 						if (playerNumber == 1) {
 							
 							gameArea = getGameAreaPlayerTwo();
-							// shootOnCoordinate Methode
-							// Felds ID wird verändert.
-							// Durch veränderte ID anderes Bild!
+							int ID = gameArea.getIDCoordinate(p);
 							
-							// getStatusCoordinate --> damit der Punktestand geändert wird.!
-							// Punktestand wird verändert!
+							
+							try {
+							int points = gameArea.getPointsCoordinate(ID, p);
+							getPlayerOne().countPoints(points);
+							getPlayerOne().countHits(1);
+							
+							
+							} catch (NoGameElementException e) {
+								logger.error("There is no Game Element");
+							}
+							
+							ID = type;
+							return ID;
 							
 						}
 						else {
-							
+							// Second Player shoots on first Player
 							gameArea = getGameAreaPlayerOne();
-							// shootOnCoordinate Methode
-							// Felds ID wird verändert.
-							// Durch veränderte ID anderes Bild!
+							int ID = gameArea.getIDCoordinate(p);
+							
+							
+							try {
+							int points = gameArea.getPointsCoordinate(ID, p);
+							getPlayerTwo().countPoints(points);
+							getPlayerTwo().countHits(1);
+							
+							
+							} catch (NoGameElementException e) {
+								logger.error("There is no Game Element");
+							}
+							ID = type;
+							return ID;
 						}
+						
+						
 			}
-			// Diese Methode wird in der GUI im EventHandler aufgerufen, um
-						// Die Auswirkungen des Elements darunter zu bewirken.
-						// Also dann mit getImpactDolphine oder sowas...
-						// Und dann werden eben die Punkte und die Hits auf dem Player
-						// gespeichert.
-			// TJ: Ich würde hier noch zwei Parameter (x/y) einfügen. Der Angriff geht dann auf die GameArea des Gegners (enemyGameArea).
+			return type;
 		}
 		
 		public void endOfTheGame() {
@@ -327,4 +346,4 @@ public class GameManager {
 	 * 
 	 * 
 	 */
-
+	
