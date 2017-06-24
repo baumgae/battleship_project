@@ -63,6 +63,9 @@ public class CustomButton extends Button {
 	 */
 	public void unhide() {
 		
+		// TJ: das funktioniert wahrscheinlich auch, geht aber viel einfacher
+		// indem ihr das Attribut "type" verwendet, dass im Konstruktor
+		// initialisiert wurde. D.h. ihr könnt die Zeile löschen.
 		int type = GameManager.getInstance().shootOnCoordinate(1, position);
 		
 		if (type == 0) {

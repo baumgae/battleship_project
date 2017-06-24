@@ -91,6 +91,8 @@ public class GameManager {
 	
 		
 	
+		// TJ: Ich glaube, dass das eine sehr wichtige Methode ist. Im Moment wird diese aber noch nicht
+		// aufgerufen
 		public void createGameArea(int difficultyNumber) {
 			
 			logger.info("The method createGameArea has been called!");
