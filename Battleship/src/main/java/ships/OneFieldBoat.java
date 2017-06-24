@@ -5,7 +5,7 @@ import java.awt.Point;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import gameElement.Water;
+import gameElements.Water;
 
 /**
  * Subclass of AShip called OneFieldBoat

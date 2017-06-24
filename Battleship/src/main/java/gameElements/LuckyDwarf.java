@@ -1,4 +1,4 @@
-package gameElement;
+package gameElements;
 
 import java.awt.Point;
 

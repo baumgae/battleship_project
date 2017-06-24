@@ -1,9 +1,5 @@
 package game;
 
-import gameElement.Dolphin;
-import gameElement.Island;
-import gameElement.LuckyDwarf;
-import gameElement.Mine;
 import ships.OneFieldBoat;
 
 import java.awt.Point;
@@ -12,7 +8,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import game.NoGameElementException;
-import gameElement.Water;
+import gameElements.Dolphin;
+import gameElements.Island;
+import gameElements.LuckyDwarf;
+import gameElements.Mine;
+import gameElements.Water;
 
 /**
  * Shooting Area for setting the Status of the GameArea the Player is shooting at.
