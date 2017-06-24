@@ -5,6 +5,7 @@ import java.awt.Point;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import game.GameArea;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -67,7 +68,11 @@ public class CustomButton extends Button {
 		// Beispielsweise
 		// int ID = GameArea.shotOncoordiante();
 		// ID = type;
+		
 		GameManager.getInstance().shootOnCoordinate(1, position);
+		
+		// int ID = GameArea.getInstance().getIDCoordinate(position);
+		
 
 		if (type == 0) {
 

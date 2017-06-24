@@ -36,7 +36,7 @@ public class GameManager {
 	
 	public static int playerNumber;
 	public static int difficultyNumber;
-	// TJ: Ihr könnt euch einfach zwei GameAreas machen: playerGameArea und enemyGameArea. Dann klappt das mit den zwei Playern.
+	
 	GameArea playerOneGameArea;
 	GameArea playerTwoGameArea;
 	
@@ -88,12 +88,7 @@ public class GameManager {
 		return playerTwo;
 	}
 	
-		// Hier wird eine leere GameArea erstellt.
-	
-		// Darstellung der GameArea, jeder Point soll dann einen Button bekommen.
-	
-		// ANGST: Vielleicht gibts hier call by value / call by reference?
-		// TJ: Die Angst braucht ihr hier nicht haben ;-)
+		
 	
 		public void createGameArea(int difficultyNumber) {
 			
