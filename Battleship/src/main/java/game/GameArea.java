@@ -50,14 +50,19 @@ import gameElement.Water;
  * shot on this Coordinate, this method will throw an Exception, because you are
  * only allowed to shot at a Coordinate for one Time.
  * 
+ * <p> {@link #getCoordinateFieldstatus(Point)t}
+ * 
  * <p>
- * If a Player shoots at a Coordinate the method
- * {@link #getCoordinateLayerstatus(Point)} will check the ID of the Object
+ * If a Player shoots at a Coordinate the method 
+ * {@link #getPointsCoordinate(int, Point)} will check the ID of the Object
  * which is behind the Coordinate. After the method finds out which Element is
  * on the Coordinate, it return the Number of Points the Player will get.
  * 
- * <p>
+ * <p> {@link #getIDCoordinate(Point)}
  * 
+ * <p> {@link #getItems()}
+ * 
+ * <p>
  * @author Celine Wichmann
  * @version 0.2
  */
@@ -232,7 +237,7 @@ public class GameArea {
 	// jeweiligen Player
 	// Das ist soweit der Plan!
 
-	public int getStatusCoordinate(int ID, Point p) throws NoGameElementException {
+	public int getPointsCoordinate(int ID, Point p) throws NoGameElementException {
 
 		logger.info("The method getStatusCoordinate has been called!");
 		Item currentItem = items[p.x][p.y];
