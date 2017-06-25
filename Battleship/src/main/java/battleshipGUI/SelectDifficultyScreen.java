@@ -2,6 +2,8 @@ package battleshipGUI;
 
 
 
+import com.hdm_stuttgart.Battleship.GameManager;
+
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -49,6 +51,9 @@ public class SelectDifficultyScreen{
 					int difficultyNumber = 1;
 					this.difficultyNumber = difficultyNumber;
 					
+					// TJ: Die GameArea muss jetzt initalisiert werden
+					GameManager.getInstance().createGameArea(difficultyNumber);
+					
 					SetShipsScreen nsc = new SetShipsScreen();
 					VBox setShips = nsc.getScreen();
 					Scene scene3 = new Scene(setShips, 300, 400);
@@ -64,6 +69,9 @@ public class SelectDifficultyScreen{
 					int difficultyNumber = 2;
 					this.difficultyNumber = difficultyNumber;
 					
+					// TJ: Die GameArea muss jetzt initalisiert werden
+					GameManager.getInstance().createGameArea(difficultyNumber);
+					
 					SetShipsScreen nsc = new SetShipsScreen();
 					VBox setShips = nsc.getScreen();
 					Scene scene3 = new Scene(setShips, 300, 400);
@@ -78,6 +86,9 @@ public class SelectDifficultyScreen{
 					
 					int difficultyNumber = 3;
 					this.difficultyNumber = difficultyNumber;
+					
+					// TJ: Die GameArea muss jetzt initalisiert werden
+					GameManager.getInstance().createGameArea(difficultyNumber);
 					
 					SetShipsScreen nsc = new SetShipsScreen();
 					VBox setShips = nsc.getScreen();
@@ -95,6 +106,9 @@ public class SelectDifficultyScreen{
 					this.difficultyNumber = difficultyNumber;
 					// Übergebem der Feldgröße und 
 					// Übergebem der Anzahl an Items für das nächste Screen!
+					
+					// TJ: Die GameArea muss jetzt initalisiert werden
+					GameManager.getInstance().createGameArea(difficultyNumber);
 					
 					SetShipsScreen nsc = new SetShipsScreen();
 					VBox setShips = nsc.getScreen();

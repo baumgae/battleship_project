@@ -161,7 +161,7 @@ public class GameManager {
 		}
 		
 		// Damit werden die Schiffe auf die GameArea gesetzt
-		public void setShipsOnArea(int playerNumber, int difficultyNumber){
+		public void setShipsOnArea(int playerNumber, Point shipPosition){
 			
 			// hier wird die GameArea des jeweiligen Spielers geholt
 			GameArea gameArea;
@@ -173,65 +173,9 @@ public class GameManager {
 				gameArea = getGameAreaPlayerTwo();
 			}
 			
+			gameArea.setShipPosition(shipPosition);
 			
-			if (difficultyNumber == 1) {
-				int setShips = 0;
-				int numberShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.EASY);
-				
-				// Spieler darf nur so viele Boote setze, wie gegeben!
-				while (setShips <= numberShips) {
-				// gameArea.setShipPosition(p);
-				
-				setShips++;
-				}
-				
-			}
-			else if(difficultyNumber == 2) {
-				int setShips = 0;
-				int numberShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.NORMAL);
-				
-				// Spieler darf nur so viele Boote setze, wie gegeben!
-				while (setShips <= numberShips) {
-				// gameArea.setShipPosition(p);
-				
-				setShips++;
-				}
-			}
-			else if(difficultyNumber == 3) {
-				int setShips = 0;
-				int numberShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.HARD);
-				
-				// Spieler darf nur so viele Boote setze, wie gegeben!
-				while (setShips <= numberShips) {
-				// gameArea.setShipPosition(p);
-				
-				setShips++;
-				}
-			}
-			else if(difficultyNumber == 4) {
-				int setShips = 0;
-				int numberShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.SUICIDAL);
-				
-				// Spieler darf nur so viele Boote setze, wie gegeben!
-				while (setShips <= numberShips) {
-				// gameArea.setShipPosition(p);
-				
-				setShips++;
-				}
-			}
-			else {
-				logger.debug("No possible difficultyNumber has been recognized!");
-				int setShips = 0;
-				int numberShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.EASY);
-				
-				// Spieler darf nur so viele Boote setze, wie gegeben!
-				while (setShips <= numberShips) {
-				// gameArea.setShipPosition(p);
-				
-				setShips++;
-				}
-				
-			}
+			// TJ: Alles was danach kam, braucht ihr nicht. Das wird schon vom SetShipScreen übernommen
 		}
 		
 		// Nachdem GameArea geschaffen und Schiffe gesetzt wurden.

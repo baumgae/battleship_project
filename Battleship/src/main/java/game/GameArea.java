@@ -100,12 +100,12 @@ public class GameArea {
 
 		int CoordinateX = this.items.length;
 		Random rndX = new Random();
-		int randomValueX = rndX.nextInt(CoordinateX + 1);
+		int randomValueX = rndX.nextInt(CoordinateX);
 		this.randomValueX = randomValueX;
 
 		int CoordinateY = this.items.length;
 		Random rndY = new Random();
-		int randomValueY = rndY.nextInt(CoordinateY + 1);
+		int randomValueY = rndY.nextInt(CoordinateY);
 		this.randomValueY = randomValueY;
 
 	}
@@ -116,23 +116,24 @@ public class GameArea {
 		int currentNumberOfItems = 0;
 
 		if (ID == 0) {
-			while (currentNumberOfItems <= NumberOfItems) {
+			while (currentNumberOfItems < NumberOfItems) {
 				this.generateRandomCoordinate();
 				if (items[randomValueX][randomValueY] == null) {
 					items[randomValueX][randomValueY] = new Water("Water" + currentNumberOfItems);
 					currentNumberOfItems++;
 
 				} else {
-					logger.info("The method generateWater didn't work!");
+					logger.info("The method generateWater didn't work! " + randomValueX + "/" + randomValueY + " type: " 
+							+ items[randomValueX][randomValueY]);
 
 				}
 			}
 		}
 
 		if (ID == 1) {
-			while (currentNumberOfItems <= NumberOfItems) {
+			while (currentNumberOfItems < NumberOfItems) {
 				this.generateRandomCoordinate();
-				if (items[randomValueX][randomValueY] == null) {
+				if (items[randomValueX][randomValueY] == null || items[randomValueX][randomValueY].getID() == 0) {
 					items[randomValueX][randomValueY] = new Dolphin("Dolphin" + currentNumberOfItems);
 					currentNumberOfItems++;
 
@@ -144,9 +145,9 @@ public class GameArea {
 		}
 
 		if (ID == 2) {
-			while (currentNumberOfItems <= NumberOfItems) {
+			while (currentNumberOfItems < NumberOfItems) {
 				this.generateRandomCoordinate();
-				if (items[randomValueX][randomValueY] == null) {
+				if (items[randomValueX][randomValueY] == null || items[randomValueX][randomValueY].getID() == 0) {
 					items[randomValueX][randomValueY] = new Island("Island" + currentNumberOfItems);
 					currentNumberOfItems++;
 
@@ -158,9 +159,9 @@ public class GameArea {
 		}
 
 		if (ID == 3) {
-			while (currentNumberOfItems <= NumberOfItems) {
+			while (currentNumberOfItems < NumberOfItems) {
 				this.generateRandomCoordinate();
-				if (items[randomValueX][randomValueY] == null) {
+				if (items[randomValueX][randomValueY] == null || items[randomValueX][randomValueY].getID() == 0) {
 					items[randomValueX][randomValueY] = new LuckyDwarf("LuckyDwarf" + currentNumberOfItems);
 					currentNumberOfItems++;
 
@@ -172,9 +173,9 @@ public class GameArea {
 		}
 
 		if (ID == 4) {
-			while (currentNumberOfItems <= NumberOfItems) {
+			while (currentNumberOfItems < NumberOfItems) {
 				this.generateRandomCoordinate();
-				if (items[randomValueX][randomValueY] == null) {
+				if (items[randomValueX][randomValueY] == null || items[randomValueX][randomValueY].getID() == 0) {
 					items[randomValueX][randomValueY] = new Mine("Mine" + currentNumberOfItems);
 					currentNumberOfItems++;
 

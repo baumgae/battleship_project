@@ -115,6 +115,7 @@ public class CustomButton extends Button {
 			imageView.setFitWidth(width);
 			imageView.setFitHeight(height);
 			this.setGraphic(imageView);
+			
 
 		} else {
 			logger.error("No image has been found!");

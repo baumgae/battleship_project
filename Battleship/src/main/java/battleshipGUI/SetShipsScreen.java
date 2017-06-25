@@ -47,6 +47,7 @@ public class SetShipsScreen {
 	private GridPane grid = new GridPane();
 	Label labelHeader = new Label("Set your Ships");
 	int i = 0;
+	private int currentNumerOfShips;
 
 	VBox getScreen() {
 
@@ -92,11 +93,17 @@ public class SetShipsScreen {
 						buttons[i][j] = new CustomButton(p, 5);
 						buttons[i][j].setOnAction(event-> {
 							// Damit darf der Player nur so viele Schiffe setzen, wie er nach schwierigkeit darf.
-							for(int s = 0; s <= possibleShips; s++) {
-								CustomButton clickedButton = (CustomButton) event.getSource();
-								GameManager.getInstance().setShipsOnArea(1, SelectDifficultyScreen.difficultyNumber);
-								clickedButton.unhide();
+							// TJ: Die for-schleife braucht ihr hier nicht. Ich habe das mal zu einer if-Bedingung gemacht
+							if(currentNumerOfShips >= possibleShips){
+								logger.info("adding additional ships is not allowed. maximum number of ships is exceeded: "
+										+ possibleShips);
+								return;
 							}
+							currentNumerOfShips++;
+							CustomButton clickedButton = (CustomButton) event.getSource();
+							
+							GameManager.getInstance().setShipsOnArea(1, p);
+							clickedButton.unhide();
 						});
 
 						grid.add(buttons[i][j], i, j);
