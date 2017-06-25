@@ -34,6 +34,7 @@ import javafx.scene.layout.VBox;
  * <p>
  * 
  * @author Celine Wichmann
+ * @autor  Lea Baumgärtner
  * @version 0.1
  */
 
@@ -61,18 +62,41 @@ public class SetShipsScreen {
 				OpeningScreen.getPrimaryStage().setScene(scene);
 			});
 				
-			Point difficulty = DifficultyManager.getFieldSize(EDifficulty.EASY);
-			CustomButton buttons[][] = new CustomButton[difficulty.x][difficulty.y];
+			int difficulty = SelectDifficultyScreen.difficultyNumber;
+			Point difficultyP;
+			int possibleShips;
+			
+			if (difficulty == 1) {
+				difficultyP = DifficultyManager.getFieldSize(EDifficulty.EASY);
+				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.EASY);
+			
+			} else if (difficulty == 2) {
+				difficultyP = DifficultyManager.getFieldSize(EDifficulty.NORMAL);
+				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.NORMAL);
+				
+			} else if (difficulty == 3) {
+				difficultyP = DifficultyManager.getFieldSize(EDifficulty.HARD);
+				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.HARD);
+				
+			} else {
+				difficultyP = DifficultyManager.getFieldSize(EDifficulty.SUICIDAL);
+				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.SUICIDAL);
+			}
+			
+			CustomButton buttons[][] = new CustomButton[difficultyP.x][difficultyP.y];
 
 				for (int i = 0; i < buttons.length; i++) {
 					
 					for (int j = 0; j < buttons[i].length; j++) {
 						Point p = new Point(i, j);
-						buttons[i][j] = new CustomButton(p, 0);
+						buttons[i][j] = new CustomButton(p, 5);
 						buttons[i][j].setOnAction(event-> {
-							
-							CustomButton clickedButton = (CustomButton) event.getSource();
-							clickedButton.unhide();
+							// Damit darf der Player nur so viele Schiffe setzen, wie er nach schwierigkeit darf.
+							for(int s = 0; s <= possibleShips; s++) {
+								CustomButton clickedButton = (CustomButton) event.getSource();
+								GameManager.getInstance().setShipsOnArea(1, SelectDifficultyScreen.difficultyNumber);
+								clickedButton.unhide();
+							}
 						});
 
 						grid.add(buttons[i][j], i, j);
@@ -97,25 +121,8 @@ public class SetShipsScreen {
 
 			});
 			
-			Point difficulty = DifficultyManager.getFieldSize(EDifficulty.EASY);
-			CustomButton buttons[][] = new CustomButton[difficulty.x][difficulty.y];
-
-				for (int i = 0; i < buttons.length; i++) {
-					
-					for (int j = 0; j < buttons[i].length; j++) {
-						Point p = new Point(i, j);
-						buttons[i][j] = new CustomButton(p, 0);
-						buttons[i][j].setOnAction(event-> {
-							
-							CustomButton clickedButton = (CustomButton) event.getSource();
-							clickedButton.unhide();
-						});
-
-						grid.add(buttons[i][j], i, j);
-
-					}
-				}
-		
+			grid = renderGameArea();
+			
 				root.getChildren().addAll(header2, Next, grid);
 				return root;
 		} else {
@@ -149,3 +156,22 @@ public class SetShipsScreen {
 	}
 
 }
+
+//Point difficulty = DifficultyManager.getFieldSize(EDifficulty.EASY);
+//CustomButton buttons[][] = new CustomButton[difficulty.x][difficulty.y];
+//
+//	for (int i = 0; i < buttons.length; i++) {
+//		
+//		for (int j = 0; j < buttons[i].length; j++) {
+//			Point p = new Point(i, j);
+//			buttons[i][j] = new CustomButton(p, 0);
+//			buttons[i][j].setOnAction(event-> {
+//				
+//				CustomButton clickedButton = (CustomButton) event.getSource();
+//				clickedButton.unhide();
+//			});
+//
+//			grid.add(buttons[i][j], i, j);
+//
+//		}
+//	}

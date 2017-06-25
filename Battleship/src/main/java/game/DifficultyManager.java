@@ -163,23 +163,23 @@ public class DifficultyManager {
 
 		case EASY:
 			logger.info("The number of EASY has been choosen!");
-			return 2;
+			return 5;
 
 		case NORMAL:
 			logger.info("The number of NORMAL has been choosen!");
-			return 3;
+			return 8;
 
 		case HARD:
 			logger.info("The number of HARD has been choosen!");
-			return 4;
+			return 10;
 
 		case SUICIDAL:
 			logger.info("The number of SUICIDAL has been choosen!");
-			return 5;
+			return 15;
 			
 		default:
 			logger.debug("The number of the default case has been taken!");
-			return 1;
+			return 20;
 		}
 	}
 

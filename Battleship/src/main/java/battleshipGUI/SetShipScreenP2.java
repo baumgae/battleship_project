@@ -63,14 +63,28 @@ public class SetShipScreenP2 {
 
 				});
 				
-				Point difficulty = DifficultyManager.getFieldSize(EDifficulty.EASY);
-				CustomButton buttons[][] = new CustomButton[difficulty.x][difficulty.y];
+				int difficulty = SelectDifficultyScreen.difficultyNumber;
+				Point difficultyP;
+				if (difficulty == 1) {
+					difficultyP = DifficultyManager.getFieldSize(EDifficulty.EASY);
+				
+				} else if (difficulty == 2) {
+					difficultyP = DifficultyManager.getFieldSize(EDifficulty.NORMAL);
+					
+				} else if (difficulty == 3) {
+					difficultyP = DifficultyManager.getFieldSize(EDifficulty.HARD);
+					
+				} else {
+					difficultyP = DifficultyManager.getFieldSize(EDifficulty.SUICIDAL);
+				}
+				
+				CustomButton buttons[][] = new CustomButton[difficultyP.x][difficultyP.y];
 
 					for (int i = 0; i < buttons.length; i++) {
 						
 						for (int j = 0; j < buttons[i].length; j++) {
 							Point p = new Point(i, j);
-							buttons[i][j] = new CustomButton(p, 0);
+							buttons[i][j] = new CustomButton(p, 5);
 
 							buttons[i][j].setOnAction(event-> {
 								

@@ -164,35 +164,72 @@ public class GameManager {
 		public void setShipsOnArea(int playerNumber, int difficultyNumber){
 			
 			// hier wird die GameArea des jeweiligen Spielers geholt
+			GameArea gameArea;
+			
 			if (playerNumber == 1) {
-				getGameAreaPlayerOne();
+				gameArea = getGameAreaPlayerOne();
 			}
 			else {
-				getGameAreaPlayerTwo();
+				gameArea = getGameAreaPlayerTwo();
 			}
 			
 			
 			if (difficultyNumber == 1) {
-				// Schiffe setzen
-				// Anzahl der Schiffe erhalten für den Diffculty Mode EASY
+				int setShips = 0;
+				int numberShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.EASY);
+				
+				// Spieler darf nur so viele Boote setze, wie gegeben!
+				while (setShips <= numberShips) {
+				// gameArea.setShipPosition(p);
+				
+				setShips++;
+				}
 				
 			}
 			else if(difficultyNumber == 2) {
-				// Schiffe setzen
-				// Anzahl der Schiffe erhalten für den Diffculty Mode NORMAL
+				int setShips = 0;
+				int numberShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.NORMAL);
+				
+				// Spieler darf nur so viele Boote setze, wie gegeben!
+				while (setShips <= numberShips) {
+				// gameArea.setShipPosition(p);
+				
+				setShips++;
+				}
 			}
 			else if(difficultyNumber == 3) {
-				// Schiffe setzen
-				// Anzahl der Schiffe erhalten für den Diffculty Mode HARD
+				int setShips = 0;
+				int numberShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.HARD);
+				
+				// Spieler darf nur so viele Boote setze, wie gegeben!
+				while (setShips <= numberShips) {
+				// gameArea.setShipPosition(p);
+				
+				setShips++;
+				}
 			}
 			else if(difficultyNumber == 4) {
-				// Schiffe setzen
-				// Anzahl der Schiffe erhalten für den Diffculty Mode SUICIDAL
+				int setShips = 0;
+				int numberShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.SUICIDAL);
+				
+				// Spieler darf nur so viele Boote setze, wie gegeben!
+				while (setShips <= numberShips) {
+				// gameArea.setShipPosition(p);
+				
+				setShips++;
+				}
 			}
 			else {
 				logger.debug("No possible difficultyNumber has been recognized!");
-				// Schiffe setzen
-				// Anzahl der Schiffe erhalten für den Diffculty Mode EASY
+				int setShips = 0;
+				int numberShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.EASY);
+				
+				// Spieler darf nur so viele Boote setze, wie gegeben!
+				while (setShips <= numberShips) {
+				// gameArea.setShipPosition(p);
+				
+				setShips++;
+				}
 				
 			}
 		}
