@@ -6,6 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import battleshipGUI.SetNameScreen;
+import game.AlreadyShotException;
 import game.DifficultyManager;
 import game.EDifficulty;
 import game.GameArea;
@@ -175,12 +176,11 @@ public class GameManager {
 			
 			gameArea.setShipPosition(shipPosition);
 			
-			// TJ: Alles was danach kam, braucht ihr nicht. Das wird schon vom SetShipScreen übernommen
 		}
 		
 		// Nachdem GameArea geschaffen und Schiffe gesetzt wurden.
 		// Nun werden die Items je nach Schwierigkeitsgrad draufgesetzt.
-		public void setItemsOnArea(int difficultyNumber, GameArea playerArea) {
+		public void setItemsOnArea(int difficultyNumber, int playerNumber) {
 			
 			GameArea gameArea;
 			
@@ -233,7 +233,7 @@ public class GameManager {
 			
 		}
 		
-		public int shootOnCoordinate(int playerNumber, Point p){
+		public int shootOnCoordinate(int playerNumber, Point p) throws Exception{
 	
 				GameArea gameArea;
 						// First Player shoots on second Player
@@ -244,6 +244,7 @@ public class GameManager {
 							
 							
 							try {
+							
 							int points = gameArea.getPointsCoordinate(ID, p);
 							getPlayerOne().countPoints(points);
 							getPlayerOne().countHits(1);
@@ -253,6 +254,12 @@ public class GameManager {
 								logger.error("There is no Game Element");
 							}
 							
+							try {
+								gameArea.shootOnCoordinate(p);
+							}
+							catch(AlreadyShotException f) {
+								f.getMessage();
+							}
 							return ID;
 							
 						}
@@ -270,6 +277,13 @@ public class GameManager {
 							
 							} catch (NoGameElementException e) {
 								logger.error("There is no Game Element");
+							}
+							
+							try {
+								gameArea.shootOnCoordinate(p);
+							}
+							catch(AlreadyShotException f) {
+								f.getMessage();
 							}
 							
 							return ID;

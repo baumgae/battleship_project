@@ -49,61 +49,75 @@ public class SetShipScreenP2 {
 	private GridPane grid = new GridPane();
 	Label labelHeader = new Label("Set your Ships");
 	int i = 0;
+	private int currentNumberOfShips;
 	
 
 	public VBox getScreen() {
 
-				Button startGame = new Button("Start Game");
-				startGame.setOnAction(event -> {
-
-					GameAreaScreen nsc = new GameAreaScreen();
-					VBox GameAreaScreen = nsc.getScreen();
-					Scene scene = new Scene(GameAreaScreen, 300, 400);
-					OpeningScreen.getPrimaryStage().setScene(scene);
-
-				});
-				
-				int difficulty = SelectDifficultyScreen.difficultyNumber;
-				Point difficultyP;
-				if (difficulty == 1) {
-					difficultyP = DifficultyManager.getFieldSize(EDifficulty.EASY);
-				
-				} else if (difficulty == 2) {
-					difficultyP = DifficultyManager.getFieldSize(EDifficulty.NORMAL);
-					
-				} else if (difficulty == 3) {
-					difficultyP = DifficultyManager.getFieldSize(EDifficulty.HARD);
-					
-				} else {
-					difficultyP = DifficultyManager.getFieldSize(EDifficulty.SUICIDAL);
-				}
-				
-				CustomButton buttons[][] = new CustomButton[difficultyP.x][difficultyP.y];
-
-					for (int i = 0; i < buttons.length; i++) {
-						
-						for (int j = 0; j < buttons[i].length; j++) {
-							Point p = new Point(i, j);
-							buttons[i][j] = new CustomButton(p, 5);
-
-							buttons[i][j].setOnAction(event-> {
-								
-								CustomButton clickedButton = (CustomButton) event.getSource();
-								clickedButton.unhide();
-							});
-
-							grid.add(buttons[i][j], i, j);
-
-						}
-					}
-
-				root.getChildren().addAll(startGame, grid);
-
-				return root;
-
-			}
-}
-
-			
-
+		int difficulty = SelectDifficultyScreen.difficultyNumber;
+		Point difficultyP;
+		int possibleShips;
 		
+		
+		if (difficulty == 1) {
+			difficultyP = DifficultyManager.getFieldSize(EDifficulty.EASY);
+			possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.EASY);
+
+		} else if (difficulty == 2) {
+			difficultyP = DifficultyManager.getFieldSize(EDifficulty.NORMAL);
+			possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.NORMAL);
+			
+		} else if (difficulty == 3) {
+			difficultyP = DifficultyManager.getFieldSize(EDifficulty.HARD);
+			possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.HARD);
+			
+		} else {
+			difficultyP = DifficultyManager.getFieldSize(EDifficulty.SUICIDAL);
+			possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.SUICIDAL);
+		}
+		
+		Label header1 = new Label(SetNameScreen.name + "'s Area");
+		Label header2 = new Label("Please set your ships!");
+		Label header3 = new Label("You are allowed to set " + possibleShips + " ships!");
+		Button startGame = new Button("Start Game");
+		startGame.setOnAction(event -> {
+
+			GameAreaScreen nsc = new GameAreaScreen();
+			VBox GameAreaScreen = nsc.getScreen();
+			Scene scene = new Scene(GameAreaScreen, 300, 400);
+			OpeningScreen.getPrimaryStage().setScene(scene);
+		});
+			
+		
+		CustomButton buttons[][] = new CustomButton[difficultyP.x][difficultyP.y];
+
+			for (int i = 0; i < buttons.length; i++) {
+				
+				for (int j = 0; j < buttons[i].length; j++) {
+					Point p = new Point(i, j);
+					buttons[i][j] = new CustomButton(p, 5);
+					buttons[i][j].setOnAction(event-> {
+						if(currentNumberOfShips >= possibleShips){
+							logger.info("adding additional ships is not allowed. maximum number of ships is exceeded: "
+									+ possibleShips);
+							return;
+						}
+						currentNumberOfShips++;
+						CustomButton clickedButton = (CustomButton) event.getSource();
+						
+						GameManager.getInstance().setItemsOnArea(difficulty, 2);
+						GameManager.getInstance().setShipsOnArea(2, p);
+						clickedButton.unhide();
+					});
+					
+					grid.add(buttons[i][j], i, j);
+
+				}
+			}
+
+		root.getChildren().addAll(labelHeader, header1, header2, header3, startGame, grid);
+
+		return root;
+
+	}
+}

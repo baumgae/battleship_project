@@ -157,7 +157,11 @@ public class OpeningScreen extends Application{
 	
 	
 	public static void main(String[] args) {
-		launch(args);
+		try{
+		 launch(args);
+		} catch (Exception e) {
+			logger.error("Something went wrong...", e);
+		}
 	}
 	
 }
