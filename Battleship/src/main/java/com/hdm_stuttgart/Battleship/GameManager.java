@@ -149,6 +149,59 @@ public class GameManager {
 			}
 		}
 		
+		public void createGameAreaSinglePlayer(int difficultyNumber){
+				logger.info("The method createGameAreaSinglePlayer has been called!");
+			
+			GameManager.difficultyNumber = difficultyNumber;
+			
+			if (difficultyNumber == 1) {
+				
+				// GameArea nach außen geben.
+				GameArea gameA = new GameArea(EDifficulty.EASY);
+				playerOneGameArea = gameA;
+				
+				GameArea gameB = new GameArea(EDifficulty.EASY);
+				playerTwoGameArea = gameB;
+				
+			}
+			else if (difficultyNumber == 2) {
+				// GameArea nach außen geben.
+				GameArea gameA = new GameArea(EDifficulty.NORMAL);
+				playerOneGameArea = gameA;
+				
+				GameArea gameB = new GameArea(EDifficulty.NORMAL);
+				playerTwoGameArea = gameB;
+				
+			}
+			else if (difficultyNumber == 3) {
+				// GameArea nach außen geben.
+				GameArea gameA = new GameArea(EDifficulty.HARD);
+				playerOneGameArea = gameA;
+				
+				GameArea gameB = new GameArea(EDifficulty.HARD);
+				playerTwoGameArea = gameB;
+				
+			}
+			else if (difficultyNumber == 4) {
+				// GameArea nach außen geben.
+				GameArea gameA = new GameArea(EDifficulty.SUICIDAL);
+				playerOneGameArea = gameA;
+				
+				GameArea gameB = new GameArea(EDifficulty.SUICIDAL);
+				playerTwoGameArea = gameB;
+				
+			}
+			else {
+				logger.debug("No possible difficultyNumber has been recognized!");
+				GameArea gameA = new GameArea(EDifficulty.EASY);
+				playerOneGameArea = gameA;
+				
+				GameArea gameB = new GameArea(EDifficulty.EASY);
+				playerTwoGameArea = gameB;
+	
+			}
+		}
+		
 		public GameArea getGameAreaPlayerOne() {
 			return playerOneGameArea;
 		}
@@ -232,6 +285,8 @@ public class GameManager {
 			}
 			
 		}
+		
+		
 		
 		public int shootOnCoordinate(int playerNumber, Point p) throws Exception{
 	
