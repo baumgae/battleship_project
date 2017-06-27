@@ -12,6 +12,7 @@ import gameElements.Island;
 import gameElements.LuckyDwarf;
 import gameElements.Mine;
 import gameElements.Water;
+import ships.OneFieldBoat;
 
 /**
  * The Class GameArea is managing the Creation of the Game Area and handle the
@@ -185,6 +186,21 @@ public class GameArea {
 				}
 			}
 		}
+		
+		if (ID == 5) {
+			while (currentNumberOfItems < NumberOfItems) {
+				this.generateRandomCoordinate();
+				if (items[randomValueX][randomValueY] == null || items[randomValueX][randomValueY].getID() == 0) {
+					items[randomValueX][randomValueY] = new OneFieldBoat("OneFieldBoat" + currentNumberOfItems);
+					currentNumberOfItems++;
+
+				} else {
+					logger.info("The method generateMine didn't work!");
+
+				}
+			}
+		}
+		
 	}
 
 	// Damit werden die Schiffe gesetzt;
