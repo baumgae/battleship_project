@@ -12,6 +12,7 @@ import game.AlreadyShotException;
 import game.DifficultyManager;
 import game.EDifficulty;
 import game.GameArea;
+import gameConfigurations.ArtificialIntelligence;
 import gameConfigurations.IPlayer;
 import gameConfigurations.Item;
 import javafx.scene.Scene;
@@ -104,14 +105,21 @@ public class GameAreaScreen {
 					buttons[i][j] = new CustomButton(p, items[i][j].getID());
 					buttons[i][j].setOnAction(event-> {
 						
-						CustomButton clickedButton = (CustomButton) event.getSource();
+						// Hier drauf müsste der Computer Schießen
+						
+						// Jetzt müsste man noch regel, dass abwechselnd geschossen wird!
+						// Und die übergebenen Koordinaten der AI als klick betrachtet werdem
+						CustomButton clickedButton2 = (CustomButton) event.getSource();
 						try {
-							GameManager.getInstance().shootOnCoordinate(1, p);
+							Point r = GameManager.getInstance().generateRandomShoots();
+							GameManager.getInstance().shootOnCoordinatePC(r);
+							
+							
 						} catch (Exception e) {
 							logger.info("You cannot shoot twice on one field!");
 							
 						}
-						clickedButton.unhide();
+						clickedButton2.unhide();
 					});
 					
 					gameGrid1.add(buttons[i][j], i, j);
@@ -120,12 +128,18 @@ public class GameAreaScreen {
 			
 			left.getChildren().addAll(header1, gameGrid1);
 			
+			// VBox for creating some space between the Areas
+			VBox middle = new VBox();
+			Label headerM = new Label("**********    ");
+			middle.getChildren().addAll(headerM);
+			
 			// Rechte Seite vom zweiten Player
 			VBox right = new VBox();
 			Label header2 = new Label("Computer's Area");
 			
 			// Erschaffen der GameArea und Items und Schiffe (schön wäres)
 			CustomButton buttons2[][] = new CustomButton[difficultyP.x][difficultyP.y];
+			
 			GameArea gameAreatwo = GameManager.getInstance().getGameAreaPlayerTwo();
 			Item itemstwo[][] = gameAreatwo.getItems();
 			
@@ -137,25 +151,27 @@ public class GameAreaScreen {
 					buttons2[i][j] = new CustomButton(p, itemstwo[i][j].getID());
 					
 					buttons2[i][j].setOnAction(event-> {
-						
+					
+						// Hier drauf müsste der echte Spieler schießen
 						CustomButton clickedButton = (CustomButton) event.getSource();
 						try {
-							GameManager.getInstance().shootOnCoordinatePC(p);
+							GameManager.getInstance().shootOnCoordinate(1, p);
 						} catch (Exception e) {
 							logger.info("You cannot shoot twice on one field!");
 							
 						}
 						clickedButton.unhide();
+						
 					});
 					
-					gameGrid2.add(buttons[i][j], i, j);
+					gameGrid2.add(buttons2[i][j], i, j);
 				}
 			}
 			
 			right.getChildren().addAll(header2, gameGrid2);
 			
 			// Adden der linken und rechten Seite zu einer HBox, damit nebeneinander
-			root2.getChildren().addAll(left, right);
+			root2.getChildren().addAll(left, middle, right);
 			
 			// Adden des Titles und des Menus sowie die komplette HBox in eine VBox
 			root.getChildren().addAll(Title, Menu, root2);
