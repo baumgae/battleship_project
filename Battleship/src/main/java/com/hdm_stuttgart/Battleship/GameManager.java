@@ -5,12 +5,14 @@ import java.awt.Point;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import battleshipGUI.SelectDifficultyScreen;
 import battleshipGUI.SetNameScreen;
 import game.AlreadyShotException;
 import game.DifficultyManager;
 import game.EDifficulty;
 import game.GameArea;
 import game.NoGameElementException;
+import gameConfigurations.ArtificialIntelligence;
 import gameConfigurations.CreatePlayerException;
 import gameConfigurations.HumanPlayer;
 import gameConfigurations.IPlayer;
@@ -94,21 +96,18 @@ public class GameManager {
 	
 		// TJ: Ich glaube, dass das eine sehr wichtige Methode ist. Im Moment wird diese aber noch nicht
 		// aufgerufen
-		public void createGameArea(int difficultyNumber) {
+		public void createGameArea(int difficultyNumber, int playerNr) {
 			
 			logger.info("The method createGameArea has been called!");
 			
 			GameManager.difficultyNumber = difficultyNumber;
 			
+			if (playerNr == 1) {
 			if (difficultyNumber == 1) {
 				
 				// GameArea nach außen geben.
 				GameArea gameA = new GameArea(EDifficulty.EASY);
-				
 				playerOneGameArea = gameA;
-				
-				GameArea gameB = new GameArea(EDifficulty.EASY);
-				playerTwoGameArea = gameB;
 				
 			}
 			else if (difficultyNumber == 2) {
@@ -116,17 +115,11 @@ public class GameManager {
 				GameArea gameA = new GameArea(EDifficulty.NORMAL);
 				playerOneGameArea = gameA;
 				
-				GameArea gameB = new GameArea(EDifficulty.NORMAL);
-				playerTwoGameArea = gameB;
-				
 			}
 			else if (difficultyNumber == 3) {
 				// GameArea nach außen geben.
 				GameArea gameA = new GameArea(EDifficulty.HARD);
 				playerOneGameArea = gameA;
-				
-				GameArea gameB = new GameArea(EDifficulty.HARD);
-				playerTwoGameArea = gameB;
 				
 			}
 			else if (difficultyNumber == 4) {
@@ -134,73 +127,49 @@ public class GameManager {
 				GameArea gameA = new GameArea(EDifficulty.SUICIDAL);
 				playerOneGameArea = gameA;
 				
-				GameArea gameB = new GameArea(EDifficulty.SUICIDAL);
-				playerTwoGameArea = gameB;
-				
 			}
 			else {
 				logger.debug("No possible difficultyNumber has been recognized!");
 				GameArea gameA = new GameArea(EDifficulty.EASY);
 				playerOneGameArea = gameA;
-				
-				GameArea gameB = new GameArea(EDifficulty.EASY);
-				playerTwoGameArea = gameB;
 	
+			}
+			
+			} else {
+				if (difficultyNumber == 1) {
+					
+					GameArea gameB = new GameArea(EDifficulty.EASY);
+					playerTwoGameArea = gameB;
+					
+				}
+				else if (difficultyNumber == 2) {
+					
+					GameArea gameB = new GameArea(EDifficulty.NORMAL);
+					playerTwoGameArea = gameB;
+					
+				}
+				else if (difficultyNumber == 3) {
+
+					GameArea gameB = new GameArea(EDifficulty.HARD);
+					playerTwoGameArea = gameB;
+					
+				}
+				else if (difficultyNumber == 4) {
+					
+					GameArea gameB = new GameArea(EDifficulty.SUICIDAL);
+					playerTwoGameArea = gameB;
+					
+				}
+				else {
+					logger.debug("No possible difficultyNumber has been recognized!");
+					
+					GameArea gameB = new GameArea(EDifficulty.EASY);
+					playerTwoGameArea = gameB;
+		
+				}
 			}
 		}
 		
-		public void createGameAreaSinglePlayer(int difficultyNumber){
-				logger.info("The method createGameAreaSinglePlayer has been called!");
-			
-			GameManager.difficultyNumber = difficultyNumber;
-			
-			if (difficultyNumber == 1) {
-				
-				// GameArea nach außen geben.
-				GameArea gameA = new GameArea(EDifficulty.EASY);
-				playerOneGameArea = gameA;
-				
-				GameArea gameB = new GameArea(EDifficulty.EASY);
-				playerTwoGameArea = gameB;
-				
-			}
-			else if (difficultyNumber == 2) {
-				// GameArea nach außen geben.
-				GameArea gameA = new GameArea(EDifficulty.NORMAL);
-				playerOneGameArea = gameA;
-				
-				GameArea gameB = new GameArea(EDifficulty.NORMAL);
-				playerTwoGameArea = gameB;
-				
-			}
-			else if (difficultyNumber == 3) {
-				// GameArea nach außen geben.
-				GameArea gameA = new GameArea(EDifficulty.HARD);
-				playerOneGameArea = gameA;
-				
-				GameArea gameB = new GameArea(EDifficulty.HARD);
-				playerTwoGameArea = gameB;
-				
-			}
-			else if (difficultyNumber == 4) {
-				// GameArea nach außen geben.
-				GameArea gameA = new GameArea(EDifficulty.SUICIDAL);
-				playerOneGameArea = gameA;
-				
-				GameArea gameB = new GameArea(EDifficulty.SUICIDAL);
-				playerTwoGameArea = gameB;
-				
-			}
-			else {
-				logger.debug("No possible difficultyNumber has been recognized!");
-				GameArea gameA = new GameArea(EDifficulty.EASY);
-				playerOneGameArea = gameA;
-				
-				GameArea gameB = new GameArea(EDifficulty.EASY);
-				playerTwoGameArea = gameB;
-	
-			}
-		}
 		
 		public GameArea getGameAreaPlayerOne() {
 			return playerOneGameArea;
@@ -286,6 +255,63 @@ public class GameManager {
 			
 		}
 		
+public void setItemsOnAreaPC(int difficultyNumber, int playerNumber) {
+			
+			GameArea gameArea;
+			
+			// Je nachdem auf welche GameArea das gesetzt werden soll...
+			if (playerNumber == 1) {
+				gameArea = getGameAreaPlayerOne();
+				
+			}
+			else {
+				gameArea = getGameAreaPlayerTwo();
+			}
+			
+			
+			if (difficultyNumber == 1) {
+				
+			
+				// Generate Items inclusive ships
+				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.EASY));
+				gameArea.setNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.EASY));
+				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.EASY));
+				gameArea.setNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.EASY));
+				gameArea.setNumberOfItems(5, DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.EASY));
+			}
+			else if (difficultyNumber == 2) {
+				
+				// Generate Items inklusive ships
+				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.NORMAL));
+				gameArea.setNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.NORMAL));
+				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.NORMAL));
+				gameArea.setNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.NORMAL));
+				gameArea.setNumberOfItems(5, DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.NORMAL));
+			}
+			else if (difficultyNumber == 3) {
+				
+				// Generate Items inclusive ships.
+				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.HARD));
+				gameArea.setNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.HARD));
+				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.HARD));
+				gameArea.setNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.HARD));
+				gameArea.setNumberOfItems(5, DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.HARD));
+			}
+			else if (difficultyNumber == 4) {
+				
+				// Generate Items
+				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.SUICIDAL));
+				gameArea.setNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.SUICIDAL));
+				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.SUICIDAL));
+				gameArea.setNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.SUICIDAL));
+				gameArea.setNumberOfItems(5, DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.SUICIDAL));
+			}
+			else { 
+			logger.debug("No possible difficultyNumber has been recognized!");
+			}
+			
+		}
+		
 		
 		
 		public int shootOnCoordinate(int playerNumber, Point p) throws Exception{
@@ -345,6 +371,51 @@ public class GameManager {
 						}
 		}
 		
+		
+		public Point generateRandomShoots() {
+			Point p = new Point();
+			int maxX = p.x;
+			int maxY = p.y;
+			
+			int x = ArtificialIntelligence.randomCoordinateX(maxX);
+			int y = ArtificialIntelligence.randomCoordinateY(maxY);
+			
+			Point shoot = new Point(x,y);
+			
+			return shoot;
+			
+		}
+		
+		
+		public int shootOnCoordinatePC(Point p) throws Exception {
+			p = generateRandomShoots();
+			
+			GameArea gameArea;
+			
+				gameArea = getGameAreaPlayerOne();
+				int ID = gameArea.getIDCoordinate(p);
+				
+				try {
+				
+				int points = gameArea.getPointsCoordinate(ID, p);
+				// ComputerPlayer 
+				getPlayerTwo().countPoints(points);
+				getPlayerTwo().countHits(1);
+				
+				} catch (NoGameElementException e) {
+					logger.error("There is no Game Element");
+				}
+				
+				try {
+					gameArea.shootOnCoordinate(p);
+				}
+				catch(AlreadyShotException f) {
+					f.getMessage();
+				}
+				return ID;
+				
+		}
+		
 		public void endOfTheGame() {
 			// Reaktion des Spiels, wenn ein Spieler alle Schiffe abgeschossen hat.
 		}
@@ -356,35 +427,4 @@ public class GameManager {
 		
 		
 }
-	/*
-	 * 
-	 * 
-	 * SetShipsOnField Method --> Name, score and hits of Player will be set, 
-	 * ships will be set, after the window will be closed, randomGameElements will
-	 * be set.
-	 * 
-	 * Same Procedure for Multiplayer, second Player or AI (later then)
-	 * 
-	 * StartGame Method
-	 * Game Area of player and Enemy will be on GUI, 
-	 * Enemy with hidden stuff
-	 * Always if one player shoots, change LayerStatus
-	 * Switch Windows for every Player.
-	 * 
-	 * ONLY IF THERE IS THIME ******
-	 * MenuMethod
-	 * If Menu will be called, switch to this window,
-	 * if special buttons will be pushed, quit or something.
-	 * ********
-	 * 
-	 * EndGame
-	 * The first Player, who shot on all ships, wins the game.
-	 * Game Ends, Conclusion of all points and hits will be shown.
-	 * For every Player a screen of YouLoose or YouWin will be shown.
-	 * 
-	 * quitGame Method
-	 * --> Whole game will be ended.
-	 * 
-	 * 
-	 */
 	

@@ -38,6 +38,7 @@ import javafx.scene.layout.VBox;
  * 
  * <p>
  * @author Celine Wichmann
+ * @author Lea Baumgärtner
  * @version 0.1 
  */
 
@@ -92,8 +93,9 @@ public class GameAreaScreen {
 			
 			// Erschaffen der GameArea und übergeben der Items und irgenwie Schiffe (schön wärs)
 			CustomButton buttons[][] = new CustomButton[difficultyP.x][difficultyP.y];
-			GameArea gameArea = GameManager.getInstance().getGameAreaPlayerOne();
-			Item items[][] = gameArea.getItems();
+			
+			GameArea gameAreaOne = GameManager.getInstance().getGameAreaPlayerOne();
+			Item items[][] = gameAreaOne.getItems();
 			
 			for (int i = 0; i < buttons.length; i++) {
 				for (int j = 0; j < buttons[i].length; j++) {
@@ -138,7 +140,7 @@ public class GameAreaScreen {
 						
 						CustomButton clickedButton = (CustomButton) event.getSource();
 						try {
-							GameManager.getInstance().shootOnCoordinate(1, p);
+							GameManager.getInstance().shootOnCoordinatePC(p);
 						} catch (Exception e) {
 							logger.info("You cannot shoot twice on one field!");
 							

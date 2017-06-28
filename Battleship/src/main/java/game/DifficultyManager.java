@@ -38,15 +38,15 @@ public class DifficultyManager {
 
 		case NORMAL:
 			logger.info("The size of NORMAL has been used!");
-			return new Point(10, 10);
+			return new Point(8, 8);
 
 		case HARD:
 			logger.info("The size of HARD has been used!");
-			return new Point(15, 15);
+			return new Point(10, 10);
 
 		case SUICIDAL:
 			logger.info("The size of SUICIDAL has been used!");
-			return new Point(20, 20);
+			return new Point(13, 13);
 
 		default:
 			logger.debug("The size of the default case has been taken!");

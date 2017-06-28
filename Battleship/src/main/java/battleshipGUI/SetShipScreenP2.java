@@ -105,6 +105,7 @@ public class SetShipScreenP2 {
 						currentNumberOfShips++;
 						CustomButton clickedButton = (CustomButton) event.getSource();
 						
+						GameManager.getInstance().createGameArea(difficulty, 2);
 						GameManager.getInstance().setItemsOnArea(difficulty, 2);
 						GameManager.getInstance().setShipsOnArea(2, p);
 						clickedButton.unhide();

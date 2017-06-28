@@ -107,8 +107,13 @@ public class SetShipsScreen {
 							currentNumberOfShips++;
 							CustomButton clickedButton = (CustomButton) event.getSource();
 							
+							GameManager.getInstance().createGameArea(difficulty, 1);
 							GameManager.getInstance().setItemsOnArea(difficulty, 1);
 							GameManager.getInstance().setShipsOnArea(1, p);
+							
+							GameManager.getInstance().createGameArea(difficulty, 2);
+							GameManager.getInstance().setItemsOnAreaPC(difficulty, 2);
+							
 							clickedButton.unhide();
 						});
 						
@@ -175,6 +180,7 @@ public class SetShipsScreen {
 						currentNumberOfShips++;
 						CustomButton clickedButton = (CustomButton) event.getSource();
 						
+						GameManager.getInstance().createGameArea(difficulty, 1);
 						GameManager.getInstance().setItemsOnArea(difficulty, 1);
 						GameManager.getInstance().setShipsOnArea(1, p);
 						clickedButton.unhide();

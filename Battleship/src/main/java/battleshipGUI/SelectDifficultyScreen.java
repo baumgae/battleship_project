@@ -52,7 +52,8 @@ public class SelectDifficultyScreen{
 					this.difficultyNumber = difficultyNumber;
 					
 					// TJ: Die GameArea muss jetzt initalisiert werden
-					GameManager.getInstance().createGameArea(difficultyNumber);
+					// GameManager.getInstance().createGameArea(difficultyNumber);
+					// Ich hätte das nun in der SetShip Area Initialisiert
 					
 					SetShipsScreen nsc = new SetShipsScreen();
 					VBox setShips = nsc.getScreen();
@@ -70,7 +71,8 @@ public class SelectDifficultyScreen{
 					this.difficultyNumber = difficultyNumber;
 					
 					// TJ: Die GameArea muss jetzt initalisiert werden
-					GameManager.getInstance().createGameArea(difficultyNumber);
+					//GameManager.getInstance().createGameArea(difficultyNumber);
+					// Ich initialisiere es im SetShipsScreen
 					
 					SetShipsScreen nsc = new SetShipsScreen();
 					VBox setShips = nsc.getScreen();
@@ -88,7 +90,8 @@ public class SelectDifficultyScreen{
 					this.difficultyNumber = difficultyNumber;
 					
 					// TJ: Die GameArea muss jetzt initalisiert werden
-					GameManager.getInstance().createGameArea(difficultyNumber);
+					// GameManager.getInstance().createGameArea(difficultyNumber);
+					// Initialisierung im SetShipScreen
 					
 					SetShipsScreen nsc = new SetShipsScreen();
 					VBox setShips = nsc.getScreen();
@@ -108,7 +111,8 @@ public class SelectDifficultyScreen{
 					// Übergebem der Anzahl an Items für das nächste Screen!
 					
 					// TJ: Die GameArea muss jetzt initalisiert werden
-					GameManager.getInstance().createGameArea(difficultyNumber);
+					// GameManager.getInstance().createGameArea(difficultyNumber);
+					// Im SetShipScreen initilaisiert.
 					
 					SetShipsScreen nsc = new SetShipsScreen();
 					VBox setShips = nsc.getScreen();
