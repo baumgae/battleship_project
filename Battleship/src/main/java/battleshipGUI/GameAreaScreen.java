@@ -53,6 +53,7 @@ public class GameAreaScreen {
 
 	// einen Button mit Connection zum Menü einbauen
 	public VBox getScreen() {
+		logger.info("Loaded GameAreaScreen");
 		VBox root = new VBox();
 		HBox root2 = new HBox();
 		Label Title = new Label("Battleship");
@@ -103,6 +104,7 @@ public class GameAreaScreen {
 
 					Point p = new Point(i, j);
 					buttons[i][j] = new CustomButton(p, items[i][j].getID());
+					logger.info("item ID: " + items[i][j].getID());
 					buttons[i][j].setOnAction(event -> {
 
 						// Hier drauf müsste der Computer Schießen

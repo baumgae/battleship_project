@@ -18,61 +18,27 @@ public class Highscore {
 	//  Lea  | 150
 	//Celine | 120
 	//sortiert nach den meisten Punkten
-	public void setHighscore() {
-	List<String> namesList = new ArrayList<String>();
-	namesList.add(GameManager.getInstance().getPlayerOne().getName());
-	namesList.add(GameManager.getInstance().getPlayerTwo().getName());
-
 	
-//	List<Integer> pointsList = new ArrayList<Integer>();
-//	pointsList.add(GameManager.getInstance().getPlayerOne().getCountedPoints());
-//	pointsList.add(GameManager.getInstance().getPlayerTwo().getCountedPoints());
-
+	List<HighscoreItem> namesList = new ArrayList<>();
 	
-	/*Map<Integer, List namesList> highscoreList = namesList
-			.stream()
-			.collect(Collectors.toMap(
-					highscoreList -> GameManager.getInstance().getPlayerOne().getCountedPoints(),
-					highscoreList -> namesList))
-			.collect(Collectors.toMap(
-					highscoreList -> GameManager.getInstance().getPlayerTwo().getCountedPoints(),
-					highscoreList -> namesList))
-			.sort();*/
-	
-	
-	
-	
-	
-
-	Map<String, Integer> highscoreList = new HashMap<String, Integer>();
-	highscoreList.put(GameManager.getInstance().getPlayerOne().getName(),
-			GameManager.getInstance().getPlayerOne().getCountedPoints());
-	highscoreList.put(GameManager.getInstance().getPlayerTwo().getName(),
-			GameManager.getInstance().getPlayerTwo().getCountedPoints());
-
-	      if(GameManager.getInstance().getPlayerOne().getCountedPoints() <= 
-	    		  GameManager.getInstance().getPlayerTwo().getCountedPoints()) {
-	    	   
-	      }
-	      
-	      if(GameManager.getInstance().playerOne.getCountedPoints() >= 
-	    		  GameManager.getInstance().getPlayerTwo().getCountedPoints()) {
-	    	  
-	      }
-	      
-	      if(GameManager.getInstance().playerOne.getCountedPoints() == 
-	    		  GameManager.getInstance().getPlayerTwo().getCountedPoints()) {
-	    	  
-	      }
-	      
-	      else{
-	    	  
-	      }
-	
+	public void addScore(String name, int score){
+		namesList.add(new HighscoreItem(name, score));
 	}
 	
-	public void getHighsore(){
+	public String sortedScores(){
 		
+		 namesList
+		.parallelStream()
+		.sorted((n0, n1) -> Integer.compare(n0.getScore(), n1.getScore()))
+		.forEach(System.out::println);
+		
+		
+		return "";
+	}
+	
+	public int getHighscore(){
+		int score = 0;
+		return score;
 	}
 	
 }

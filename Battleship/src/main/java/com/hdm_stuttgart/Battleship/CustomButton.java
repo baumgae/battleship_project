@@ -73,6 +73,7 @@ public class CustomButton extends Button {
 			imageView.setFitWidth(width);
 			imageView.setFitHeight(height);
 			this.setGraphic(imageView);
+			GameManager.getInstance().setScore(0);
 
 		} else if (type == 1) {
 			Image imageDecline = new Image(getClass().getResourceAsStream("Dolphine.png"));
@@ -81,6 +82,7 @@ public class CustomButton extends Button {
 			imageView.setFitWidth(width);
 			imageView.setFitHeight(height);
 			this.setGraphic(imageView);
+			GameManager.getInstance().setScore(-50);
 
 		} else if (type == 2) {
 			Image imageDecline = new Image(getClass().getResourceAsStream("Island.png"));
@@ -89,6 +91,7 @@ public class CustomButton extends Button {
 			imageView.setFitWidth(width);
 			imageView.setFitHeight(height);
 			this.setGraphic(imageView);
+			GameManager.getInstance().setScore(-100);
 
 		} else if (type == 3) {
 			Image imageDecline = new Image(getClass().getResourceAsStream("LuckyDwarf.png"));
@@ -97,6 +100,7 @@ public class CustomButton extends Button {
 			imageView.setFitWidth(width);
 			imageView.setFitHeight(height);
 			this.setGraphic(imageView);
+			GameManager.getInstance().setScore(200);
 
 		} else if (type == 4) {
 			Image imageDecline = new Image(getClass().getResourceAsStream("Mine.png"));
@@ -105,6 +109,7 @@ public class CustomButton extends Button {
 			imageView.setFitWidth(width);
 			imageView.setFitHeight(height);
 			this.setGraphic(imageView);
+			GameManager.getInstance().setScore(Integer.MIN_VALUE);
 
 		}
 		else if (type == 5) {
@@ -115,7 +120,7 @@ public class CustomButton extends Button {
 			imageView.setFitWidth(width);
 			imageView.setFitHeight(height);
 			this.setGraphic(imageView);
-			
+			GameManager.getInstance().setScore(128);
 
 		} else {
 			logger.error("No image has been found!");

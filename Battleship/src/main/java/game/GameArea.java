@@ -111,8 +111,7 @@ public class GameArea {
 
 	}
 
-	public void setNumberOfItems(int ID, int NumberOfItems) {
-
+	public synchronized void setNumberOfItems(int ID, int NumberOfItems) {
 		logger.info("The method setNumberOfItems has been called.");
 		int currentNumberOfItems = 0;
 
@@ -204,11 +203,11 @@ public class GameArea {
 	}
 
 	// Damit werden die Schiffe gesetzt;
-	public Item setShipPosition(Point p) {
+	public void setShipPosition(Point p) {
 		
 		logger.info("The method setShipPosition has been called!");
-		Item ships = items[p.x][p.y];
-		return ships;
+		items[p.x][p.y] = new OneFieldBoat("Hans");
+		//return ships;
 
 	}
 

@@ -49,11 +49,18 @@ public class GameManager {
 	
 	private static GameManager instance;
 	
+	private int score;
+	
 	public static GameManager getInstance(){
 		if(instance == null){
 			instance = new GameManager();
 		}
 		return instance;
+	}
+	
+	public void setScore(int score) {
+		this.score = this.score + score;
+		logger.info("Current score: " + score);
 	}
 	
 	
@@ -314,7 +321,7 @@ public void setItemsOnAreaPC(int difficultyNumber, int playerNumber) {
 		
 		
 		
-		public int shootOnCoordinate(int playerNumber, Point p) throws Exception{
+		public int shootOnCoordinate(int playerNumber, Point p){
 	
 				GameArea gameArea;
 						// First Player shoots on second Player
@@ -329,7 +336,7 @@ public void setItemsOnAreaPC(int difficultyNumber, int playerNumber) {
 							int points = gameArea.getPointsCoordinate(ID, p);
 							getPlayerOne().countPoints(points);
 							getPlayerOne().countHits(1);
-							
+							logger.info("Points: " + getPlayerOne().getCountedHits());
 							
 							} catch (NoGameElementException e) {
 								logger.error("There is no Game Element");
@@ -338,7 +345,7 @@ public void setItemsOnAreaPC(int difficultyNumber, int playerNumber) {
 							try {
 								gameArea.shootOnCoordinate(p);
 							}
-							catch(AlreadyShotException f) {
+							catch(Exception f) {
 								f.getMessage();
 							}
 							return ID;
@@ -363,7 +370,7 @@ public void setItemsOnAreaPC(int difficultyNumber, int playerNumber) {
 							try {
 								gameArea.shootOnCoordinate(p);
 							}
-							catch(AlreadyShotException f) {
+							catch(Exception f) {
 								f.getMessage();
 							}
 							
