@@ -57,7 +57,7 @@ public class SelectDifficultyScreen{
 					
 					SetShipsScreen nsc = new SetShipsScreen();
 					VBox setShips = nsc.getScreen();
-					Scene scene3 = new Scene(setShips, 300, 400);
+					Scene scene3 = new Scene(setShips, 800, 1000);
 					OpeningScreen.getPrimaryStage().setScene(scene3);
 					
 				});
@@ -76,7 +76,7 @@ public class SelectDifficultyScreen{
 					
 					SetShipsScreen nsc = new SetShipsScreen();
 					VBox setShips = nsc.getScreen();
-					Scene scene3 = new Scene(setShips, 300, 400);
+					Scene scene3 = new Scene(setShips, 800, 1000);
 					OpeningScreen.getPrimaryStage().setScene(scene3);
 					
 				});
@@ -95,7 +95,7 @@ public class SelectDifficultyScreen{
 					
 					SetShipsScreen nsc = new SetShipsScreen();
 					VBox setShips = nsc.getScreen();
-					Scene scene3 = new Scene(setShips, 300, 400);
+					Scene scene3 = new Scene(setShips, 800, 1000);
 					OpeningScreen.getPrimaryStage().setScene(scene3);
 					
 					
@@ -116,7 +116,7 @@ public class SelectDifficultyScreen{
 					
 					SetShipsScreen nsc = new SetShipsScreen();
 					VBox setShips = nsc.getScreen();
-					Scene scene3 = new Scene(setShips, 300, 400);
+					Scene scene3 = new Scene(setShips, 800, 1000);
 					OpeningScreen.getPrimaryStage().setScene(scene3);
 					
 				});

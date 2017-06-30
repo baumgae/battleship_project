@@ -48,6 +48,7 @@ public class SetShipsScreen {
 	Label labelHeader = new Label("Set your Ships");
 	int i = 0;
 	private int currentNumberOfShips;
+	public static int possibleShips;
 
 	
 	VBox getScreen() {
@@ -56,24 +57,29 @@ public class SetShipsScreen {
 			
 			int difficulty = SelectDifficultyScreen.difficultyNumber;
 			Point difficultyP;
-			int possibleShips;
+			
 			
 			
 			if (difficulty == 1) {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.EASY);
 				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.EASY);
+				this.possibleShips = possibleShips;
+
 	
 			} else if (difficulty == 2) {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.NORMAL);
 				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.NORMAL);
+				this.possibleShips = possibleShips;
 				
 			} else if (difficulty == 3) {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.HARD);
 				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.HARD);
+				this.possibleShips = possibleShips;
 				
 			} else {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.SUICIDAL);
 				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.SUICIDAL);
+				this.possibleShips = possibleShips;
 			}
 			
 			Label header1 = new Label(SetNameScreen.name + "'s Area");
@@ -98,7 +104,7 @@ public class SetShipsScreen {
 						buttons[i][j] = new CustomButton(p, 5);
 						buttons[i][j].setOnAction(event-> {
 							// Damit darf der Player nur so viele Schiffe setzen, wie er nach schwierigkeit darf.
-							// TJ: Die for-schleife braucht ihr hier nicht. Ich habe das mal zu einer if-Bedingung gemacht
+							
 							if(currentNumberOfShips >= possibleShips){
 								logger.info("adding additional ships is not allowed. maximum number of ships is exceeded: "
 										+ possibleShips);
