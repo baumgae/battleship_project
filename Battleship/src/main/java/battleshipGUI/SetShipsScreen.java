@@ -172,8 +172,11 @@ public class SetShipsScreen {
 
 			});
 			
+			GameManager.getInstance().createGameArea(difficulty, 1);
+			GameManager.getInstance().setItemsOnArea(difficulty, 1);
+			
 			CustomButton buttons[][] = new CustomButton[difficultyP.x][difficultyP.y];
-
+			
 			for (int i = 0; i < buttons.length; i++) {
 				
 				for (int j = 0; j < buttons[i].length; j++) {
@@ -188,9 +191,7 @@ public class SetShipsScreen {
 						}
 						currentNumberOfShips++;
 						CustomButton clickedButton = (CustomButton) event.getSource();
-						
-						GameManager.getInstance().createGameArea(difficulty, 1);
-						GameManager.getInstance().setItemsOnArea(difficulty, 1);
+					
 						GameManager.getInstance().setShipsOnArea(1, p);
 						clickedButton.unhide();
 					});
@@ -213,25 +214,25 @@ public class SetShipsScreen {
 
 	}
 
-	public GridPane renderGameArea() {
-		GridPane grid = new GridPane();
-		GameArea gameArea = GameManager.getInstance().getGameAreaPlayerOne();
-		Item items[][] = gameArea.getItems();
-
-		for (int x = 0; x < items.length; x++) {
-			for (int y = 0; y < items[x].length; y++) {
-				CustomButton b = new CustomButton(new Point(x, y), items[x][y].getID());
-				grid.add(b, x, y);
-				b.setOnAction(event -> {
-					CustomButton clickedButton = (CustomButton) event.getSource();
-					clickedButton.unhide();
-				});
-			}
-		}
-
-		return grid;
-
-	}
+//	public GridPane renderGameArea() {
+//		GridPane grid = new GridPane();
+//		GameArea gameArea = GameManager.getInstance().getGameAreaPlayerOne();
+//		Item items[][] = gameArea.getItems();
+//
+//		for (int x = 0; x < items.length; x++) {
+//			for (int y = 0; y < items[x].length; y++) {
+//				CustomButton b = new CustomButton(new Point(x, y), items[x][y].getID());
+//				grid.add(b, x, y);
+//				b.setOnAction(event -> {
+//					CustomButton clickedButton = (CustomButton) event.getSource();
+//					clickedButton.unhide();
+//				});
+//			}
+//		}
+//
+//		return grid;
+//
+//	}
 
 }
 

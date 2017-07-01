@@ -84,11 +84,12 @@ public class SetShipScreenP2 {
 
 			GameAreaScreen nsc = new GameAreaScreen();
 			VBox GameAreaScreen = nsc.getScreen();
-			Scene scene = new Scene(GameAreaScreen, 300, 400);
+			Scene scene = new Scene(GameAreaScreen, 800, 1000);
 			OpeningScreen.getPrimaryStage().setScene(scene);
 		});
 			
-		
+		GameManager.getInstance().createGameArea(difficulty, 2);
+		GameManager.getInstance().setItemsOnArea(difficulty, 2);
 		CustomButton buttons[][] = new CustomButton[difficultyP.x][difficultyP.y];
 
 			for (int i = 0; i < buttons.length; i++) {
@@ -105,8 +106,6 @@ public class SetShipScreenP2 {
 						currentNumberOfShips++;
 						CustomButton clickedButton = (CustomButton) event.getSource();
 						
-						GameManager.getInstance().createGameArea(difficulty, 2);
-						GameManager.getInstance().setItemsOnArea(difficulty, 2);
 						GameManager.getInstance().setShipsOnArea(2, p);
 						clickedButton.unhide();
 					});
