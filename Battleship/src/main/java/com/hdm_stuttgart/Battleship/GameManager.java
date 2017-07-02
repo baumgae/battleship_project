@@ -5,7 +5,6 @@ import java.awt.Point;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import battleshipGUI.SelectDifficultyScreen;
 import battleshipGUI.SetNameScreen;
 import game.AlreadyShotException;
 import game.DifficultyManager;
@@ -14,9 +13,7 @@ import game.GameArea;
 import game.NoGameElementException;
 import gameConfigurations.ArtificialIntelligence;
 import gameConfigurations.CreatePlayerException;
-import gameConfigurations.HumanPlayer;
 import gameConfigurations.IPlayer;
-import gameConfigurations.Item;
 import gameConfigurations.PlayerFactory;
 
 /**

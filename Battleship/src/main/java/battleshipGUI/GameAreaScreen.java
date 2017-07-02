@@ -8,11 +8,9 @@ import org.apache.logging.log4j.Logger;
 import com.hdm_stuttgart.Battleship.CustomButton;
 import com.hdm_stuttgart.Battleship.GameManager;
 
-import game.AlreadyShotException;
 import game.DifficultyManager;
 import game.EDifficulty;
 import game.GameArea;
-import gameConfigurations.ArtificialIntelligence;
 import gameConfigurations.IPlayer;
 import gameConfigurations.Item;
 import javafx.scene.Scene;

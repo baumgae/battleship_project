@@ -10,8 +10,6 @@ import com.hdm_stuttgart.Battleship.GameManager;
 
 import game.DifficultyManager;
 import game.EDifficulty;
-import game.GameArea;
-import gameConfigurations.Item;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -63,23 +61,23 @@ public class SetShipsScreen {
 			if (difficulty == 1) {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.EASY);
 				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.EASY);
-				this.possibleShips = possibleShips;
+				//this.possibleShips = possibleShips;
 
 	
 			} else if (difficulty == 2) {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.NORMAL);
 				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.NORMAL);
-				this.possibleShips = possibleShips;
+				//this.possibleShips = possibleShips;
 				
 			} else if (difficulty == 3) {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.HARD);
 				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.HARD);
-				this.possibleShips = possibleShips;
+				//this.possibleShips = possibleShips;
 				
 			} else {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.SUICIDAL);
 				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.SUICIDAL);
-				this.possibleShips = possibleShips;
+				//this.possibleShips = possibleShips;
 			}
 			
 			Label header1 = new Label(SetNameScreen.name + "'s Area");

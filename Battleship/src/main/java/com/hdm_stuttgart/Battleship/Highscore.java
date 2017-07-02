@@ -1,23 +1,29 @@
 package com.hdm_stuttgart.Battleship;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
+/**
+ * The Class Highscore is an ArrayList which contains the Name of a Player and 
+ * his counted Points during the Game.
+ * 
+ * <p>
+ * The method {@link #addScore(String, int)} adds name and score to the ArrayList.
+ * 
+ * <p>
+ * The method {@link #sortedScores()} sorted the ArrayList, so that the Player with 
+ * the highest Score stands on the Beginning of the List.
+ * 
+ * <p> 
+ * The method {@link #getScore()} returns the ArrayList.
+ *
+ * <p>
+ * @author Celine Wichmann
+ * @version 1.0
+ */
 
 public class Highscore {
 	
-	//Instanzen Player vom GameManager und den Namen sammt den Punkten speichern
-	//werte von player 1 und player 2 vergleichen
-	//das höhere wird mit namen in einer liste gespeichert
-	// sortieren
-	//Bsp.
-	//  Name | Punktzahl
-	//  Lea  | 150
-	//Celine | 120
-	//sortiert nach den meisten Punkten
 	
 	List<HighscoreItem> namesList = new ArrayList<>();
 	
@@ -25,7 +31,7 @@ public class Highscore {
 		namesList.add(new HighscoreItem(name, score));
 	}
 	
-	public String sortedScores(){
+	public void sortedScores(){
 		
 		 namesList
 		.parallelStream()
@@ -33,12 +39,10 @@ public class Highscore {
 		.forEach(System.out::println);
 		
 		
-		return "";
 	}
 	
-	public int getHighscore(){
-		int score = 0;
-		return score;
+	public List<HighscoreItem> getScore(){
+		return namesList ;
 	}
 	
 }

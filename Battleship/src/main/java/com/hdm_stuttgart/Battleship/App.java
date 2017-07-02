@@ -3,8 +3,6 @@ package com.hdm_stuttgart.Battleship;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import game.DifficultyManager;
-import game.EDifficulty;
 
 
 /**

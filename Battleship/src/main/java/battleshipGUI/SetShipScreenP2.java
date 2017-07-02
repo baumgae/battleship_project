@@ -12,8 +12,6 @@ import com.hdm_stuttgart.Battleship.GameManager;
 
 import game.DifficultyManager;
 import game.EDifficulty;
-import game.GameArea;
-import gameConfigurations.Item;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

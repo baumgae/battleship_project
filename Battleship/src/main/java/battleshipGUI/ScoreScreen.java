@@ -1,7 +1,7 @@
 package battleshipGUI;
 
 /**
- * S	core Screen
+ * Score Screen
  * <p>
  * This is the GUI, if the current game has ended.
  * Over here the user will be able to see how many hits and points he got

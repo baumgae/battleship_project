@@ -2,14 +2,10 @@ package battleshipGUI;
 
 import com.hdm_stuttgart.Battleship.GameManager;
 
-import gameConfigurations.CreatePlayerException;
-import gameConfigurations.PlayerFactory;
-import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

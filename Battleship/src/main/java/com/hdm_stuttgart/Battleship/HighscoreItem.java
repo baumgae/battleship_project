@@ -1,5 +1,13 @@
 package com.hdm_stuttgart.Battleship;
 
+/**
+ * The Class HighscoreItem 
+ *
+ * <p>
+ * @author Celine Wichmann
+ * @version 1.0
+ */
+
 public class HighscoreItem {
 	
 	private String name;

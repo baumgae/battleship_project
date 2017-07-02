@@ -3,8 +3,6 @@ package gameConfigurations;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import gameElements.Dolphin;
-
 /**
 * Subclass of Player called HumanPlayer
 * <p>

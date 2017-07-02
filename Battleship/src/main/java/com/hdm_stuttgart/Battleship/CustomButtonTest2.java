@@ -5,7 +5,6 @@ import java.awt.Point;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /*
@@ -31,9 +30,9 @@ import org.apache.logging.log4j.Logger;
 import game.DifficultyManager;
 import game.EDifficulty;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
+
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+
 
 public class CustomButtonTest2 extends Application {
 

@@ -3,8 +3,6 @@ package gameConfigurations;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import game.DifficultyManager;
-
 /**
  * Factory for creating a new Player
  * <p>

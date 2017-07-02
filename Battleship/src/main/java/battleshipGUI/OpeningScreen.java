@@ -3,17 +3,10 @@ package battleshipGUI;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.hdm_stuttgart.Battleship.CustomButton;
-
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 /**
@@ -50,7 +43,7 @@ public class OpeningScreen extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
-		this.primaryStage = primaryStage;
+		//this.primaryStage = primaryStage;
 		VBox root = new VBox();
 		
 		/**
