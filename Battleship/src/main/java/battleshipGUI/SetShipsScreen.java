@@ -47,15 +47,12 @@ public class SetShipsScreen {
 	int i = 0;
 	private int currentNumberOfShips;
 	public static int possibleShips;
-
+	int difficulty = SelectDifficultyScreen.difficultyNumber;
+	public static Point difficultyP;
 	
 	VBox getScreen() {
 
 		if (GameManager.playerNumber == 1) {
-			
-			int difficulty = SelectDifficultyScreen.difficultyNumber;
-			Point difficultyP;
-			
 			
 			
 			if (difficulty == 1) {

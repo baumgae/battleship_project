@@ -1,6 +1,13 @@
 package com.hdm_stuttgart.Battleship;
 
+import java.awt.Point;
+
+import battleshipGUI.SelectDifficultyScreen;
+import battleshipGUI.SetShipsScreen;
+import game.DifficultyManager;
+import game.EDifficulty;
 import game.GameArea;
+import gameConfigurations.Item;
 
 /**
  *The class AutoBackUpThread returns all Items in an Interval of 60 seconds.
@@ -10,15 +17,21 @@ import game.GameArea;
  * @version 0.2
  */
 
+
+
 public class AutoBackUpThread extends Thread{
-	
-	public void run(GameArea items) {
+
+	GameArea gameArea = GameManager.getInstance().getGameAreaPlayerOne();
+	Item item[][] = gameArea.getItems();
+	@Override
+	public void run() {
 		while(true){
-			// Ausgabe aller Items mit dem Logger in zwei for-Schleifen???
+			
 			start();
-			for(int x = 0; x < 15; x++) {
-				for(int y = 0; y <= 15; y++) {
-					GameArea.logger.info(((GameArea) GameArea.logger).getItems());
+			for(int x = 0; x <= item.length; x++) {
+				for(int y = 0; y <= item[x].length; y++) {
+					
+					System.out.println(item[x][y]);
 					
 				}
 				
