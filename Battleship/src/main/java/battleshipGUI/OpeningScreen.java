@@ -3,7 +3,7 @@ package battleshipGUI;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.hdm_stuttgart.Battleship.AutoBackUpThread;
+import com.hdm_stuttgart.Battleship.PrintItemThread;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -50,7 +50,7 @@ public class OpeningScreen extends Application{
 		primaryStage.setOnCloseRequest(event -> {
 			
 			
-			AutoBackUpThread thread = GameAreaScreen.getInstance().thread;
+			PrintItemThread thread = GameAreaScreen.getInstance().thread;
 			// thread.interrupt();
 			
 			

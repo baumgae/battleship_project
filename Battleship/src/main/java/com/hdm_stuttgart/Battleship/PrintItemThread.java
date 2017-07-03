@@ -19,7 +19,7 @@ import gameConfigurations.Item;
 
 
 
-public class AutoBackUpThread extends Thread{
+public class PrintItemThread extends Thread{
 
 	GameArea gameArea = GameManager.getInstance().getGameAreaPlayerOne();
 	Item item[][] = gameArea.getItems();

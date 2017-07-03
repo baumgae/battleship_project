@@ -5,7 +5,7 @@ import java.awt.Point;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.hdm_stuttgart.Battleship.AutoBackUpThread;
+import com.hdm_stuttgart.Battleship.PrintItemThread;
 import com.hdm_stuttgart.Battleship.CustomButton;
 import com.hdm_stuttgart.Battleship.GameManager;
 
@@ -51,7 +51,7 @@ public class GameAreaScreen {
 	
 	private static GameAreaScreen instance;
 	
-	public AutoBackUpThread thread;
+	public PrintItemThread thread;
 	
 	private static final Logger logger = LogManager.getLogger(GameAreaScreen.class);
 	
@@ -72,7 +72,7 @@ public class GameAreaScreen {
 		Button Menu = new Button("Menu");
 		
 		 // Ausführen des Threads 
-		AutoBackUpThread thread = new AutoBackUpThread();
+		PrintItemThread thread = new PrintItemThread();
 		thread.start();
 		thread = this.thread;
 
