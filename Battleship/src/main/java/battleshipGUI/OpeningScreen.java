@@ -52,7 +52,9 @@ public class OpeningScreen extends Application{
 			
 			// GameManager.getInstance().startThreadPrintItems();
 			PrintItemThread thread = GameManager.getInstance().getThreadPrintItems();
-			thread.interrupt();
+			if(thread != null){
+				thread.shutdown();
+			}
 			
 		});
 		this.primaryStage = primaryStage;

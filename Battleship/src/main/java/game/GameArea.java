@@ -75,7 +75,7 @@ import ships.OneFieldBoat;
 
 public class GameArea {
 
-	public static final Logger logger = LogManager.getLogger(GameArea.class);
+	private static final Logger logger = LogManager.getLogger(GameArea.class);
 
     Item[][] items;
 	EDifficulty difficulty;

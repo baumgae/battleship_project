@@ -30,11 +30,16 @@ public class PrintItemThread extends Thread{
 	
 	GameArea gameArea = GameManager.getInstance().getGameAreaPlayerOne();
 	Item item[][] = gameArea.getItems();
+	private boolean running = true;
 
 	
 	@Override
-	public void run() {
-		while(true && !isInterrupted()){
+	public void run() {	
+		// TJ: Das mit dem interrupt() war eine gute Idee! Leider ist das einfach nur eine
+		// nette Anfrage an den Thread sich zu beenden. Da eurer hier noch mit der Schleife
+		// beschäftigt ist, reagiert das hier nicht. Wenn jetzt running auf false geht, muss 
+		// jetzt max. 10s warten bis sich euer Programm vollständig beendet.
+		while(running){
 	
 			for(int x = 0; x < item.length; x++) {
 				for(int y = 0; y < item[x].length; y++) {
@@ -54,6 +59,12 @@ public class PrintItemThread extends Thread{
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	// TJ: Neue Methode mit der ihr den Thread beenden könnt. Die while-Schleife
+	// läuft so lange bis die running-Variable auf false ist.
+	public void shutdown(){
+		running = false;
 	}
 
 }
