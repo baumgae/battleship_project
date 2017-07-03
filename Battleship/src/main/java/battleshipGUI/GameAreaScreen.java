@@ -49,32 +49,34 @@ public class GameAreaScreen {
 	GridPane gameGrid1 = new GridPane();
 	GridPane gameGrid2 = new GridPane();
 	
-	private static GameAreaScreen instance;
+	private static GameAreaScreen instanceGameArea;
 	
-	public PrintItemThread thread;
+	
 	
 	private static final Logger logger = LogManager.getLogger(GameAreaScreen.class);
 	
+	
 	public static GameAreaScreen getInstance(){
-		if(instance == null){
-			instance = new GameAreaScreen();
+		if(instanceGameArea == null){
+			instanceGameArea = new GameAreaScreen();
 		}
-		return instance;
+		return instanceGameArea;
 	}
+	
+	
 	
 
 	// einen Button mit Connection zum Menü einbauen
 	public VBox getScreen() {
+		
+		GameManager.getInstance().startThreadPrintItems();
+		
 		logger.info("Loaded GameAreaScreen");
 		VBox root = new VBox();
 		HBox root2 = new HBox();
 		Label Title = new Label("Battleship");
 		Button Menu = new Button("Menu");
 		
-		 // Ausführen des Threads 
-		PrintItemThread thread = new PrintItemThread();
-		thread.start();
-		thread = this.thread;
 
 		int difficulty = SelectDifficultyScreen.difficultyNumber;
 		Point difficultyP;

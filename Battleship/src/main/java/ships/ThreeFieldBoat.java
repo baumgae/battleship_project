@@ -4,7 +4,7 @@ import java.awt.Point;
 
 /**
  * 
- * THIS CLASS ISN'T ACTIVE
+ * THIS CLASS IS NOT USED
  * 
  * Subclass of AShip called ThreeFieldBoat
  * <p>
@@ -49,9 +49,9 @@ public class ThreeFieldBoat extends AShip {
 	}
 	
 	@Override
-	public Point setPosition(Point p) {
+	public void setPosition(Point p) {
 		this.p = p;
-		return p;
+
 	}
 	
 	@Override

@@ -24,7 +24,7 @@ public interface Item {
 	public int getID();
 	public int getSize();
 	
-	public Point setPosition(Point p);
+	public void setPosition(Point p);
 	public Point getPosition();
 	public int getXPosition();
 	public int getYPosition();

@@ -15,18 +15,38 @@ import org.apache.logging.log4j.Logger;
  * he or she will "die" and the game 
  * will be quit immediately. The other player will have won 
  * the game. 
+ * 
  * But before we can implement this, the impact of the GameElement will
  * be MinusPoints.
  *
  * <p>
- * Island uses in his constructor {@link #Mine}
- * the constructor {@link #AGameItems} to set the ID.
- * Use {@link #mineImpact} to get the impact of the island.
+ *Through the constructor {@link #Mine} the name of a Mine can be set. <br>
+ * 
+ * Through the method {@link #isHidden(boolean)} you can set the
+ * visibility of the Mine.<br>
+ * 
+ * The method {@link #getScore()} returns the points a player receives, if a player
+ * shoots on a Mine. <br>
+ * 
+ * {@link #isDestroyed()} sets the destruction of a Mine. <br>
+ * 
+ * {@link #getID()} returns the ID of the Mine. <br>
+ * 
+ * {@link #setPosition()} sets the position of a Mine. <br>
+ * 
+ * {@link #getPosition()} returns the position of a Mine. <br>
+ * 
+ * {@link #getXPosition()} returns the X-coordinate of the position of the Mine. <br>
+ * 
+ * {@link #getYPosition()} returns the Y-coordinate of the position of the Mine. <br>
+ * 
+ * {@link #getSize()} returns the size of the Mine. <br>
+ * 
  * 
  * <p> 
  *
  * @author Lea Baumgärtner
- * @version 0.1 
+ * @version 1.0
  */
 public class Mine extends AGameItem {
 	
@@ -37,18 +57,35 @@ public class Mine extends AGameItem {
 	Point p;
 	String name;
 	
+	/**
+	 * Set name of a Mine
+	 * 
+	 * @param name
+	 */
 	public Mine(String name) {
 		this.name = name;
 		hide = true;
 		destroy = false;
 	}
 	
+	/**
+	 * Set the visibility of a Mine
+	 * 
+	 * @param hide
+	 * 
+	 * @return hide
+	 */
 	@Override
 	public boolean isHidden(boolean hide) {
 		logger.info("The method Mine.isHidden has been called!");
 		return hide;
 	}
-
+	
+	/**
+	 * Return the plusPoints of a Mine if it is shot.
+	 * 
+	 * @return minusPoints
+	 */
 	@Override
 	public int getScore() {
 		logger.info("The method Mine.getScore has been called!");
@@ -56,45 +93,82 @@ public class Mine extends AGameItem {
 		int minusPoints = -400;	
 		return minusPoints;
 	}
-
+	
+	/**
+	 * Sets the destruction of a Mine
+	 * 
+	 * @param destroy
+	 * @return destroy
+	 * 
+	 */
 	@Override
 	public boolean isDestroyed(boolean destroy) {
 		logger.info("The method Mine.isDestroyed has been called!");
 		return destroy;
 	}
 	
+	/**
+	 * Returns ID of the Mine
+	 * 
+	 * @return 4
+	 */
 	@Override
 	public int getID() {
 		logger.info("The method Mine.getID has been called!");
 		logger.info("ID = 4 should be returned!");
 		return 4;
 	}
-
+	
+	/**
+	 * Sets the position of a Mine
+	 * 
+	 * @param p
+	 */
 	@Override
-	public Point setPosition(Point p) {
+	public void setPosition(Point p) {
 		logger.info("The method Mine.setPosition has been called!");
 		this.p = p;
-		return p;
+		
 	}
 	
+	/**
+	 * Returns the position of a Mine
+	 * 
+	 * @return p
+	 */
 	@Override
 	public Point getPosition() {
 		logger.info("The method Mine.getPosition has been called!");
 		return p;
 	}
-
+	
+	/**
+	 * Returns X-coordinate of the position of a Mine
+	 * 
+	 * @return p.x
+	 */
 	@Override
 	public int getXPosition() {
 		logger.info("The method Mine.getXPosition has been called!");
 		return p.x;
 	}
-
+	
+	/**
+	 * Returns Y-coordinate of the position of a Mine
+	 * 
+	 * @return p.y
+	 */
 	@Override
 	public int getYPosition() {
 		logger.info("The method Mine.getYPosition has been called!");
 		return p.y;
 	}
 	
+	/**
+	 * Returns size of a Mine
+	 * 
+	 * @return 1
+	 */
 	@Override
 	public int getSize() {
 		logger.info("The method Mine.getSize has been called!");

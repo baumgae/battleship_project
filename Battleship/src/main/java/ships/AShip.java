@@ -5,7 +5,7 @@ import java.awt.Point;
 import gameConfigurations.Item;
 
 /**
- * Abstract Class Ships
+ * Abstract Class AShip
  * <p>
  * This is the super class for the ships.
  * 
@@ -13,7 +13,7 @@ import gameConfigurations.Item;
  * as well as their ship size in x and in y direction.
  * And there are methods for getting the size, the ID and their 
  * position.
- 
+ * 
  * <p>
  *
  * @author Lea Baumgärtner

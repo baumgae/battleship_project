@@ -14,14 +14,32 @@ import org.apache.logging.log4j.Logger;
  * able to shoot on four fields three time, one time every round.
  *
  * <p>
- * Island uses in his constructor {@link #Island} the constructor
- * {@link #AGameItems} to set the ID. Use {@link #islandImpact} to get the
- * impact of the island.
+ * Through the constructor {@link #Island} the name of a Island can be set. <br>
+ * 
+ * Through the method {@link #isHidden(boolean)} you can set the
+ * visibility of the Island.<br>
+ * 
+ * The method {@link #getScore()} returns the points a player receives, if a player
+ * shoots on a Island. <br>
+ * 
+ * {@link #isDestroyed()} sets the destruction of a Island. <br>
+ * 
+ * {@link #getID()} returns the ID of the Island. <br>
+ * 
+ * {@link #setPosition()} sets the position of a Island. <br>
+ * 
+ * {@link #getPosition()} returns the position of a Island. <br>
+ * 
+ * {@link #getXPosition()} returns the X-coordinate of the position of the Island. <br>
+ * 
+ * {@link #getYPosition()} returns the Y-coordinate of the position of the Island. <br>
+ * 
+ * {@link #getSize()} returns the size of the Island. <br>
  * 
  * <p>
  *
  * @author Lea Baumgärtner
- * @version 0.2
+ * @version 1.0
  */
 public class Island extends AGameItem {
 
@@ -32,18 +50,35 @@ public class Island extends AGameItem {
 	Point p;
 	String name;
 	
+	/**
+	 * Set name of a Island
+	 * 
+	 * @param name
+	 */
 	public Island(String name) {
 		this.name = name;
 		hide = true;
 		destroy = false;
 	}
 	
+	/**
+	 * Set the visibility of a Island
+	 * 
+	 * @param hide
+	 * 
+	 * @return hide
+	 */
 	@Override
 	public boolean isHidden(boolean hide) {
 		logger.info("The method Island.isHidden has been called!");
 		return hide;
 	}
-
+	
+	/**
+	 * Return the minusPoints of a Island if it is shot.
+	 * 
+	 * @return minusPoints
+	 */
 	@Override
 	public int getScore() {
 		logger.info("The method Island.getScore has been called!");
@@ -51,45 +86,82 @@ public class Island extends AGameItem {
 		int minusPoints = -200;
 		return minusPoints;
 	}
-
+	
+	/**
+	 * Sets the destruction of a Island
+	 * 
+	 * @param destroy
+	 * @return destroy
+	 * 
+	 */
 	@Override
 	public boolean isDestroyed(boolean destroy) {
 		logger.info("The method Island.isDestroyed has been called!");
 		return destroy;
 	}
-
+	
+	/**
+	 * Returns ID of the Island
+	 * 
+	 * @return 2
+	 */
 	@Override
 	public int getID() {
 		logger.info("The method Island.getID has been called!");
 		logger.info("ID = 2 should be returned!");
 		return 2;
 	}
-
+	
+	/**
+	 * Sets the position of a Island
+	 * 
+	 * @param p
+	 */
 	@Override
-	public Point setPosition(Point p) {
+	public void setPosition(Point p) {
 		logger.info("The method Island.setPosition has been called!");
 		this.p = p;
-		return p;
+		
 	}
-
+	
+	/**
+	 * Returns the position of a Island
+	 * 
+	 * @return p
+	 */
 	@Override
 	public Point getPosition() {
 		logger.info("The method Island.getPosition has been called!");
 		return p;
 	}
-
+	
+	/**
+	 * Returns X-coordinate of the position of a Island
+	 * 
+	 * @return p.x
+	 */
 	@Override
 	public int getXPosition() {
 		logger.info("The method Island.getXPosition has been called!");
 		return p.x;
 	}
-
+	
+	/**
+	 * Returns Y-coordinate of the position of a Island
+	 * 
+	 * @return p.y
+	 */
 	@Override
 	public int getYPosition() {
 		logger.info("The method Island.getYPosition has been called!");
 		return p.y;
 	}
-
+	
+	/**
+	 * Returns size of a Island
+	 * 
+	 * @return 1
+	 */
 	@Override
 	public int getSize() {
 		logger.info("The method Island.getSize has been called!");

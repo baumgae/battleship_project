@@ -67,10 +67,10 @@ public class Water extends AGameItem{
 	}
 	
 	@Override
-	public Point setPosition(Point p) {
+	public void setPosition(Point p) {
 		logger.info("The method Water.setPosition has been called!");
 		this.p = p;
-		return p;
+		
 	}
 	
 	@Override

@@ -4,7 +4,7 @@ import java.awt.Point;
 
 /**
  * 
- * THIS CLASS ISN'T ACTIVE
+ * THIS CLASS IS NOT USED
  * 
  * Subclass of AShip called FourFieldBoat
  * <p>
@@ -12,8 +12,9 @@ import java.awt.Point;
  * It has the ID 8.
  *
  * <p>
- * FourFieldBoat uses in his constructor {@link #FourFieldBoat}
- * the constructor {@link #AShips} to set the ID as well as it's size.
+ * Through the method {@Link #isHidden(boolean)} you can set the <br>
+ * visibility of the FourFieldBoat.
+ * 
  * 
  * <p> 
  *
@@ -49,9 +50,9 @@ public class FourFieldBoat extends AShip {
 	}
 	
 	@Override
-	public Point setPosition(Point p) {
+	public void setPosition(Point p) {
 		this.p = p;
-		return p;
+		
 	}
 	
 	@Override

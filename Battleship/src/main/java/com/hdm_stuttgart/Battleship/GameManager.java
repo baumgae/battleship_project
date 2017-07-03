@@ -48,6 +48,7 @@ public class GameManager {
 	IPlayer playerOne;
 	IPlayer playerTwo;
 	
+	public PrintItemThread thread;
 	private static GameManager instance;
 	
 	private int score;
@@ -422,6 +423,18 @@ public void setItemsOnAreaPC(int difficultyNumber, int playerNumber) {
 				}
 				return ID;
 				
+		}
+		
+		public void startThreadPrintItems() {
+			// Ausführen des Threads 
+						PrintItemThread thread = new PrintItemThread();
+						thread.start();
+						this.thread = thread;
+						
+		}
+		
+		public PrintItemThread getThreadPrintItems() {
+			return thread;
 		}
 		
 		public void endOfTheGame() {

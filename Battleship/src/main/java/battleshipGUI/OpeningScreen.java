@@ -3,6 +3,7 @@ package battleshipGUI;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.hdm_stuttgart.Battleship.GameManager;
 import com.hdm_stuttgart.Battleship.PrintItemThread;
 
 import javafx.application.Application;
@@ -49,14 +50,12 @@ public class OpeningScreen extends Application{
 		// Beim Schließen des kompletten Fensters soll auch der Thread gekillt werden.
 		primaryStage.setOnCloseRequest(event -> {
 			
-			
-			PrintItemThread thread = GameAreaScreen.getInstance().thread;
-			// thread.interrupt();
-			
-			
+			// GameManager.getInstance().startThreadPrintItems();
+			PrintItemThread thread = GameManager.getInstance().getThreadPrintItems();
+			thread.interrupt();
 			
 		});
-		//this.primaryStage = primaryStage;
+		this.primaryStage = primaryStage;
 		VBox root = new VBox();
 		
 		/**
