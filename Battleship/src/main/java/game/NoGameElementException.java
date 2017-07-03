@@ -9,11 +9,14 @@ package game;
  * 
  * <p>
  * @author Celine Wichmann
- * @version 0.2
+ * @version 1.0
  */
 
 public class NoGameElementException extends Exception {
-
+	
+	/**
+	 * Constructor of NoGameElementException
+	 */
 	 @Override
      public String toString() {
      return "There has not been shoot one of the existing Game Items!";

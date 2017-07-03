@@ -2,7 +2,7 @@ package gameConfigurations;
 
 public class Menu {
 		/*
-		 * THIS CLASS ISN'T ACTIVE YET
+		 * THIS CLASS IS NOT USED
 		 * 
 		 * This Class will be for the player, if he wants to break and..
 		 * 

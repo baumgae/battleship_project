@@ -6,11 +6,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * THIS CLASS ISN'T USED NOW!
+ * CLASS IS NOT USED
  * 
  * <p>
  * Class for the Action of the Artificial Intelligence <br>
- * or you can just call him the Computer.
  * 
  * <p>
  * The methods {@link #randomCoordinateX(int)} and {@link #randomCoordinateY(int)} 
@@ -18,7 +17,7 @@ import org.apache.logging.log4j.Logger;
  * 
  * <p>
  * @author Celine Wichmann
- * @version 0.2
+ * @version 1.0
  */
 
 
@@ -27,6 +26,12 @@ public class ArtificialIntelligence {
 	
 	private static final Logger logger = LogManager.getLogger(ArtificialIntelligence.class);
 	
+	/**
+	 * Method for generating randomCoordinateX
+	 * 
+	 * @param x
+	 * @return randomValueX
+	 */
     public static int randomCoordinateX(int x) {
 	
     	logger.info("The method ArtificialIntelligence.randomCoordinateX has been called!"); 
@@ -41,6 +46,12 @@ public class ArtificialIntelligence {
 	
      }	
     
+    /**
+     * Method for generating randomCoordinateY
+     * 
+     * @param y
+     * @return randomValueY
+     */
     public static int randomCoordinateY(int y) {
 	
     	logger.info("The method ArtificialIntelligence.randomCoordinateY has been called!"); 

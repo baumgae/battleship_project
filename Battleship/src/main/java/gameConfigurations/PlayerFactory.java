@@ -8,13 +8,13 @@ import org.apache.logging.log4j.Logger;
  * <p>
  * This is a Factory for creating new Players.
  * 
- * HumanPlayer - Player, which is making input through the GUI. ArtificialPlayer
- * - Player, Input through the class AI.
+ * HumanPlayer - Player, which is making input through the GUI. 
+ * ComputerPlayer - Player, Input through the class AI.
  * 
  * <p>
  * 
  * @author Lea Baumgärtner
- * @version 0.1
+ * @version 1.0
  */
 public class PlayerFactory {
 
@@ -22,6 +22,14 @@ public class PlayerFactory {
 	public static final String PLAYER_TYPE_HUMAN = "human";
 	private static final Logger logger = LogManager.getLogger(PlayerFactory.class);
 
+	/**
+	 * Factory for creating a new Player
+	 * 
+	 * @param type
+	 * @param name
+	 * @return depends
+	 * @throws CreatePlayerException
+	 */
 	public static IPlayer getInstance(String type, String name) throws CreatePlayerException {
 		if (type == null) {
 			logger.error("No Player has been created and CreatePlayerException was thrown");

@@ -15,22 +15,25 @@ import gameElements.Water;
 import ships.OneFieldBoat;
 
 /**
- * The Class GameArea is managing the Creation of the Game Area and handle the
- * Actions on the Field. Also it managing the Status of the Field, so the Player
- * can see where he has shot at and which Item is behind the Field.
+ * The class GameArea <p>
+ * 
+ * The Class GameArea is managing the Creation of the Game Area and handles the
+ * Actions on the Field. <br>
+ * It also manages the status of the coordinate fields, so the player
+ * can see where he has shot at and which item is below the coordinate.
  * 
  * <p>
  * First the Game Area will be created with the Constructor
- * {@link #GameArea(EDifficulty)}. Depending on which Difficulty the Player has
- * chosen, the Field has a different Size.
+ * {@link #GameArea(EDifficulty)}. Depending on which difficulty the player has
+ * chosen the field has a different size.
  * 
  * <p>
- * The method {@link #generateRandomCoordinate()} generate random Coordinates
- * for the Game Elements which the Player is not allowed to set.
+ * The method {@link #generateRandomCoordinate()} generates random coordinates
+ * for the game elements which the players are not allowed to set by themselves.
  * 
  * <p>
  * The method {@link #setNumberOfItems(int, int)} gets the random Coordinates
- * from {@link #generateRandomCoordinate()} and creates the Game Elements. Depending
+ * from {@link #generateRandomCoordinate()} and creates the gameElements. Depending
  * on which Difficulty the Player has chosen, there is different Number of Game
  * Elements. The ID is used to decide which Game Element will be created. For
  * example in Difficulty Easy there are three Objects of ID = 1 available, so

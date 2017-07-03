@@ -9,12 +9,14 @@ package gameConfigurations;
 * 
 * <p>
 * @author Lea Baumgärtner
-* @version 0.2 
+* @version 1.0
 */
 
 public class CreatePlayerException extends RuntimeException {
 
-		// Constructor 
+	/**
+	 * Constructor of the CreatePlayerException
+	 */
 	CreatePlayerException()	{
 		super("There has not been choosen one of the existing Player Types!");
 	}

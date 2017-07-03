@@ -22,7 +22,7 @@ import org.apache.logging.log4j.Logger;
  * <p> 
  *
  * @author Lea Baumgärtner
- * @version 0.2 
+ * @version 1.0 
  */
 
 
@@ -34,12 +34,17 @@ abstract class Player implements IPlayer {
 	
 	private static final Logger logger = LogManager.getLogger(Player.class);
 	
+	/**
+	 * Constructor for setting the name of the player
+	 * 
+	 * @param name
+	 */
 	Player(String name) {
 		this.name = name;
 		
 	}
 	
-	/* (non-Javadoc)
+	/** 
 	 * @see game.IPlayer#countPoints()
 	 */
 	@Override
@@ -49,7 +54,7 @@ abstract class Player implements IPlayer {
 		
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see game.IPlayer#getCountPoints()
 	 */
 	@Override
@@ -58,7 +63,7 @@ abstract class Player implements IPlayer {
 		return points;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see game.IPlayer#countHits()
 	 */
 	@Override
@@ -68,7 +73,7 @@ abstract class Player implements IPlayer {
 		
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see game.IPlayer#countPoints()
 	 */
 	@Override
