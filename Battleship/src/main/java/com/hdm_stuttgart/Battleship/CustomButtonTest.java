@@ -16,6 +16,17 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+/**
+ * CustomButtonTest
+ * <p>
+ * This was a class for testing the functions and possibilities of the CustomButton. <p>
+ * 
+ * <p>
+ * 
+ * @author Lea Baumgärtner
+ * @version 1.0
+ */
+
 public class CustomButtonTest extends Application{
 
 private static final Logger logger = LogManager.getLogger(CustomButtonTest.class);
@@ -26,12 +37,6 @@ private static final Logger logger = LogManager.getLogger(CustomButtonTest.class
 	VBox root3;
 	VBox root2;
 	
-	// UML
-	// Vollständiges und korrektes Digramm
-	// Für excpetions gestrichelte Linie ohne Pfeil
-	// Pfeilrichtungen anpassen - dreieckspfeil nicht ausgefüllt - dolphine erbt von AGameElement
-	// thread.start --> zumindest ein Punkt irgendwo
-	// 
 	
 	 public static Stage getPrimaryStage() {
 		 return primaryStage;
@@ -51,27 +56,19 @@ private static final Logger logger = LogManager.getLogger(CustomButtonTest.class
 			Label labelTitle = new Label("Battleship");
 			
 			
-			/**
-			 * Button for starting a new Game
-			 */
-			
-			
-			// TJ: Erstmal ein Button-Array machen...
-
-			
 			Point difficulty = DifficultyManager.getFieldSize(EDifficulty.EASY);
 			CustomButton buttons [] = new CustomButton[difficulty.x];
 			
 			for (int i = 0; i < buttons.length; i++) {
 				Point p = new Point(0,0);
-				// TJ: ... dann instanzieren
+				
 				buttons[i]= new CustomButton(p, 0);
-				// TJ: ... dann sagen, was passieren soll, wenn geklickt wurde
+				
 				buttons[i].setOnAction(event ->{
 					CustomButton clickedButton = (CustomButton) event.getSource();
 					clickedButton.unhide();
 				});
-				// TJ: ... abschließend der VBox hinzufügen.
+				
 				root2.getChildren().add(buttons[i]);
 				}
 			
@@ -80,14 +77,14 @@ private static final Logger logger = LogManager.getLogger(CustomButtonTest.class
 		
 		for (int i = 0; i < buttons2.length; i++) {
 			Point p = new Point(0,0);
-			// TJ: ... dann instanzieren
+			
 			buttons2[i]= new CustomButton(p, 0);
-			// TJ: ... dann sagen, was passieren soll, wenn geklickt wurde
+			
 			buttons2[i].setOnAction(event ->{
 				CustomButton clickedButton = (CustomButton) event.getSource();
 				clickedButton.unhide();
 			});
-			// TJ: ... abschließend der VBox hinzufügen.
+			
 			root3.getChildren().add(buttons2[i]);
 
 		}
@@ -103,10 +100,6 @@ private static final Logger logger = LogManager.getLogger(CustomButtonTest.class
 
 	 }
 		
-	 // So schreiben wir einen try catch Block für die Main.
-	 // So werden im catch die Fehler geloggt.
-	 // In App.Java 
-	 
 	 public static void main(String[] args) {
 		try{
 		 launch(args);

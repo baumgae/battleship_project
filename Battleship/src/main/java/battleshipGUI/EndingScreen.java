@@ -1,7 +1,11 @@
 
 package battleshipGUI;
 
+import java.util.Set;
+
 import com.hdm_stuttgart.Battleship.GameManager;
+import com.hdm_stuttgart.Battleship.Highscore;
+import com.hdm_stuttgart.Battleship.HighscoreItem;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -23,7 +27,7 @@ import javafx.scene.layout.VBox;
  * 
  * <p>
  * @author Lea Baumgärtner
- * @version 0.1 
+ * @version 1.0
  */
 
 
@@ -37,24 +41,23 @@ public class EndingScreen {
 	
 	HBox scores;
 	
+	
 	public VBox getScreen() {
+		
 		
 		VBox root = new VBox();
 		
-		// Here we could add an image with a Dead Head on it.
-		// Image image = new Image(getClass().getResourceAsStream("ToteknopfDings.jpg"));
-		//Label label3 = new Label("Battleship", new ImageView(image));
+		Highscore highscore = new Highscore();
+		highscore.addScore(SetNameScreen.nameOne, GameManager.getInstance().getPlayerOne().getCountedHits());
+		highscore.addScore(SetNameScreen.nameTwo, GameManager.getInstance().getPlayerTwo().getCountedHits());
+		highscore.sortedScores();
 		
-		// Hier möchte ich gerne die Punkte der Spieler speichern und später ausgeben.
-		// Dazu bilde ich ein Objekt von GameManager, damit ich die Objekte Player 
-		// nicht statisch und somit unbrauchbar machen muss, 
-		// Daraufhin hole ich mir die methode für seine Punkte!
-		GameManager gmn = new GameManager();
-		playerOneScore =gmn.getPlayerOne().getCountedPoints();
-		playerTwoScore =gmn.getPlayerTwo().getCountedPoints();
+		playerOneScore = GameManager.getInstance().getPlayerOne().getCountedPoints();
+		playerTwoScore = GameManager.getInstance().getPlayerTwo().getCountedPoints();
 		
-		playerOneHits =gmn.getPlayerOne().getCountedHits();
-		playerTwoHits =gmn.getPlayerTwo().getCountedHits();
+		playerOneHits = GameManager.getInstance().getPlayerOne().getCountedHits();
+		playerTwoHits = GameManager.getInstance().getPlayerTwo().getCountedHits();
+		
 		
 		if (playerOneScore < playerTwoScore) {
 			HBox scores = new HBox();
@@ -65,7 +68,7 @@ public class EndingScreen {
 			Label labelTitle2 = new Label("---YOU---WIN---");
 			
 			// Name des Spielers der gewonnen hat. ?
-			Label labelTitle3 = new Label (gmn.getPlayerOne().getName());
+			Label labelTitle3 = new Label (GameManager.getInstance().getPlayerOne().getName());
 			//Punkte des Spielers der gewonnen hat. ?
 			
 			// Cast or convert from int to String?
@@ -82,7 +85,7 @@ public class EndingScreen {
 			Label labelTitle7 = new Label("---YOU---LOSE---");
 			
 			// Name des Spielers verloren hat. ?
-			Label labelTitle8 = new Label (gmn.getPlayerTwo().getName());
+			Label labelTitle8 = new Label (GameManager.getInstance().getPlayerTwo().getName());
 			//Punkte des Spielers der gewonnen hat. ?
 						
 			// Passt des?
@@ -94,7 +97,15 @@ public class EndingScreen {
 			rightBox.getChildren().addAll(labelTitle6, labelTitle7, labelTitle8, labelTitle9,
 														labelTitle10);
 			
-			scores.getChildren().addAll(leftBox, rightBox);
+			//VBox for Stream
+			VBox conclusion = new VBox();
+			Label labelTitleStream = new Label("Conclusion: ");
+			
+			Label labelStream = new Label(highscore.getScore().toString());
+			
+			conclusion.getChildren().addAll(labelTitleStream, labelStream);
+			
+			scores.getChildren().addAll(leftBox, rightBox, conclusion);
 			
 		}
 		else if (playerTwoScore > playerOneScore) {
@@ -107,7 +118,7 @@ public class EndingScreen {
 			Label labelTitle2 = new Label("---YOU---WIN---");
 			
 			// Name des Spielers der gewonnen hat. ?
-			Label labelTitle3 = new Label (gmn.getPlayerTwo().getName());
+			Label labelTitle3 = new Label (GameManager.getInstance().getPlayerTwo().getName());
 			//Punkte des Spielers der gewonnen hat. ?
 			
 			// Cast or convert from int to String?
@@ -124,19 +135,27 @@ public class EndingScreen {
 			Label labelTitle7 = new Label("---YOU---LOSE---");
 			
 			// Name des Spielers verloren hat. ?
-			Label labelTitle8 = new Label (gmn.getPlayerOne().getName());
+			Label labelTitle8 = new Label (GameManager.getInstance().getPlayerOne().getName());
 			//Punkte des Spielers der gewonnen hat. ?
 						
-			// Passt des?
 			Label labelTitle9 = new Label ("Your Score:" + playerOneScore);
 						
-			// Passt des?
+			
 			Label labelTitle10 = new Label ("Your Hits:" + playerOneHits);
 						
 			rightBox.getChildren().addAll(labelTitle6, labelTitle7, labelTitle8, labelTitle9,
 														labelTitle10);
 			
-			scores.getChildren().addAll(leftBox, rightBox);
+			//VBox for Stream
+			VBox conclusion = new VBox();
+			Label labelTitleStream = new Label("Conclusion: ");
+			
+			Label labelStream = new Label(highscore.getScore().toString());
+			
+			conclusion.getChildren().addAll(labelTitleStream, labelStream);
+			
+			scores.getChildren().addAll(leftBox, rightBox, conclusion);
+
 			
 			this.scores = scores;
 			
@@ -149,7 +168,7 @@ public class EndingScreen {
 			Label labelTitle1 = new Label("---YOU---LOSE---");
 			
 			// Name des Spielers verloren hat. ?
-			Label labelTitle2 = new Label (gmn.getPlayerOne().getName());
+			Label labelTitle2 = new Label (GameManager.getInstance().getPlayerOne().getName());
 			//Punkte des Spielers der gewonnen hat. ?
 						
 			// Passt des?
@@ -167,7 +186,7 @@ public class EndingScreen {
 			Label labelTitle7 = new Label("---YOU---LOSE---");
 			
 			// Name des Spielers verloren hat. ?
-			Label labelTitle8 = new Label (gmn.getPlayerTwo().getName());
+			Label labelTitle8 = new Label (GameManager.getInstance().getPlayerTwo().getName());
 			//Punkte des Spielers der gewonnen hat. ?
 						
 			// Passt des?
@@ -179,7 +198,15 @@ public class EndingScreen {
 			rightBox.getChildren().addAll(labelTitle6, labelTitle7, labelTitle8, labelTitle9,
 														labelTitle10);
 			
-			scores.getChildren().addAll(leftBox, rightBox);
+			//VBox for Stream
+			VBox conclusion = new VBox();
+			Label labelTitleStream = new Label("Conclusion: ");
+			
+			Label labelStream = new Label(highscore.getScore().toString());
+			
+			conclusion.getChildren().addAll(labelTitleStream, labelStream);
+			
+			scores.getChildren().addAll(leftBox, rightBox, conclusion);
 			
 			this.scores = scores;
 			

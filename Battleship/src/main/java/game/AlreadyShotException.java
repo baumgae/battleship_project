@@ -9,11 +9,14 @@ package game;
  * 
  * <p>
  * @author Celine Wichmann
- * @version 0.2
+ * @version 1.0
  */
 
 public class AlreadyShotException extends Exception {
-
+	
+	/**
+	 * Constructor for the AlreadyShotException
+	 */
 	AlreadyShotException()	{
 		super("The Player has already shot at this Coordinate!");
 		

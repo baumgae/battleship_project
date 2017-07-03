@@ -11,7 +11,7 @@ package game;
  * <p>
  * 
  * @author Lea Baumgärtner
- * @version 0.2
+ * @version 1.0
  */
 public enum EDifficulty {
 			EASY,					

@@ -26,12 +26,29 @@ import gameConfigurations.PlayerFactory;
 * The GameMananger which manages between the Input of the players
 * through the Graphical User Interface and the Classes underneath.
 * <p>
+* {@link #getInstance()} is for getting an instance of the GameManager to use easily the methods.
+* {@link #setScore(int)} is for setting the score of the players.
+* {@link #getScore()} is for getting the scores.
+* {@link #selectPlayer(int)} is for creating the players depending which mode has been chosen.
+* {@link #getPlayerOne()} returns player one.
+* {@link #getPlayerTwo()} returns player two.
+* {@link #createGameArea(int, int)} creates game Area depending on the difficulty chosen.
+* {@link #getGameAreaPlayerOne()} returns the game Area of player One.
+* {@link #getGameAreaPlayerTwo()} returns the game Area of player Two.
+* {@link #setShipsOnArea(int, Point)} is for setting the ships on the area through a human user / player.
+* {@link #setItemsOnArea(int, int)} is for setting randomly the special items on the areas of human player.
+* {@link #setItemsOnAreaPC(int, int)} is for setting randomly all items including ships for the computer player.
+* {@link #shootOnCoordinate(int, Point)} is for shooting on coordinates.
+* {@link #generateRandomShoots()} is for generating random coordinates for the shoots of the computer player.
+* {@link #shootOnCoordinatePC(Point)} is for shooting random on the game area.
+* {@link #startThreadPrintItems()} is for starting the ThreadPrintItems.
+* {@link #getThreadPrintItems()} is for getting the ThreadPrintItems.
 * 
 * 
 * <p>
 * @author Lea Baumgärtner
 * @author Celine Wichmann
-* @version 0.1 
+* @version 1.0
 */
 
 public class GameManager {
@@ -53,6 +70,10 @@ public class GameManager {
 	
 	private int score;
 	
+	/**
+	 * This method is for getting an instance of the GameManager to use easily the methods.
+	 * @return GameManager
+	 */
 	public static GameManager getInstance(){
 		if(instance == null){
 			instance = new GameManager();
@@ -60,12 +81,29 @@ public class GameManager {
 		return instance;
 	}
 	
+	/**
+	 * This method is for setting the score of the players.
+	 * @param score
+	 */
 	public void setScore(int score) {
 		this.score = this.score + score;
 		logger.info("Current score: " + score);
 	}
 	
+	/**
+	 * This method is for getting the score of the players.
+	 * @return score;
+	 */
+	public int getScore() {
+		return score;
+	}
 	
+	/**
+	 * This method is for creating the players depending which mode has been chosen.
+	 * 
+	 * @param playerNumber
+	 * @throws CreatePlayerException
+	 */
 	public void selectPlayer(int playerNumber) throws CreatePlayerException {
 		logger.info("Method selectPlayer has been called!");
 		
@@ -93,18 +131,29 @@ public class GameManager {
 		}
 	}
 	
+	/**
+	 * This method returns player One
+	 * @return playerOne
+	 */
 	public IPlayer getPlayerOne() {
 		return playerOne;
 	}
 	
+	/**
+	 * This method returns  player Two
+	 * @return playerTwo
+	 */
 	public IPlayer getPlayerTwo() {
 		return playerTwo;
 	}
 	
 		
-	
-		// TJ: Ich glaube, dass das eine sehr wichtige Methode ist. Im Moment wird diese aber noch nicht
-		// aufgerufen
+		/**
+		 * Method which creates the game Area depending on the difficulty chosen.
+		 * 
+		 * @param difficultyNumber
+		 * @param playerNr
+		 */
 		public void createGameArea(int difficultyNumber, int playerNr) {
 			
 			logger.info("The method createGameArea has been called!");
@@ -114,25 +163,24 @@ public class GameManager {
 			if (playerNr == 1) {
 			if (difficultyNumber == 1) {
 				
-				// GameArea nach außen geben.
 				GameArea gameA = new GameArea(EDifficulty.EASY);
 				playerOneGameArea = gameA;
 				
 			}
 			else if (difficultyNumber == 2) {
-				// GameArea nach außen geben.
+				
 				GameArea gameA = new GameArea(EDifficulty.NORMAL);
 				playerOneGameArea = gameA;
 				
 			}
 			else if (difficultyNumber == 3) {
-				// GameArea nach außen geben.
+				
 				GameArea gameA = new GameArea(EDifficulty.HARD);
 				playerOneGameArea = gameA;
 				
 			}
 			else if (difficultyNumber == 4) {
-				// GameArea nach außen geben.
+				
 				GameArea gameA = new GameArea(EDifficulty.SUICIDAL);
 				playerOneGameArea = gameA;
 				
@@ -179,23 +227,32 @@ public class GameManager {
 			}
 		}
 		
-		
+		/**
+		 * 
+		 * @return GameArea of playerOne
+		 */
 		public GameArea getGameAreaPlayerOne() {
 			return playerOneGameArea;
 		}
 		
+		/**
+		 * 
+		 * @return GameArea of playerTwo
+		 */
 		public GameArea getGameAreaPlayerTwo() {
 			return playerTwoGameArea;
 		}
 		
-		public void initWater(){
-			
-		}
 		
-		// Damit werden die Schiffe auf die GameArea gesetzt
+		/**
+		 * This method is for setting the ships on the area through a human user / player.
+		 * 
+		 * @param playerNumber
+		 * @param shipPosition
+		 */
 		public void setShipsOnArea(int playerNumber, Point shipPosition){
 			
-			// hier wird die GameArea des jeweiligen Spielers geholt
+			
 			GameArea gameArea;
 			
 			if (playerNumber == 1) {
@@ -209,13 +266,17 @@ public class GameManager {
 			
 		}
 		
-		// Nachdem GameArea geschaffen und Schiffe gesetzt wurden.
-		// Nun werden die Items je nach Schwierigkeitsgrad draufgesetzt.
+		/**
+		 * This method is for setting randomly the special items on the areas of human player.
+		 * 
+		 * @param difficultyNumber
+		 * @param playerNumber
+		 */
 		public void setItemsOnArea(int difficultyNumber, int playerNumber) {
 			
 			GameArea gameArea;
 			
-			// Je nachdem auf welche GameArea das gesetzt werden soll...
+			
 			if (playerNumber == 1) {
 				gameArea = getGameAreaPlayerOne();
 				
@@ -227,35 +288,30 @@ public class GameManager {
 			
 			if (difficultyNumber == 1) {
 				
-			
-				// Generate Items
-				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.EASY));
+				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphins(EDifficulty.EASY));
 				gameArea.setNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.EASY));
-				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.EASY));
+				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarfs(EDifficulty.EASY));
 				gameArea.setNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.EASY));
 			}
 			else if (difficultyNumber == 2) {
 				
-				// Generate Items
-				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.NORMAL));
+				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphins(EDifficulty.NORMAL));
 				gameArea.setNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.NORMAL));
-				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.NORMAL));
+				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarfs(EDifficulty.NORMAL));
 				gameArea.setNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.NORMAL));
 			}
 			else if (difficultyNumber == 3) {
-				
-				// Generate Items
-				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.HARD));
+			
+				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphins(EDifficulty.HARD));
 				gameArea.setNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.HARD));
-				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.HARD));
+				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarfs(EDifficulty.HARD));
 				gameArea.setNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.HARD));
 			}
 			else if (difficultyNumber == 4) {
-				
-				// Generate Items
-				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.SUICIDAL));
+
+				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphins(EDifficulty.SUICIDAL));
 				gameArea.setNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.SUICIDAL));
-				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.SUICIDAL));
+				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarfs(EDifficulty.SUICIDAL));
 				gameArea.setNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.SUICIDAL));
 			}
 			else { 
@@ -264,11 +320,16 @@ public class GameManager {
 			
 		}
 		
-public void setItemsOnAreaPC(int difficultyNumber, int playerNumber) {
+		/**
+		 * This is for setting randomly all items including ships for the computer player.
+		 * 
+		 * @param difficultyNumber
+		 * @param playerNumber
+		 */
+		public void setItemsOnAreaPC(int difficultyNumber, int playerNumber) {
 			
 			GameArea gameArea;
 			
-			// Je nachdem auf welche GameArea das gesetzt werden soll...
 			if (playerNumber == 1) {
 				gameArea = getGameAreaPlayerOne();
 				
@@ -280,40 +341,35 @@ public void setItemsOnAreaPC(int difficultyNumber, int playerNumber) {
 			
 			if (difficultyNumber == 1) {
 				
-			
-				// Generate Items inclusive ships
-				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.EASY));
+				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphins(EDifficulty.EASY));
 				gameArea.setNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.EASY));
-				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.EASY));
+				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarfs(EDifficulty.EASY));
 				gameArea.setNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.EASY));
-				gameArea.setNumberOfItems(5, DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.EASY));
+				gameArea.setNumberOfItems(5, DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.EASY));
 			}
 			else if (difficultyNumber == 2) {
-				
-				// Generate Items inklusive ships
-				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.NORMAL));
+
+				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphins(EDifficulty.NORMAL));
 				gameArea.setNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.NORMAL));
-				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.NORMAL));
+				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarfs(EDifficulty.NORMAL));
 				gameArea.setNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.NORMAL));
-				gameArea.setNumberOfItems(5, DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.NORMAL));
+				gameArea.setNumberOfItems(5, DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.NORMAL));
 			}
 			else if (difficultyNumber == 3) {
-				
-				// Generate Items inclusive ships.
-				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.HARD));
+
+				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphins(EDifficulty.HARD));
 				gameArea.setNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.HARD));
-				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.HARD));
+				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarfs(EDifficulty.HARD));
 				gameArea.setNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.HARD));
-				gameArea.setNumberOfItems(5, DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.HARD));
+				gameArea.setNumberOfItems(5, DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.HARD));
 			}
 			else if (difficultyNumber == 4) {
-				
-				// Generate Items
-				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphines(EDifficulty.SUICIDAL));
+
+				gameArea.setNumberOfItems(1, DifficultyManager.getNumberOfDolphins(EDifficulty.SUICIDAL));
 				gameArea.setNumberOfItems(2, DifficultyManager.getNumberOfIslands(EDifficulty.SUICIDAL));
-				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarf(EDifficulty.SUICIDAL));
+				gameArea.setNumberOfItems(3, DifficultyManager.getNumberOfLuckyDwarfs(EDifficulty.SUICIDAL));
 				gameArea.setNumberOfItems(4, DifficultyManager.getNumberOfMines(EDifficulty.SUICIDAL));
-				gameArea.setNumberOfItems(5, DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.SUICIDAL));
+				gameArea.setNumberOfItems(5, DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.SUICIDAL));
 			}
 			else { 
 			logger.debug("No possible difficultyNumber has been recognized!");
@@ -322,11 +378,16 @@ public void setItemsOnAreaPC(int difficultyNumber, int playerNumber) {
 		}
 		
 		
-		
+		/**
+		 * This method is for shooting on coordinates.
+		 * @param playerNumber
+		 * @param p
+		 * @return
+		 */
 		public int shootOnCoordinate(int playerNumber, Point p){
 	
 				GameArea gameArea;
-						// First Player shoots on second Player
+						// First Player shoots on GameArea second Player
 						if (playerNumber == 1) {
 							
 							gameArea = getGameAreaPlayerTwo();
@@ -354,7 +415,7 @@ public void setItemsOnAreaPC(int difficultyNumber, int playerNumber) {
 							
 						}
 						else {
-							// Second Player shoots on first Player
+							// Second Player shoots on GameArea of first Player
 							gameArea = getGameAreaPlayerOne();
 							int ID = gameArea.getIDCoordinate(p);
 							
@@ -381,6 +442,11 @@ public void setItemsOnAreaPC(int difficultyNumber, int playerNumber) {
 		}
 		
 		
+		/**
+		 * This is for generating random coordinates for the shoots of the computer player.
+		 * 
+		 * @return Point p
+		 */
 		public Point generateRandomShoots() {
 			Point p = new Point();
 			int maxX = p.x;
@@ -396,6 +462,13 @@ public void setItemsOnAreaPC(int difficultyNumber, int playerNumber) {
 		}
 		
 		
+		/**
+		 * This is for shooting random on the game area.
+		 * 
+		 * @param p
+		 * @return ID
+		 * @throws Exception
+		 */
 		public int shootOnCoordinatePC(Point p) throws Exception {
 			p = generateRandomShoots();
 			
@@ -425,26 +498,26 @@ public void setItemsOnAreaPC(int difficultyNumber, int playerNumber) {
 				
 		}
 		
+		/**
+		 * This is for starting the ThreadPrintItems.
+		 * 
+		 */
 		public void startThreadPrintItems() {
-			// Ausführen des Threads 
 						PrintItemThread thread = new PrintItemThread();
 						thread.start();
 						this.thread = thread;
 						
 		}
 		
+		/**
+		 * This is for getting the ThreadPrintItems.
+		 * @return thread
+		 */
 		public PrintItemThread getThreadPrintItems() {
 			return thread;
 		}
 		
-		public void endOfTheGame() {
-			
-			
-		}
 		
-		public void quitGame() {
-			// Reaktion des Spiels, wenn das Spiel komplett beendet wird.
-		}
 		
 		
 		

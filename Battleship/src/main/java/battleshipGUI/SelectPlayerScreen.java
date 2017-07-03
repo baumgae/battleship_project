@@ -24,24 +24,21 @@ import org.apache.logging.log4j.Logger;
  * a human player.
  * <p>
  * 
- * The user has different options. He can start a Game as a <br>
- * single player by pushing the button {@Single Player},<br>
- * or with multiple player by pushing {@Multiplayer}<br>
+ * The user has different options. He can start a Game as a
+ * single player by pushing the button singlePlayer,
+ * or with multiple player by pushing multiplayer <br>
  * As soon as he chose a mode, the next screen will appear.
  * 
  * <p>
  * 
  * @author Lea Baumgärtner
- * @version 0.1
+ * @version 1.0
  */
 
-// Pushing for pulling 
+
 
 public class SelectPlayerScreen {
 
-	// playerNumber = 1 --> SinglePlayer, also 1 Human and 1 Computer
-	// playerNumber = 2 --> MultiPlayer, so 2 Humans
-	
 	
 	private static final Logger logger = LogManager.getLogger(SelectPlayerScreen.class);
 
@@ -54,12 +51,7 @@ public class SelectPlayerScreen {
 		Button singlePlayer = new Button("Single Player");
 		singlePlayer.setOnAction(event -> {
 			logger.info("Single-Player Mode has been choosen!");
-			// Führt dann zum Screen, wo der SinglePlayer seine Schiffe
-			// setzen kann usw.
-			// Nachdem er auf Start drückt, werden im hintergrund
-			// die Schiffe vom ComputerPlayer gesezt.
 			
-			// Das war die einzige Lösung, um meine Player zu behalten...
 			GameManager gameMan = new GameManager();
 			gameMan.selectPlayer(1);
 
@@ -76,10 +68,7 @@ public class SelectPlayerScreen {
 		Button multiPlayer = new Button("Multi Player");
 		multiPlayer.setOnAction(event -> {
 			logger.info("Multi-Player Mode has been choosen!");
-			// Hier sollte dann zu dem Screen gewesechselt werden,
-			// auf dem der "nextPlayer" Button ist.
-			// Und dann auf dem zweiten SetShipsScreen befindet sich
-			// der eigentliche StartButton.
+
 			GameManager gameMan = new GameManager();
 			gameMan.selectPlayer(2);
 			

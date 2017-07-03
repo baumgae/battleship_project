@@ -32,7 +32,16 @@ import game.EDifficulty;
 import javafx.scene.control.Label;
 
 import javafx.scene.layout.VBox;
-
+/**
+ * CustomButtonTest2
+ * <p>
+ * This was a class for testing the functions and possibilities of the CustomButton. <p>
+ * 
+ * <p>
+ * 
+ * @author Lea Baumgärtner
+ * @version 1.0
+ */
 
 public class CustomButtonTest2 extends Application {
 
@@ -44,11 +53,7 @@ public class CustomButtonTest2 extends Application {
 	VBox root3;
 	VBox root2;
 
-	// public class CustomButtonTest2 extends Application{
-	//
-	//
-	// private static Stage primaryStage;
-	// int i;
+	
 
 	public static Stage getPrimaryStage() {
 		return primaryStage;
@@ -64,7 +69,7 @@ public class CustomButtonTest2 extends Application {
 		/**
 		 * Title for the whole screen
 		 */
-		Label labelTitle = new Label("Battleship");
+		
 
 		Point difficulty = DifficultyManager.getFieldSize(EDifficulty.EASY);
 
@@ -89,35 +94,7 @@ public class CustomButtonTest2 extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 
-		// @Override
-		// public void start(Stage primarystage) throws Exception {
-		// Pane root = new Pane();
-		// i = 0;
-		// while(i<5){
-		// addButton();
-		// }
-		// root.getChildren().add(gpnael);
-		// Scene scene = new Scene(root);
-		// primarystage.setScene(scene);
-		// primarystage.show();
-		// }
-		//
-		//
-		// private void addButton() {
-		// i++;
-		// // Array aus buttons - doesn't work"
-		// Point p = new Point(0,0);
-		// CustomButton custom = new CustomButton(p);
-		//
-		// custom.setOnAction(event ->{
-		// CustomButton clickedButton = (CustomButton) event.getSource();
-		// clickedButton.unhide(3);
-		// });
-		//
-		// // gpnael.add(custom, i, i);
-		// gpnael.getChildren().add(custom);
-		//
-		// }
+		
 	}
 
 	public static void main(String[] args) {

@@ -17,20 +17,20 @@ import javafx.scene.image.ImageView;
  * 
  * <p>
  * 
- * With the constructor {@link #CustomButton} creates a single CustomButton with
+ * With the constructor {@link #CustomButton(Point p, int ID)} creates a single CustomButton with
  * an image for water, which hasn't been shot by now. He receives a Point as
- * parameter for knowing where to set one. He holds actually two images for one
+ * parameter for knowing where to set one as well as the ID for the item below.
+ * He holds actually two images for one
  * not shot and one shot button.
- * 
- * The method {@link #unhide(int)} the button with which the Item bellow will be
- * revealed. So this method receives a parameter for the ID of the item bellow,
- * and reveals the image for it.
+ * <br>
+ * The method {@link #unhide()} the button with which the Item bellow will be
+ * revealed. So this method reveals the image below depending on the ID.
  * 
  * 
  * <p>
  * 
  * @author Lea Baumgärtner
- * @version 0.1
+ * @version 1.0
  */
 
 public class CustomButton extends Button {
@@ -42,8 +42,10 @@ public class CustomButton extends Button {
 
 	private static final Logger logger = LogManager.getLogger(CustomButton.class);
 
-	/*
-	 * Constructor CustomButton for creating a Button with two images.
+	/**
+	 * Constructor for creating a Button and therefore a coordinate on the GameArea
+	 * @param p
+	 * @param ID
 	 */
 	public CustomButton(Point p, int ID) {
 		position = p;
@@ -57,8 +59,8 @@ public class CustomButton extends Button {
 
 	}
 
-	/*
-	 * Method unhide(int ID) for revealing the item bellow.
+	/**
+	 * Method for revealing the image below through set ID
 	 */
 	public void unhide() {
 		

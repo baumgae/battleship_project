@@ -1,25 +1,28 @@
 package com.hdm_stuttgart.Battleship;
 
-import java.awt.Point;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import battleshipGUI.OpeningScreen;
-import battleshipGUI.SelectDifficultyScreen;
-import battleshipGUI.SetShipsScreen;
-import game.DifficultyManager;
-import game.EDifficulty;
+
 import game.GameArea;
 import gameConfigurations.Item;
 
 /**
- *The class AutoBackUpThread returns all Items in an Interval of 60 seconds.
+ *The class PrintItemThread <p>
+ *
+ *returns all Items in an Interval of 60 seconds.
+ *
+ *With {@link #run()} the thread will be started and prints every 
+ *60 seconds all items on the field to the console. <br>
+ *
+ *The method {@link shutdown()} sets the boolean variable running on false so 
+ *the loop ends.
  * 
  * <p>
  * @author Celine Wichmann
  * @author Lea Baumgärtner
- * @version 0.2
+ * @version 1.0
  */
 
 
@@ -32,21 +35,19 @@ public class PrintItemThread extends Thread{
 	Item item[][] = gameArea.getItems();
 	private boolean running = true;
 
-	
+	/**
+	 * Method to run the PrintItemThread
+	 */
 	@Override
-
 	public void run() {
 
-		// TJ: Das mit dem interrupt() war eine gute Idee! Leider ist das einfach nur eine
-		// nette Anfrage an den Thread sich zu beenden. Da eurer hier noch mit der Schleife
-		// beschäftigt ist, reagiert das hier nicht. Wenn jetzt running auf false geht, muss 
-		// jetzt max. 10s warten bis sich euer Programm vollständig beendet.
+		
 		while(running){
 	
 			for(int x = 0; x < item.length; x++) {
 				for(int y = 0; y < item[x].length; y++) {
 					
-					logger.info("Printing Items: " +  item[x][y].getID());
+					logger.info("ID of the item: " +  item[x][y].getID());
 			
 				}
 				
@@ -63,8 +64,9 @@ public class PrintItemThread extends Thread{
 		}
 	}
 	
-	// TJ: Neue Methode mit der ihr den Thread beenden könnt. Die while-Schleife
-	// läuft so lange bis die running-Variable auf false ist.
+	/**
+	 * Method for setting the boolean variable running on false
+	 */
 	public void shutdown(){
 		running = false;
 	}

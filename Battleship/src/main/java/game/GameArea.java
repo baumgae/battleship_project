@@ -17,15 +17,15 @@ import ships.OneFieldBoat;
 /**
  * The class GameArea <p>
  * 
- * The Class GameArea is managing the Creation of the Game Area and handles the
- * Actions on the Field. <br>
+ * The Class GameArea is managing the creation of the Game Area and handles the
+ * actions on the field. <br>
  * It also manages the status of the coordinate fields, so the player
  * can see where he has shot at and which item is below the coordinate.
  * 
  * <p>
  * First the Game Area will be created with the Constructor
- * {@link #GameArea(EDifficulty)}. Depending on which difficulty the player has
- * chosen the field has a different size.
+ * {@link #GameArea(EDifficulty)}. 
+ * Depending on which difficulty the player has chosen the field has a different size.
  * 
  * <p>
  * The method {@link #generateRandomCoordinate()} generates random coordinates
@@ -33,8 +33,8 @@ import ships.OneFieldBoat;
  * 
  * <p>
  * The method {@link #setNumberOfItems(int, int)} gets the random Coordinates
- * from {@link #generateRandomCoordinate()} and creates the gameElements. Depending
- * on which Difficulty the Player has chosen, there is different Number of Game
+ * from {@link #generateRandomCoordinate()} and sets and creates the gameElements. Depending
+ * on which Difficulty the Player has chosen, there is a different number of Game
  * Elements. The ID is used to decide which Game Element will be created. For
  * example in Difficulty Easy there are three Objects of ID = 1 available, so
  * the method knows there will be three Dolphins created.
@@ -44,29 +44,25 @@ import ships.OneFieldBoat;
  * to set his Number of Ships.
  * 
  * <p>
- * The method {@link #getShipPosition()} shows the Player on which Coordinate
- * his Ships are.
- * 
- * <p>
  * With the method {@link #shootOnCoordinate(Point)} the Player is allowed to
- * shoot on Coordinates. The Status of each Coordinate stands on 0 until the
- * Player shoot at a Coordinate, then it changes to 1. If the Player has already
+ * shoot on Coordinates. The Status of each Coordinate is 0 until the
+ * Player shoots on a Coordinate, then it changes to 1. If the Player has already
  * shot on this Coordinate, this method will throw an Exception, because you are
- * only allowed to shot at a Coordinate for one Time.
+ * only allowed to shot at a Coordinate once.
  * 
  * <p>
  * The method {@link #getCoordinateFieldstatus(Point)} return the Status of a Field.
  * 
  * <p>
- * If a Player shoots at a Coordinate the method{@link #getPointsCoordinate(int, Point)t} 
- * will check the ID of the Object which is behind the Coordinate. After the method 
- * finds out which Element is on the Coordinate, it return the Number of Points the Player will get.
+ * If a Player shoots on a Coordinate the method{@link #getPointsCoordinate(int, Point)} 
+ * will check the ID of the Object which is under the Button. After the method 
+ * finds out which Element is under the Coordinate, it returns the Number of Points the Player will get.
  * 
  * <p>
- * The method {@link #getIDCoordinate(Point)} returns the ID of the Object behind the Field.
+ * The method {@link #getIDCoordinate(Point)} returns the ID of the Object under the Field.
  * 
  * <p>
- * The method {@link #getItems()} return Items.
+ * The method {@link #getItems()} returns Items, including special items and ships.
  * 
  * <p>
  * @author Celine Wichmann
@@ -84,7 +80,12 @@ public class GameArea {
 	int randomValueY;
 	int Fieldstatus = 0; // the field hasn't been shot
 	boolean isItem = true;
-
+	
+	/**
+	 * Constructor which will be called if a Game Area will be created.
+	 * The size of the Game Area depends the difficulty chosen by the player.
+	 * @param difficulty
+	 */
 	public GameArea(EDifficulty difficulty) {
 
 		logger.info("The constructor GameArea has been called!");
@@ -98,7 +99,10 @@ public class GameArea {
 		setNumberOfItems(0, point.x * point.y);
 
 	}
-
+	
+	/*
+	 * Method for generating random coordinates for the special items
+	 */
 	public void generateRandomCoordinate() {
 
 		logger.info("The method generateRandomCoordinate has been called!");
@@ -115,6 +119,14 @@ public class GameArea {
 
 	}
 
+	/**
+	 * Method for setting special items through random generated coordinates.
+	 * The kind of item depends on the ID and the number of this item 
+	 * depends on the difficulty chosen by the player.
+	 * 
+	 * @param ID
+	 * @param NumberOfItems
+	 */
 	public synchronized void setNumberOfItems(int ID, int NumberOfItems) {
 		
 		logger.info("The method setNumberOfItems has been called.");
@@ -207,20 +219,25 @@ public class GameArea {
 
 	}
 
+	/**
+	 * Method for setting the position of the ships.
+	 * @param p
+	 */
 	public synchronized void setShipPosition(Point p) {
 
 		logger.info("The method setShipPosition has been called!");
 		items[p.x][p.y] = new OneFieldBoat("Hans");
 
 	}
+	
+	
 
-	public Item[][] getShipPosition() {
-
-		logger.info("The method getShipPosition has been called!");
-		return items;
-
-	}
-
+	/**
+	 * Method for shooting on a coordinate.
+	 * If the player has already shot on the coordinate an exception will be thrown.
+	 * @param p
+	 * @throws Exception
+	 */
 	public void shootOnCoordinate(Point p) throws Exception {
 
 		this.p = p;
@@ -235,7 +252,14 @@ public class GameArea {
 
 		}
 	}
-
+	
+	/**
+	 * Method for getting the status of a Field
+	 * Is the coordinate already shot or not?
+	 * 
+	 * @param p
+	 * @return FieldStatus
+	 */
 	public int getCoordinateFieldstatus(Point p) {
 
 		p = this.p;
@@ -244,7 +268,14 @@ public class GameArea {
 
 	}
 
-
+	/**
+	 * Method for getting the impact and so the points of an shot item
+	 * 
+	 * @param ID
+	 * @param p
+	 * @return points
+	 * @throws NoGameElementException
+	 */
 	public int getPointsCoordinate(int ID, Point p) throws NoGameElementException {
 
 		logger.info("The method getStatusCoordinate has been called!");
@@ -303,6 +334,12 @@ public class GameArea {
 		}
 	}
 
+	/**
+	 * Method for getting the ID of an Item on a special position
+	 * 
+	 * @param p
+	 * @return ID
+	 */
 	public int getIDCoordinate(Point p) {
 
 		logger.info("The method getIDCoordinate has been called!");
@@ -357,7 +394,12 @@ public class GameArea {
 			return -1;
 		}
 	}
-
+	
+		/**
+		 * Method for getting the items
+		 * 
+		 * @return items
+		 */
 	public Item[][] getItems() {
 		logger.info("The method getItems() has been called!");
 		return items;

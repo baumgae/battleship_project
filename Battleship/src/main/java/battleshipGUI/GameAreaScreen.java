@@ -41,7 +41,7 @@ import javafx.scene.layout.VBox;
  * 
  * @author Celine Wichmann
  * @author Lea Baumgärtner
- * @version 0.1
+ * @version 1.0
  */
 
 public class GameAreaScreen {
@@ -49,24 +49,14 @@ public class GameAreaScreen {
 	GridPane gameGrid1 = new GridPane();
 	GridPane gameGrid2 = new GridPane();
 	
-	private static GameAreaScreen instanceGameArea;
-	
-	
 	
 	private static final Logger logger = LogManager.getLogger(GameAreaScreen.class);
 	
-	
-	public static GameAreaScreen getInstance(){
-		if(instanceGameArea == null){
-			instanceGameArea = new GameAreaScreen();
-		}
-		return instanceGameArea;
-	}
-	
-	
-	
-
-	// einen Button mit Connection zum Menü einbauen
+	/**
+	 * VBox containing the whole GameAreaScreen
+	 * 
+	 * @return VBox
+	 */
 	public VBox getScreen() {
 		
 		GameManager.getInstance().startThreadPrintItems();
@@ -81,7 +71,7 @@ public class GameAreaScreen {
 		int difficulty = SelectDifficultyScreen.difficultyNumber;
 		Point difficultyP;
 
-		// Durch die zuvor ausgewählte Schwierigkeit die größe des Feldes holen.
+		
 		if (difficulty == 1) {
 			difficultyP = DifficultyManager.getFieldSize(EDifficulty.EASY);
 
@@ -97,22 +87,22 @@ public class GameAreaScreen {
 
 		Menu.setOnAction(event -> {
 
-			ErrorScreen nsc = new ErrorScreen();
-			VBox ErrorScreen = nsc.getScreen();
-			Scene scene = new Scene(ErrorScreen, 300, 400);
+			MenuScreen nsc = new MenuScreen();
+			VBox MenuScreen = nsc.getScreen();
+			Scene scene = new Scene(MenuScreen, 300, 400);
 			OpeningScreen.getPrimaryStage().setScene(scene);
 
 		});
 
-		// Wenn single Player
+		/**
+		 * If singleplayer mode has been chosen
+		 */
 		if (GameManager.playerNumber == 1) {
 
-			// Linke Seite vom ersten Player
 			VBox left = new VBox();
 			Label header1 = new Label(SetNameScreen.name + "'s Area");
 
-			// Erschaffen der GameArea und übergeben der Items und irgenwie
-			// Schiffe (schön wärs)
+			
 			CustomButton buttons[][] = new CustomButton[difficultyP.x][difficultyP.y];
 
 			GameArea gameAreaOne = GameManager.getInstance().getGameAreaPlayerOne();
@@ -126,30 +116,19 @@ public class GameAreaScreen {
 					logger.info("item ID: " + items[i][j].getID());
 					buttons[i][j].setOnAction(event -> {
 
-						// Hier drauf müsste der Computer Schießen
-
-						// Jetzt müsste man noch regel, dass abwechselnd
-						// geschossen wird!
-						// Und die übergebenen Koordinaten der AI als klick
-						// betrachtet werdem
 						CustomButton clickedButton2 = (CustomButton) event.getSource();
 						try {
-							
-							// Aber nur so viele Shiffe, wie es gibt :D
+						
 							int currentNumberOfShips = 0;
-							int possibleShips = SetShipsScreen.possibleShips;
+							int possibleShips = SetShipsScreen.getpossibleShips();
 							
-							if(currentNumberOfShips >= possibleShips){
+							if(currentNumberOfShips < possibleShips){
 								Point r = GameManager.getInstance().generateRandomShoots();
 								GameManager.getInstance().shootOnCoordinatePC(r);
-								// Wenn sich unter dem Button ein Ship befindet und es.
-								// also if bedingung, wenn die ID darunter == 0 ist, dann
+								
 								currentNumberOfShips++;
-								return;
 							}
-							else {
-								// End the game
-							}
+				
 
 						} catch (Exception e) {
 							logger.info("You cannot shoot twice on one field!");
@@ -158,26 +137,35 @@ public class GameAreaScreen {
 						clickedButton2.unhide();
 					});
 					
+					
 					gameGrid1.add(buttons[i][j], i, j);
 					
-					// Könnte das Funktionieren? - Übergabe der Items und Schiffe
-					// gameGrid1 = renderGameArea(GameManager.getInstance().getPlayerOne());
 					
 				}
 			}
-
+			
 			left.getChildren().addAll(header1, gameGrid1);
 
 			// VBox for creating some space between the Areas
 			VBox middle = new VBox();
 			Label headerM = new Label(" 		    ");
-			middle.getChildren().addAll(headerM);
+			
+			
+			Button endGame = new Button("End of the Game");
+			endGame.setOnAction(event2 -> {
+					ScoreScreen ngs = new ScoreScreen();
+					VBox ScoreScreen = ngs.getScreen();
+					Scene scene3 = new Scene(ScoreScreen, 300, 400);
+					OpeningScreen.getPrimaryStage().setScene(scene3);
+						});
 
-			// Rechte Seite vom zweiten Player
+			middle.getChildren().addAll(headerM, endGame);
+			
+			
 			VBox right = new VBox();
 			Label header2 = new Label("Computer's Area");
 
-			// Erschaffen der GameArea und Items und Schiffe (schön wäres)
+			
 			CustomButton buttons2[][] = new CustomButton[difficultyP.x][difficultyP.y];
 
 			GameArea gameAreatwo = GameManager.getInstance().getGameAreaPlayerTwo();
@@ -192,23 +180,20 @@ public class GameAreaScreen {
 
 					buttons2[i][j].setOnAction(event -> {
 
-						// Hier drauf müsste der echte Spieler schießen
+						
 						CustomButton clickedButton = (CustomButton) event.getSource();
 						try {
-							// Aber nur so viele Shiffe, wie es gibt :D
-							int currentNumberOfShips = 0;
-							int possibleShips = SetShipsScreen.possibleShips;
 							
-							if(currentNumberOfShips >= possibleShips){
+							int currentNumberOfShips = 0;
+							int possibleShips = SetShipsScreen.getpossibleShips();
+							
+							if(currentNumberOfShips < possibleShips){
 								GameManager.getInstance().shootOnCoordinate(1, p);
-								// Wenn sich unter dem Button ein Ship befindet und es.
-								// also if bedingung, wenn die ID darunter == 0 ist, dann
+								
 								currentNumberOfShips++;
-								return;
 							}
-							else {
-								// End the game
-							}
+
+
 						} catch (Exception e) {
 							logger.info("You cannot shoot twice on one field!");
 
@@ -218,28 +203,25 @@ public class GameAreaScreen {
 					});
 					
 					gameGrid2.add(buttons2[i][j], i, j);
-					
-					// Könnte das Funktionieren? - Übergabe der Items und Schiffe
-					// gameGrid2 = renderGameArea(GameManager.getInstance().getPlayerTwo());
+				
 					
 				}
 			}
 
 			right.getChildren().addAll(header2, gameGrid2);
 
-			// Adden der linken und rechten Seite zu einer HBox, damit
-			// nebeneinander
 			root2.getChildren().addAll(left, middle, right);
 
-			// Adden des Titles und des Menus sowie die komplette HBox in eine
-			// VBox
+			
 			root.getChildren().addAll(Title, Menu, root2);
 			return root;
 
-			// Multiplayer Modus
+			/* 
+			 * If Multiplayer mode has been chosen
+			 */
 		} else if (GameManager.playerNumber == 2) {
 
-			// Erster Player linke Seite
+
 			VBox left = new VBox();
 			Label header1 = new Label(SetNameScreen.nameOne + "'s Area");
 
@@ -256,28 +238,22 @@ public class GameAreaScreen {
 					buttons[i][j].setOnAction(event -> {
 
 						CustomButton clickedButton = (CustomButton) event.getSource();
-						// Spieler2 darf drauf schießen
+						
 						try {
-							// Aber nur so viele Shiffe, wie es gibt :D
-							int currentNumberOfShips = 0;
-							int possibleShips = SetShipsScreen.possibleShips;
 							
-							if(currentNumberOfShips >= possibleShips){
+							int currentNumberOfShips = 0;
+							int possibleShips = SetShipsScreen.getpossibleShips();
+							
+							if(currentNumberOfShips < possibleShips){
 								GameManager.getInstance().shootOnCoordinate(1, p);
-								// Wenn sich unter dem Button ein Ship befindet und es.
-								// also if bedingung, wenn die ID darunter == 0 ist, dann
+								
 								currentNumberOfShips++;
-								return;
 							}
-							else {
-								// End the game
-							}
+							
 						} catch (Exception e) {
 							logger.info("You cannot shoot twice on one field!");
 
 						}
-					// Füge Methode renderGameArea hinzu, damit die Items geholt werden!
-						
 						
 						clickedButton.unhide();
 
@@ -293,9 +269,16 @@ public class GameAreaScreen {
 			// VBox for creating some space between the Areas
 			VBox middle = new VBox();
 			Label headerM = new Label(" 		    ");
-			middle.getChildren().addAll(headerM);
+			Button endGame = new Button("End of the Game");
+			endGame.setOnAction(event2 -> {
+					ScoreScreen ngs = new ScoreScreen();
+					VBox ScoreScreen = ngs.getScreen();
+					Scene scene3 = new Scene(ScoreScreen, 300, 400);
+					OpeningScreen.getPrimaryStage().setScene(scene3);
+						});
+			middle.getChildren().addAll(headerM, endGame);
 			
-			// Zweiter Player rechte Seite
+			
 			VBox right = new VBox();
 			Label header2 = new Label(SetNameScreen.nameTwo + "'s Area");
 
@@ -313,22 +296,16 @@ public class GameAreaScreen {
 
 					buttons2[i][j].setOnAction(event -> {
 
-						// Hier drauf müsste der echte Spieler schießen
+						
 						CustomButton clickedButton = (CustomButton) event.getSource();
 						try {
-							// Aber nur so viele Shiffe, wie es gibt :D
-							int currentNumberOfShips = 0;
-							int possibleShips = SetShipsScreen.possibleShips;
 							
-							if(currentNumberOfShips >= possibleShips){
+							int currentNumberOfShips = 0;
+							int possibleShips = SetShipsScreen.getpossibleShips();
+							
+							if(currentNumberOfShips < possibleShips){
 								GameManager.getInstance().shootOnCoordinate(1, p);
-								// Wenn sich unter dem Button ein Ship befindet und es.
-								// also if bedingung, wenn die ID darunter == 0 ist, dann
 								currentNumberOfShips++;
-								return;
-							}
-							else {
-								// End the game
 							}
 							
 						} catch (Exception e) {
@@ -357,72 +334,6 @@ public class GameAreaScreen {
 
 			return root;
 		}
-	}
-
-	// Modifizierte Methode renderGameArea - Original ist zu finden in der
-	// SetShipArea
-	
-	// Diese Methode funktioniert nicht._.
-
-	public GridPane renderGameArea(IPlayer player) {
-		GridPane grid = new GridPane();
-
-		int difficulty = SelectDifficultyScreen.difficultyNumber;
-		Point difficultyP;
-
-		if (difficulty == 1) {
-			difficultyP = DifficultyManager.getFieldSize(EDifficulty.EASY);
-
-		} else if (difficulty == 2) {
-			difficultyP = DifficultyManager.getFieldSize(EDifficulty.NORMAL);
-
-		} else if (difficulty == 3) {
-			difficultyP = DifficultyManager.getFieldSize(EDifficulty.HARD);
-
-		} else {
-			difficultyP = DifficultyManager.getFieldSize(EDifficulty.SUICIDAL);
-
-		}
-
-		if (player.equals(GameManager.getInstance().getPlayerOne())) {
-			GameArea gameArea = GameManager.getInstance().getGameAreaPlayerOne();
-			Item items[][] = gameArea.getItems();
-
-			for (int x = 0; x < items.length; x++) {
-				for (int y = 0; y < items[x].length; y++) {
-
-					Point p = new Point(x, y);
-					CustomButton b = new CustomButton(p, items[x][y].getID());
-					grid.add(b, x, y);
-					b.setOnAction(event -> {
-						CustomButton clickedButton = (CustomButton) event.getSource();
-						clickedButton.unhide();
-
-					});
-				}
-			}
-
-			return grid;
-		} else {
-			GameArea gameArea = GameManager.getInstance().getGameAreaPlayerTwo();
-			Item items[][] = gameArea.getItems();
-
-			for (int x = 0; x < items.length; x++) {
-				for (int y = 0; y < items[x].length; y++) {
-
-					Point p = new Point(x, y);
-					CustomButton b = new CustomButton(p, items[x][y].getID());
-
-					grid.add(b, x, y);
-					b.setOnAction(event -> {
-						CustomButton clickedButton = (CustomButton) event.getSource();
-						clickedButton.unhide();
-					});
-				}
-			}
-			return grid;
-		}
-
 	}
 }
 

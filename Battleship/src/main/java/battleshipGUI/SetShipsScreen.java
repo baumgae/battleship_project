@@ -24,16 +24,14 @@ import javafx.scene.layout.VBox;
  * set his different ships on special coordinates.
  * <p>
  * 
- * First, the user has to set his name. Below he can see the different ships
- * which are offered to him. Trough clicking on a ship and after that directly
- * on a coordinate, he will be able to set the ships. Through clicking on a ship
- * two times, the user is able to change the direction of a ship.
+ * The user is allowed to set as many ships as possible depending on the chosen difficulty.
+ * Depending on the chosen mode, the SetShipsScreenP2 or the GameAreaScreen will be next screen .
  * 
  * <p>
  * 
  * @author Celine Wichmann
  * @autor  Lea Baumgärtner
- * @version 0.1
+ * @version 1.0
  */
 
 
@@ -48,10 +46,19 @@ public class SetShipsScreen {
 	private int currentNumberOfShips;
 	public static int possibleShips;
 	
+	public static int getpossibleShips() {
+		return possibleShips;
+	}
 	
+	/**
+	 * Method containing the whole screen of SetShipsScreen
+	 * @return VBox
+	 */
 	VBox getScreen() {
 		
-		
+		/*
+		 * If the SinglePlayer mode has been chosen
+		 */
 		if (GameManager.playerNumber == 1) {
 			
 			int difficulty = SelectDifficultyScreen.difficultyNumber;
@@ -60,23 +67,23 @@ public class SetShipsScreen {
 			
 			if (difficulty == 1) {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.EASY);
-				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.EASY);
+				possibleShips = DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.EASY);
 				this.possibleShips = possibleShips;
 
 	
 			} else if (difficulty == 2) {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.NORMAL);
-				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.NORMAL);
+				possibleShips = DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.NORMAL);
 				this.possibleShips = possibleShips;
 				
 			} else if (difficulty == 3) {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.HARD);
-				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.HARD);
+				possibleShips = DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.HARD);
 				this.possibleShips = possibleShips;
 				
 			} else {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.SUICIDAL);
-				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.SUICIDAL);
+				possibleShips = DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.SUICIDAL);
 				this.possibleShips = possibleShips;
 			}
 			
@@ -134,6 +141,9 @@ public class SetShipsScreen {
 			return root;
 
 		}
+		/*
+		 * If Multiplayer mode has been chosen
+		 */
 		if (GameManager.playerNumber == 2) {
 			
 			int difficulty = SelectDifficultyScreen.difficultyNumber;
@@ -142,19 +152,19 @@ public class SetShipsScreen {
 			
 			if (difficulty == 1) {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.EASY);
-				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.EASY);
+				possibleShips = DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.EASY);
 			
 			} else if (difficulty == 2) {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.NORMAL);
-				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.NORMAL);
+				possibleShips = DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.NORMAL);
 				
 			} else if (difficulty == 3) {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.HARD);
-				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.HARD);
+				possibleShips = DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.HARD);
 				
 			} else {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.SUICIDAL);
-				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.SUICIDAL);
+				possibleShips = DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.SUICIDAL);
 			}
 			
 			Label header1 = new Label(SetNameScreen.nameOne + "'s Area");
@@ -211,26 +221,6 @@ public class SetShipsScreen {
 		return root;
 
 	}
-
-//	public GridPane renderGameArea() {
-//		GridPane grid = new GridPane();
-//		GameArea gameArea = GameManager.getInstance().getGameAreaPlayerOne();
-//		Item items[][] = gameArea.getItems();
-//
-//		for (int x = 0; x < items.length; x++) {
-//			for (int y = 0; y < items[x].length; y++) {
-//				CustomButton b = new CustomButton(new Point(x, y), items[x][y].getID());
-//				grid.add(b, x, y);
-//				b.setOnAction(event -> {
-//					CustomButton clickedButton = (CustomButton) event.getSource();
-//					clickedButton.unhide();
-//				});
-//			}
-//		}
-//
-//		return grid;
-//
-//	}
 
 }
 

@@ -11,11 +11,11 @@ import javafx.scene.layout.VBox;
  * This is the GUI, if a scene is not available or an error occures.
  * <p>
  * 
- * The only option the user has over here is to go back.
+ * DOESN'T WORK: The only option the user has over here is to go back.
  * 
  * <p>
  * @author Lea Baumgärtner
- * @version 0.1 
+ * @version 1.0
  */
 public class ErrorScreen {
 	
@@ -33,7 +33,7 @@ public class ErrorScreen {
 		// EventHandler for ending the complete Application
 		goBack.setOnAction(
 				event -> {
-					// logger.info("The goBack Button has been pushed!");
+					
 					OpeningScreen ngs = new OpeningScreen();
 					VBox opening = ngs.getScreen();
 					Scene scene = new Scene(opening, 300, 400);

@@ -18,7 +18,7 @@ import javafx.scene.layout.VBox;
 * 
 * 
 * @author Lea Baumgärtner
-* @version 0.1
+* @version 1.0
 */
 public class SetNameScreen {
 	
@@ -31,16 +31,18 @@ public class SetNameScreen {
 	
 	VBox root = new VBox();
 	
-	// Problem in the if-cases: He proobably doesen't get
-	// the numner of playerNumber, because of call by value or something.
-	
 
 		Label labelTitle = new Label("New Game");
 		Label labelTitle2 = new Label("Set your Name!");
 		Label labelTitle3 = new Label("Push the enter key to confirm!");
 		
+		/**
+		 * 
+		 * @return VBox containing the whole SetNameScreen
+		 */
 		public VBox getScreen() {
 			
+		// If sinleplayer mode has been chosen
 		if (GameManager.playerNumber == 1) {
 			
 			TextField tf = new TextField("Enter your Name");
@@ -65,6 +67,7 @@ public class SetNameScreen {
 		return root;
 		
 		}
+		// if multiplayer mode has been chosen
 		else if (GameManager.playerNumber == 2) {
 			TextField tf1 = new TextField("Player One - Enter your Name"); 
 			tf1.setPromptText("Name - PlayerOne");

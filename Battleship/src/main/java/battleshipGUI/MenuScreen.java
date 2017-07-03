@@ -19,7 +19,7 @@ import javafx.scene.layout.VBox;
  * 
  * <p>
  * @author Lea Baumgärtner
- * @version 0.1 
+ * @version 1.0
  */
 
 public class MenuScreen {
@@ -36,15 +36,28 @@ public class MenuScreen {
 					SelectPlayerScreen ngs = new SelectPlayerScreen();
 					VBox NewGame = ngs.getScreen();
 					Scene scene2 = new Scene(NewGame, 300, 400);
-					
-					// OpeningScreen.launch(); = primaryStage.setScene(scene2);
+					OpeningScreen.getPrimaryStage().setScene(scene2);
 							
 				});
 				
 		Button quit = new Button("Quit");
+		quit.setOnAction(
+				event -> {
+					ErrorScreen ngs = new ErrorScreen();
+					VBox errorScreen = ngs.getScreen();
+					Scene scene3 = new Scene(errorScreen, 300, 400);
+					OpeningScreen.getPrimaryStage().setScene(scene3);
+				});
 		
 		Button continueGame = new Button("Continue Game");
-		
+		continueGame.setOnAction(
+				event -> {
+					ErrorScreen ngs = new ErrorScreen();
+					VBox errorScreen = ngs.getScreen();
+					Scene scene3 = new Scene(errorScreen, 300, 400);
+					OpeningScreen.getPrimaryStage().setScene(scene3);
+				});
+				
 
 		root.getChildren().addAll(labelTitle, labelTitle2, newGame, quit, continueGame);
 

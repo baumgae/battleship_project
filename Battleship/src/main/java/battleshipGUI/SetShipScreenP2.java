@@ -22,23 +22,19 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
 /**
- * SetShips Screen
+ * SetShipsScreenP2
  * <p>
- * This is the GUI, if a user starts a new game. After he has chosen the mode as
- * well as the difficulty, he'll get a accordingly game area where he is able to
- * set his different ships on special coordinates.
+ * This is the GUI, if a user starts a new game in multiplayer mode.
  * <p>
  * 
- * First, the user has to set his name. Below he can see the different ships
- * which are offered to him. Trough clicking on a ship and after that directly
- * on a coordinate, he will be able to set the ships. Through clicking on a ship
- * two times, the user is able to change the direction of a ship.
+ * This is the second Screen where player two is allowed to set his ships
+ * by clicking on the buttons.
  * 
  * <p>
  * 
  * @author Celine Wichmann
  * @author Lea Baumgärtner
- * @version 0.1
+ * @version 1.0
  */
 
 
@@ -52,7 +48,10 @@ public class SetShipScreenP2 {
 	int i = 0;
 	private int currentNumberOfShips;
 	
-
+	/**
+	 * Method containing the whole SetShipsScreenP2
+	 * @return VBox
+	 */
 	public VBox getScreen() {
 
 		int difficulty = SelectDifficultyScreen.difficultyNumber;
@@ -62,19 +61,19 @@ public class SetShipScreenP2 {
 		
 		if (difficulty == 1) {
 			difficultyP = DifficultyManager.getFieldSize(EDifficulty.EASY);
-			possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.EASY);
+			possibleShips = DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.EASY);
 
 		} else if (difficulty == 2) {
 			difficultyP = DifficultyManager.getFieldSize(EDifficulty.NORMAL);
-			possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.NORMAL);
+			possibleShips = DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.NORMAL);
 			
 		} else if (difficulty == 3) {
 			difficultyP = DifficultyManager.getFieldSize(EDifficulty.HARD);
-			possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.HARD);
+			possibleShips = DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.HARD);
 			
 		} else {
 			difficultyP = DifficultyManager.getFieldSize(EDifficulty.SUICIDAL);
-			possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.SUICIDAL);
+			possibleShips = DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.SUICIDAL);
 		}
 		
 		Label header1 = new Label(SetNameScreen.name + "'s Area");

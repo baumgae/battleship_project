@@ -13,21 +13,29 @@ import org.apache.logging.log4j.Logger;
  * the setting of the Difficulty of the game.
  * 
  * <p>
- * The Method {@link #setDifficulty} will be called, if the player sets the
- * difficulty of a new game. Over here the number of game Elements will be
- * given. The Method {@link #getFieldSize(EDifficulty)} is for the
+ * The Method {@link #getFieldSize(EDifficulty)} is for the
  * GameAreaFactory so it will get the MaxX and MaxY Values. The GameArea will be
  * as big as it will be chosen.
+ * {@link #getNumberOfDolphins(EDifficulty)} returns the number of dolphins depending on the chosen difficulty. <br>
+ * {@link #getNumberOfIslands(EDifficulty)} returns the number of islands depending on the chosen difficulty. <br>
+ * {@link #getNumberOfLuckyDwarfs(EDifficulty)} returns the number of lucky dwarfs depending on the chosen difficulty. <br>
+ * {@link #getNumberOfMines(EDifficulty)} returns the number of mines depending on the chosen difficulty. <br>
+ * {@link #getNumberOfOneFieldBoats(EDifficulty)} returns the number of one field boats depending on the chosen difficulty. <br>
  * <p>
  * 
  * @author Lea Baumgärtner
- * @version 0.2
+ * @version 1.0
  */
 
 public class DifficultyManager {
 
 	private static final Logger logger = LogManager.getLogger(DifficultyManager.class);
-
+	/**
+	 * Method for getting the size of the created Game Area
+	 * 
+	 * @param difficulty
+	 * @return Point
+	 */
 	public static Point getFieldSize(EDifficulty difficulty) {
 		logger.info("The method getFieldSize has been called!");
 		switch (difficulty) {
@@ -53,8 +61,14 @@ public class DifficultyManager {
 			return new Point(5, 5);
 		}
 	}
-
-	public static int getNumberOfDolphines(EDifficulty difficulty) {
+	
+	/**
+	 * Method for getting the number of dolphins depending on the chosen difficulty
+	 * 
+	 * @param difficulty
+	 * @return number of dolphins
+	 */
+	public static int getNumberOfDolphins(EDifficulty difficulty) {
 		logger.info("The method getNumberOfDolphines has been called!");
 		switch (difficulty) {
 
@@ -78,7 +92,13 @@ public class DifficultyManager {
 			return 1;
 		}
 	}
-
+	
+	/**
+	 * Method for getting the number of mines depending on the chosen difficulty
+	 * 
+	 * @param difficulty
+	 * @return number of mines
+	 */
 	public static int getNumberOfMines(EDifficulty difficulty) {
 		logger.info("The method getNumberOfMines has been called!");
 		switch (difficulty) {
@@ -105,6 +125,12 @@ public class DifficultyManager {
 		}
 	}
 
+	/**
+	 * Method for getting the number of islands depending on the chosen difficulty
+	 * 
+	 * @param difficulty
+	 * @return number of islands
+	 */
 	public static int getNumberOfIslands(EDifficulty difficulty) {
 		logger.info("The method getNumberOfIsland has been called!");
 		switch (difficulty) {
@@ -130,8 +156,13 @@ public class DifficultyManager {
 			return 1;
 		}
 	}
-
-	public static int getNumberOfLuckyDwarf(EDifficulty difficulty) {
+	
+	/**
+	 * Method for getting the number of lucky dwarfs depending on the chosen difficulty
+	 * @param difficulty
+	 * @return number of lucky dwarfs
+	 */
+	public static int getNumberOfLuckyDwarfs(EDifficulty difficulty) {
 		logger.info("The method getNumberOfLuckyDwarf has been called!");
 		switch (difficulty) {
 
@@ -156,8 +187,13 @@ public class DifficultyManager {
 			return 0;
 		}
 	}
-
-	public static int getNumberOfOneFieldBoat(EDifficulty difficulty) {
+	
+	/**
+	 * Method for getting the number of one field boats depending on the chosen difficulty
+	 * @param difficulty
+	 * @return number of one field boats
+	 */
+	public static int getNumberOfOneFieldBoats(EDifficulty difficulty) {
 		logger.info("The method getNumberOfOneFieldBoat has been called!");
 		switch (difficulty) {
 

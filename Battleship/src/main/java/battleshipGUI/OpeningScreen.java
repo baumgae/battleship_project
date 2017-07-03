@@ -20,13 +20,13 @@ import javafx.stage.Stage;
  * <p>
  * 
  * The user has different options. He can start a new Game by pushing the button {@New Game}.<br>
- * He can continue an "old" game by pushing {@Continue}<br>
+ * DOESN'T WORK: He can continue an "old" game by pushing {@Continue}<br>
  * He can take a look into the highest scores by pushing {@Highscore} <br>
- * And he is also able to quit the complete application by using {@Quit}
+ * DOESN'T WORK: And he is also able to quit the complete application by using {@Quit}
  * 
  * <p>
  * @author Lea Baumgärtner
- * @version 0.1 
+ * @version 1.0
  */
 
 
@@ -47,10 +47,9 @@ public class OpeningScreen extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		OpeningScreen.primaryStage = primaryStage;
 		
-		// Beim Schließen des kompletten Fensters soll auch der Thread gekillt werden.
+		
 		primaryStage.setOnCloseRequest(event -> {
 			
-			// GameManager.getInstance().startThreadPrintItems();
 			PrintItemThread thread = GameManager.getInstance().getThreadPrintItems();
 			if(thread != null){
 				thread.shutdown();
@@ -60,21 +59,10 @@ public class OpeningScreen extends Application{
 		this.primaryStage = primaryStage;
 		VBox root = new VBox();
 		
-		/**
-		 * Title for the whole screen
-		 */
+		
 		Label labelTitle = new Label("Battleship");
-		// Here we could add an image with a battleship on it.
 		
-		// Image image = new Image(getClass().getResourceAsStream("Battleship_Opening.jpg"));
-		//Label label3 = new Label("Battleship", new ImageView(image));
-		
-		/**
-		 * Button for starting a new Game
-		 */
 		Button newGame = new Button("New Game");
-
-		// This should be the EventHandling for opening the NewGameScreen.java
 		
 		newGame.setOnAction(
 				event -> {
@@ -86,15 +74,8 @@ public class OpeningScreen extends Application{
 							
 				});
 		
-		// Same shit for the others.
 		
-		/**
-		 * Button for continue an old game
-		 */
 		Button continueGame = new Button("Continue");
-			
-		// This should be the EventHandling for opening the old game
-		// But this won't be important for now!
 		
 				continueGame.setOnAction(
 						event -> {
@@ -105,13 +86,9 @@ public class OpeningScreen extends Application{
 							primaryStage.setScene(scene3);
 									
 						});
-		
-		/**
-		* Button for opening the highscores
-		*/				
+				
 		Button highscore = new Button("Highscore");
-		// EventHandler for opening the highscore Document
-		// But this won't be important for now!
+		
 		highscore.setOnAction(
 				event -> {
 					logger.info("The highscore Button has been pushed!");
@@ -122,13 +99,9 @@ public class OpeningScreen extends Application{
 							
 				});
 								
-		
-		/**
-		 * Button for ending the whole application
-		 */
 		Button quit = new Button("Quit");
 		
-		// EventHandler for ending the complete Application
+		
 		quit.setOnAction(
 				event -> {
 					logger.info("The quit Button has been pushed!");
@@ -139,15 +112,12 @@ public class OpeningScreen extends Application{
 							
 				});
 		
-		// CustomButton button = new CustomButton(1, false);
-		
 		
 		
 		root.getChildren().addAll(labelTitle, newGame, continueGame, highscore, quit);
 		this.root = root;
 		
 		Scene scene = new Scene(root, 300, 400);
-		// scene.getStylesheets().add("OpeningSceneCSS.css");
 		
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Opening Scene - Battleship");
@@ -157,8 +127,6 @@ public class OpeningScreen extends Application{
 	}
 	
 	public VBox getScreen() {
-		// Wenn ich diese Methode aufrufe, dann gehts nicht.
-		
 		return root;
 	}
 	
