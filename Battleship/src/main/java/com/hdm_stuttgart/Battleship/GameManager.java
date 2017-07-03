@@ -5,6 +5,10 @@ import java.awt.Point;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import gameConfigurations.HumanPlayer;
+import gameConfigurations.Item;
+import battleshipGUI.SelectDifficultyScreen;
+
 import battleshipGUI.SetNameScreen;
 import game.AlreadyShotException;
 import game.DifficultyManager;
@@ -421,7 +425,8 @@ public void setItemsOnAreaPC(int difficultyNumber, int playerNumber) {
 		}
 		
 		public void endOfTheGame() {
-			// Reaktion des Spiels, wenn ein Spieler alle Schiffe abgeschossen hat.
+			
+			
 		}
 		
 		public void quitGame() {

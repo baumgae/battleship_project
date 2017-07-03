@@ -7,6 +7,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
+import gameConfigurations.CreatePlayerException;
+import gameConfigurations.PlayerFactory;
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -48,7 +54,7 @@ public class SelectPlayerScreen {
 		Button singlePlayer = new Button("Single Player");
 		singlePlayer.setOnAction(event -> {
 			logger.info("Single-Player Mode has been choosen!");
-			// Führ dann zum Screen, wo der SinglePlayer seine Schiffe
+			// Führt dann zum Screen, wo der SinglePlayer seine Schiffe
 			// setzen kann usw.
 			// Nachdem er auf Start drückt, werden im hintergrund
 			// die Schiffe vom ComputerPlayer gesezt.

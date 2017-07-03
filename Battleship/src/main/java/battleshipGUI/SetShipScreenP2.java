@@ -9,6 +9,9 @@ import org.apache.logging.log4j.Logger;
 
 import com.hdm_stuttgart.Battleship.CustomButton;
 import com.hdm_stuttgart.Battleship.GameManager;
+import game.GameArea;
+import gameConfigurations.Item;
+
 
 import game.DifficultyManager;
 import game.EDifficulty;

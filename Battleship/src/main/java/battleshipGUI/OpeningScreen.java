@@ -3,6 +3,8 @@ package battleshipGUI;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.hdm_stuttgart.Battleship.AutoBackUpThread;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -44,6 +46,16 @@ public class OpeningScreen extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		OpeningScreen.primaryStage = primaryStage;
 		
+		// Beim Schließen des kompletten Fensters soll auch der Thread gekillt werden.
+		primaryStage.setOnCloseRequest(event -> {
+			
+			
+			AutoBackUpThread thread = GameAreaScreen.getInstance().thread;
+			// thread.interrupt();
+			
+			
+			
+		});
 		//this.primaryStage = primaryStage;
 		VBox root = new VBox();
 		

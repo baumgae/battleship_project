@@ -47,34 +47,37 @@ public class SetShipsScreen {
 	int i = 0;
 	private int currentNumberOfShips;
 	public static int possibleShips;
-	int difficulty = SelectDifficultyScreen.difficultyNumber;
-	public static Point difficultyP;
+	
 	
 	VBox getScreen() {
-
+		
+		
 		if (GameManager.playerNumber == 1) {
 			
+			int difficulty = SelectDifficultyScreen.difficultyNumber;
+			Point difficultyP;
+			int possibleShips;
 			
 			if (difficulty == 1) {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.EASY);
 				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.EASY);
-				//this.possibleShips = possibleShips;
+				this.possibleShips = possibleShips;
 
 	
 			} else if (difficulty == 2) {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.NORMAL);
 				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.NORMAL);
-				//this.possibleShips = possibleShips;
+				this.possibleShips = possibleShips;
 				
 			} else if (difficulty == 3) {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.HARD);
 				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.HARD);
-				//this.possibleShips = possibleShips;
+				this.possibleShips = possibleShips;
 				
 			} else {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.SUICIDAL);
 				possibleShips = DifficultyManager.getNumberOfOneFieldBoat(EDifficulty.SUICIDAL);
-				//this.possibleShips = possibleShips;
+				this.possibleShips = possibleShips;
 			}
 			
 			Label header1 = new Label(SetNameScreen.name + "'s Area");

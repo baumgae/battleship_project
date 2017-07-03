@@ -5,9 +5,11 @@ import java.awt.Point;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.hdm_stuttgart.Battleship.AutoBackUpThread;
 import com.hdm_stuttgart.Battleship.CustomButton;
 import com.hdm_stuttgart.Battleship.GameManager;
 
+import game.AlreadyShotException;
 import game.DifficultyManager;
 import game.EDifficulty;
 import game.GameArea;
@@ -46,8 +48,20 @@ public class GameAreaScreen {
 
 	GridPane gameGrid1 = new GridPane();
 	GridPane gameGrid2 = new GridPane();
-
+	
+	private static GameAreaScreen instance;
+	
+	public AutoBackUpThread thread;
+	
 	private static final Logger logger = LogManager.getLogger(GameAreaScreen.class);
+	
+	public static GameAreaScreen getInstance(){
+		if(instance == null){
+			instance = new GameAreaScreen();
+		}
+		return instance;
+	}
+	
 
 	// einen Button mit Connection zum Menü einbauen
 	public VBox getScreen() {
@@ -56,6 +70,11 @@ public class GameAreaScreen {
 		HBox root2 = new HBox();
 		Label Title = new Label("Battleship");
 		Button Menu = new Button("Menu");
+		
+		 // Ausführen des Threads 
+		AutoBackUpThread thread = new AutoBackUpThread();
+		thread.start();
+		thread = this.thread;
 
 		int difficulty = SelectDifficultyScreen.difficultyNumber;
 		Point difficultyP;

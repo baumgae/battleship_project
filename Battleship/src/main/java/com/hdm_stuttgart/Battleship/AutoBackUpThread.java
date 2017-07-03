@@ -23,16 +23,15 @@ public class AutoBackUpThread extends Thread{
 
 	GameArea gameArea = GameManager.getInstance().getGameAreaPlayerOne();
 	Item item[][] = gameArea.getItems();
+
+	
 	@Override
 	public void run() {
 		while(true){
-			
-			start();
-			for(int x = 0; x <= item.length; x++) {
-				for(int y = 0; y <= item[x].length; y++) {
-					
-					System.out.println(item[x][y]);
-					
+	
+			for(int x = 0; x < item.length; x++) {
+				for(int y = 0; y < item[x].length; y++) {
+					System.out.println(item[x][y].getID());
 				}
 				
 			}
@@ -44,6 +43,5 @@ public class AutoBackUpThread extends Thread{
 			}
 		}
 	}
-	
-	
+
 }
