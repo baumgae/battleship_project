@@ -42,6 +42,7 @@ public class OpeningScreen extends Application{
 	 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		OpeningScreen.primaryStage = primaryStage;
 		
 		//this.primaryStage = primaryStage;
 		VBox root = new VBox();
