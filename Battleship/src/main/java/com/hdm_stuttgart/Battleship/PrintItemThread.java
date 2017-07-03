@@ -34,7 +34,9 @@ public class PrintItemThread extends Thread{
 
 	
 	@Override
-	public void run() {	
+
+	public void run() {
+
 		// TJ: Das mit dem interrupt() war eine gute Idee! Leider ist das einfach nur eine
 		// nette Anfrage an den Thread sich zu beenden. Da eurer hier noch mit der Schleife
 		// beschäftigt ist, reagiert das hier nicht. Wenn jetzt running auf false geht, muss 
