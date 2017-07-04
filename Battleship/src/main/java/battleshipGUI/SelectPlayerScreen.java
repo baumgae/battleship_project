@@ -12,7 +12,6 @@ import gameConfigurations.PlayerFactory;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -24,9 +23,9 @@ import org.apache.logging.log4j.Logger;
  * a human player.
  * <p>
  * 
- * The user has different options. He can start a Game as a
- * single player by pushing the button singlePlayer,
- * or with multiple player by pushing multiplayer <br>
+ * The user has different options. He can start a Game as a single player by
+ * pushing the button singlePlayer, or with multiple player by pushing
+ * multiplayer <br>
  * As soon as he chose a mode, the next screen will appear.
  * 
  * <p>
@@ -35,11 +34,8 @@ import org.apache.logging.log4j.Logger;
  * @version 1.0
  */
 
-
-
 public class SelectPlayerScreen {
 
-	
 	private static final Logger logger = LogManager.getLogger(SelectPlayerScreen.class);
 
 	public VBox getScreen() {
@@ -51,7 +47,7 @@ public class SelectPlayerScreen {
 		Button singlePlayer = new Button("Single Player");
 		singlePlayer.setOnAction(event -> {
 			logger.info("Single-Player Mode has been choosen!");
-			
+
 			GameManager gameMan = new GameManager();
 			gameMan.selectPlayer(1);
 
@@ -59,9 +55,6 @@ public class SelectPlayerScreen {
 			VBox setName = name.getScreen();
 			Scene scene = new Scene(setName, 300, 400);
 			OpeningScreen.getPrimaryStage().setScene(scene);
-			
-			
-			
 
 		});
 
@@ -71,13 +64,12 @@ public class SelectPlayerScreen {
 
 			GameManager gameMan = new GameManager();
 			gameMan.selectPlayer(2);
-			
+
 			SetNameScreen name = new SetNameScreen();
 			VBox setName = name.getScreen();
 			Scene scene = new Scene(setName, 300, 400);
 			OpeningScreen.getPrimaryStage().setScene(scene);
-			
-			
+
 		});
 
 		root.getChildren().addAll(labelTitle, labelTitle2, singlePlayer, multiPlayer);

@@ -48,30 +48,27 @@ public class GameAreaScreen {
 
 	GridPane gameGrid1 = new GridPane();
 	GridPane gameGrid2 = new GridPane();
-	
-	
+
 	private static final Logger logger = LogManager.getLogger(GameAreaScreen.class);
-	
+
 	/**
 	 * VBox containing the whole GameAreaScreen
 	 * 
 	 * @return VBox
 	 */
 	public VBox getScreen() {
-		
+
 		GameManager.getInstance().startThreadPrintItems();
-		
+
 		logger.info("Loaded GameAreaScreen");
 		VBox root = new VBox();
 		HBox root2 = new HBox();
 		Label Title = new Label("Battleship");
 		Button Menu = new Button("Menu");
-		
 
 		int difficulty = SelectDifficultyScreen.difficultyNumber;
 		Point difficultyP;
 
-		
 		if (difficulty == 1) {
 			difficultyP = DifficultyManager.getFieldSize(EDifficulty.EASY);
 
@@ -102,7 +99,6 @@ public class GameAreaScreen {
 			VBox left = new VBox();
 			Label header1 = new Label(SetNameScreen.name + "'s Area");
 
-			
 			CustomButton buttons[][] = new CustomButton[difficultyP.x][difficultyP.y];
 
 			GameArea gameAreaOne = GameManager.getInstance().getGameAreaPlayerOne();
@@ -118,17 +114,16 @@ public class GameAreaScreen {
 
 						CustomButton clickedButton2 = (CustomButton) event.getSource();
 						try {
-						
+
 							int currentNumberOfShips = 0;
 							int possibleShips = SetShipsScreen.getpossibleShips();
-							
-							if(currentNumberOfShips < possibleShips){
+
+							if (currentNumberOfShips < possibleShips) {
 								Point r = GameManager.getInstance().generateRandomShoots();
 								GameManager.getInstance().shootOnCoordinatePC(r);
-								
+
 								currentNumberOfShips++;
 							}
-				
 
 						} catch (Exception e) {
 							logger.info("You cannot shoot twice on one field!");
@@ -136,36 +131,31 @@ public class GameAreaScreen {
 						}
 						clickedButton2.unhide();
 					});
-					
-					
+
 					gameGrid1.add(buttons[i][j], i, j);
-					
-					
+
 				}
 			}
-			
+
 			left.getChildren().addAll(header1, gameGrid1);
 
 			// VBox for creating some space between the Areas
 			VBox middle = new VBox();
 			Label headerM = new Label(" 		    ");
-			
-			
+
 			Button endGame = new Button("End of the Game");
 			endGame.setOnAction(event2 -> {
-					ScoreScreen ngs = new ScoreScreen();
-					VBox ScoreScreen = ngs.getScreen();
-					Scene scene3 = new Scene(ScoreScreen, 300, 400);
-					OpeningScreen.getPrimaryStage().setScene(scene3);
-						});
+				ScoreScreen ngs = new ScoreScreen();
+				VBox ScoreScreen = ngs.getScreen();
+				Scene scene3 = new Scene(ScoreScreen, 300, 400);
+				OpeningScreen.getPrimaryStage().setScene(scene3);
+			});
 
 			middle.getChildren().addAll(headerM, endGame);
-			
-			
+
 			VBox right = new VBox();
 			Label header2 = new Label("Computer's Area");
 
-			
 			CustomButton buttons2[][] = new CustomButton[difficultyP.x][difficultyP.y];
 
 			GameArea gameAreatwo = GameManager.getInstance().getGameAreaPlayerTwo();
@@ -180,19 +170,17 @@ public class GameAreaScreen {
 
 					buttons2[i][j].setOnAction(event -> {
 
-						
 						CustomButton clickedButton = (CustomButton) event.getSource();
 						try {
-							
+
 							int currentNumberOfShips = 0;
 							int possibleShips = SetShipsScreen.getpossibleShips();
-							
-							if(currentNumberOfShips < possibleShips){
+
+							if (currentNumberOfShips < possibleShips) {
 								GameManager.getInstance().shootOnCoordinate(1, p);
-								
+
 								currentNumberOfShips++;
 							}
-
 
 						} catch (Exception e) {
 							logger.info("You cannot shoot twice on one field!");
@@ -201,10 +189,9 @@ public class GameAreaScreen {
 						clickedButton.unhide();
 
 					});
-					
+
 					gameGrid2.add(buttons2[i][j], i, j);
-				
-					
+
 				}
 			}
 
@@ -212,15 +199,13 @@ public class GameAreaScreen {
 
 			root2.getChildren().addAll(left, middle, right);
 
-			
 			root.getChildren().addAll(Title, Menu, root2);
 			return root;
 
-			/* 
+			/*
 			 * If Multiplayer mode has been chosen
 			 */
 		} else if (GameManager.playerNumber == 2) {
-
 
 			VBox left = new VBox();
 			Label header1 = new Label(SetNameScreen.nameOne + "'s Area");
@@ -238,47 +223,44 @@ public class GameAreaScreen {
 					buttons[i][j].setOnAction(event -> {
 
 						CustomButton clickedButton = (CustomButton) event.getSource();
-						
+
 						try {
-							
+
 							int currentNumberOfShips = 0;
 							int possibleShips = SetShipsScreen.getpossibleShips();
-							
-							if(currentNumberOfShips < possibleShips){
+
+							if (currentNumberOfShips < possibleShips) {
 								GameManager.getInstance().shootOnCoordinate(1, p);
-								
+
 								currentNumberOfShips++;
 							}
-							
+
 						} catch (Exception e) {
 							logger.info("You cannot shoot twice on one field!");
 
 						}
-						
+
 						clickedButton.unhide();
 
 					});
 					gameGrid1.add(buttons[i][j], i, j);
 				}
 			}
-			
 
 			left.getChildren().addAll(header1, gameGrid1);
-
 
 			// VBox for creating some space between the Areas
 			VBox middle = new VBox();
 			Label headerM = new Label(" 		    ");
 			Button endGame = new Button("End of the Game");
 			endGame.setOnAction(event2 -> {
-					ScoreScreen ngs = new ScoreScreen();
-					VBox ScoreScreen = ngs.getScreen();
-					Scene scene3 = new Scene(ScoreScreen, 300, 400);
-					OpeningScreen.getPrimaryStage().setScene(scene3);
-						});
+				ScoreScreen ngs = new ScoreScreen();
+				VBox ScoreScreen = ngs.getScreen();
+				Scene scene3 = new Scene(ScoreScreen, 300, 400);
+				OpeningScreen.getPrimaryStage().setScene(scene3);
+			});
 			middle.getChildren().addAll(headerM, endGame);
-			
-			
+
 			VBox right = new VBox();
 			Label header2 = new Label(SetNameScreen.nameTwo + "'s Area");
 
@@ -296,18 +278,17 @@ public class GameAreaScreen {
 
 					buttons2[i][j].setOnAction(event -> {
 
-						
 						CustomButton clickedButton = (CustomButton) event.getSource();
 						try {
-							
+
 							int currentNumberOfShips = 0;
 							int possibleShips = SetShipsScreen.getpossibleShips();
-							
-							if(currentNumberOfShips < possibleShips){
+
+							if (currentNumberOfShips < possibleShips) {
 								GameManager.getInstance().shootOnCoordinate(1, p);
 								currentNumberOfShips++;
 							}
-							
+
 						} catch (Exception e) {
 							logger.info("You cannot shoot twice on one field!");
 
@@ -322,7 +303,6 @@ public class GameAreaScreen {
 
 			right.getChildren().addAll(header2, gameGrid2);
 
-			
 			root2.getChildren().addAll(left, middle, right);
 			root.getChildren().addAll(Title, Menu, root2);
 			return root;

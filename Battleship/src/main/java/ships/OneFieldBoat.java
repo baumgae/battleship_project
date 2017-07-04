@@ -9,18 +9,17 @@ import org.apache.logging.log4j.Logger;
  * Subclass of AShip called OneFieldBoat
  * 
  * <p>
- * This class is a subclass of AShip.
- * It has the ID '5'.
+ * This class is a subclass of AShip. It has the ID '5'.
  *
  * <p>
- * OneFieldBoat uses in his constructor {@link #OneFieldBoat(String name)} for setting 
- * a OneFieldBoats name.<br>
+ * OneFieldBoat uses in his constructor {@link #OneFieldBoat(String name)} for
+ * setting a OneFieldBoats name.<br>
  * 
- * Through the method {@link #isHidden(boolean)} you can set the
- * visibility of the OneFieldBoat.<br>
+ * Through the method {@link #isHidden(boolean)} you can set the visibility of
+ * the OneFieldBoat.<br>
  * 
- * The method {@link #getScore()} returns the points a player receives, if a player
- * shoots on a OneFieldBoat. <br>
+ * The method {@link #getScore()} returns the points a player receives, if a
+ * player shoots on a OneFieldBoat. <br>
  * 
  * {@link #isDestroyed()} sets the destruction of a OneFieldBoat. <br>
  * 
@@ -30,26 +29,28 @@ import org.apache.logging.log4j.Logger;
  * 
  * {@link #getPosition()} returns the position of a OneFieldBoat. <br>
  * 
- * {@link #getXPosition()} returns the X-coordinate of the position of the OneFieldBoat. <br>
+ * {@link #getXPosition()} returns the X-coordinate of the position of the
+ * OneFieldBoat. <br>
  * 
- * {@link #getYPosition()} returns the Y-coordinate of the position of the OneFieldBoat. <br>
+ * {@link #getYPosition()} returns the Y-coordinate of the position of the
+ * OneFieldBoat. <br>
  * 
  * {@link #getSize()} returns the size of the OneFieldBoat. <br>
  * 
- * <p> 
+ * <p>
  *
  * @author Lea Baumgärtner
  * @version 1.0
  */
 public class OneFieldBoat extends AShip {
-	
+
 	private static final Logger logger = LogManager.getLogger(OneFieldBoat.class);
 
 	boolean hide;
 	boolean destroy;
 	Point p;
 	String name;
-	
+
 	/**
 	 * Set name of a OneFieldBoat
 	 * 
@@ -59,8 +60,8 @@ public class OneFieldBoat extends AShip {
 		this.name = name;
 		hide = true;
 		destroy = false;
-	 }
-	
+	}
+
 	/**
 	 * Set the visibility of a OneFieldBoat
 	 * 
@@ -74,7 +75,7 @@ public class OneFieldBoat extends AShip {
 		this.hide = hide;
 		return hide;
 	}
-	
+
 	/**
 	 * Return the points of a OneFieldBoat if it is shot.
 	 * 
@@ -84,7 +85,7 @@ public class OneFieldBoat extends AShip {
 	public int getScore() {
 		logger.info("The method OneFieldBoat.getScore has been called!");
 		logger.info("The player gets 100 points!");
-		int plusPoints = 100;	
+		int plusPoints = 100;
 		return plusPoints;
 	}
 
@@ -100,7 +101,7 @@ public class OneFieldBoat extends AShip {
 		logger.info("The method OneFieldBoat.isDestroyed has been called!");
 		return destroy;
 	}
-	
+
 	/**
 	 * Returns ID of the OneFieldBoat
 	 * 
@@ -112,7 +113,7 @@ public class OneFieldBoat extends AShip {
 		logger.info("ID = 5 should be returned!");
 		return 5;
 	}
-	
+
 	/**
 	 * Sets the position of a OneFieldBoat
 	 * 
@@ -122,9 +123,9 @@ public class OneFieldBoat extends AShip {
 	public void setPosition(Point p) {
 		logger.info("The method OneFieldBoat.setPosition has been called!");
 		this.p = p;
-		
+
 	}
-	
+
 	/**
 	 * Returns the position of a OneFieldBoat
 	 * 
@@ -135,8 +136,7 @@ public class OneFieldBoat extends AShip {
 		logger.info("The method OneFieldBoat.getPosition has been called!");
 		return p;
 	}
-	
-	
+
 	/**
 	 * Returns X-coordinate of the position of a OneFieldBoat
 	 * 
@@ -158,7 +158,7 @@ public class OneFieldBoat extends AShip {
 		logger.info("The method OneFieldBoat.getYPosition has been called!");
 		return p.y;
 	}
-	
+
 	/**
 	 * Returns size of a OneFieldBoat
 	 * 
@@ -169,5 +169,5 @@ public class OneFieldBoat extends AShip {
 		logger.info("The method OneFieldBoat.getSize has been called!");
 		return 1;
 	}
-	
+
 }

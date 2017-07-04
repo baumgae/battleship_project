@@ -14,13 +14,14 @@ import org.apache.logging.log4j.Logger;
  * -100 points.
  *
  * <p>
- * Through the constructor {@link #Dolphin} the name of a Dolphin can be set. <br>
+ * Through the constructor {@link #Dolphin} the name of a Dolphin can be set.
+ * <br>
  * 
- * Through the method {@link #isHidden(boolean)} you can set the
- * visibility of the Dolphin.<br>
+ * Through the method {@link #isHidden(boolean)} you can set the visibility of
+ * the Dolphin.<br>
  * 
- * The method {@link #getScore()} returns the points a player receives, if a player
- * shoots on a Dolphin. <br>
+ * The method {@link #getScore()} returns the points a player receives, if a
+ * player shoots on a Dolphin. <br>
  * 
  * {@link #isDestroyed()} sets the destruction of a Dolphin. <br>
  * 
@@ -30,9 +31,11 @@ import org.apache.logging.log4j.Logger;
  * 
  * {@link #getPosition()} returns the position of a Dolphin. <br>
  * 
- * {@link #getXPosition()} returns the X-coordinate of the position of the Dolphin. <br>
+ * {@link #getXPosition()} returns the X-coordinate of the position of the
+ * Dolphin. <br>
  * 
- * {@link #getYPosition()} returns the Y-coordinate of the position of the Dolphin. <br>
+ * {@link #getYPosition()} returns the Y-coordinate of the position of the
+ * Dolphin. <br>
  * 
  * {@link #getSize()} returns the size of the Dolphin. <br>
  * 
@@ -45,12 +48,12 @@ import org.apache.logging.log4j.Logger;
 public class Dolphin extends AGameItem {
 
 	private static final Logger logger = LogManager.getLogger(Dolphin.class);
-	
+
 	boolean hide;
 	boolean destroy;
 	Point p;
 	String name;
-	
+
 	/**
 	 * Set name of a Dolphin
 	 * 
@@ -61,7 +64,7 @@ public class Dolphin extends AGameItem {
 		hide = true;
 		destroy = false;
 	}
-	
+
 	/**
 	 * Set the visibility of a Dolphin
 	 * 
@@ -75,7 +78,7 @@ public class Dolphin extends AGameItem {
 		hide = this.hide;
 		return hide;
 	}
-	
+
 	/**
 	 * Return the minusPoints of a Dolphin if it is shot.
 	 * 
@@ -88,7 +91,7 @@ public class Dolphin extends AGameItem {
 		int minusPoints = -100;
 		return minusPoints;
 	}
-	
+
 	/**
 	 * Sets the destruction of a Dolphin
 	 * 
@@ -102,7 +105,7 @@ public class Dolphin extends AGameItem {
 		destroy = this.destroy;
 		return destroy;
 	}
-	
+
 	/**
 	 * Returns ID of the Dolphin
 	 * 
@@ -114,7 +117,7 @@ public class Dolphin extends AGameItem {
 		logger.info("ID = 1 should be returned!");
 		return 1;
 	}
-	
+
 	/**
 	 * Sets the position of a Dolphin
 	 * 
@@ -125,7 +128,7 @@ public class Dolphin extends AGameItem {
 		logger.info("The method Dolphine.setPosition has been called!");
 		this.p = p;
 	}
-	
+
 	/**
 	 * Returns the position of a Dolphin
 	 * 
@@ -136,7 +139,7 @@ public class Dolphin extends AGameItem {
 		logger.info("The method Dolphine.getPosition has been called!");
 		return p;
 	}
-	
+
 	/**
 	 * Returns X-coordinate of the position of a Dolphin
 	 * 
@@ -147,7 +150,7 @@ public class Dolphin extends AGameItem {
 		logger.info("The method Dolphine.getXPosition has been called!");
 		return p.x;
 	}
-	
+
 	/**
 	 * Returns Y-coordinate of the position of a Dolphin
 	 * 
@@ -158,7 +161,7 @@ public class Dolphin extends AGameItem {
 		logger.info("The method Dolphine.getYPosition has been called!");
 		return p.y;
 	}
-	
+
 	/**
 	 * Returns size of a Dolphin
 	 * 

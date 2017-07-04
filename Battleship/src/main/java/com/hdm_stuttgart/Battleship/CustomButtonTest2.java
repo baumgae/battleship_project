@@ -32,10 +32,13 @@ import game.EDifficulty;
 import javafx.scene.control.Label;
 
 import javafx.scene.layout.VBox;
+
 /**
  * CustomButtonTest2
  * <p>
- * This was a class for testing the functions and possibilities of the CustomButton. <p>
+ * This was a class for testing the functions and possibilities of the
+ * CustomButton.
+ * <p>
  * 
  * <p>
  * 
@@ -53,8 +56,6 @@ public class CustomButtonTest2 extends Application {
 	VBox root3;
 	VBox root2;
 
-	
-
 	public static Stage getPrimaryStage() {
 		return primaryStage;
 	}
@@ -69,7 +70,6 @@ public class CustomButtonTest2 extends Application {
 		/**
 		 * Title for the whole screen
 		 */
-		
 
 		Point difficulty = DifficultyManager.getFieldSize(EDifficulty.EASY);
 
@@ -94,7 +94,6 @@ public class CustomButtonTest2 extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 
-		
 	}
 
 	public static void main(String[] args) {

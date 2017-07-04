@@ -17,12 +17,11 @@ import javafx.scene.image.ImageView;
  * 
  * <p>
  * 
- * With the constructor {@link #CustomButton(Point p, int ID)} creates a single CustomButton with
- * an image for water, which hasn't been shot by now. He receives a Point as
- * parameter for knowing where to set one as well as the ID for the item below.
- * He holds actually two images for one
- * not shot and one shot button.
- * <br>
+ * With the constructor {@link #CustomButton(Point p, int ID)} creates a single
+ * CustomButton with an image for water, which hasn't been shot by now. He
+ * receives a Point as parameter for knowing where to set one as well as the ID
+ * for the item below. He holds actually two images for one not shot and one
+ * shot button. <br>
  * The method {@link #unhide()} the button with which the Item bellow will be
  * revealed. So this method reveals the image below depending on the ID.
  * 
@@ -43,7 +42,9 @@ public class CustomButton extends Button {
 	private static final Logger logger = LogManager.getLogger(CustomButton.class);
 
 	/**
-	 * Constructor for creating a Button and therefore a coordinate on the GameArea
+	 * Constructor for creating a Button and therefore a coordinate on the
+	 * GameArea
+	 * 
 	 * @param p
 	 * @param ID
 	 */
@@ -63,9 +64,9 @@ public class CustomButton extends Button {
 	 * Method for revealing the image below through set ID
 	 */
 	public void unhide() {
-		
+
 		int type = this.type;
-		
+
 		if (type == 0) {
 
 			Image imageDecline = new Image(getClass().getResourceAsStream("ShotWater.png"));
@@ -112,8 +113,7 @@ public class CustomButton extends Button {
 			this.setGraphic(imageView);
 			GameManager.getInstance().setScore(Integer.MIN_VALUE);
 
-		}
-		else if (type == 5) {
+		} else if (type == 5) {
 
 			Image imageDecline = new Image(getClass().getResourceAsStream("OneFieldBoat.png"));
 

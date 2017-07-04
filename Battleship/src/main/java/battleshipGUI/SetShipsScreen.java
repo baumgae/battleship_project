@@ -24,16 +24,16 @@ import javafx.scene.layout.VBox;
  * set his different ships on special coordinates.
  * <p>
  * 
- * The user is allowed to set as many ships as possible depending on the chosen difficulty.
- * Depending on the chosen mode, the SetShipsScreenP2 or the GameAreaScreen will be next screen .
+ * The user is allowed to set as many ships as possible depending on the chosen
+ * difficulty. Depending on the chosen mode, the SetShipsScreenP2 or the
+ * GameAreaScreen will be next screen .
  * 
  * <p>
  * 
  * @author Celine Wichmann
- * @autor  Lea Baumgärtner
+ * @autor Lea Baumgärtner
  * @version 1.0
  */
-
 
 public class SetShipsScreen {
 
@@ -45,48 +45,57 @@ public class SetShipsScreen {
 	int i = 0;
 	private int currentNumberOfShips;
 	public static int possibleShips;
-	
+
 	public static int getpossibleShips() {
 		return possibleShips;
 	}
-	
+
 	/**
 	 * Method containing the whole screen of SetShipsScreen
+	 * 
 	 * @return VBox
 	 */
 	VBox getScreen() {
-		
+
 		/*
 		 * If the SinglePlayer mode has been chosen
 		 */
 		if (GameManager.playerNumber == 1) {
-			
+
 			int difficulty = SelectDifficultyScreen.difficultyNumber;
 			Point difficultyP;
 			int possibleShips;
-			
+
+			/**
+			 * Getting FieldSize and ships depending on difficulty
+			 */
 			if (difficulty == 1) {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.EASY);
 				possibleShips = DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.EASY);
 				this.possibleShips = possibleShips;
 
-	
 			} else if (difficulty == 2) {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.NORMAL);
 				possibleShips = DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.NORMAL);
 				this.possibleShips = possibleShips;
-				
+
 			} else if (difficulty == 3) {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.HARD);
 				possibleShips = DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.HARD);
 				this.possibleShips = possibleShips;
-				
+
 			} else {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.SUICIDAL);
 				possibleShips = DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.SUICIDAL);
 				this.possibleShips = possibleShips;
 			}
-			
+
+			/**
+			 * Field for setting ships of the first player
+			 * 
+			 * Items for the field of the computer player will be generated
+			 * randomly
+			 */
 			Label header1 = new Label(SetNameScreen.name + "'s Area");
 			Label header2 = new Label("Please set your ships!");
 			Label header3 = new Label("You are allowed to set " + possibleShips + " ships!");
@@ -98,43 +107,39 @@ public class SetShipsScreen {
 				Scene scene = new Scene(GameAreaScreen, 800, 1000);
 				OpeningScreen.getPrimaryStage().setScene(scene);
 			});
-				
-			
+
 			GameManager.getInstance().createGameArea(difficulty, 1);
 			GameManager.getInstance().setItemsOnArea(difficulty, 1);
-			
+
 			CustomButton buttons[][] = new CustomButton[difficultyP.x][difficultyP.y];
 
-				for (int i = 0; i < buttons.length; i++) {
-					
-					for (int j = 0; j < buttons[i].length; j++) {
-						Point p = new Point(i, j);
-						buttons[i][j] = new CustomButton(p, 5);
-						buttons[i][j].setOnAction(event-> {
-							// Damit darf der Player nur so viele Schiffe setzen, wie er nach schwierigkeit darf.
-							
-							if(currentNumberOfShips >= possibleShips){
-								logger.info("adding additional ships is not allowed. maximum number of ships is exceeded: "
-										+ possibleShips);
-								return;
-							}
-							currentNumberOfShips++;
-							CustomButton clickedButton = (CustomButton) event.getSource();
-							
-							
-							GameManager.getInstance().setShipsOnArea(1, p);
-							
-							clickedButton.unhide();
-						});
-						
-						grid.add(buttons[i][j], i, j);
+			for (int i = 0; i < buttons.length; i++) {
 
-					}
+				for (int j = 0; j < buttons[i].length; j++) {
+					Point p = new Point(i, j);
+					buttons[i][j] = new CustomButton(p, 5);
+					buttons[i][j].setOnAction(event -> {
+
+						if (currentNumberOfShips >= possibleShips) {
+							logger.info("adding additional ships is not allowed. maximum number of ships is exceeded: "
+									+ possibleShips);
+							return;
+						}
+						currentNumberOfShips++;
+						CustomButton clickedButton = (CustomButton) event.getSource();
+
+						GameManager.getInstance().setShipsOnArea(1, p);
+
+						clickedButton.unhide();
+					});
+
+					grid.add(buttons[i][j], i, j);
+
 				}
-				
+			}
+
 			GameManager.getInstance().createGameArea(difficulty, 2);
 			GameManager.getInstance().setItemsOnAreaPC(difficulty, 2);
-				
 
 			root.getChildren().addAll(labelHeader, header1, header2, header3, startGame, grid);
 
@@ -145,28 +150,31 @@ public class SetShipsScreen {
 		 * If Multiplayer mode has been chosen
 		 */
 		if (GameManager.playerNumber == 2) {
-			
+
 			int difficulty = SelectDifficultyScreen.difficultyNumber;
 			Point difficultyP;
 			int possibleShips;
-			
+
+			/**
+			 * Getting FieldSize and ships depending on difficulty
+			 */
 			if (difficulty == 1) {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.EASY);
 				possibleShips = DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.EASY);
-			
+
 			} else if (difficulty == 2) {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.NORMAL);
 				possibleShips = DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.NORMAL);
-				
+
 			} else if (difficulty == 3) {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.HARD);
 				possibleShips = DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.HARD);
-				
+
 			} else {
 				difficultyP = DifficultyManager.getFieldSize(EDifficulty.SUICIDAL);
 				possibleShips = DifficultyManager.getNumberOfOneFieldBoats(EDifficulty.SUICIDAL);
 			}
-			
+
 			Label header1 = new Label(SetNameScreen.nameOne + "'s Area");
 			Label header2 = new Label("Please set your ships!");
 			Label header3 = new Label("You are allowed to set " + possibleShips + " ships");
@@ -179,39 +187,39 @@ public class SetShipsScreen {
 				OpeningScreen.getPrimaryStage().setScene(scene);
 
 			});
-			
+
 			GameManager.getInstance().createGameArea(difficulty, 1);
 			GameManager.getInstance().setItemsOnArea(difficulty, 1);
-			
+
 			CustomButton buttons[][] = new CustomButton[difficultyP.x][difficultyP.y];
-			
+
 			for (int i = 0; i < buttons.length; i++) {
-				
+
 				for (int j = 0; j < buttons[i].length; j++) {
 					Point p = new Point(i, j);
 					buttons[i][j] = new CustomButton(p, 5);
-					buttons[i][j].setOnAction(event-> {
-						
-						if(currentNumberOfShips >= possibleShips){
+					buttons[i][j].setOnAction(event -> {
+
+						if (currentNumberOfShips >= possibleShips) {
 							logger.info("adding additional ships is not allowed. maximum number of ships is exceeded: "
 									+ possibleShips);
 							return;
 						}
 						currentNumberOfShips++;
 						CustomButton clickedButton = (CustomButton) event.getSource();
-					
+
 						GameManager.getInstance().setShipsOnArea(1, p);
 						clickedButton.unhide();
 					});
-					
+
 					grid.add(buttons[i][j], i, j);
 
 				}
 			}
 
-		root.getChildren().addAll(labelHeader, header1, header2, header3, next, grid);
+			root.getChildren().addAll(labelHeader, header1, header2, header3, next, grid);
 
-		return root;
+			return root;
 		} else {
 
 			logger.info("No Screen has been called.");
@@ -223,4 +231,3 @@ public class SetShipsScreen {
 	}
 
 }
-

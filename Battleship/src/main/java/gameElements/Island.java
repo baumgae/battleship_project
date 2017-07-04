@@ -16,11 +16,11 @@ import org.apache.logging.log4j.Logger;
  * <p>
  * Through the constructor {@link #Island} the name of a Island can be set. <br>
  * 
- * Through the method {@link #isHidden(boolean)} you can set the
- * visibility of the Island.<br>
+ * Through the method {@link #isHidden(boolean)} you can set the visibility of
+ * the Island.<br>
  * 
- * The method {@link #getScore()} returns the points a player receives, if a player
- * shoots on a Island. <br>
+ * The method {@link #getScore()} returns the points a player receives, if a
+ * player shoots on a Island. <br>
  * 
  * {@link #isDestroyed()} sets the destruction of a Island. <br>
  * 
@@ -30,9 +30,11 @@ import org.apache.logging.log4j.Logger;
  * 
  * {@link #getPosition()} returns the position of a Island. <br>
  * 
- * {@link #getXPosition()} returns the X-coordinate of the position of the Island. <br>
+ * {@link #getXPosition()} returns the X-coordinate of the position of the
+ * Island. <br>
  * 
- * {@link #getYPosition()} returns the Y-coordinate of the position of the Island. <br>
+ * {@link #getYPosition()} returns the Y-coordinate of the position of the
+ * Island. <br>
  * 
  * {@link #getSize()} returns the size of the Island. <br>
  * 
@@ -44,12 +46,12 @@ import org.apache.logging.log4j.Logger;
 public class Island extends AGameItem {
 
 	private static final Logger logger = LogManager.getLogger(Island.class);
-	
+
 	boolean hide;
 	boolean destroy;
 	Point p;
 	String name;
-	
+
 	/**
 	 * Set name of a Island
 	 * 
@@ -60,7 +62,7 @@ public class Island extends AGameItem {
 		hide = true;
 		destroy = false;
 	}
-	
+
 	/**
 	 * Set the visibility of a Island
 	 * 
@@ -73,7 +75,7 @@ public class Island extends AGameItem {
 		logger.info("The method Island.isHidden has been called!");
 		return hide;
 	}
-	
+
 	/**
 	 * Return the minusPoints of a Island if it is shot.
 	 * 
@@ -86,7 +88,7 @@ public class Island extends AGameItem {
 		int minusPoints = -200;
 		return minusPoints;
 	}
-	
+
 	/**
 	 * Sets the destruction of a Island
 	 * 
@@ -99,7 +101,7 @@ public class Island extends AGameItem {
 		logger.info("The method Island.isDestroyed has been called!");
 		return destroy;
 	}
-	
+
 	/**
 	 * Returns ID of the Island
 	 * 
@@ -111,7 +113,7 @@ public class Island extends AGameItem {
 		logger.info("ID = 2 should be returned!");
 		return 2;
 	}
-	
+
 	/**
 	 * Sets the position of a Island
 	 * 
@@ -121,9 +123,9 @@ public class Island extends AGameItem {
 	public void setPosition(Point p) {
 		logger.info("The method Island.setPosition has been called!");
 		this.p = p;
-		
+
 	}
-	
+
 	/**
 	 * Returns the position of a Island
 	 * 
@@ -134,7 +136,7 @@ public class Island extends AGameItem {
 		logger.info("The method Island.getPosition has been called!");
 		return p;
 	}
-	
+
 	/**
 	 * Returns X-coordinate of the position of a Island
 	 * 
@@ -145,7 +147,7 @@ public class Island extends AGameItem {
 		logger.info("The method Island.getXPosition has been called!");
 		return p.x;
 	}
-	
+
 	/**
 	 * Returns Y-coordinate of the position of a Island
 	 * 
@@ -156,7 +158,7 @@ public class Island extends AGameItem {
 		logger.info("The method Island.getYPosition has been called!");
 		return p.y;
 	}
-	
+
 	/**
 	 * Returns size of a Island
 	 * 

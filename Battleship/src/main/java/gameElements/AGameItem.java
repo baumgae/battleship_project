@@ -10,24 +10,19 @@ import gameConfigurations.Item;
  * This is the super class for the Game Items.
  * 
  * 
- * <p> 
+ * <p>
  *
  * @author Lea Baumgärtner
  * @version 1.0
  */
 
-public abstract class AGameItem implements Item { 
-		
+public abstract class AGameItem implements Item {
+
 	/**
-	*
-	* Fields for the GameItems
-	*
-	**/
-		Point p;
-		
-	
-	
-		
+	 *
+	 * Fields for the GameItems
+	 *
+	 **/
+	Point p;
+
 }
-		
-		

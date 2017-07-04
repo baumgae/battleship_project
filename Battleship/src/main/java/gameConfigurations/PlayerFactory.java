@@ -8,8 +8,8 @@ import org.apache.logging.log4j.Logger;
  * <p>
  * This is a Factory for creating new Players.
  * 
- * HumanPlayer - Player, which is making input through the GUI. 
- * ComputerPlayer - Player, Input through the class AI.
+ * HumanPlayer - Player, which is making input through the GUI. ComputerPlayer -
+ * Player, Input through the class AI.
  * 
  * <p>
  * 

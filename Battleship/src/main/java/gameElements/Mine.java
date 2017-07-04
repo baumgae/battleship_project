@@ -9,24 +9,22 @@ import org.apache.logging.log4j.Logger;
  * 
  * Game Element Mine
  * <p>
- * This class is a subclass of Game Items.
- * It has the ID 4 as well as a special impact.
- * If the player hits a Mine on the shootingArea,
- * he or she will "die" and the game 
- * will be quit immediately. The other player will have won 
- * the game. 
+ * This class is a subclass of Game Items. It has the ID 4 as well as a special
+ * impact. If the player hits a Mine on the shootingArea, he or she will "die"
+ * and the game will be quit immediately. The other player will have won the
+ * game.
  * 
- * But before we can implement this, the impact of the GameElement will
- * be MinusPoints.
+ * But before we can implement this, the impact of the GameElement will be
+ * MinusPoints.
  *
  * <p>
- *Through the constructor {@link #Mine} the name of a Mine can be set. <br>
+ * Through the constructor {@link #Mine} the name of a Mine can be set. <br>
  * 
- * Through the method {@link #isHidden(boolean)} you can set the
- * visibility of the Mine.<br>
+ * Through the method {@link #isHidden(boolean)} you can set the visibility of
+ * the Mine.<br>
  * 
- * The method {@link #getScore()} returns the points a player receives, if a player
- * shoots on a Mine. <br>
+ * The method {@link #getScore()} returns the points a player receives, if a
+ * player shoots on a Mine. <br>
  * 
  * {@link #isDestroyed()} sets the destruction of a Mine. <br>
  * 
@@ -36,27 +34,29 @@ import org.apache.logging.log4j.Logger;
  * 
  * {@link #getPosition()} returns the position of a Mine. <br>
  * 
- * {@link #getXPosition()} returns the X-coordinate of the position of the Mine. <br>
+ * {@link #getXPosition()} returns the X-coordinate of the position of the Mine.
+ * <br>
  * 
- * {@link #getYPosition()} returns the Y-coordinate of the position of the Mine. <br>
+ * {@link #getYPosition()} returns the Y-coordinate of the position of the Mine.
+ * <br>
  * 
  * {@link #getSize()} returns the size of the Mine. <br>
  * 
  * 
- * <p> 
+ * <p>
  *
  * @author Lea Baumgärtner
  * @version 1.0
  */
 public class Mine extends AGameItem {
-	
+
 	private static final Logger logger = LogManager.getLogger(Mine.class);
-	
+
 	boolean hide;
 	boolean destroy;
 	Point p;
 	String name;
-	
+
 	/**
 	 * Set name of a Mine
 	 * 
@@ -67,7 +67,7 @@ public class Mine extends AGameItem {
 		hide = true;
 		destroy = false;
 	}
-	
+
 	/**
 	 * Set the visibility of a Mine
 	 * 
@@ -80,7 +80,7 @@ public class Mine extends AGameItem {
 		logger.info("The method Mine.isHidden has been called!");
 		return hide;
 	}
-	
+
 	/**
 	 * Return the plusPoints of a Mine if it is shot.
 	 * 
@@ -90,10 +90,10 @@ public class Mine extends AGameItem {
 	public int getScore() {
 		logger.info("The method Mine.getScore has been called!");
 		logger.info("The player gets -400 Points!");
-		int minusPoints = -400;	
+		int minusPoints = -400;
 		return minusPoints;
 	}
-	
+
 	/**
 	 * Sets the destruction of a Mine
 	 * 
@@ -106,7 +106,7 @@ public class Mine extends AGameItem {
 		logger.info("The method Mine.isDestroyed has been called!");
 		return destroy;
 	}
-	
+
 	/**
 	 * Returns ID of the Mine
 	 * 
@@ -118,7 +118,7 @@ public class Mine extends AGameItem {
 		logger.info("ID = 4 should be returned!");
 		return 4;
 	}
-	
+
 	/**
 	 * Sets the position of a Mine
 	 * 
@@ -128,9 +128,9 @@ public class Mine extends AGameItem {
 	public void setPosition(Point p) {
 		logger.info("The method Mine.setPosition has been called!");
 		this.p = p;
-		
+
 	}
-	
+
 	/**
 	 * Returns the position of a Mine
 	 * 
@@ -141,7 +141,7 @@ public class Mine extends AGameItem {
 		logger.info("The method Mine.getPosition has been called!");
 		return p;
 	}
-	
+
 	/**
 	 * Returns X-coordinate of the position of a Mine
 	 * 
@@ -152,7 +152,7 @@ public class Mine extends AGameItem {
 		logger.info("The method Mine.getXPosition has been called!");
 		return p.x;
 	}
-	
+
 	/**
 	 * Returns Y-coordinate of the position of a Mine
 	 * 
@@ -163,7 +163,7 @@ public class Mine extends AGameItem {
 		logger.info("The method Mine.getYPosition has been called!");
 		return p.y;
 	}
-	
+
 	/**
 	 * Returns size of a Mine
 	 * 
@@ -174,5 +174,5 @@ public class Mine extends AGameItem {
 		logger.info("The method Mine.getSize has been called!");
 		return 1;
 	}
-	
+
 }

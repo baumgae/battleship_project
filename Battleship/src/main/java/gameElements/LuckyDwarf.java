@@ -14,13 +14,14 @@ import org.apache.logging.log4j.Logger;
  * <p>
  *
  * <p>
- * Through the constructor {@link #LuckyDwarf} the name of a LuckyDwarf can be set. <br>
+ * Through the constructor {@link #LuckyDwarf} the name of a LuckyDwarf can be
+ * set. <br>
  * 
- * Through the method {@link #isHidden(boolean)} you can set the
- * visibility of the LuckyDwarf.<br>
+ * Through the method {@link #isHidden(boolean)} you can set the visibility of
+ * the LuckyDwarf.<br>
  * 
- * The method {@link #getScore()} returns the points a player receives, if a player
- * shoots on a LuckyDwarf. <br>
+ * The method {@link #getScore()} returns the points a player receives, if a
+ * player shoots on a LuckyDwarf. <br>
  * 
  * {@link #isDestroyed()} sets the destruction of a LuckyDwarf. <br>
  * 
@@ -30,9 +31,11 @@ import org.apache.logging.log4j.Logger;
  * 
  * {@link #getPosition()} returns the position of a LuckyDwarf. <br>
  * 
- * {@link #getXPosition()} returns the X-coordinate of the position of the LuckyDwarf. <br>
+ * {@link #getXPosition()} returns the X-coordinate of the position of the
+ * LuckyDwarf. <br>
  * 
- * {@link #getYPosition()} returns the Y-coordinate of the position of the LuckyDwarf. <br>
+ * {@link #getYPosition()} returns the Y-coordinate of the position of the
+ * LuckyDwarf. <br>
  * 
  * {@link #getSize()} returns the size of the LuckyDwarf. <br>
  * 
@@ -45,12 +48,12 @@ import org.apache.logging.log4j.Logger;
 public class LuckyDwarf extends AGameItem {
 
 	private static final Logger logger = LogManager.getLogger(LuckyDwarf.class);
-	
+
 	boolean hide;
 	boolean destroy;
 	Point p;
 	String name;
-	
+
 	/**
 	 * Set name of a LuckyDwarf
 	 * 
@@ -61,7 +64,7 @@ public class LuckyDwarf extends AGameItem {
 		hide = true;
 		destroy = false;
 	}
-	
+
 	/**
 	 * Set the visibility of a LuckyDwarf
 	 * 
@@ -74,7 +77,7 @@ public class LuckyDwarf extends AGameItem {
 		logger.info("The method LuckyDwarf.isHidden has been called!");
 		return hide;
 	}
-	
+
 	/**
 	 * Return the plusPoints of a LuckyDwarf if it is shot.
 	 * 
@@ -97,7 +100,7 @@ public class LuckyDwarf extends AGameItem {
 	public boolean isDestroyed(boolean destroy) {
 		return destroy;
 	}
-	
+
 	/**
 	 * Returns ID of the LuckyDwarf
 	 * 
@@ -107,7 +110,7 @@ public class LuckyDwarf extends AGameItem {
 	public int getID() {
 		return 3;
 	}
-	
+
 	/**
 	 * Sets the position of a LuckyDwarf
 	 * 
@@ -116,7 +119,7 @@ public class LuckyDwarf extends AGameItem {
 	@Override
 	public void setPosition(Point p) {
 		this.p = p;
-		
+
 	}
 
 	/**
@@ -128,7 +131,7 @@ public class LuckyDwarf extends AGameItem {
 	public Point getPosition() {
 		return p;
 	}
-	
+
 	/**
 	 * Returns X-coordinate of the position of a LuckyDwarf
 	 * 
@@ -138,7 +141,7 @@ public class LuckyDwarf extends AGameItem {
 	public int getXPosition() {
 		return p.x;
 	}
-	
+
 	/**
 	 * Returns Y-coordinate of the position of a LuckyDwarf
 	 * 
@@ -148,7 +151,7 @@ public class LuckyDwarf extends AGameItem {
 	public int getYPosition() {
 		return p.y;
 	}
-	
+
 	/**
 	 * Returns size of a LuckyDwarf
 	 * 

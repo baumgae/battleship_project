@@ -14,11 +14,11 @@ import javafx.scene.layout.VBox;
  * DOESN'T WORK: The only option the user has over here is to go back.
  * 
  * <p>
+ * 
  * @author Lea Baumgärtner
  * @version 1.0
  */
 public class ErrorScreen {
-	
 
 	public VBox getScreen() {
 		VBox root = new VBox();
@@ -27,23 +27,22 @@ public class ErrorScreen {
 		Label labelTitle2 = new Label("Hahahahaha...");
 		Label labelTitle3 = new Label("You have to buy the DLC for 99 $!");
 		Label labelTitle4 = new Label("(We've learned from EA :D)");
-		
+
 		Button goBack = new Button("Back");
-		
+
 		// EventHandler for ending the complete Application
-		goBack.setOnAction(
-				event -> {
-					
-					OpeningScreen ngs = new OpeningScreen();
-					VBox opening = ngs.getScreen();
-					Scene scene = new Scene(opening, 300, 400);
-					OpeningScreen.getPrimaryStage().setScene(scene);
-							
-				});
-		
+		goBack.setOnAction(event -> {
+
+			OpeningScreen ngs = new OpeningScreen();
+			VBox opening = ngs.getScreen();
+			Scene scene = new Scene(opening, 300, 400);
+			OpeningScreen.getPrimaryStage().setScene(scene);
+
+		});
+
 		root.getChildren().addAll(labelTitle, labelTitle2, labelTitle3, labelTitle4, goBack);
 
 		return root;
-		
-}
+
+	}
 }

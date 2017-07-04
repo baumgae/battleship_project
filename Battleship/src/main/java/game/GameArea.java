@@ -15,17 +15,18 @@ import gameElements.Water;
 import ships.OneFieldBoat;
 
 /**
- * The class GameArea <p>
+ * The class GameArea
+ * <p>
  * 
  * The Class GameArea is managing the creation of the Game Area and handles the
  * actions on the field. <br>
- * It also manages the status of the coordinate fields, so the player
- * can see where he has shot at and which item is below the coordinate.
+ * It also manages the status of the coordinate fields, so the player can see
+ * where he has shot at and which item is below the coordinate.
  * 
  * <p>
  * First the Game Area will be created with the Constructor
- * {@link #GameArea(EDifficulty)}. 
- * Depending on which difficulty the player has chosen the field has a different size.
+ * {@link #GameArea(EDifficulty)}. Depending on which difficulty the player has
+ * chosen the field has a different size.
  * 
  * <p>
  * The method {@link #generateRandomCoordinate()} generates random coordinates
@@ -33,38 +34,44 @@ import ships.OneFieldBoat;
  * 
  * <p>
  * The method {@link #setNumberOfItems(int, int)} gets the random Coordinates
- * from {@link #generateRandomCoordinate()} and sets and creates the gameElements. Depending
- * on which Difficulty the Player has chosen, there is a different number of Game
- * Elements. The ID is used to decide which Game Element will be created. For
- * example in Difficulty Easy there are three Objects of ID = 1 available, so
- * the method knows there will be three Dolphins created.
+ * from {@link #generateRandomCoordinate()} and sets and creates the
+ * gameElements. Depending on which Difficulty the Player has chosen, there is a
+ * different number of Game Elements. The ID is used to decide which Game
+ * Element will be created. For example in Difficulty Easy there are three
+ * Objects of ID = 1 available, so the method knows there will be three Dolphins
+ * created.
  * 
  * <p>
- * In the method {@link #setShipPosition(Point)} the Player is allowed
- * to set his Number of Ships.
+ * In the method {@link #setShipPosition(Point)} the Player is allowed to set
+ * his Number of Ships.
  * 
  * <p>
  * With the method {@link #shootOnCoordinate(Point)} the Player is allowed to
- * shoot on Coordinates. The Status of each Coordinate is 0 until the
- * Player shoots on a Coordinate, then it changes to 1. If the Player has already
- * shot on this Coordinate, this method will throw an Exception, because you are
- * only allowed to shot at a Coordinate once.
+ * shoot on Coordinates. The Status of each Coordinate is 0 until the Player
+ * shoots on a Coordinate, then it changes to 1. If the Player has already shot
+ * on this Coordinate, this method will throw an Exception, because you are only
+ * allowed to shot at a Coordinate once.
  * 
  * <p>
- * The method {@link #getCoordinateFieldstatus(Point)} return the Status of a Field.
+ * The method {@link #getCoordinateFieldstatus(Point)} return the Status of a
+ * Field.
  * 
  * <p>
- * If a Player shoots on a Coordinate the method{@link #getPointsCoordinate(int, Point)} 
- * will check the ID of the Object which is under the Button. After the method 
- * finds out which Element is under the Coordinate, it returns the Number of Points the Player will get.
+ * If a Player shoots on a Coordinate the
+ * method{@link #getPointsCoordinate(int, Point)} will check the ID of the
+ * Object which is under the Button. After the method finds out which Element is
+ * under the Coordinate, it returns the Number of Points the Player will get.
  * 
  * <p>
- * The method {@link #getIDCoordinate(Point)} returns the ID of the Object under the Field.
+ * The method {@link #getIDCoordinate(Point)} returns the ID of the Object under
+ * the Field.
  * 
  * <p>
- * The method {@link #getItems()} returns Items, including special items and ships.
+ * The method {@link #getItems()} returns Items, including special items and
+ * ships.
  * 
  * <p>
+ * 
  * @author Celine Wichmann
  * @version 1.0
  */
@@ -73,17 +80,18 @@ public class GameArea {
 
 	private static final Logger logger = LogManager.getLogger(GameArea.class);
 
-    Item[][] items;
+	Item[][] items;
 	EDifficulty difficulty;
 	Point p;
 	int randomValueX;
 	int randomValueY;
 	int Fieldstatus = 0; // the field hasn't been shot
 	boolean isItem = true;
-	
+
 	/**
-	 * Constructor which will be called if a Game Area will be created.
-	 * The size of the Game Area depends the difficulty chosen by the player.
+	 * Constructor which will be called if a Game Area will be created. The size
+	 * of the Game Area depends the difficulty chosen by the player.
+	 * 
 	 * @param difficulty
 	 */
 	public GameArea(EDifficulty difficulty) {
@@ -99,7 +107,7 @@ public class GameArea {
 		setNumberOfItems(0, point.x * point.y);
 
 	}
-	
+
 	/*
 	 * Method for generating random coordinates for the special items
 	 */
@@ -121,14 +129,14 @@ public class GameArea {
 
 	/**
 	 * Method for setting special items through random generated coordinates.
-	 * The kind of item depends on the ID and the number of this item 
-	 * depends on the difficulty chosen by the player.
+	 * The kind of item depends on the ID and the number of this item depends on
+	 * the difficulty chosen by the player.
 	 * 
 	 * @param ID
 	 * @param NumberOfItems
 	 */
 	public synchronized void setNumberOfItems(int ID, int NumberOfItems) {
-		
+
 		logger.info("The method setNumberOfItems has been called.");
 		int currentNumberOfItems = 0;
 
@@ -221,6 +229,7 @@ public class GameArea {
 
 	/**
 	 * Method for setting the position of the ships.
+	 * 
 	 * @param p
 	 */
 	public synchronized void setShipPosition(Point p) {
@@ -229,12 +238,11 @@ public class GameArea {
 		items[p.x][p.y] = new OneFieldBoat("Hans");
 
 	}
-	
-	
 
 	/**
-	 * Method for shooting on a coordinate.
-	 * If the player has already shot on the coordinate an exception will be thrown.
+	 * Method for shooting on a coordinate. If the player has already shot on
+	 * the coordinate an exception will be thrown.
+	 * 
 	 * @param p
 	 * @throws Exception
 	 */
@@ -252,10 +260,10 @@ public class GameArea {
 
 		}
 	}
-	
+
 	/**
-	 * Method for getting the status of a Field
-	 * Is the coordinate already shot or not?
+	 * Method for getting the status of a Field Is the coordinate already shot
+	 * or not?
 	 * 
 	 * @param p
 	 * @return FieldStatus
@@ -307,7 +315,7 @@ public class GameArea {
 
 		}
 		if (currentItem.getID() == 5) { // There is an One Field Boat
-			
+
 			// We just have an One Field Boat at this moment.
 			int points = currentItem.getScore();
 			return points;
@@ -345,47 +353,47 @@ public class GameArea {
 		logger.info("The method getIDCoordinate has been called!");
 		Item currentItem = items[p.x][p.y];
 
-		if (currentItem.getID() == 0) { 
+		if (currentItem.getID() == 0) {
 			int ID = currentItem.getID();
 			return ID;
 
 		}
-		if (currentItem.getID() == 1) { 
+		if (currentItem.getID() == 1) {
 			int ID = currentItem.getID();
 			return ID;
 
 		}
-		if (currentItem.getID() == 2) { 
+		if (currentItem.getID() == 2) {
 			int ID = currentItem.getID();
 			return ID;
 
 		}
-		if (currentItem.getID() == 3) { 
+		if (currentItem.getID() == 3) {
 			int ID = currentItem.getID();
 			return ID;
 
 		}
-		if (currentItem.getID() == 4) { 
+		if (currentItem.getID() == 4) {
 			int ID = currentItem.getID();
 			return ID;
 
 		}
-		if (currentItem.getID() == 5) { 
+		if (currentItem.getID() == 5) {
 			int ID = currentItem.getID();
 			return ID;
 
 			/*
-			 * } if (currentItem.getID() == 6) {
-			 * int ID = currentItem.getID(); return ID;
+			 * } if (currentItem.getID() == 6) { int ID = currentItem.getID();
+			 * return ID;
 			 * 
-			 * } if (currentItem.getID() == 7) { 
-			 * int ID = currentItem.getID(); return ID;
+			 * } if (currentItem.getID() == 7) { int ID = currentItem.getID();
+			 * return ID;
 			 * 
-			 * } if (currentItem.getID() == 8) { 
-			 * int ID = currentItem.getID(); return ID;
+			 * } if (currentItem.getID() == 8) { int ID = currentItem.getID();
+			 * return ID;
 			 * 
-			 * } if (currentItem.getID() == 9) {
-			 * int ID = currentItem.getID(); return ID;
+			 * } if (currentItem.getID() == 9) { int ID = currentItem.getID();
+			 * return ID;
 			 */
 
 		} else {
@@ -394,12 +402,12 @@ public class GameArea {
 			return -1;
 		}
 	}
-	
-		/**
-		 * Method for getting the items
-		 * 
-		 * @return items
-		 */
+
+	/**
+	 * Method for getting the items
+	 * 
+	 * @return items
+	 */
 	public Item[][] getItems() {
 		logger.info("The method getItems() has been called!");
 		return items;
