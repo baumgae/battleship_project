@@ -53,7 +53,7 @@ public class Mine extends AGameItem {
 	private static final Logger logger = LogManager.getLogger(Mine.class);
 
 	boolean hide;
-	boolean destroy;
+	boolean destroy = false;
 	Point p;
 	String name;
 
@@ -94,6 +94,18 @@ public class Mine extends AGameItem {
 		return minusPoints;
 	}
 
+
+	/**
+	 * Gets the status of destroyed
+	 * 
+	 * @param destroy
+	 * @return destroy
+	 */
+	@Override
+	public void destroy(boolean b) {
+		this.destroy = b;
+	}
+
 	/**
 	 * Sets the destruction of a Mine
 	 * 
@@ -102,8 +114,8 @@ public class Mine extends AGameItem {
 	 * 
 	 */
 	@Override
-	public boolean isDestroyed(boolean destroy) {
-		logger.info("The method Mine.isDestroyed has been called!");
+	public boolean isDestroyed() {
+		logger.info("The method Dolphine.isDestroyed has been called!");
 		return destroy;
 	}
 

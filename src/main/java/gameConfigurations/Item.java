@@ -46,7 +46,16 @@ public interface Item {
 	 * @param destroy
 	 * @return destroy
 	 */
-	public boolean isDestroyed(boolean destroy);
+	public void destroy(boolean b);
+	
+	
+	/**
+	 * Gets the status of destroyed
+	 * 
+	 * @param destroy
+	 * @return destroy
+	 */
+	public boolean isDestroyed();
 
 	/**
 	 * Returns ID of an item

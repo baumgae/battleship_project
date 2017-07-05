@@ -1,20 +1,15 @@
 package battleshipGUI;
 
 import java.awt.Point;
-import java.lang.management.LockInfo;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.hdm_stuttgart.Battleship.PrintItemThread;
 import com.hdm_stuttgart.Battleship.CustomButton;
 import com.hdm_stuttgart.Battleship.GameManager;
 
-import game.AlreadyShotException;
-import game.DifficultyManager;
-import game.EDifficulty;
 import game.GameArea;
-import gameConfigurations.IPlayer;
+import gameConfigurations.ArtificialIntelligence;
 import gameConfigurations.Item;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -146,66 +141,116 @@ public class GameAreaScreen {
 					buttons2[i][j].setOnAction(event -> {
 						CustomButton clickedButton = (CustomButton) event.getSource();
 
-						if (gameAreatwo.getIDCoordinate(p) == 5) {
-							hitPlayerTwo++;
+						// Fieldstatus Player 1
+						System.out.println(gameAreatwo.getCoordinateFieldstatus(p));
+
+						if (gameAreatwo.getCoordinateFieldstatus(p) == 0) {
+							clickedButton.unhide();
+							try {
+								gameAreatwo.shootOnCoordinate(p);
+							} catch (Exception e) {
+								e.getMessage();
+							}
+							if (gameAreatwo.getIDCoordinate(p) == 5) {
+								hitPlayerTwo++;
+								logger.info("hitPlayerTwo: " + hitPlayerTwo);
+
+							}
+							// Alert - Win
+							if (hitPlayerTwo >= difficulty) {
+								Alert alert = new Alert(AlertType.INFORMATION);
+								alert.setTitle("YEAH");
+								alert.setHeaderText("OH---NO---YOU-WON!");
+								alert.setContentText(
+										"Now you get a reduced price for the DLC, instead of 99 $ - now 50 $ !");
+								alert.show();
+							} else {
+
+								// Computer/Player2
+								boolean fieldstatus = false;
+								Point rp = new Point(0, 0);
+
+								do {
+									fieldstatus = false;
+									rp.x = ArtificialIntelligence.randomCoordinateX(difficulty);
+									rp.y = ArtificialIntelligence.randomCoordinateY(difficulty);
+
+									if (gameAreaOne.getCoordinateFieldstatus(rp) == 0) {
+										buttons[rp.x][rp.y].unhide();
+										try {
+											gameAreaOne.shootOnCoordinate(rp);
+										} catch (Exception e) {
+											e.getMessage();
+										}
+										fieldstatus = true;
+									}
+								} while (!fieldstatus);
+
+								if (gameAreaOne.getIDCoordinate(rp) == 5) {
+									hitPlayerOne++;
+									logger.info("hitPlayerOne: " + hitPlayerOne);
+								}
+								// Alert - Lost
+								if (hitPlayerOne >= difficulty) {
+									Alert alert = new Alert(AlertType.INFORMATION);
+									alert.setTitle("Oh No");
+									alert.setHeaderText("OH---NO---YOU-Lost!");
+									alert.setContentText(
+											"Now you get a reduced price for the DLC, instead of 99 $ - now 50 $ !");
+									alert.show();
+								}
+							}
 						}
-						if(hitPlayerTwo == difficulty){
-							  Alert alert = new Alert(AlertType.INFORMATION);
-					            alert.setTitle("YEAH");
-					            alert.setHeaderText("OH---NO---YOU-WON!");
-					            alert.setContentText("Now you get a reduced price for the DLC, instead of 99 $ - now 50 $ !");
-					            alert.show();
-						}
-						else{
-							
-						}
-						clickedButton.unhide();
-						logger.info("hitPlayerTwo: " + hitPlayerTwo);
-						
-						
-						
 
 						//
 						// try {
 						// if (gameAreatwo.getIDCoordinate(p) == 0) {
 						// GameManager.getInstance().getPlayerOne()
-						// .countPoints(gameAreatwo.getPointsCoordinate(0, p));
+						// .countPoints(gameAreatwo.getPointsCoordinate(0,
+						// p));
 						// clickedButton.unhide();
 						// System.out.println("water");
 						// } else if (gameAreatwo.getIDCoordinate(p) == 1) {
 						// GameManager.getInstance().getPlayerOne()
-						// .countPoints(gameAreatwo.getPointsCoordinate(1, p));
+						// .countPoints(gameAreatwo.getPointsCoordinate(1,
+						// p));
 						// clickedButton.unhide();
 						// System.out.println("del");
 						// } else if (gameAreatwo.getIDCoordinate(p) == 2) {
 						// GameManager.getInstance().getPlayerOne()
-						// .countPoints(gameAreatwo.getPointsCoordinate(2, p));
+						// .countPoints(gameAreatwo.getPointsCoordinate(2,
+						// p));
 						// clickedButton.unhide();
 						// System.out.println("egal");
 						// } else if (gameAreatwo.getIDCoordinate(p) == 3) {
 						// GameManager.getInstance().getPlayerOne()
-						// .countPoints(gameAreatwo.getPointsCoordinate(3, p));
+						// .countPoints(gameAreatwo.getPointsCoordinate(3,
+						// p));
 						// clickedButton.unhide();
 						// System.out.println("min");
 						// } else if (gameAreatwo.getIDCoordinate(p) == 4) {
 						// GameManager.getInstance().getPlayerOne()
-						// .countPoints(gameAreatwo.getPointsCoordinate(4, p));
+						// .countPoints(gameAreatwo.getPointsCoordinate(4,
+						// p));
 						// clickedButton.unhide();
 						// System.out.println("Sarah");
 						// } else if (gameAreatwo.getIDCoordinate(p) == 5) {
 						// GameManager.getInstance().getPlayerOne()
-						// .countPoints(gameAreatwo.getPointsCoordinate(5, p));
+						// .countPoints(gameAreatwo.getPointsCoordinate(5,
+						// p));
 						// hitPlayerTwo++;
 						// clickedButton.unhide();
 						// System.out.println("ship");
 						// } else {
-						// logger.debug("There aren't any points for you...");
+						// logger.debug("There aren't any points for
+						// you...");
 						// clickedButton.unhide();
 						// }
 						// } catch (Exception NoGameElementException) {
 						// NoGameElementException.getMessage();
 						// }
 						// clickedButton.unhide();
+
 					});
 
 					gameGrid2.add(buttons2[i][j], i, j);
@@ -223,7 +268,9 @@ public class GameAreaScreen {
 			/*
 			 * If Multiplayer mode has been chosen
 			 */
-		} else if (GameManager.playerNumber == 2) {
+		} else if (GameManager.playerNumber == 2)
+
+		{
 
 			VBox left = new VBox();
 			Label header1 = new Label(SetNameScreen.nameOne + "'s Area");

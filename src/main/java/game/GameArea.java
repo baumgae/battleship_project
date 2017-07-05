@@ -83,10 +83,10 @@ public class GameArea {
 	Item[][] items;
 	EDifficulty difficulty;
 	Point p;
-	int randomValueX;
-	int randomValueY;
-	int Fieldstatus = 0; // the field hasn't been shot	???
-	boolean isItem = true;							//	???
+	private int randomValueX;
+	private int randomValueY;
+	private int Fieldstatus = 0; // the field hasn't been shot
+	boolean isItem = true;
 
 	/**
 	 * Constructor which will be called if a Game Area will be created. The size
@@ -248,15 +248,14 @@ public class GameArea {
 	 */
 	public void shootOnCoordinate(Point p) throws Exception {
 
-		this.p = p;
 		logger.info("The method shootOnCoordinate has been called!");
 
-		if (Fieldstatus == 1) {
-			throw new AlreadyShotException();
-
-		} else {
+		if (!items[p.x][p.y].isDestroyed()) {
+			items[p.x][p.y].destroy(true);
 			logger.info("You are not allowed to shoot again over here!");
-			Fieldstatus = 1;
+		} else {
+
+			throw new AlreadyShotException();
 
 		}
 	}
@@ -270,10 +269,12 @@ public class GameArea {
 	 */
 	public int getCoordinateFieldstatus(Point p) {
 
-		p = this.p;
 		logger.info("The method getCoordinateLayer1Status has been called!");
-		return Fieldstatus;
-
+		if (items[p.x][p.y].isDestroyed()) {
+			return 1;
+		} else {
+			return 0;
+		}
 	}
 
 	/**

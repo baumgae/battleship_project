@@ -36,11 +36,9 @@ public class ArtificialIntelligence {
 
 		logger.info("The method ArtificialIntelligence.randomCoordinateX has been called!");
 
-		final int maximumX = x;
-
 		Random rndX = new Random();
 
-		final int randomValueX = rndX.nextInt(maximumX + 1);
+		final int randomValueX = rndX.nextInt(x);
 
 		return randomValueX;
 
@@ -56,11 +54,9 @@ public class ArtificialIntelligence {
 
 		logger.info("The method ArtificialIntelligence.randomCoordinateY has been called!");
 
-		final int maximumY = y;
-
 		Random rndY = new Random();
 
-		final int randomValueY = rndY.nextInt(maximumY + 1);
+		final int randomValueY = rndY.nextInt(y);
 
 		return randomValueY;
 

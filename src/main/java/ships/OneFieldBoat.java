@@ -47,7 +47,7 @@ public class OneFieldBoat extends AShip {
 	private static final Logger logger = LogManager.getLogger(OneFieldBoat.class);
 
 	boolean hide;
-	boolean destroy;
+	boolean destroy = false;
 	Point p;
 	String name;
 
@@ -90,6 +90,17 @@ public class OneFieldBoat extends AShip {
 	}
 
 	/**
+	 * Gets the status of destroyed
+	 * 
+	 * @param destroy
+	 * @return destroy
+	 */
+	@Override
+	public void destroy(boolean b) {
+		this.destroy = b;
+	}
+
+	/**
 	 * Sets the destruction of a OneFieldBoat
 	 * 
 	 * @param destroy
@@ -97,8 +108,8 @@ public class OneFieldBoat extends AShip {
 	 * 
 	 */
 	@Override
-	public boolean isDestroyed(boolean destroy) {
-		logger.info("The method OneFieldBoat.isDestroyed has been called!");
+	public boolean isDestroyed() {
+		logger.info("The method Dolphine.isDestroyed has been called!");
 		return destroy;
 	}
 

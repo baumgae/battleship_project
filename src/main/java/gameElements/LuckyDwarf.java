@@ -50,7 +50,7 @@ public class LuckyDwarf extends AGameItem {
 	private static final Logger logger = LogManager.getLogger(LuckyDwarf.class);
 
 	boolean hide;
-	boolean destroy;
+	boolean destroy = false;
 	Point p;
 	String name;
 
@@ -89,6 +89,18 @@ public class LuckyDwarf extends AGameItem {
 		return plusPoints;
 	}
 
+
+	/**
+	 * Gets the status of destroyed
+	 * 
+	 * @param destroy
+	 * @return destroy
+	 */
+	@Override
+	public void destroy(boolean b) {
+		this.destroy = b;
+	}
+
 	/**
 	 * Sets the destruction of a LuckyDwarf
 	 * 
@@ -97,9 +109,11 @@ public class LuckyDwarf extends AGameItem {
 	 * 
 	 */
 	@Override
-	public boolean isDestroyed(boolean destroy) {
+	public boolean isDestroyed() {
+		logger.info("The method Dolphine.isDestroyed has been called!");
 		return destroy;
 	}
+
 
 	/**
 	 * Returns ID of the LuckyDwarf

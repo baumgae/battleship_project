@@ -28,7 +28,7 @@ public class Water extends AGameItem {
 	private static final Logger logger = LogManager.getLogger(Water.class);
 
 	boolean hide;
-	boolean destroy;
+	boolean destroy = false;
 	Point p;
 	String name;
 
@@ -69,6 +69,18 @@ public class Water extends AGameItem {
 		return noPoints;
 	}
 
+
+	/**
+	 * Gets the status of destroyed
+	 * 
+	 * @param destroy
+	 * @return destroy
+	 */
+	@Override
+	public void destroy(boolean b) {
+		this.destroy = b;
+	}
+
 	/**
 	 * Sets the destruction of a WaterField
 	 * 
@@ -77,8 +89,8 @@ public class Water extends AGameItem {
 	 * 
 	 */
 	@Override
-	public boolean isDestroyed(boolean destroy) {
-		logger.info("The method Water.isDestroyed has been called!");
+	public boolean isDestroyed() {
+		logger.info("The method Dolphine.isDestroyed has been called!");
 		return destroy;
 	}
 

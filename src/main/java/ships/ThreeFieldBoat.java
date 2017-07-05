@@ -39,8 +39,8 @@ public class ThreeFieldBoat extends AShip {
 	}
 
 	@Override
-	public boolean isDestroyed(boolean destroy) {
-		return destroy;
+	public boolean isDestroyed() {
+		return false;
 	}
 	
 	@Override
@@ -73,5 +73,11 @@ public class ThreeFieldBoat extends AShip {
 	public int getSize() {
 		return 3;
 	}
-	
+
+	@Override
+	public void destroy(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -50,7 +50,7 @@ public class Dolphin extends AGameItem {
 	private static final Logger logger = LogManager.getLogger(Dolphin.class);
 
 	boolean hide;
-	boolean destroy;
+	boolean destroy = false;
 	Point p;
 	String name;
 
@@ -93,6 +93,17 @@ public class Dolphin extends AGameItem {
 	}
 
 	/**
+	 * Gets the status of destroyed
+	 * 
+	 * @param destroy
+	 * @return destroy
+	 */
+	@Override
+	public void destroy(boolean b) {
+		this.destroy = b;
+	}
+
+	/**
 	 * Sets the destruction of a Dolphin
 	 * 
 	 * @param destroy
@@ -100,9 +111,8 @@ public class Dolphin extends AGameItem {
 	 * 
 	 */
 	@Override
-	public boolean isDestroyed(boolean destroy) {
+	public boolean isDestroyed() {
 		logger.info("The method Dolphine.isDestroyed has been called!");
-		destroy = this.destroy;
 		return destroy;
 	}
 
