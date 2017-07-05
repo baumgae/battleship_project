@@ -13,9 +13,32 @@ import org.apache.logging.log4j.Logger;
  * at all, if the player hits water on the shootingArea.
  *
  * <p>
- * Water uses in his constructor {@link #Water} the constructor
- * {@link #AGameItems} to set the ID. Use {@link #waterImpact} to get the impact
- * of the water.
+ * Through the constructor {@link #Water} the name of a Water can be set. <br>
+ * 
+ * Through the method {@link #isHidden(boolean)} you can set the visibility of
+ * the Water.<br>
+ * 
+ * The method {@link #getScore()} returns the points a player receives, if a
+ * player shoots on a Water. <br>
+ * 
+ * {@link #isDestroyed()} returns the destruction of a Water. <br>
+ * 
+ * {@link #destroy(boolean)} sets the destruction of a Water. <br>
+ * 
+ * {@link #getID()} returns the ID of the Water. <br>
+ * 
+ * {@link #setPosition()} sets the position of a Water. <br>
+ * 
+ * {@link #getPosition()} returns the position of a Water. <br>
+ * 
+ * {@link #getXPosition()} returns the X-coordinate of the position of the Water.
+ * <br>
+ * 
+ * {@link #getYPosition()} returns the Y-coordinate of the position of the Water.
+ * <br>
+ * 
+ * {@link #getSize()} returns the size of the Water. <br>
+ * 
  * 
  * <p>
  *

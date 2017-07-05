@@ -23,7 +23,9 @@ import org.apache.logging.log4j.Logger;
  * The method {@link #getScore()} returns the points a player receives, if a
  * player shoots on a Dolphin. <br>
  * 
- * {@link #isDestroyed()} sets the destruction of a Dolphin. <br>
+ *{@link #isDestroyed()} returns the destruction of a dolphin. <br>
+ * 
+ * {@link #destroy(boolean)} sets the destruction of a dolphin. <rb>
  * 
  * {@link #getID()} returns the ID of the Dolphin. <br>
  * 

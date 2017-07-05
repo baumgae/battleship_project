@@ -21,7 +21,9 @@ import org.apache.logging.log4j.Logger;
  * The method {@link #getScore()} returns the points a player receives, if a
  * player shoots on a OneFieldBoat. <br>
  * 
- * {@link #isDestroyed()} sets the destruction of a OneFieldBoat. <br>
+ * {@link #isDestroyed()} returns the destruction of an OneFieldBoat. <br>
+ * 
+ * {@link #destroy(boolean)} sets the destruction of an OneFieldBoat. <rb>
  * 
  * {@link #getID()} returns the ID of the OneFieldBoat. <br>
  * 

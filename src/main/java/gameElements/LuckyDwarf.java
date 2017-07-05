@@ -23,7 +23,9 @@ import org.apache.logging.log4j.Logger;
  * The method {@link #getScore()} returns the points a player receives, if a
  * player shoots on a LuckyDwarf. <br>
  * 
- * {@link #isDestroyed()} sets the destruction of a LuckyDwarf. <br>
+ * {@link #isDestroyed()} returns the destruction of a LuckyDwarf. <br>
+ * 
+ * {@link #destroy(boolean)} sets the destruction of a LuckyDwarf. <br>
  * 
  * {@link #getID()} returns the ID of the LuckyDwarf. <br>
  * 

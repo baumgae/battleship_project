@@ -26,7 +26,9 @@ import org.apache.logging.log4j.Logger;
  * The method {@link #getScore()} returns the points a player receives, if a
  * player shoots on a Mine. <br>
  * 
- * {@link #isDestroyed()} sets the destruction of a Mine. <br>
+ * {@link #isDestroyed()} returns the destruction of a Mine. <br>
+ * 
+ * {@link #destroy(boolean)} sets the destruction of a Mine. <br>
  * 
  * {@link #getID()} returns the ID of the Mine. <br>
  * 

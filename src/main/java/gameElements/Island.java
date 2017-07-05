@@ -22,7 +22,9 @@ import org.apache.logging.log4j.Logger;
  * The method {@link #getScore()} returns the points a player receives, if a
  * player shoots on a Island. <br>
  * 
- * {@link #isDestroyed()} sets the destruction of a Island. <br>
+ * {@link #isDestroyed()} returns the destruction of an Island. <br>
+ * 
+ * {@link #destroy(boolean)} sets the destruction of an Island. <br>
  * 
  * {@link #getID()} returns the ID of the Island. <br>
  * 
